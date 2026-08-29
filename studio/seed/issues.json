@@ -1,0 +1,20 @@
+[
+  { "slug": "july-2012",          "title": "July 2012",           "issueNumber": 1,  "issueDate": "2012-07-01", "pageCount": 24, "cover": "2012-07.jpg", "coverSubject": "Samuel Stanley Jones" },
+  { "slug": "august-2012",        "title": "August 2012",         "issueNumber": 2,  "issueDate": "2012-08-01", "pageCount": 24, "cover": "2012-08.jpg", "coverSubject": "Pavithran" },
+  { "slug": "september-2012",     "title": "September 2012",      "issueNumber": 3,  "issueDate": "2012-09-01", "pageCount": 22, "cover": "2012-09.jpg", "coverSubject": "Bhaskar Rao" },
+  { "slug": "october-2012",       "title": "October 2012",        "issueNumber": 4,  "issueDate": "2012-10-01", "pageCount": 22, "cover": "2012-10.jpg", "coverSubject": "Maria Clara" },
+  { "slug": "january-2013",       "title": "January 2013",        "issueNumber": 5,  "issueDate": "2013-01-01", "pageCount": 22, "cover": "2013-01.jpg", "coverSubject": "Ricky Biswasi" },
+  { "slug": "march-2013",         "title": "March 2013",          "issueNumber": 6,  "issueDate": "2013-03-01", "pageCount": 22, "cover": "2013-03.jpg", "coverSubject": "Esther" },
+  { "slug": "april-2013",         "title": "April 2013",          "issueNumber": 7,  "issueDate": "2013-04-01", "pageCount": 24, "cover": "2013-04.jpg", "coverSubject": "Allen Derksen" },
+  { "slug": "may-2013",           "title": "May 2013",            "issueNumber": 8,  "issueDate": "2013-05-01", "pageCount": 24, "cover": "2013-05.jpg", "coverSubject": "Aneesh Daniel" },
+  { "slug": "june-2013",          "title": "June 2013",           "issueNumber": 9,  "issueDate": "2013-06-01", "pageCount": 24, "cover": "2013-06.jpg", "coverSubject": "Peggy Kennedy" },
+  { "slug": "july-2013",          "title": "July 2013",           "issueNumber": 10, "issueDate": "2013-07-01", "pageCount": 24, "cover": "2013-07.jpg", "coverSubject": "Stephen Devassy" },
+  { "slug": "august-2013",        "title": "August 2013",         "issueNumber": 11, "issueDate": "2013-08-01", "pageCount": 24, "cover": "2013-08.jpg", "coverSubject": "Peter and Sandra McIntosh" },
+  { "slug": "september-2013",     "title": "September 2013",      "issueNumber": 12, "issueDate": "2013-09-01", "pageCount": 24, "cover": "2013-09.jpg", "coverSubject": "Ken Blanchard" },
+  { "slug": "october-2013",       "title": "October 2013",        "issueNumber": 13, "issueDate": "2013-10-01", "pageCount": 24, "cover": "2013-10.jpg", "coverSubject": "Paul and Jenny Svetec" },
+  { "slug": "november-2013",      "title": "November 2013",       "issueNumber": 14, "issueDate": "2013-11-01", "pageCount": 24, "cover": "2013-11.jpg", "coverSubject": "Sheldon Bangera" },
+  { "slug": "january-2014",       "title": "January 2014",        "issueNumber": 16, "issueDate": "2014-01-01", "pageCount": 24, "cover": "2014-01.jpg", "coverSubject": "MarketPlace Revolution" },
+  { "slug": "february-2014",      "title": "February 2014",       "issueNumber": 17, "issueDate": "2014-02-01", "pageCount": 24, "cover": "2014-02.jpg", "coverSubject": "ACTC 50th Anniversary" },
+  { "slug": "march-april-2014",   "title": "March–April 2014",    "issueNumber": 18, "issueDate": "2014-03-01", "pageCount": 24, "cover": "2014-03.jpg", "coverSubject": "Stella Bogi" },
+  { "slug": "may-july-2014",      "title": "May–July 2014",       "issueNumber": 19, "issueDate": "2014-05-01", "pageCount": 24, "cover": "2014-05.jpg", "coverSubject": "Christine Lazares" }
+]

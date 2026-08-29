@@ -1,0 +1,233 @@
+/* ==========================================================================
+   5Talents Magazine - design tokens
+   Copied verbatim from design/tokens.css, with one change: the Google Fonts
+   @import is removed because next/font loads Anton, Archivo and Newsreader
+   locally (self-hosted, no render-blocking request, no layout shift).
+   The --font-* variables below are overridden at runtime in layout.tsx.
+   ========================================================================== */
+
+
+:root {
+  color-scheme: light;
+
+  /* ---- Brand ----------------------------------------------------------
+     --highlight is THE brand colour, sampled #FDEF0A from the original
+     brush stroke. It is a background colour only. Never use it for text:
+     yellow on white fails contrast at any size. Ink on yellow is ~17:1.  */
+  --highlight:        #FDEF0A;
+  --highlight-soft:   #FFF7A8;
+  --highlight-deep:   #E0D200;
+
+  /* Secondary, sampled from the Aug 2013 cover. Darkened from the original
+     #D2232A so it passes AA as link text on paper (6.4:1).               */
+  --accent:           #B01A20;
+  --accent-bright:    #D2232A;
+  --accent-soft:      #FBE9E9;
+
+  /* ---- Surfaces -------------------------------------------------------
+     Warm off-white, not pure white — sits better next to the yellow.     */
+  --paper:            #FDFCF7;
+  --paper-raised:     #FFFFFF;
+  --paper-sunk:       #F4F2E9;
+
+  /* ---- Ink ------------------------------------------------------------
+     Warm near-black. Pure #000 next to #FDEF0A reads harsh.              */
+  --ink:              #14130E;
+  --ink-secondary:    #4A4740;
+  --ink-muted:        #757168;
+
+  --rule:             #E2DFD3;
+  --rule-strong:      #C9C5B5;
+
+  /* ---- Inverse surfaces ----------------------------------------------
+     The utility bar and the footer are deliberately dark blocks, in BOTH
+     themes. They must not use --ink/--paper, because those swap: a dark-mode
+     page would get a light footer, and the hardcoded greys on it would fall
+     to about 2.3:1. These four do not change between themes.            */
+  --inverse-bg:       #14130E;
+  --inverse-ink:      #FDFCF7;
+  --inverse-muted:    #A8A498;   /* 7.7:1 on --inverse-bg */
+  --inverse-rule:     rgba(253, 252, 247, 0.16);
+
+  /* ---- Type ---------------------------------------------------------- */
+  /* The wordmark stays Anton - it is the closest living relative of the
+     printed masthead and the one fixed point in the identity. Headlines use
+     --font-display, which layout.tsx sets from NEXT_PUBLIC_DISPLAY_FONT.     */
+  --font-wordmark:    var(--font-anton), 'Anton', 'Arial Narrow', Impact, sans-serif;
+  --font-display:     var(--font-display-active, var(--font-anton)), Georgia, serif;
+  --font-sans:        var(--font-archivo), 'Archivo', system-ui, -apple-system, sans-serif;
+  --font-serif:       var(--font-newsreader), 'Newsreader', Georgia, 'Times New Roman', serif;
+
+  /* Per-face tuning. A condensed sans and a high-contrast serif do not want
+     the same size or tracking at headline scale, so each face gets its own.  */
+  --display-weight:   400;
+  --display-tracking: -0.015em;
+  --display-leading:  0.95;
+  --display-scale:    1;
+
+  /* Fluid scale. Display sizes are deliberately large — this is a
+     magazine, headlines should behave like headlines.                    */
+  --step--1:          clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0:           clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1:           clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2:           clamp(1.6rem, 1.4rem + 1vw, 2.25rem);
+  --step-3:           clamp(2.1rem, 1.7rem + 2vw, 3.5rem);
+  --step-4:           clamp(2.8rem, 2rem + 4vw, 5.5rem);
+
+  /* Article body copy. Deliberately larger than --step-0, which sets the
+     interface: 19px rising to 21px, the range long-form sites settle on once
+     they measure it. The design system's note that Newsreader "holds up at
+     18px on an Android" was a floor, not a target.
+     The measure is in ch, so the column widens with the type and the line
+     length stays the same - about 68 characters either way.               */
+  --step-body:        clamp(1.19rem, 1.09rem + 0.42vw, 1.32rem);
+
+  --measure:          68ch;
+
+  /* ---- Space --------------------------------------------------------- */
+  --s-1: 0.5rem;  --s-2: 0.75rem; --s-3: 1rem;   --s-4: 1.5rem;
+  --s-5: 2rem;    --s-6: 3rem;    --s-7: 4.5rem; --s-8: 6rem;
+
+  --radius: 2px;        /* Magazines are not rounded. Keep corners tight. */
+  --wrap: 1200px;
+  --wrap-narrow: 720px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper:          #14130E;
+    --paper-raised:   #1E1C16;
+    --paper-sunk:     #0D0C08;
+    --ink:            #FDFCF7;
+    --ink-secondary:  #C3BFB2;
+    --ink-muted:      #8A857A;
+    --rule:           #2E2B22;
+    --rule-strong:    #45412F;
+    --accent:         #FF6B6B;
+    --accent-soft:    #2A1616;
+    --highlight-soft: #3A3407;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper:            #14130E;
+  --paper-raised:     #1E1C16;
+  --paper-sunk:       #0D0C08;
+  --ink:              #FDFCF7;
+  --ink-secondary:    #C3BFB2;
+  --ink-muted:        #8A857A;
+  --rule:             #2E2B22;
+  --rule-strong:      #45412F;
+  --accent:           #FF6B6B;
+  --accent-soft:      #2A1616;
+  --highlight-soft:   #3A3407;
+}
+
+/* ==========================================================================
+   The brush stroke
+   The one genuinely ownable asset from the original magazine. Use it as a
+   highlighter behind text, never as a shape on its own.
+   ========================================================================== */
+
+.brush {
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(var(--highlight), var(--highlight));
+  background-repeat: no-repeat;
+  background-size: 100% 0.42em;
+  background-position: 0 78%;
+  padding: 0 0.12em;
+  color: var(--ink);
+}
+
+/* In dark mode the ink inside a highlight must flip back to near-black,
+   because the yellow stays yellow. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .brush { color: #14130E; }
+}
+:root[data-theme="dark"] .brush { color: #14130E; }
+
+/* Section markers: a short stroke above a heading. */
+.brush-rule::before {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 0.45rem;
+  background: var(--highlight);
+  margin-bottom: var(--s-2);
+  transform: skewX(-12deg);
+}
+
+/* Animated underline for links and nav items. */
+.brush-link {
+  background-image: linear-gradient(var(--highlight), var(--highlight));
+  background-repeat: no-repeat;
+  background-size: 0% 0.35em;
+  background-position: 0 88%;
+  transition: background-size 180ms ease-out;
+  text-decoration: none;
+  color: inherit;
+}
+.brush-link:hover,
+.brush-link:focus-visible { background-size: 100% 0.35em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .brush-link { transition: none; }
+}
+
+
+/* ==========================================================================
+   Display face tuning
+   Set NEXT_PUBLIC_DISPLAY_FONT in web/.env.local:
+     anton | instrument-serif | fraunces | bricolage
+   ========================================================================== */
+
+/* Anton. Condensed and uniformly heavy - it fits a lot per line but flattens a
+   long headline into a wall, which is why it is no longer the default. */
+:root[data-display='anton'] {
+  --display-weight: 400;
+  --display-tracking: -0.02em;
+  --display-leading: 0.92;
+  --display-scale: 1;
+}
+
+/* Instrument Serif. High contrast, single weight, close to what Casta does.
+   Needs more room and looser leading than a condensed sans. */
+:root[data-display='instrument-serif'] {
+  --display-weight: 400;
+  --display-tracking: -0.005em;
+  --display-leading: 1.02;
+  --display-scale: 1.06;
+}
+
+/* Fraunces. Variable, with optical sizing plus SOFT and WONK. Set fairly light
+   at display sizes - the contrast does the work, not the weight. */
+:root[data-display='fraunces'] {
+  --display-weight: 500;
+  --display-tracking: -0.018em;
+  --display-leading: 0.98;
+  --display-scale: 1;
+  font-variation-settings: 'SOFT' 20, 'WONK' 1;
+}
+
+/* Bricolage Grotesque. Stays a sans, but with far more character than Anton. */
+:root[data-display='bricolage'] {
+  --display-weight: 600;
+  --display-tracking: -0.025em;
+  --display-leading: 0.96;
+  --display-scale: 0.97;
+}
+
+/* Apply the tuning wherever the display face is used. */
+.logo, .minilogo, .footer-logo { font-family: var(--font-wordmark); }
+
+h1, h2, h3,
+.card__title, .card__otitle, .piecehero h1,
+.newsletter h2, .footer-signup h2, blockquote p, .pagehead h1 {
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+}
+.piecehero h1, .card__otitle { line-height: var(--display-leading); }
+.piecehero h1 { font-size: calc(var(--step-4) * var(--display-scale) * 0.86); }

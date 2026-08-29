@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.env
+.env.local
+.env*.local
+dist/
+.sanity/
+.DS_Store
+*.log
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# Source archive PDFs — 119MB, kept in iCloud, not in git
+*.pdf

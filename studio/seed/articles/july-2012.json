@@ -1,0 +1,555 @@
+{
+  "issue": "july-2012",
+  "note": "Issue 1, July 2012. Triage of all seven pieces is in TRIAGE.md alongside this file. The movie review and the GotQuestions column are still held; the health item is 40 words and is not an article - see TRIAGE.md.",
+  "authors": [
+    {
+      "slug": "deepakshi-satman",
+      "name": "Deepakshi Satman",
+      "role": "Contributing writer",
+      "country": "India",
+      "isStaff": "staff",
+      "bio": "Wrote the Talent Search interviews across the magazine's first year. Appears on the 2013 masthead as publisher.",
+      "republishConsent": "na"
+    },
+    {
+      "slug": "elizabeth-clayton",
+      "name": "Elizabeth Clayton",
+      "role": "Creative Director",
+      "country": "India",
+      "isStaff": "staff",
+      "bio": "Creative director of 5Talents Magazine from 2012, and the writer of the Missionary Story column.",
+      "republishConsent": "na"
+    },
+    {
+      "slug": "premasis-satman",
+      "name": "Premasis Satman",
+      "role": "Executive Director",
+      "country": "India",
+      "isStaff": "staff",
+      "bio": "Founder and executive director of 5Talents Magazine, which he started in Hyderabad in July 2012.",
+      "republishConsent": "na"
+    },
+    {
+      "slug": "5talents-staff",
+      "name": "5Talents Magazine",
+      "role": "Staff",
+      "country": "India",
+      "isStaff": "staff",
+      "bio": "Written by the 5Talents editorial team. Used where the original piece carried no byline.",
+      "republishConsent": "na"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "samuel-stanley-jones-prayer-gives-life-to-our-talents",
+      "title": "Samuel Stanley Jones: “Prayer is the only source that gives life to our talents”",
+      "deck": "A Hyderabad worship leader on being chosen to lead, staying undistracted on a stage, and why a gift is never a burden.",
+      "kind": "interview",
+      "section": "culture",
+      "authors": [
+        "deepakshi-satman"
+      ],
+      "tags": [
+        "worship",
+        "talent-search",
+        "hyderabad"
+      ],
+      "hero": {
+        "file": "2012-07-samuel-stanley-jones.jpg",
+        "alt": "Samuel Stanley Jones photographed outdoors by the sea, smiling at the camera",
+        "credit": "5Talents Magazine, July 2012"
+      },
+      "interviewMeta": {
+        "subject": "Samuel Stanley Jones",
+        "subjectBio": "A worship leader from Hyderabad. He performed at the 2011 Hyderabad festival with Franklin Graham, and was in the final year of a BTh when this interview was published.",
+        "country": "India",
+        "isCoverStory": "cover"
+      },
+      "archiveMeta": {
+        "originalPage": 6,
+        "editNote": "First published as Talent Search #1. Lightly edited: the two-column reading order has been repaired, obvious typographical errors corrected, and the questions restored to the order they were asked. The answers are as given.",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "On the way to talent search, we found Sam, a young man who discovered his gift as a leader of worship teams. Recently he performed at the Hyderabad festival with Franklin Graham in 2011. A zeal for sharing the gospel led him to study for a BTh, and he is in his final year now."
+        },
+        {
+          "t": "h2",
+          "v": "“I’m doing good by the grace of God”"
+        },
+        {
+          "t": "p",
+          "v": "5Talents: Hi Sam, thanks for the opportunity to conduct an interview with you. How are you doing?"
+        },
+        {
+          "t": "p",
+          "v": "I’m doing good by the grace of God. Thank you."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: When did you know you wanted to be a worship leader?"
+        },
+        {
+          "t": "p",
+          "v": "Ever since my childhood I’ve been attending regular Sunday school and participated in choir. However, my mother encouraged me in singing and music. Above all this, God has enriched me in leading worship."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: Did you need special training or coaching, or did it all come naturally?"
+        },
+        {
+          "t": "p",
+          "v": "I believe that it’s a gift from God. To improve this God-given talent, I’ve been attending and participating in the worship ministry."
+        },
+        {
+          "t": "h2",
+          "v": "The next thirty minutes"
+        },
+        {
+          "t": "p",
+          "v": "5Talents: When you get the chance to lead a group of youth in worship, what are your goals right there at that time? What are you hoping you’ll be able to accomplish in the next thirty minutes?"
+        },
+        {
+          "t": "p",
+          "v": "I feel that I’m the source of worship chosen by God to lead the congregation in a holy manner and make them experience the passionate love of God — agape. My goal is to make them feel very easy and comfortable, to make them free from the chains and bondages of the world through the songs I sing, and lead them into worship. I make it very clear to myself that “when God has come to take all our burdens and pains, why should we still carry them?” Keeping this as my agenda, I look forward to the next thirty minutes to make up their minds to easily take the word of God."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: What does a lifestyle of worship mean to you?"
+        },
+        {
+          "t": "p",
+          "v": "Worship means a lot to me, especially as a worship leader. It simply means to live a life of love. Worship requires something from us, and that is obedience, God-fearing. It is not just a song we sing but a life we live."
+        },
+        {
+          "t": "quote",
+          "v": "It is not just a song we sing but a life we live.",
+          "attr": "On what worship asks of you",
+          "highlight": "not just a song we sing"
+        },
+        {
+          "t": "p",
+          "v": "5Talents: What are the things that bring you inspiration as a worship leader personally? I mean, being a leader, we sometimes get distracted by worldly desires. How do you stay inspired?"
+        },
+        {
+          "t": "p",
+          "v": "For me personally, I’m always aware of the process that our hearts take in worship — when my heart begins to soften as the Holy Spirit moves on me, and a desire for God awakens in me. It is a very tough time, especially for the people on the stage facing the audience, to get distracted. I keep myself very cautious of what I’m doing so that shouldn’t be a problem for me."
+        },
+        {
+          "t": "h2",
+          "v": "Sweet wine from the crushed grapes"
+        },
+        {
+          "t": "p",
+          "v": "5Talents: You have discovered the talents in you. Is that so difficult? What do you suggest to those who have not yet discovered their gifts, still unused for the kingdom?"
+        },
+        {
+          "t": "p",
+          "v": "I always get reminded of a quote: “sweet wine from the crushed grapes.” I believe that discovering a talent is never a difficulty or a burden. Talent is an empowering source to our life. Everyone has gifts from God, but we lack knowledge of His will in our lives. I can definitely say that prayer is the only source to give life to our talents, which can be used for the kingdom of God."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: Being a teen leader, have you experienced others discouraging you? If yes, how do you manage the situation?"
+        },
+        {
+          "t": "p",
+          "v": "Being a teen leader, I don’t say people have discouraged me. In fact there are people who make suggestions to me. I humbly accept them and apply them to my life for my betterment."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: How would you define your prayer life?"
+        },
+        {
+          "t": "p",
+          "v": "Prayer is the only weapon to overcome anything — that is what I’ve believed since my childhood. We can see things changing only through prayers, and that very much happens in my life too, especially in the time of ministry. Through prayer anything is possible."
+        }
+      ]
+    },
+    {
+      "slug": "mary-sujani-puppets-for-jesus",
+      "title": "Mary Sujani has made three hundred puppets, and every one of them preaches",
+      "deck": "A Hyderabad designer on childhood play that turned into a profession, and on why the smallest talent is worth refining.",
+      "kind": "interview",
+      "section": "culture",
+      "authors": [
+        "deepakshi-satman"
+      ],
+      "tags": [
+        "talent-search",
+        "hyderabad",
+        "childrens-ministry"
+      ],
+      "hero": {
+        "file": "2012-07-mary-sujani.jpg",
+        "alt": "Mary Sujani holding two hand puppets, a green bird and an orange one, smiling at the camera",
+        "credit": "5Talents Magazine, July 2012"
+      },
+      "interviewMeta": {
+        "subject": "Mary Sujani",
+        "subjectBio": "A designer and curriculum writer working with a Christian organisation in Hyderabad. She has made more than three hundred custom puppets and creative materials for children's ministry.",
+        "country": "India",
+        "isCoverStory": "talentSearch"
+      },
+      "archiveMeta": {
+        "originalPage": 12,
+        "editNote": "First published as Talent Search #2. Lightly edited: reading order repaired and obvious typographical errors corrected. The answers are as given.",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "Introducing Mary Sujani, a multi-talented designer from Hyderabad. She used to play with puppets in childhood, and that interest led her to design and make them. So far she has made more than three hundred custom puppets and creative materials for Christian organisations. The 5Talents team had a nice time interviewing Mary."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: Hello Mary, greetings from 5Talents. How are you?"
+        },
+        {
+          "t": "p",
+          "v": "I’m fine, thank you."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: Please share about your professional life."
+        },
+        {
+          "t": "p",
+          "v": "I’m working with a Christian organisation located in Hyderabad, for more than nine years. My main work is to develop curriculum for children’s Bible schools. Apart from writing Bible lessons for different age groups, I also design illustrations for the children’s workbooks. I’m also deputed for various training programmes at state and all-India level, for training our partners and organisers concerned with our projects, and staff."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: Please share about the gifts you have received from God."
+        },
+        {
+          "t": "p",
+          "v": "God gave me skills such as drawing, painting, soft toys, writing skills and making different puppets."
+        },
+        {
+          "t": "h2",
+          "v": "One talent after the other"
+        },
+        {
+          "t": "p",
+          "v": "5Talents: How and when did you discover your talent?"
+        },
+        {
+          "t": "p",
+          "v": "Mmm… at a very young age. Specifically I cannot mention when and how, but I would say that as I was growing up I discovered one talent after the other."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: Who are your influences?"
+        },
+        {
+          "t": "p",
+          "v": "My family, who also think creatively as I do."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: Did you need special training or coaching, or did it all come naturally?"
+        },
+        {
+          "t": "p",
+          "v": "It was all natural, but to polish my talents I took vocational courses."
+        },
+        {
+          "t": "h2",
+          "v": "“God showed that He is a refiner”"
+        },
+        {
+          "t": "p",
+          "v": "5Talents: What important lessons has the Lord taught you through your talent?"
+        },
+        {
+          "t": "p",
+          "v": "First of all, I have learnt not to be proud of any of the talents that I received as a gift from God. Secondly, I did not worry about the smallest talent that I had. God showed that He is a refiner, and my life as gold. I walked in faith thinking that God, who kept the seed of talent in me, will surely use me and let it grow in His own time. When I was struggling with my career and I found myself at the crossroads, not knowing what next, the God who saved me placed me in this very ministry and gave me a platform to multiply and use my talents for His glory. I experience success in every step I take."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: In what ways has God used you to bring blessing to others?"
+        },
+        {
+          "t": "p",
+          "v": "Through my writing and drawing skills many are being blessed and have come to know the Lord. I have seen many transformed stories, and children accepting Christ. I feel so blessed."
+        },
+        {
+          "t": "p",
+          "v": "5Talents: Have you ever felt inadequate, or not enough? If so, which verse from the Bible helped you to be patient?"
+        },
+        {
+          "t": "p",
+          "v": "Never. God gave me in abundance even before I asked. Based on the life of the farmer in James 5:7–8, I really like these verses for showing the need for patience — because farmers have to be patient. I have also learned the secret of being content in any and every situation, whether well fed or hungry, through Philippians 4:12."
+        },
+        {
+          "t": "h2",
+          "v": "Diamonds people walk over"
+        },
+        {
+          "t": "p",
+          "v": "5Talents: What would you say to someone who is talented but sad, because they are not given an opportunity to use it, or the talent is not recognised by others?"
+        },
+        {
+          "t": "p",
+          "v": "I believe God does not create waste, and never give up. Each individual is valuable. If we walk upon natural diamonds or stones in a wilderness, most of us would ignorantly walk over them and treat them as worthless, having no clue of their value and how beautiful they would look if expertly cut and polished. Likewise, most people might walk over you and never give you an opportunity to shine, or recognise you. Don’t get discouraged. It matters not how people see you. All that matters is the staggering power of God to transform something of breathtaking beauty in you. It is in our hands, friends, whether we want our lives to be a rugged stone or a polished one. Recognise and utilise the opportunities that are placed before you, and leave the rest to God."
+        },
+        {
+          "t": "quote",
+          "v": "Most of us would walk over a diamond in the wilderness and treat it as worthless, having no clue of its value.",
+          "attr": "Mary Sujani",
+          "highlight": "treat it as worthless"
+        },
+        {
+          "t": "p",
+          "v": "5Talents: What would you say to someone who says “I am not very talented — how could God use me?”"
+        },
+        {
+          "t": "p",
+          "v": "It is often used by Christians as an excuse not to do anything to benefit the kingdom of God. They insist on sitting back saying “I am not very talented,” until the Lord finds something for them to excel in. You want to discover what your God-given talents are, and how you should use them for the Lord? Then get busy serving the Lord in some capacity. In doing so, you will find out where your true talents lie, and ultimately where you can best serve the Lord. I did the same, and I encourage you to do the same. Keep in mind, a day is coming when we will all stand before our almighty God, and He will want to know how you have served Him with the talents, time, money and resources entrusted to you. Be a good steward for our Lord Jesus Christ, and ask Him daily how you can serve Him."
+        }
+      ]
+    },
+    {
+      "slug": "graham-staines-thirty-four-years-in-orissa",
+      "title": "Graham Staines gave thirty-four years to the leprosy patients of Orissa",
+      "deck": "An Australian who learned Oriya, Santhali and Ho, translated Scripture into a tribal language, and taught the people he treated to weave.",
+      "kind": "feature",
+      "section": "heritage",
+      "authors": [
+        "elizabeth-clayton"
+      ],
+      "tags": [
+        "missions-history",
+        "orissa",
+        "leprosy"
+      ],
+      "archiveMeta": {
+        "originalPage": 19,
+        "editNote": "First published in the Missionary Story column. Reconstructed from a two-column page where the extraction broke words across a photograph, and reordered: the original opened with the killings, and this version follows his life in sequence and closes with them. Nothing has been added or removed.",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "Graham Stuart Staines was born in 1941 at Palmwoods, Queensland. He first visited India in 1965, and stayed for thirty-four years."
+        },
+        {
+          "t": "h2",
+          "v": "Baripada"
+        },
+        {
+          "t": "p",
+          "v": "From 1965 he worked in Orissa among the tribal poor, and particularly among people with leprosy. He later joined the Evangelical Missionary Society of Mayurbhanj, in Mayurbhanj district, and in 1983 took over the management of the mission at Baripada. He had already played a part in establishing the Mayurbhanj Leprosy Home as a registered society in 1982."
+        },
+        {
+          "t": "p",
+          "v": "He met Gladys Jane in 1981, while she too was working with leprosy patients. They married in 1983 and worked together from then on. They had three children — a daughter, Esther, and two sons, Philip and Timothy."
+        },
+        {
+          "t": "h2",
+          "v": "Oriya, Santhali and Ho"
+        },
+        {
+          "t": "p",
+          "v": "Staines spoke fluent Oriya and the tribal languages Santhali and Ho. He assisted in translating part of the Bible into Ho, which is spoken by around a million people in eastern India and had almost no Scripture of its own."
+        },
+        {
+          "t": "p",
+          "v": "He was popular among his patients, whom he taught to make mats from rope, to weave baskets, and to work by hand — skills that gave people a living in a condition that usually took their living away. He did not only serve the poor and help those with leprosy; he shared the gospel wherever he went, and many became believers and were led to church by him."
+        },
+        {
+          "t": "quote",
+          "v": "He taught the people he treated how to make mats out of rope, and baskets, and how to weave by hand.",
+          "attr": "On thirty-four years at the Mayurbhanj Leprosy Home",
+          "highlight": "how to weave by hand"
+        },
+        {
+          "t": "h2",
+          "v": "Manoharpur, January 1999"
+        },
+        {
+          "t": "p",
+          "v": "On the night of 22 January 1999, Staines and his two sons were in Manoharpur village, in Keonjhar district, after attending a gospel meeting. Because of the severe cold they slept in their vehicle. A mob of about fifty people, armed with axes, set the vehicle alight while the three were asleep. Villagers who tried to reach them were driven back. Graham Staines was fifty-eight. Philip was ten and Timothy was six."
+        },
+        {
+          "t": "p",
+          "v": "Gladys Staines stayed in India and continued the work at the leprosy home."
+        },
+        {
+          "t": "p",
+          "v": "“Blessed are the dead which die in the Lord from henceforth: Yea, saith the Spirit, that they may rest from their labours; and their works do follow them.” — Revelation 14:13"
+        }
+      ]
+    },
+    {
+      "slug": "stewardship-of-our-talents-and-gifts",
+      "title": "Every Christian has both natural talents and spiritual gifts",
+      "deck": "One comes to you at birth and is developed over a life. The other is given by the Spirit for the sake of other people. Knowing which is which changes what you do with them.",
+      "kind": "essay",
+      "section": "faith",
+      "authors": [
+        "5talents-staff"
+      ],
+      "tags": [
+        "spiritual-gifts",
+        "formation",
+        "stewardship"
+      ],
+      "archiveMeta": {
+        "originalPage": 16,
+        "editNote": "First published unsigned across two pages. The study questions that filled the second page are kept here as a closing section rather than a worksheet.",
+        "rightsCleared": "textOnly"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "God created us with a great variety of talents. You may be able to run a marathon, organise a group meeting, teach, or write. Your skill may be typing, photography, or painting. Perhaps you sing or play an instrument. Maybe you are a carpenter, a landscaper, an engineer, a mechanic, or a bookkeeper. Each of us has a unique function to perform in life and in the body of Christ."
+        },
+        {
+          "t": "p",
+          "v": "The Bible refers to the church as the body of Christ, with Christ as its head (1 Corinthians 12:27; Ephesians 5:23). Just as your body has many specialised parts, each with its own function, so the church is composed of many individuals, each with a special function to perform and a contribution to make to the rest of the body."
+        },
+        {
+          "t": "quote",
+          "v": "Every Christian possesses both natural talents and spiritual gifts.",
+          "attr": "1 Peter 4:10",
+          "highlight": "natural talents and spiritual gifts"
+        },
+        {
+          "t": "h2",
+          "v": "Two different things"
+        },
+        {
+          "t": "p",
+          "v": "Our natural abilities come to us at physical birth and are developed through life. Our spiritual gifts are imparted by the Holy Spirit, enabling us to minister to others on behalf of Christ. The distinction matters, because the first is largely yours to cultivate and the second is given for somebody else’s good."
+        },
+        {
+          "t": "p",
+          "v": "“Each of you should use whatever gift you have received to serve others, as faithful stewards of God’s grace in its various forms.” (1 Peter 4:10)"
+        },
+        {
+          "t": "h2",
+          "v": "Work it through"
+        },
+        {
+          "t": "p",
+          "v": "The original article closed with a set of questions. They are worth sitting with rather than skimming."
+        },
+        {
+          "t": "p",
+          "v": "On natural gifts. What talents and natural abilities do you have? How did you acquire them, or improve on them? According to 1 Corinthians 4:6–7 and Exodus 4:11, what should your attitude to them be? How would you apply Colossians 3:17 to the stewardship of your natural gifts?"
+        },
+        {
+          "t": "p",
+          "v": "On spiritual gifts. The major passages are Romans 12:3–8, 1 Corinthians 12:1–31, Ephesians 4:4–8 and 11–16, and 1 Peter 4:10–11. From these, make a list of the spiritual gifts, combining any two that seem identical, and write a brief description of each."
+        },
+        {
+          "t": "p",
+          "v": "Why has God given gifted people to the church (Ephesians 4:11–16)? Why will two people not exercise the same gift in the same way (1 Corinthians 12:4–6)? Though some gifts seem to be of greater value than others (1 Corinthians 12:28–31), what does Paul stress in order to keep Christians from pride about the ones they have (Romans 12:4–5; 1 Corinthians 12:12–16; 1 Corinthians 13; Ephesians 4:11–16)?"
+        },
+        {
+          "t": "p",
+          "v": "Then: list several principles describing what your attitude and responsibilities should be towards your spiritual gifts (Romans 12:3–8). Start from the assumption that you have at least one, and probably more."
+        }
+      ]
+    },
+    {
+      "slug": "youversion-fifty-million-to-one-billion",
+      "title": "We marked fifty million installs in 2012. The Bible App has now passed a billion.",
+      "deck": "In our first issue we ran an infographic celebrating what YouVersion had achieved in four years. Fourteen years on, the numbers have moved by a factor of twenty — and the more interesting figure is not installs.",
+      "kind": "feature",
+      "section": "technology",
+      "authors": [
+        "premasis-satman"
+      ],
+      "tags": [
+        "youversion",
+        "bible-engagement",
+        "apps"
+      ],
+      "featured": "featured",
+      "archiveMeta": {
+        "originalPage": 10,
+        "editNote": "Substantially rewritten and updated in August 2026. The July 2012 original was an interview extract with Bobby Gruenewald plus a YouVersion infographic marking fifty million installs; the reporting below is new, and the closing note is the one that ran in the original issue.",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "In the first issue of this magazine, in July 2012, we gave a page to an infographic from YouVersion. It described one minute inside the Bible App: fifty-two new installs, the app opened 1,698 times, 6,080 chapters read, 642 audio streams started. At the foot of the page, in a yellow flash, it said CELEBRATING 50 MILLION INSTALLS."
+        },
+        {
+          "t": "p",
+          "v": "That felt like a large number at the time. The app was four years old."
+        },
+        {
+          "t": "h2",
+          "v": "One billion"
+        },
+        {
+          "t": "p",
+          "v": "In October 2025 YouVersion announced that its family of apps — the Bible App, Bible App Lite and the Bible App for Kids — had passed one billion device installs. The milestone was marked through November with a Global Bible Month campaign and a gathering at the Paycom Center in Oklahoma City on 17 November."
+        },
+        {
+          "t": "p",
+          "v": "That is twenty times the figure we printed, reached in thirteen years. But the install count is the least interesting number YouVersion publishes, because an install is a one-time act and says nothing about whether anyone came back."
+        },
+        {
+          "t": "quote",
+          "v": "One billion app opens every thirty-nine days.",
+          "attr": "YouVersion, October 2025",
+          "highlight": "every thirty-nine days"
+        },
+        {
+          "t": "h2",
+          "v": "The number that matters"
+        },
+        {
+          "t": "p",
+          "v": "The figure worth watching is engagement, and it is rising faster than installs. YouVersion reported global installs up more than 12% year on year and daily usage up 18%. Its apps register one billion opens every thirty-nine days."
+        },
+        {
+          "t": "p",
+          "v": "During Holy Week 2026 an average of 18.7 million people a day opened one of the apps. On Easter Sunday the figure passed 21.6 million — the most engaged single day in the platform’s history. Engagement across Holy Week grew 15% against the previous year, and every region of the world rose: sub-Saharan Africa by 37%, Latin America by 22%. The most-read verse worldwide that Easter was Matthew 28:6."
+        },
+        {
+          "t": "p",
+          "v": "The reach has widened as well as deepened. The Bible App now offers Scripture in more than 2,400 languages and over 3,750 translations, supported by a network of more than 31,000 partners, including 7,224 content partners and over 25,000 churches."
+        },
+        {
+          "t": "h2",
+          "v": "An idea in an airport queue"
+        },
+        {
+          "t": "p",
+          "v": "The origin story has not changed in the retelling. Bobby Gruenewald, an innovation leader at Life.Church, was standing in an airport security queue when he asked himself whether technology could help him read the Bible more consistently. It launched as a website first, and gained its momentum by being among the first apps available when the App Store opened in 2008."
+        },
+        {
+          "t": "p",
+          "v": "What he told this magazine in 2012 still reads well, and is arguably the more useful part of the story than any of the numbers above:"
+        },
+        {
+          "t": "p",
+          "v": "“Keeping pace with technology advancements can be overwhelming. In fact, if they don’t affect us and we aren’t interested, it’s tempting to ignore them. But if we’re building the church for the world and not ourselves, it’s worth the effort to understand. The good news? We don’t have to change as fast as technology changes. We just have to stay in step with how quickly people are changing.”"
+        },
+        {
+          "t": "h2",
+          "v": "What we said in 2012"
+        },
+        {
+          "t": "p",
+          "v": "The original page carried a short note from this desk, and it can stand as it was written:"
+        },
+        {
+          "t": "p",
+          "v": "“It’s amazing to see how technology is used for the kingdom of God. Technology can be used to make us better stewards and ministers. We can enable the good news to be spread widely and rapidly, in ways that grip the viewer, listener or reader. If you have plans and concepts to use your talents and skills for the kingdom, go ahead. Do not wait — the harvest is plentiful, but the workers are few.”"
+        },
+        {
+          "t": "p",
+          "v": "Fourteen years and 950 million installs later, that still seems like the right advice."
+        }
+      ]
+    }
+  ]
+}
