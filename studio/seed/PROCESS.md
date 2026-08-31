@@ -160,3 +160,9 @@ Shoot new hero photography **portrait**, with the subject's head in the top
 third and dead space below it for the type. Every one of Relevant's lead
 photographs is framed that way, and it is why their headlines never collide
 with a face.
+
+## The Missionary Story column
+
+Do not convert a piece from this column without reading `MISSIONARY-STORIES.md`
+first. Three of them were copied text, the 2012 framing is wrong for India in
+2026, and that document holds both the rewrite structure and the checklist.

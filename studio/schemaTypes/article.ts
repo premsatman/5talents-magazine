@@ -294,6 +294,20 @@ export const article = defineType({
         }),
         defineField({ name: 'originalPage', type: 'number' }),
         defineField({ name: 'republishedAt', type: 'date' }),
+        /**
+         * Set this only when the piece was written again from scratch, rather
+         * than cleaned up. The reader is then told both dates, which is the
+         * honest description of what they are reading: the 2012 subject, the
+         * 2026 words. Leave it empty for a lightly edited republication -
+         * claiming a rewrite that did not happen is its own small dishonesty.
+         */
+        defineField({
+          name: 'rewrittenAt',
+          title: 'Rewritten on',
+          type: 'date',
+          description:
+            'Only if the text was written fresh from sources. Shown to the reader as "Rewritten from primary sources in <month year>".',
+        }),
         defineField({
           name: 'editNote',
           type: 'string',

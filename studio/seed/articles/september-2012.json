@@ -1,6 +1,6 @@
 {
   "issue": "september-2012",
-  "note": "Issue 3, September 2012. Only three of seven cleared. This is the issue where the Missionary Story column was confirmed as lifted third-party text - see TRIAGE.md, which also covers the two already-published pieces that finding affects.",
+  "note": "Issue 3, September 2012. Three of seven pieces cleared. The George Muller piece was Wikipedia and has been written again from primary sources - see MISSIONARY-STORIES.md for the column's rewrite standard, and TRIAGE.md for what was found.",
   "authors": [
     {
       "slug": "gabriel-ghanta",
@@ -15,8 +15,8 @@
   "articles": [
     {
       "slug": "bhaskar-rao-blind-musician",
-      "title": "Blind since birth, he plays twenty instruments and sings in ten languages",
-      "deck": "Bhaskar Rao sat in the corner of a room until he was ten. Then a pastor asked whether he wanted to go to school. He talks about the music diplomas, the electronics degree, and why he took up music to prove a point.",
+      "title": "Bhaskar Rao played twenty instruments, and sang in ten languages",
+      "deck": "He sat in the corner of a room until he was ten. Then a pastor asked whether he wanted to go to school. Our 2012 conversation with the flutist, who died in May.",
       "kind": "interview",
       "section": "culture",
       "authors": [
@@ -27,7 +27,8 @@
         "music",
         "disability",
         "testimony",
-        "hyderabad"
+        "hyderabad",
+        "in-memoriam"
       ],
       "hero": {
         "file": "2012-09-bhaskar-rao.jpg",
@@ -36,23 +37,28 @@
       },
       "interviewMeta": {
         "subject": "V. Bhaskar Rao",
-        "subjectBio": "A music composer for the Christian organisation VishwaVani, a keyboard tutor, and an electronics engineer who repairs church instruments. He holds an MA in flute.",
+        "subjectBio": "A flutist and music composer with the Vishwa Vani ministry in Hyderabad, a keyboard tutor, and an electronics engineer who repaired church instruments. He held an MA in flute. He died in May 2026.",
         "country": "India",
         "isCoverStory": "cover"
       },
       "archiveMeta": {
         "originalPage": 4,
-        "editNote": "First published as Talent Search #4. Reading order repaired and typographical errors corrected; the answers are his, unchanged.",
+        "editNote": "First published as Talent Search #4 in September 2012. Reading order repaired and typographical errors corrected; his answers are unchanged and stand exactly as he gave them. Republished in 2026 after his death, with an editor's note added at the head and the interviewer's descriptive opening moved into the past tense. His own words were left in the present tense, as spoken.",
         "rightsCleared": "full"
       },
       "body": [
         {
-          "t": "p",
-          "v": "Bhaskar Rao was born blind, and is capable of doing any work a sighted person does. He is a musician and composer several times over, and he holds a diploma in electronics and can work on electronic equipment. Despite a full schedule he gave us his time, his testimony and a good deal of encouragement."
+          "t": "note",
+          "placement": "top",
+          "v": "Bhaskar Rao gave us this interview in September 2012. He died in May 2026, and a funeral bhajan was held for him on 13 May at Lalapet, Secunderabad, where the musicians and singers he had taught and played alongside gathered to sing. We are republishing the conversation as he gave it, in his own words and in the present tense he spoke them in."
         },
         {
           "t": "p",
-          "v": "Rather than dwelling on the sight he lacked, he built on the senses and the health he had, and made himself an educated, well-rounded man who has reached a great many people — through his life, and through his music ministry. He has fun wherever he goes. He is easy to get along with, children gather round him, and he is happy to answer any question they have about his blindness. Because of him a good many people have come to Jesus, and that is what keeps him going. He has inspired blind and sighted people alike to work with what they have rather than what they do not."
+          "v": "Bhaskar Rao was born blind, and was capable of doing any work a sighted person does. He was a musician and composer several times over, and he held a diploma in electronics and could work on electronic equipment. Despite a full schedule he gave us his time, his testimony and a good deal of encouragement."
+        },
+        {
+          "t": "p",
+          "v": "Rather than dwelling on the sight he lacked, he built on the senses and the health he had, and made himself an educated, well-rounded man who reached a great many people — through his life, and through his music ministry. He had fun wherever he went. He was easy to get along with, children gathered round him, and he was happy to answer any question they had about his blindness. Because of him a good many people came to Jesus, and that was what kept him going. He inspired blind and sighted people alike to work with what they had rather than what they did not."
         },
         {
           "t": "h2",
@@ -143,6 +149,11 @@
         {
           "t": "p",
           "v": "It has been twenty-seven years now. I am using all these talents for His kingdom and His glory, and I will continue to the end."
+        },
+        {
+          "t": "note",
+          "placement": "foot",
+          "v": "Bhaskar Rao kept that promise for a further fourteen years. He died in May 2026, still teaching, still playing."
         }
       ]
     },
@@ -343,6 +354,208 @@
         {
           "t": "p",
           "v": "There is a need for workers in the kingdom of God. The King has called all of us into His palace, and there is much to do. Are you ready to join the crew? Let us get involved in the church of God — the king’s palace is nothing but the church. Let us be workers of the church, and work for the king and live for the king."
+        }
+      ]
+    },
+    {
+      "slug": "george-muller-never-asked-anyone-for-money",
+      "title": "He fed two thousand children a day and never once asked anyone for money",
+      "deck": "George Müller was a thief at ten and a fraud at twenty. Then he built five orphanages in Bristol, ran them for sixty years on donations he refused to solicit, and published his accounts so anyone could check him.",
+      "kind": "feature",
+      "section": "heritage",
+      "authors": [
+        "elizabeth-clayton"
+      ],
+      "tags": [
+        "church-history",
+        "stewardship",
+        "orphans",
+        "lives"
+      ],
+      "archiveMeta": {
+        "originalPage": 18,
+        "rewrittenAt": "2026-08-30",
+        "editNote": "The 2012 version of this piece was not original work. It has been written again from Müller's own autobiography and from the nineteenth-century biographies, all of which are out of copyright. Sources are listed at the foot.",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "note",
+          "placement": "top",
+          "v": "This piece was first published in our September 2012 issue. That version has been withdrawn and the story written again from the original sources — Müller's own account of his life, and the biographies written by people who knew him. What follows is new work. The sources are listed at the end."
+        },
+        {
+          "t": "p",
+          "v": "By the age of ten, George Müller was stealing government money from his father, who was the tax collector. He was good at it. When his father grew suspicious and laid out a marked sum to catch him, Müller found the trap, took part of the money, and hid the rest in his shoe."
+        },
+        {
+          "t": "p",
+          "v": "At fourteen he was playing cards in a tavern and drinking while his mother lay dying a few streets away. He found out the next morning, walking home."
+        },
+        {
+          "t": "p",
+          "v": "Sixty years later, five houses on a hill in Bristol were feeding, clothing and schooling around two thousand children at a time. Over his lifetime he cared for 10,024 orphans. He never once asked anybody for a donation."
+        },
+        {
+          "t": "h2",
+          "v": "A boy being trained for a job he did not want"
+        },
+        {
+          "t": "p",
+          "v": "He was born in 1805 in Kroppenstädt, a village in what was then Prussia, and grew up in Heimersleben, where his father collected taxes. His father's ambition for him was specific and entirely financial. The state church paid its clergy well, so George would be a clergyman. He was sent to study divinity at Halle with that in view."
+        },
+        {
+          "t": "p",
+          "v": "He describes those student years without any softening. He was a thief, a liar and a gambler. He ran up debts, took money from friends on stories he had invented, and was once jailed for skipping out on hotel bills. He had no Bible. He had not read scripture in years. He took communion twice a year out of habit and heard nothing preached that he could remember."
+        },
+        {
+          "t": "p",
+          "v": "He was, in other words, exactly the kind of person the respectable version of this story would leave out."
+        },
+        {
+          "t": "h2",
+          "v": "The evening in somebody's front room"
+        },
+        {
+          "t": "p",
+          "v": "In 1825 a fellow student named Beta mentioned that a group met in a private house on Saturday evenings to read the Bible, sing, and pray. Müller went, mostly out of curiosity. What struck him was not a sermon. It was watching a man kneel down on the floor to pray."
+        },
+        {
+          "t": "p",
+          "v": "In his own account of it, written years afterwards, he is careful not to overstate what he understood at the time:"
+        },
+        {
+          "t": "quote",
+          "v": "I have no doubt that He began a work of grace in me. Even though I scarcely had any knowledge of who God truly was, that evening was the turning point in my life.",
+          "attr": "George Müller, Autobiography",
+          "highlight": "that evening was the turning point"
+        },
+        {
+          "t": "p",
+          "v": "He went home, knelt by his own bed and asked for help. The drinking, the stealing and the lying stopped. His father, who had paid for an education meant to produce a comfortable salary, was furious when it became clear his son intended to give the salary away."
+        },
+        {
+          "t": "h2",
+          "v": "Refusing to be paid"
+        },
+        {
+          "t": "p",
+          "v": "Müller moved to England in 1829 and settled into pastoral work in Devon, and then in Bristol, where he stayed for the rest of his life. Two decisions from those first years explain everything that followed."
+        },
+        {
+          "t": "p",
+          "v": "He gave up his salary. He had been on £55 a year at a chapel in Shaldon, and he concluded that a fixed wage collected from the congregation made people give out of obligation rather than because they wanted to. So he stopped taking it and lived on whatever came in unasked."
+        },
+        {
+          "t": "p",
+          "v": "He also abolished pew rents. Churches at the time sold the good seats, which meant the moneyed families sat at the front by arrangement. Müller read James 2 — the passage about showing deference to the man in fine clothes — decided the practice could not survive it, and ended it."
+        },
+        {
+          "t": "p",
+          "v": "Neither decision cost him much yet. Both were about to be tested at scale."
+        },
+        {
+          "t": "h2",
+          "v": "Thirty girls, then two thousand children"
+        },
+        {
+          "t": "p",
+          "v": "The orphan work began in 1836 in his own rented house at 6 Wilson Street, Bristol, prepared for thirty girls. Three more houses on the same street followed, and the number in his care reached 130."
+        },
+        {
+          "t": "p",
+          "v": "By 1845 the neighbours had had enough of the noise and the strain on the street's water supply, and Müller decided to build. The first purpose-built house at Ashley Down opened in 1849 for three hundred children. Four more followed. By 1870 there were 1,722 children living on that hill with room for over two thousand."
+        },
+        {
+          "t": "p",
+          "v": "The buildings cost more than £100,000, an enormous sum in the 1850s. He never launched an appeal, never wrote to a wealthy man asking for a contribution, and never borrowed. When he needed something he prayed for it and waited, and if it did not come he did not do the thing."
+        },
+        {
+          "t": "p",
+          "v": "The most famous morning at Ashley Down is famous because it was documented rather than remembered. The children were at the table for breakfast and there was no food in the building. Müller gave thanks for the meal anyway. As they finished, the baker knocked — he had been unable to sleep and had got up at two in the morning to bake for them. Then the milkman's cart broke down directly outside and he handed over his milk rather than let it spoil."
+        },
+        {
+          "t": "p",
+          "v": "There are hundreds of entries like it in his journals, because he wrote every one of them down as it happened."
+        },
+        {
+          "t": "h2",
+          "v": "The receipts"
+        },
+        {
+          "t": "p",
+          "v": "This is the part that gets left out of the inspirational version, and it is the part that makes the rest credible."
+        },
+        {
+          "t": "p",
+          "v": "Müller kept accounts obsessively and published them. Every gift was recorded: a single farthing, £3,000, an old teaspoon. He printed his receipts with a standing instruction to the donor:"
+        },
+        {
+          "t": "quote",
+          "v": "Donors are requested, kindly to keep the receipts and to compare them with the Supplement to the Report, which records every donation received, so that they may be satisfied that their donations have been properly applied.",
+          "attr": "Printed on Müller's donation receipts",
+          "highlight": "so that they may be satisfied"
+        },
+        {
+          "t": "p",
+          "v": "He was inviting every person who gave him a coin to audit him. The books were open for anyone to inspect and the annual reports listed every transaction. Over his lifetime the institution received and spent £1,381,171, somewhere near £113 million in today's money, and he wanted every line of it checkable."
+        },
+        {
+          "t": "p",
+          "v": "His own income, all of it unsolicited, reached over £2,000 a year by 1870. He kept about £300 and gave the rest away. He died with an estate of a hundred and sixty pounds, most of it the value of his furniture."
+        },
+        {
+          "t": "h2",
+          "v": "What it cost"
+        },
+        {
+          "t": "p",
+          "v": "Mary, his wife of thirty-nine years and the person who actually ran the orphan houses day to day, died in 1870. He preached at her funeral himself."
+        },
+        {
+          "t": "p",
+          "v": "He was not universally admired. He was accused of raising poor children above their station. The complaint was that he educated them too well, and that nearby factories and mines could not get workers because he kept finding the children apprenticeships and trades instead. He employed an inspector to keep the teaching standards up. Every child left with a Bible and a tin trunk holding two changes of clothing."
+        },
+        {
+          "t": "p",
+          "v": "He also spent years inside a bitter split in his own movement. When the Brethren divided in the 1840s, Müller took the position that people should not be excluded for associating with someone whose doctrine was disputed. John Nelson Darby, leading the other side, called on him in July 1849 to talk it over. Müller had appointments and could give him ten minutes. Ten minutes was not enough, and the two men never met again."
+        },
+        {
+          "t": "h2",
+          "v": "Why he is still known"
+        },
+        {
+          "t": "p",
+          "v": "He travelled more than 200,000 miles after he turned seventy, preaching in English, French and German across Europe, America, Australia, India, China and Japan. He returned to Bristol and died there on 10 March 1898, in one of the orphan houses. Ten thousand people came to the funeral, fifteen hundred of them children from the homes he had built."
+        },
+        {
+          "t": "p",
+          "v": "His biographer William Henry Harding thought the world had got him wrong even then, and that people preferred to remember a kindly old gentleman who was fond of children, which was a way of not having to deal with what he actually claimed. The orphanages were never the point to Müller. They were the evidence."
+        },
+        {
+          "t": "p",
+          "v": "The work continues. The George Müller Charitable Trust still operates in Bristol and still refuses to fundraise."
+        },
+        {
+          "t": "h2",
+          "v": "So what, in 2026?"
+        },
+        {
+          "t": "p",
+          "v": "Almost everything now runs on asking. Creators ask for subscriptions, charities run campaigns, startups pitch, and every app you open is engineered to request something from you. Asking is not wrong. But it is so completely normal that a man who built a £100,000 institution and refused to send a single appeal letter is genuinely difficult to categorise."
+        },
+        {
+          "t": "p",
+          "v": "The interesting thing is not that he trusted God for money. Plenty of people say that. It is that he built an audit trail so anyone could check whether it had worked — and then published it for sixty years. He was making a claim that could have been falsified at any point, in public, by a bookkeeper."
+        },
+        {
+          "t": "p",
+          "v": "That is a rarer kind of confidence than the loud kind, and it is worth more. If you are wondering what to do with what you have, the question Müller kept answering was not how much can I raise. It was: can anyone look at my books?"
+        },
+        {
+          "t": "note",
+          "placement": "foot",
+          "v": "Sources: Müller's own Autobiography (Centenary Memorial edition, 1905, and the Whitaker House edition of 1984); Arthur Tappan Pierson, George Müller of Bristol (1899); William Henry Harding, The Life of George Müller (1914); Nancy Garton, George Müller and his Orphans (1992); Roger Steer, George Müller: Delighted in God (1997). Currency conversion from the National Archives currency converter. All primary sources are out of copyright and available at Archive.org and Project Gutenberg."
         }
       ]
     }

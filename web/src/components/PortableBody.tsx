@@ -62,6 +62,21 @@ const components: PortableTextComponents = {
         {value?.attribution ? <figcaption>{value.attribution as string}</figcaption> : null}
       </figure>
     ),
+    /**
+     * The magazine speaking, not the author. Set apart from the body so a
+     * reader can tell at a glance that the voice has changed - and given
+     * `role="note"` so that distinction survives for a screen reader, which
+     * would otherwise hear it as another paragraph of the article.
+     */
+    editorsNote: ({ value }) => (
+      <aside
+        className={`ednote${value?.placement === 'foot' ? ' ednote--foot' : ''}`}
+        role="note"
+      >
+        <p className="ednote__label">Editor’s note</p>
+        <p>{(value?.text as string) ?? ''}</p>
+      </aside>
+    ),
     pullQuote: ({ value }) => {
       const quote = (value?.quote as string | undefined) ?? ''
       const phrase = (value?.highlightPhrase as string | undefined) || undefined

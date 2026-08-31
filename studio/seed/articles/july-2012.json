@@ -311,78 +311,6 @@
       ]
     },
     {
-      "slug": "graham-staines-thirty-four-years-in-orissa",
-      "title": "Graham Staines gave thirty-four years to the leprosy patients of Orissa",
-      "deck": "An Australian who learned Oriya, Santhali and Ho, translated Scripture into a tribal language, and taught the people he treated to weave.",
-      "kind": "feature",
-      "section": "heritage",
-      "authors": [
-        "elizabeth-clayton"
-      ],
-      "tags": [
-        "missions-history",
-        "orissa",
-        "leprosy"
-      ],
-      "archiveMeta": {
-        "originalPage": 19,
-        "editNote": "First published in the Missionary Story column. Reconstructed from a two-column page where the extraction broke words across a photograph, and reordered: the original opened with the killings, and this version follows his life in sequence and closes with them. Nothing has been added or removed.",
-        "rightsCleared": "full"
-      },
-      "body": [
-        {
-          "t": "p",
-          "v": "Graham Stuart Staines was born in 1941 at Palmwoods, Queensland. He first visited India in 1965, and stayed for thirty-four years."
-        },
-        {
-          "t": "h2",
-          "v": "Baripada"
-        },
-        {
-          "t": "p",
-          "v": "From 1965 he worked in Orissa among the tribal poor, and particularly among people with leprosy. He later joined the Evangelical Missionary Society of Mayurbhanj, in Mayurbhanj district, and in 1983 took over the management of the mission at Baripada. He had already played a part in establishing the Mayurbhanj Leprosy Home as a registered society in 1982."
-        },
-        {
-          "t": "p",
-          "v": "He met Gladys Jane in 1981, while she too was working with leprosy patients. They married in 1983 and worked together from then on. They had three children — a daughter, Esther, and two sons, Philip and Timothy."
-        },
-        {
-          "t": "h2",
-          "v": "Oriya, Santhali and Ho"
-        },
-        {
-          "t": "p",
-          "v": "Staines spoke fluent Oriya and the tribal languages Santhali and Ho. He assisted in translating part of the Bible into Ho, which is spoken by around a million people in eastern India and had almost no Scripture of its own."
-        },
-        {
-          "t": "p",
-          "v": "He was popular among his patients, whom he taught to make mats from rope, to weave baskets, and to work by hand — skills that gave people a living in a condition that usually took their living away. He did not only serve the poor and help those with leprosy; he shared the gospel wherever he went, and many became believers and were led to church by him."
-        },
-        {
-          "t": "quote",
-          "v": "He taught the people he treated how to make mats out of rope, and baskets, and how to weave by hand.",
-          "attr": "On thirty-four years at the Mayurbhanj Leprosy Home",
-          "highlight": "how to weave by hand"
-        },
-        {
-          "t": "h2",
-          "v": "Manoharpur, January 1999"
-        },
-        {
-          "t": "p",
-          "v": "On the night of 22 January 1999, Staines and his two sons were in Manoharpur village, in Keonjhar district, after attending a gospel meeting. Because of the severe cold they slept in their vehicle. A mob of about fifty people, armed with axes, set the vehicle alight while the three were asleep. Villagers who tried to reach them were driven back. Graham Staines was fifty-eight. Philip was ten and Timothy was six."
-        },
-        {
-          "t": "p",
-          "v": "Gladys Staines stayed in India and continued the work at the leprosy home."
-        },
-        {
-          "t": "p",
-          "v": "“Blessed are the dead which die in the Lord from henceforth: Yea, saith the Spirit, that they may rest from their labours; and their works do follow them.” — Revelation 14:13"
-        }
-      ]
-    },
-    {
       "slug": "stewardship-of-our-talents-and-gifts",
       "title": "Every Christian has both natural talents and spiritual gifts",
       "deck": "One comes to you at birth and is developed over a life. The other is given by the Spirit for the sake of other people. Knowing which is which changes what you do with them.",
@@ -548,6 +476,225 @@
         {
           "t": "p",
           "v": "Fourteen years and 950 million installs later, that still seems like the right advice."
+        }
+      ]
+    },
+    {
+      "slug": "graham-staines-thirty-four-years-in-orissa",
+      "title": "He saw a photograph of a boy his own age with leprosy, and gave India the next thirty-four years",
+      "deck": "Graham Staines was fifteen, in Queensland, sitting through a missionary's slideshow. What he built in Baripada afterwards is still standing.",
+      "kind": "feature",
+      "section": "heritage",
+      "authors": [
+        "elizabeth-clayton"
+      ],
+      "tags": [
+        "church-history",
+        "odisha",
+        "leprosy",
+        "lives"
+      ],
+      "retracted": false,
+      "archiveMeta": {
+        "originalPage": 19,
+        "rewrittenAt": "2026-08-30",
+        "editNote": "The 2012 version of this piece was not original work and was withdrawn in August 2026. This is a new article, written from published reporting and reference sources listed at the foot, and focused on his work in Mayurbhanj.",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "note",
+          "placement": "top",
+          "v": "This piece first ran in our July 2012 issue. That version has been withdrawn and the story researched and written again, with the focus on the work he did in Mayurbhanj across thirty-four years. Sources are listed at the end."
+        },
+        {
+          "t": "p",
+          "v": "He was fifteen, sitting in a hall in Queensland while a visiting missionary showed photographs. One of them was of a boy in India called Josia Soren, about his own age, with severe leprosy."
+        },
+        {
+          "t": "p",
+          "v": "Graham Staines could not explain afterwards why that particular picture would not leave him alone. Two years later, at a missions meeting, a speaker asked whether anyone in the room would go and work among people with leprosy. He said yes."
+        },
+        {
+          "t": "p",
+          "v": "He arrived in India on his twenty-fourth birthday and stayed thirty-four years."
+        },
+        {
+          "t": "h2",
+          "v": "A boy in Palmwoods with a pen friend"
+        },
+        {
+          "t": "p",
+          "v": "He was born on 18 January 1941 in Palmwoods, on what is now Queensland's Sunshine Coast, the second child of William and Elizabeth Staines. He did well at school, then took a job in the office of a local garage and went to night classes to learn accountancy. He was heading for an ordinary and comfortable Australian working life."
+        },
+        {
+          "t": "p",
+          "v": "In 1956 he began writing to a pen friend in India. Shantanu Satpathy lived in Baripada, the district town of Mayurbhanj in Orissa, and the two boys turned out to share a birthday. They wrote to each other about the plants and animals of their two countries. Long before he ever saw the place, Baripada was a real town to him with a real person in it."
+        },
+        {
+          "t": "p",
+          "v": "That is worth pausing on. The photograph gave him the need. The letters gave him the address."
+        },
+        {
+          "t": "h2",
+          "v": "Three languages, and a song about polio"
+        },
+        {
+          "t": "p",
+          "v": "He went out in 1965 and joined the Evangelical Missionary Society of Mayurbhanj, which has a founding story that is not the one people expect. It was started in 1895 by Kate Allenby of the Queensland Baptist Missionary Society, at the invitation of Sriram Chandra Bhanj Deo, the Maharaja of Mayurbhanj, who had asked for it."
+        },
+        {
+          "t": "p",
+          "v": "Staines learned Oriya, then Santhali, then Ho. He got good enough at Santhali that the local administration asked him to write a song in it to help publicise a polio immunisation drive. He wrote the song."
+        },
+        {
+          "t": "p",
+          "v": "Years later he was still at it, handing out leaflets for the Pulse Polio campaign while Gladys drove the station wagon at the head of the awareness procession. He was president-designate of the Baripada Rotary club. None of that is mission work in the narrow sense. It is what happens when someone decides a town is theirs."
+        },
+        {
+          "t": "p",
+          "v": "People knew the Australian on the bicycle in the sun hat. They called him Saibo."
+        },
+        {
+          "t": "h2",
+          "v": "The leprosy home"
+        },
+        {
+          "t": "p",
+          "v": "In 1982 he got the Mayurbhanj Leprosy Home registered as a society under Indian law, and in 1983 he took over running the mission. Those two administrative acts are the whole of his method: he made the thing legal, permanent and inspectable, and then he ran it."
+        },
+        {
+          "t": "p",
+          "v": "The home housed and treated somewhere between seventy and a hundred people at a time. Leprosy in rural Orissa in the 1980s was not primarily a medical problem. It was a social one. A diagnosis meant being put out of your village, and the disease carried an untouchability that outlasted the cure by years."
+        },
+        {
+          "t": "p",
+          "v": "So the work was not only bandaging. Patients whose disease had been arrested were taught to weave mats and baskets from sabai grass and tree leaves, so they had a trade to go back with. That mattered more than it sounds: a cured patient with no income was a cured patient who would be turned away twice, once for the disease and once for the begging."
+        },
+        {
+          "t": "p",
+          "v": "When somebody recovered and still had nowhere on earth to go, Staines found them a place inside the compound. Ten families ended up living in the rehabilitation community. Two compounds, a farm, and around twenty-seven churches across the district had grown up around the work by the end."
+        },
+        {
+          "t": "p",
+          "v": "He wanted more. His ambition was to build the centre into a full hospital, so that patients needing reconstructive surgery would not have to travel for it."
+        },
+        {
+          "t": "h2",
+          "v": "The dairy"
+        },
+        {
+          "t": "p",
+          "v": "The detail that says most about the work is the milk."
+        },
+        {
+          "t": "p",
+          "v": "The mission ran a dairy farm, and its milk sold well in Baripada. Think about what that means. People who would not have shaken hands with a leprosy patient were buying milk from a farm attached to the leprosy home, and thinking nothing of it."
+        },
+        {
+          "t": "quote",
+          "v": "That is stigma being dismantled by ordinary commerce, and it does not happen by accident.",
+          "attr": "On the Baripada dairy",
+          "highlight": "dismantled by ordinary commerce"
+        },
+        {
+          "t": "p",
+          "v": "Somebody had to decide the farm was worth running, keep the quality up, and wait for the town to forget what it had once believed about the people living up the road. That is years of unremarkable decisions producing a result no campaign could have produced."
+        },
+        {
+          "t": "h2",
+          "v": "The night of the fire"
+        },
+        {
+          "t": "p",
+          "v": "A fire tore through Baripada and left around a hundred people dead and many more badly burned. The local hospital could not cope with the numbers."
+        },
+        {
+          "t": "p",
+          "v": "Graham and Gladys spent the nights nursing the injured. He was a mission administrator with an accountancy background and she was a trained nurse, and when the town needed hands they were simply there, doing it, for as long as it took."
+        },
+        {
+          "t": "h2",
+          "v": "The Ho New Testament"
+        },
+        {
+          "t": "p",
+          "v": "The Ho are an indigenous people of eastern India, and their language had no complete New Testament. Staines worked as an editorial checker on the translation, going through the manuscript against the original text. It was published in 1997."
+        },
+        {
+          "t": "p",
+          "v": "It is unglamorous work of the kind that lasts. A translation stays in use long after the person who proofread it is forgotten. He had a reputation as a compelling preacher, but the book is the object that outlived him."
+        },
+        {
+          "t": "p",
+          "v": "Gladys Weatherhead had arrived in 1981, a trained nurse from Ipswich in Queensland who came out on a short youth mission and volunteered at the centre. They married in 1983 and lived in an old house in the mission compound. They had three children: Esther, Philip and Timothy."
+        },
+        {
+          "t": "h2",
+          "v": "1999"
+        },
+        {
+          "t": "p",
+          "v": "On the night of 22 January 1999, Graham Staines and his two sons, Philip and Timothy, were killed at the village of Manoharpur when a mob set fire to the van they were sleeping in. Philip was ten. Timothy was six."
+        },
+        {
+          "t": "p",
+          "v": "In the inquiry that followed, allegations that Staines had coerced anyone into changing religion were examined and found to be unsupported by evidence. Gladys has rejected them too."
+        },
+        {
+          "t": "h2",
+          "v": "What Gladys said"
+        },
+        {
+          "t": "p",
+          "v": "Gladys Staines gave evidence to the commission that inquired into the deaths of her husband and her two sons. This is from her affidavit:"
+        },
+        {
+          "t": "quote",
+          "v": "It is far from my mind to punish the persons who were responsible for the death of my husband Graham and my two children. But it is my desire and hope that they would repent and would be reformed.",
+          "attr": "Gladys Staines, affidavit to the commission of inquiry, 1999",
+          "highlight": "It is far from my mind to punish"
+        },
+        {
+          "t": "p",
+          "v": "She did not leave. She stayed in Orissa and kept the leprosy work running for another five years, and went home to Queensland in 2004. In 2005 the Government of India gave her the Padma Shri. She still serves as honorary secretary of the mission society, from Townsville."
+        },
+        {
+          "t": "h2",
+          "v": "What is there now"
+        },
+        {
+          "t": "p",
+          "v": "A hostel for forty boys named after Philip and Timothy opened in 2003. A fifteen-bed hospital named after Graham opened in 2004, which is the hospital he had wanted, finished after he was gone. A girls' care centre named after Kate Allenby, who started the mission back in 1895, opened in 2013."
+        },
+        {
+          "t": "p",
+          "v": "None of it has been smooth. The hospital suspended its activity in 2019 after a dispute with the state government. This is not a story that resolves neatly, and it would be dishonest to write it as though it does."
+        },
+        {
+          "t": "p",
+          "v": "Every January, around fifty Christian families at Manoharpur gather outside the small church there to pray and remember. They still call him Saibo."
+        },
+        {
+          "t": "h2",
+          "v": "So what, in 2026?"
+        },
+        {
+          "t": "p",
+          "v": "Almost nothing he did would work as content. He learned three languages, which took years and produced no visible milestone. He filed the paperwork to register a leprosy home as a society, which is the least shareable act imaginable and is also the reason the place survived him. He proofread a New Testament in a language most Indians have never heard spoken. He sold milk until people stopped flinching."
+        },
+        {
+          "t": "p",
+          "v": "There is no moment in any of that. There is no before-and-after. It is thirty-four years of turning up in the same town."
+        },
+        {
+          "t": "p",
+          "v": "If you are seventeen and wondering what a life spent on something actually looks like, it looks less like a decision and more like an address. One photograph, one pen friend, one town you keep going back to until you know its languages. He was fifteen when he saw the picture. He was twenty-four when he arrived. In between, he learned accountancy and waited."
+        },
+        {
+          "t": "note",
+          "placement": "foot",
+          "v": "Sources: Philip Malayil, “Staines, Graham”, Dictionary of Christian Biography in Asia; Ruben Banerjee's contemporaneous reporting for India Today, February 1999; Sampad Patnaik, Indian Express, 23 January 2019, on the hospital's suspension; Debabrata Mohanty, Hindustan Times, 24 January 2024; the report of the commission of inquiry, including Gladys Staines's affidavit."
         }
       ]
     }

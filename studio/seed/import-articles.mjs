@@ -55,6 +55,14 @@ function toPortableText(blocks) {
     if (b.t === 'verse') {
       return { _type: 'verse', _key: key(), text: b.v, attribution: b.attr ?? undefined }
     }
+    if (b.t === 'note') {
+      return {
+        _type: 'editorsNote',
+        _key: key(),
+        text: b.v,
+        placement: b.placement ?? 'top',
+      }
+    }
     if (b.t === 'quote') {
       return {
         _type: 'pullQuote',
@@ -132,7 +140,19 @@ async function importFile(filename) {
     const tags = []
     for (const slug of article.tags ?? []) tags.push({ ...(await ensureTag(slug)), _key: key() })
 
+    // Re-running an import must not re-date the piece.
+    //
+    // publishedAt drives the homepage order and the "new" signal, so stamping
+    // it with the current time on every run would shove whatever was imported
+    // most recently back to the top - and silently reorder the site every time
+    // a typo gets fixed. An existing date wins over a fresh one; the JSON can
+    // still override both by setting publishedAt explicitly.
     const now = new Date().toISOString()
+    const existing = await query(
+      '*[_type == "article" && slug.current == $s][0].publishedAt',
+      { s: article.slug },
+    )
+
     const { id, created } = await upsertBySlug('article', article.slug, {
       title: article.title,
       deck: article.deck,
@@ -145,7 +165,15 @@ async function importFile(filename) {
       body: toPortableText(article.body ?? []),
       // Blueprint section 7: publishedAt carries the freshness signal, the
       // original issue date is displayed prominently from archiveMeta.
-      publishedAt: article.publishedAt ?? now,
+      publishedAt: article.publishedAt ?? existing ?? now,
+      // Bringing a retracted piece back is a deliberate act, never a side
+      // effect of re-importing. The JSON has to say `"retracted": false`
+      // explicitly; only then is the retraction and its note cleared. Without
+      // this the rewritten replacement would import successfully and stay
+      // invisible, which is the worst of both outcomes.
+      ...(article.retracted === false
+        ? { retracted: false, retractedAt: undefined, retractionNote: undefined }
+        : {}),
       featured: article.featured ?? 'none',
       sponsorTier: 'none',
       interviewMeta: article.interviewMeta,
@@ -153,7 +181,7 @@ async function importFile(filename) {
       archiveMeta: {
         ...article.archiveMeta,
         originalIssue: issueRef,
-        republishedAt: (article.publishedAt ?? now).slice(0, 10),
+        republishedAt: (article.publishedAt ?? existing ?? now).slice(0, 10),
       },
     })
 

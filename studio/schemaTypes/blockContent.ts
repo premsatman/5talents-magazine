@@ -94,6 +94,55 @@ export const blockContent = defineType({
       ],
       preview: { select: { title: 'text', subtitle: 'attribution' } },
     }),
+    /**
+     * An editor's note — the magazine speaking in its own voice, not the
+     * author's.
+     *
+     * Added for Bhaskar Rao, interviewed in 2012 and died in May 2026. A
+     * reader landing on that page needs to know both facts before the first
+     * present-tense sentence, or the piece misleads them about something that
+     * matters to the people who knew him.
+     *
+     * The archive will keep needing this. Every 2012-14 interview is being
+     * republished more than a decade later, and some of those subjects have
+     * died, changed ministries or would tell the story differently now. The
+     * note is how the magazine says so without editing what the person
+     * actually said.
+     */
+    defineArrayMember({
+      type: 'object',
+      name: 'editorsNote',
+      title: "Editor's note",
+      fields: [
+        defineField({
+          name: 'text',
+          type: 'text',
+          rows: 4,
+          description:
+            'The magazine in its own voice. Keep it factual and short. Use it to frame a piece, never to argue with it.',
+          validation: (r) => r.required(),
+        }),
+        defineField({
+          name: 'placement',
+          type: 'string',
+          options: {
+            list: [
+              { title: 'Above the article', value: 'top' },
+              { title: 'At the foot of the article', value: 'foot' },
+            ],
+            layout: 'radio',
+          },
+          initialValue: 'top',
+        }),
+      ],
+      preview: {
+        select: { title: 'text', subtitle: 'placement' },
+        prepare: ({ title, subtitle }) => ({
+          title: title || "Editor's note",
+          subtitle: subtitle === 'foot' ? 'At the foot' : 'Above the article',
+        }),
+      },
+    }),
     defineArrayMember({
       type: 'object',
       name: 'pullQuote',

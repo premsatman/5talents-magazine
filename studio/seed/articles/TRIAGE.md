@@ -282,3 +282,127 @@ obvious `retracted != true`. In GROQ a comparison against null evaluates to
 null, and a filter treats null as false — so `retracted != true` would have
 silently hidden every article predating the field, which is all of them. The
 kind of bug that ships green and empties the homepage. Noted in AGENTS.md.
+
+---
+
+## Issue 4 — October 2012 · 22pp · 7 pieces
+
+Two of seven, and the issue that settled the Missionary Story question.
+
+| p | Piece | Byline | Verdict |
+|---|---|---|---|
+| 4 | Maria Clara — painting for Jesus, Talent Search #5, cover | Deepakshi Satman | **publish** — Culture |
+| 8 | "Think of these things" infographic | — | **skip** — and note the small print on the page: *"Remake from www.challies.com"* |
+| 10 | Why God allows problems in our life? | credited "Author: unknown" | **do not publish** — the magazine said so itself. The "If you never had sickness…" list is a widely forwarded anonymous devotional |
+| 12 | What is the Christian view of smoking? | www.gotquestions.org | **do not publish** — third confirmed GotQuestions piece, credited on the contents page |
+| 14 | Waiting on God: The God of our Salvation | Andrew Murray | **your call** — see below |
+| 16 | Pandita Ramabai | Elizabeth Clayton | **replaced** — copied. Rewritten from scratch, see below |
+| 20 | Movie review: *October Baby* | unsigned | **held** — fourth unsigned review in four issues, and the copy reads like a press kit ("Go out and see it right away") |
+
+### Four for four
+
+The Ramabai piece is taken from ["Pandita Ramabai – Founder of Mukti Mission"](https://www.jeevanmarg.com/testimonies/pandita-ramabai-founder-of-mukti-mission/), published on jeevanmarg.com in August 2010, two years before the issue. It is condensed but the sentences are the same, and the pull quote carries the source's own spelling of "Nothing to Loose".
+
+That is four confirmed in four issues:
+
+| Issue | Subject | Source |
+|---|---|---|
+| July 2012 | Graham Staines | English Wikipedia |
+| August 2012 | Martin Luther | Learn Religions (commercial, rights reserved) |
+| September 2012 | George Muller | English Wikipedia |
+| October 2012 | Pandita Ramabai | jeevanmarg.com |
+
+The question is settled. **Assume every remaining Missionary Story is copied** and check it before spending any time on it. There are roughly fourteen left.
+
+Worth saying: the column's *subject choices* were consistently good. Staines, Müller, Ramabai are three of the best available, and Ramabai in particular is exactly who an Indian Christian magazine should have been running in 2012. What was missing was the writing, not the judgment.
+
+### Ramabai, rewritten
+
+Written fresh from her own 1887 book and from Eric J. Sharpe's entry in the *Biographical Dictionary of Christian Missions*. Facts the copied version had wrong or missing:
+
+- Her parents died in the **1874 famine** specifically, which is the fact that explains why she personally went out into the 1896–97 famine to collect children
+- She sailed to England in 1883 **to qualify as a doctor**. Deafness ended it. Every retelling omits this, and it is the detail that shows she meant to come back useful, not to be rescued
+- She was **already going deaf**, and stayed deaf, and ran Mukti anyway
+- She made Sharada Sadan **explicitly non-proselytising** — a baptised Christian, funded by American Christians, who refused to require anything of the widows in her care. Her donors were uneasy and she held the line
+- She taught herself **Hebrew and Greek in her sixties** and translated the Bible into Marathi from the original languages, setting the type on her own press
+- Manorama died in 1921; Ramabai died nine months later
+
+### One word to decide
+
+The word "Hindu" appears twice in the rewritten piece, both times as the title of Ramabai's own book, *The High-Caste Hindu Woman*. Renaming someone's book is not an option, so the choice is to keep the title or to refer to it as "her first English book, published in 1887". Everywhere else the piece uses Brahmin, Sanskrit, the Puranas, caste and orthodox opinion, which is more precise writing in any case.
+
+### The Andrew Murray reprint
+
+Page 14 is a chapter of Andrew Murray's *Waiting on God* (1896), correctly credited to him. Murray died in 1917, so it is public domain and there is no rights problem at all — it is an honest reprint, not a copy.
+
+It is still not our writing, and 1896 devotional prose is a hard sell to the readers this relaunch is aimed at. Left out for now. If you want a classic-reprint strand in the magazine it is a legitimate way to fill a slot, and it should be labelled as a reprint on the page.
+
+### Images: the first good photograph in the archive, and we probably cannot use it
+
+Page 4 carries a 2287 × 1988 photograph of Maria Clara in a garden holding a red canvas of dancing figures. It is the first image in four issues large enough for the overlay hero treatment, and it is properly lit and composed.
+
+That is the problem. Every other archive photograph is around 560 px from a volunteer's camera. This one is a professional shoot — and the interview on the facing page says an AFP photographer took a particular interest in her paintings, and that the photographs ran in *Forbes*, *India Today* and others. Using an agency frame would be a straight repeat of the mistake this whole audit is about.
+
+Imported as `textOnly`, no hero. **The fix is easy and worth doing:** Maria Clara is living, in Hyderabad, blogs her work, and her husband is a Times of India journalist. Ask her. She may have her own photographs of the paintings, and fourteen years of new work since.
+
+---
+
+## Issue 5 — January 2013 · 22pp · 7 pieces
+
+Three of seven. The best rate since August, and the worst single rights finding so far.
+
+| p | Piece | Byline | Verdict |
+|---|---|---|---|
+| 4 | Ricky Biswasi — worship leader, Talent Search #6, cover | Deepakshi Satman | **publish** — Culture |
+| 8 | "Highly exalted by God" (Philippians 2) infographic | — | **skip** — typographic layout, no article |
+| 10 | Tools of a Perfect Prayer | Lorita Das, Kolkata | **publish** — Wellbeing. Checked, original |
+| 12 | Does God love everyone or just Christians? | www.gotquestions.org | **do not publish** — fourth GotQuestions piece, credited on the contents page |
+| 14 | Crossing the Bridge | "Mark" | **held** — not a rights problem, an editorial one. See below |
+| 16 | William Carey | Elizabeth Clayton | **replaced** — copied from a book still in copyright. See below |
+| 20 | Movie review: *What If…* | unsigned | **held** — fifth unsigned review in five issues |
+
+### The worst one yet
+
+The Carey piece is Fred Barlow's "William Carey: Missionary-Evangelist", from *Profiles in Evangelism*, **Sword of the Lord Publishers, © 1976**, reproduced on wholesomewords.org. Word for word, from the opening quotation onward.
+
+This is a different order of problem from the others. Wholesomewords.org publishes it *with permission* — permission granted to them, not to us. Wikipedia at least carries a licence that could have been complied with. This is a commercially published book, in copyright, with a living rights-holder, lifted under a staff byline.
+
+Five confirmed in five issues:
+
+| Issue | Subject | Source | Status |
+|---|---|---|---|
+| July 2012 | Graham Staines | English Wikipedia | CC BY-SA, wrong byline |
+| August 2012 | Martin Luther | Learn Religions | **commercial, © reserved** |
+| September 2012 | George Muller | English Wikipedia | CC BY-SA, wrong byline |
+| October 2012 | Pandita Ramabai | jeevanmarg.com | all rights reserved |
+| January 2013 | William Carey | Fred Barlow, *Profiles in Evangelism*, © 1976 | **book, in copyright** |
+
+Two of the five are in-copyright commercial publications. Nothing from this column goes near the site again without a source check first.
+
+### Carey, rewritten
+
+Written from his own *Enquiry* and the nineteenth-century biographies. What the copied version left out, all of which is better than what it kept:
+
+- He was apprenticed to shoemaking **because sunlight blistered his skin** and he needed an indoor trade
+- Serampore was chosen because it was a **Danish colony**. The East India Company would not permit missionaries, so the whole enterprise ran for years out of a foreign enclave fifteen miles beyond British reach
+- He was a **working botanist** — a five-acre garden, correspondence with Kew, published work on Indian flora, and the founding of the Agri-Horticultural Society of India in 1820
+- **Serampore College**, founded 1818, chartered by Denmark to grant degrees, admitting students regardless of caste or religion. Still open
+- The **1812 fire** destroyed the presses, the type for a dozen languages, and years of manuscripts including a polyglot dictionary. He started again
+- When sati was prohibited in 1829 the edict reached him on a Sunday morning. **He skipped preaching and translated it into Bengali that day** so it could take effect without losing a week
+- He was seventy-two when he died, not seventy-three as the source has it
+
+And the part every version skips: **Dorothy Carey**. She did not want to go. A five-year-old son died of dysentery in a country she had no wish to be in, and she was severely mentally ill for about twelve years until her death in 1807. She is a real cost of this story and she did not choose it. It is in the rewrite.
+
+### "Crossing the Bridge" — held on editorial grounds, not rights
+
+The piece by "Mark" appears to be original, and it is not being held for provenance. It is being held because of what it says.
+
+Its reading of Joshua 3 is that God physically lay down in the Jordan — "just as we do on a couch or bed" — and that the Israelites walked across the top of His body. That is not a metaphor in the writing; the author is explicit that it is what happened, and reasons from a science-lesson analogy about a wooden block displacing water.
+
+That is an eccentric enough claim about the nature of God that publishing it under the magazine's name in 2026 would invite a doctrinal argument nobody needs. Held pending your view — it is your magazine and your theology, and it may be that the author would put it differently now.
+
+### Images
+
+Two on the cover feature. The larger (2325 × 1744) is a sepia composite with worship lyrics set into the artwork — our own 2012 design, but the baked-in type makes it unusable as a hero.
+
+The second (1138 × 1407) is the one worth having: Ricky at a Korg keyboard mid-service, congregation behind him, a lit cross and a Christmas star on the ceiling. An unretouched snapshot, plainly taken in his own church in Jeypore and supplied for the interview. It is a better photograph than the composite in every way that matters — it is documentary, and it shows the life the interview describes. Imported as the hero.

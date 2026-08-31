@@ -299,7 +299,7 @@ export const ARTICLE_QUERY = defineQuery(/* groq */ `
     },
     reviewMeta { workTitle, creator, workType, rating, year },
     archiveMeta {
-      originalPage, republishedAt, editNote,
+      originalPage, republishedAt, rewrittenAt, editNote,
       originalIssue->{ title, "slug": slug.current, issueDate }
     },
     "tags": tags[]->{ name, "slug": slug.current },

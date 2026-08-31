@@ -16,7 +16,7 @@ import { clean } from '@/sanity/stega'
 import { isSectionSlug } from '@/lib/sections'
 import { readingTimeLabel } from '@/lib/reading-time'
 import { absoluteUrl, articleHref, siteName } from '@/lib/site'
-import { formatDate, joinNames } from '@/lib/format'
+import { formatDate, formatMonth, joinNames } from '@/lib/format'
 import { CompactHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { ReadingProgress } from '@/components/ReadingProgress'
@@ -143,7 +143,14 @@ export default async function ArticlePage(props: Props) {
                   {article.archiveMeta?.originalPage
                     ? `, page ${article.archiveMeta.originalPage}`
                     : ''}
-                  .{article.archiveMeta?.editNote ? ` ${article.archiveMeta.editNote}` : ''}
+                  .
+                  {/* Two dates, when there are two. A rewritten piece is the
+                      2012 subject in 2026 words, and saying so is the whole
+                      point of the column being rewritten rather than reprinted. */}
+                  {article.archiveMeta?.rewrittenAt
+                    ? ` Rewritten from primary sources in ${formatMonth(clean(article.archiveMeta.rewrittenAt))}.`
+                    : ''}
+                  {article.archiveMeta?.editNote ? ` ${article.archiveMeta.editNote}` : ''}
                 </p>
               )}
             </ArticleMeta>
