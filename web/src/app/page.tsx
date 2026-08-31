@@ -143,7 +143,11 @@ export default async function HomePage() {
                 <p className="empty">Nothing published yet.</p>
               )}
 
-              <AdSlot slot="D" className="rail__ad" />
+              {/* Slot D (300x600) used to sit here. A skyscraper under a short
+                  Most-read list left more empty rail than list, and an unsold
+                  one is just a hole. Bring it back when there is an advertiser
+                  for it — and consider 300x250 rather than 300x600, which is
+                  the size the rail actually has room for. */}
             </div>
           </aside>
         </div>

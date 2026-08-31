@@ -14,6 +14,21 @@ import { BrushStroke } from './Wordmark'
  * subscribe - and blueprint section 6 makes email the highest-leverage channel
  * by a distance.
  */
+/**
+ * Studio credit lockup. White artwork on transparency, so it needs a dark
+ * surface — the footer is fixed to --inverse-bg in both themes, which is the
+ * only place it appears.
+ *
+ * Served as a plain <img>, not next/image. Next refuses remote SVG through the
+ * optimizer unless `dangerouslyAllowSVG` is set, and turning that on would
+ * loosen the rule for every remote image on the site to save nothing: an SVG
+ * logotype is already a few hundred bytes and has no raster to resize. An SVG
+ * referenced by <img src> cannot run script, so this is the safe half of what
+ * that flag would enable.
+ */
+const TUNEDUP_LOCKUP =
+  'https://res.cloudinary.com/dkaghqnvm/image/upload/v1788069486/TunedUp/logos/full-logo-white-logo_gdhy9d.svg'
+
 export async function SiteFooter() {
   const { data: settings } = await sanityFetch({ query: SITE_SETTINGS_QUERY })
   const scope = settings?.scopeStatement ?? fallbackScope
@@ -106,6 +121,18 @@ export async function SiteFooter() {
 
         <p className="footer-legal">
           © {new Date().getFullYear()} 5Talents Magazine. Published since 2012.
+          <span aria-hidden="true"> · </span>
+          {/* The lockup is white on transparency, so it only works against the
+              dark footer — which is fixed to --inverse-bg in both themes. If
+              this credit ever moves onto a light surface it needs the dark
+              version of the mark, not a CSS filter. */}
+          <span className="footer-credit">
+            <span className="footer-credit__label">Handcrafted by</span>
+            <a href="https://tunedup.one" rel="noopener">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={TUNEDUP_LOCKUP} alt="Tunedup.one" height={15} loading="lazy" decoding="async" />
+            </a>
+          </span>
         </p>
       </div>
     </footer>

@@ -33,7 +33,7 @@ export default async function InterviewsPage() {
         {articles.length === 0 ? (
           <p className="empty">No cover stories published yet.</p>
         ) : (
-          <div className="grid g3">
+          <div className="grid-cards">
             {articles.map((article, index) => (
               <ArticleCard key={article._id} article={article} priority={index === 0} />
             ))}

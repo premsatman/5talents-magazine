@@ -54,6 +54,7 @@ function OverlayCard({
             />
           )}
           <span className="card__scrim" aria-hidden="true" />
+          <span className="card__noise" aria-hidden="true" />
 
           <div className="card__overlaybody">
             {sponsored ? (
@@ -62,7 +63,20 @@ function OverlayCard({
               article.section?.name && <span className="card__okicker">{article.section.name}</span>
             )}
 
-            <h3 className="card__otitle">{article.title}</h3>
+            {/* Two layers. The base is the headline exactly as it reads at
+                rest — its colour never changes. The wipe is a duplicate in ink
+                on yellow, clipped to zero width and opened left to right on
+                hover, so each letter flips as the highlight reaches it and
+                nothing is ever dark type on a dark photograph.
+
+                The duplicate is clean()ed so only the base carries stega and
+                click-to-edit still resolves to one node. */}
+            <h3 className="card__otitle">
+              <span className="card__otitle-base">{article.title}</span>
+              <span className="card__otitle-wipe" aria-hidden="true">
+                <span>{clean(article.title)}</span>
+              </span>
+            </h3>
 
             <p className="card__ometa">
               {[formatDate(article.publishedAt), readingTimeLabel(article.wordCount)]

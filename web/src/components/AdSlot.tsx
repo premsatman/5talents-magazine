@@ -88,6 +88,15 @@ export async function AdSlot({
   // sell yet. With NEXT_PUBLIC_AD_PLACEHOLDERS="false" - which is how the site
   // should ship - enabledSlots governs completely and a disabled slot reserves
   // silent space and renders nothing.
+  // Switched off in settings: render nothing at all. Height is reserved to stop
+  // an arriving ad shifting the page, so reserving it where no ad can ever
+  // arrive buys nothing and costs a hole in the layout — which at slot D's
+  // 300x600 meant more empty rail than rail.
+  if (!live && !showPlaceholders) return null
+
+  // Enabled but currently unsold. Keep the height: this is the position a
+  // client-injected network like AdSense fills after paint, and that is the
+  // shift the reservation exists to prevent.
   if (!showPlaceholders) {
     return <div className={`ad ad--${slot.toLowerCase()} ${className}`} style={{ minHeight: size.h }} aria-hidden="true" />
   }

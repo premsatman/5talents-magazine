@@ -88,7 +88,7 @@ export default async function AuthorPage(props: Props) {
         {articles.length === 0 ? (
           <p className="empty">Nothing published yet.</p>
         ) : (
-          <div className="grid g3">
+          <div className="grid-cards">
             {articles.map((article) => (
               <ArticleCard key={article._id} article={article} />
             ))}

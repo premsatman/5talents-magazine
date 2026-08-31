@@ -300,6 +300,45 @@ blockquote cite {
   margin: 0 0 var(--s-2); letter-spacing: -0.01em;
 }
 .pagehead p { max-width: 60ch; margin: 0; color: var(--ink-secondary); }
+
+/* ---------- section landing head ----------
+   Centred name, deck and sibling links. Bigger and quieter than .pagehead: a
+   section landing is a front door, so the name carries it and there is no rule
+   underneath competing with the card row that follows. */
+.sectionhead {
+  padding-block: var(--s-6) var(--s-4);
+  text-align: center;
+}
+.sectionhead h1 {
+  font-family: var(--font-display);
+  font-size: var(--step-4); line-height: 0.95; letter-spacing: -0.015em;
+  margin: 0;
+}
+.sectionhead__deck {
+  max-width: 46ch; margin: var(--s-3) auto 0;
+  color: var(--ink-secondary); font-size: var(--step-1); font-style: italic;
+  text-wrap: balance;
+}
+.sectionhead__siblings {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: var(--s-2) var(--s-4);
+  margin-top: var(--s-4);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--rule);
+}
+.sectionhead__siblings a {
+  font-family: var(--font-sans); font-weight: 500; font-size: 0.78rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); text-decoration: none;
+  padding-bottom: 2px;
+}
+.sectionhead__siblings a:hover,
+.sectionhead__siblings a:focus-visible {
+  color: var(--ink);
+  background-image: linear-gradient(var(--highlight), var(--highlight));
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em; background-position: 0 92%;
+}
 .prose { max-width: var(--measure); font-size: var(--step-body); }
 .prose h2 {
   font-family: var(--font-sans); font-weight: 600;
@@ -428,6 +467,89 @@ blockquote cite {
 /* ---------- grids ---------- */
 .hero-row { margin-block: var(--s-5) var(--s-6); }
 .grid-3 { display: grid; gap: 4px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+
+/* ---------- synced section hero ----------
+   Below 800px the cards stack and each shows its own photograph.
+   From 800px they share one picture sliced across the row, and hovering
+   a panel crossfades every window onto that panel's image. */
+.hero-sync {
+  --hero-gap: 0.5rem;
+  --hero-cols: 3;
+  display: grid;
+  gap: var(--hero-gap);
+  grid-template-columns: 1fr;
+}
+.hero-sync[data-cols="1"] { --hero-cols: 1; }
+.hero-sync[data-cols="2"] { --hero-cols: 2; }
+.hero-sync[data-cols="3"] { --hero-cols: 3; }
+
+.hero-sync__frame { overflow: hidden; }
+/* Beats `.card__frame img` and `.card--overlay .card__frame img` so the
+   spanning crop is not forced back to 100% of the panel. */
+.hero-sync .hero-sync__frame .hero-sync__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 480ms ease;
+}
+.hero-sync .hero-sync__frame .hero-sync__photo--0 { z-index: 0; }
+.hero-sync .hero-sync__frame .hero-sync__photo--1 { z-index: 1; }
+.hero-sync .hero-sync__frame .hero-sync__photo--2 { z-index: 2; }
+
+/* Stacked: each panel keeps its own featured image. */
+.hero-sync .hero-sync__panel:nth-child(1) .hero-sync__photo--0 { opacity: 1; }
+.hero-sync .hero-sync__panel:nth-child(2) .hero-sync__photo--1 { opacity: 1; }
+.hero-sync .hero-sync__panel:nth-child(3) .hero-sync__photo--2 { opacity: 1; }
+
+.hero-sync .card__scrim,
+.hero-sync .card__noise { z-index: 3; }
+.hero-sync .card__overlaybody { z-index: 4; }
+
+@media (min-width: 800px) {
+  .hero-sync[data-cols="2"],
+  .hero-sync[data-cols="3"] {
+    grid-template-columns: repeat(var(--hero-cols), minmax(0, 1fr));
+  }
+  .hero-sync__panel:nth-child(1) { --hero-shift: 0; }
+  .hero-sync__panel:nth-child(2) { --hero-shift: 1; }
+  .hero-sync__panel:nth-child(3) { --hero-shift: 2; }
+  .hero-sync .hero-sync__frame .hero-sync__photo {
+    inset: auto;
+    top: 0;
+    left: calc(var(--hero-shift, 0) * -1 * (100% + var(--hero-gap)));
+    width: calc(var(--hero-cols) * 100% + (var(--hero-cols) - 1) * var(--hero-gap));
+    height: 100%;
+    transform: none;
+  }
+
+  /* Shared photograph: every window starts on the first image. */
+  .hero-sync .hero-sync__panel:nth-child(2) .hero-sync__photo--1 { opacity: 0; }
+  .hero-sync .hero-sync__panel:nth-child(3) .hero-sync__photo--2 { opacity: 0; }
+  .hero-sync .hero-sync__frame .hero-sync__photo--0 { opacity: 1; }
+
+  .hero-sync:has(.hero-sync__panel:nth-child(2):is(:hover, :focus-within)) .hero-sync__photo--1 { opacity: 1; }
+  .hero-sync:has(.hero-sync__panel:nth-child(3):is(:hover, :focus-within)) .hero-sync__photo--2 { opacity: 1; }
+
+  /* Grain on every window while any panel is hovered, so the photograph
+     reads as one surface rather than three independently reacting. */
+  .hero-sync:has(.hero-sync__panel:is(:hover, :focus-within)) .card__noise {
+    opacity: 0.42;
+    animation: cardgrain 640ms steps(5) infinite;
+  }
+
+  /* A scale on one window would desync the crop from its neighbours. */
+  .hero-sync .card:hover .card__frame img { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-sync .hero-sync__frame .hero-sync__photo { transition: none; }
+  .hero-sync:has(.hero-sync__panel:is(:hover, :focus-within)) .card__noise { animation: none; }
+}
 .grid-compact { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
 .grid-cards { display: grid; gap: var(--s-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
 
@@ -537,7 +659,9 @@ blockquote cite {
 .card__otitle {
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.85rem);
-  line-height: 1.08; letter-spacing: -0.005em;
+  /* 1.08 was tighter than the face. Anton's descenders sat below the line box,
+     so the highlight band missed them and the clip cut them off. */
+  line-height: 1.16; letter-spacing: -0.005em;
   margin: 0 auto var(--s-3); max-width: 18ch;
   text-wrap: balance;
 }
@@ -546,12 +670,88 @@ blockquote cite {
   letter-spacing: 0.14em; text-transform: uppercase;
   color: #E6E3D8; margin: 0;
 }
-/* The brush underline reads as the affordance, in place of a hover colour. */
-.card--overlay:hover .card__otitle {
-  background-image: linear-gradient(var(--highlight), var(--highlight));
-  background-repeat: no-repeat; background-size: 100% 0.28em; background-position: 0 92%;
+/* ---------- overlay card hover ----------
+   The affordance is a highlighter sweeping across the headline, first letter
+   to last, plus a grain wash over the photograph.
+
+   Why two layers rather than a colour change: a highlight that arrives while
+   the type is still cream leaves white on yellow (1.17:1), and switching the
+   type to ink before the yellow lands leaves ink on a dark photograph — which
+   is the bug this replaces. So the base headline keeps its resting colour and
+   is never touched, and a clipped duplicate in ink-on-yellow opens across it.
+   Every letter is legible at every frame of the sweep. */
+
+.card__otitle { position: relative; }
+
+/* The two layers are clipped complementarily — the base retreats from the left
+   at exactly the rate the wipe advances — so the white type is gone wherever
+   the yellow is, rather than sitting behind it. Overlaying alone was not
+   enough: at line-height 1.08 the inline highlight only covers the line box,
+   which on a display face is shorter than the letters, so the white glyphs
+   showed above and below the yellow. */
+.card__otitle-base,
+.card__otitle-wipe {
+  transition: clip-path 460ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+/* Vertical insets are negative so the clip never trims a descender that hangs
+   below the block box — it only ever cuts horizontally, which is all the wipe
+   needs. A flat inset(0 …) here was clipping the tails off g, y and p. */
+.card__otitle-base { display: block; clip-path: inset(-0.3em 0 -0.3em 0); }
+
+.card__otitle-wipe {
+  position: absolute; inset: 0;
+  text-shadow: none;
+  pointer-events: none; user-select: none;
+  /* Must restate what the h3 sets on its own inline content. The wipe is a
+     separate block, so it does not inherit the balancing — and without it the
+     two layers break lines differently and the highlight sits off the type. */
+  text-wrap: balance;
+  /* Closed from the right edge, so it opens left to right. Negative vertical
+     insets for the same reason as the base — never trim a descender. */
+  clip-path: inset(-0.3em 100% -0.3em 0);
+}
+/* Inline, so the yellow follows the line boxes like a real highlighter instead
+   of filling the block as one rectangle. Vertical padding takes the band past
+   the ascenders and descenders; on an inline box it paints without affecting
+   layout, and where consecutive lines overlap it is the same yellow, so the
+   overlap is invisible. The negative horizontal margin cancels the side
+   padding so the duplicate stays registered over the base. */
+.card__otitle-wipe > span {
+  background: var(--highlight);
   color: #14130E;
+  padding: 0.14em 0.08em; margin: 0 -0.08em;
   box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+
+.card--overlay:hover .card__otitle-wipe,
+.card__overlaylink:focus-visible .card__otitle-wipe { clip-path: inset(-0.3em 0 -0.3em 0); }
+.card--overlay:hover .card__otitle-base,
+.card__overlaylink:focus-visible .card__otitle-base { clip-path: inset(-0.3em 0 -0.3em 100%); }
+
+/* Film grain over the photograph. Tiled SVG turbulence, jittered by moving the
+   background rather than regenerating the noise — no repaint of the filter,
+   so it stays cheap. */
+.card__noise {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  transition: opacity 240ms ease;
+}
+.card--overlay:hover .card__noise,
+.card__overlaylink:focus-visible .card__noise {
+  opacity: 0.42;
+  animation: cardgrain 640ms steps(5) infinite;
+}
+@keyframes cardgrain {
+  0%   { background-position:   0px   0px; }
+  20%  { background-position: -14px   9px; }
+  40%  { background-position:  15px -11px; }
+  60%  { background-position:  -9px -16px; }
+  80%  { background-position:  11px  13px; }
+  100% { background-position:   0px   0px; }
 }
 .card--overlay .splabel { margin-bottom: var(--s-2); }
 .card--overlay.card--placeholder .card__frame { border: 1px dashed var(--ink-muted); }
@@ -560,8 +760,13 @@ blockquote cite {
 .card--overlay.card--placeholder .card__okicker,
 .card--overlay.card--placeholder .card__ometa { color: #FDFCF7; }
 
+/* Reduced motion keeps the affordance and drops the movement: the highlight
+   appears at once instead of sweeping, and the grain holds still. */
 @media (prefers-reduced-motion: reduce) {
-  .card--overlay:hover .card__otitle { background-image: none; color: #FDFCF7; }
+  .card__otitle-wipe, .card__otitle-base { transition: none; }
+  .card__noise { transition: none; }
+  .card--overlay:hover .card__noise,
+  .card__overlaylink:focus-visible .card__noise { animation: none; }
 }
 
 .card--portrait .card__title { font-size: var(--step-2); }
@@ -657,6 +862,31 @@ footer.site :focus-visible { outline-color: var(--highlight); }
 .footer-legal {
   font-family: var(--font-sans); font-size: 0.76rem; color: var(--inverse-muted);
   margin: var(--s-3) 0 0; padding-bottom: var(--s-5);
+}
+/* Studio credit. The lockup is white artwork on transparency, so it needs no
+   colour of its own — it is held back with opacity and comes up to full on
+   hover. No underline: a rule under a logotype reads as a mistake. */
+.footer-credit {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  white-space: nowrap;
+}
+.footer-credit__label { color: var(--inverse-muted); }
+.footer-credit a {
+  display: inline-flex; align-items: center;
+  opacity: 0.66;
+  transition: opacity 200ms ease-out;
+}
+.footer-credit a:hover,
+.footer-credit a:focus-visible { opacity: 1; }
+.footer-credit img {
+  /* Height-driven; the width follows whatever ratio the SVG declares, so the
+     lockup can be re-drawn without touching this. Capped so a malformed or
+     ratio-less SVG cannot stretch the line. */
+  height: 15px; width: auto; max-width: 120px;
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-credit a { transition: none; }
 }
 
 /* ==========================================================================
@@ -973,3 +1203,33 @@ nav.primary.compact { border-top: 0; }
   font-family: var(--font-sans); font-size: 0.76rem; letter-spacing: 0.06em;
   color: var(--ink-muted); margin-top: var(--s-2);
 }
+
+/* Editor's note - the magazine's own voice inside someone else's article.
+   Sunk panel rather than a rule, so it reads as a different surface and not
+   as an emphasised paragraph of the piece. Deliberately quiet: it frames the
+   article, it does not compete with the opening. */
+.ednote {
+  margin: 0 0 var(--s-6);
+  padding: var(--s-4) var(--s-5);
+  background: var(--sunk);
+  border-left: 3px solid var(--ink-muted);
+  border-radius: 2px;
+}
+.ednote--foot { margin: var(--s-7) 0 0; }
+.ednote p {
+  margin: 0;
+  font-size: calc(var(--step-body) * 0.92);
+  line-height: 1.6;
+  color: var(--ink-secondary);
+}
+.ednote__label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  margin-bottom: var(--s-2) !important;
+}
+/* A note above the article must not take the drop cap - that belongs to the
+   first real paragraph of the piece. */
+.body--opening .ednote + p::first-letter { initial-letter: unset; }

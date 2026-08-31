@@ -33,7 +33,7 @@ export default async function TalentSearchPage() {
         {articles.length === 0 ? (
           <p className="empty">No profiles published yet.</p>
         ) : (
-          <div className="grid g3">
+          <div className="grid-cards">
             {articles.map((article, index) => (
               <ArticleCard key={article._id} article={article} priority={index === 0} />
             ))}
