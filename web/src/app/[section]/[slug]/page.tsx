@@ -12,6 +12,7 @@ import {
   ARTICLE_SIDEBAR_QUERY,
 } from '@/sanity/queries'
 import { urlFor, imgAlt, imgBlur, imgCaption } from '@/sanity/image'
+import { cloudinaryUrl } from '@/sanity/media'
 import { clean } from '@/sanity/stega'
 import { isSectionSlug } from '@/lib/sections'
 import { readingTimeLabel } from '@/lib/reading-time'
@@ -52,7 +53,22 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   const title = data.seo?.title ?? data.title ?? undefined
   const description = data.seo?.description ?? data.deck ?? undefined
-  const image = data.seo?.ogImage?.asset?.url ?? data.hero?.asset?.url
+
+  // The fallback used to stop at hero.asset, which silently dropped the share
+  // image for every article whose lead picture is hosted on Cloudinary - 11 of
+  // the first 18. The order matches resolveMedia: an external URL beats an
+  // upload, so the card shows the same picture as the page.
+  //
+  // Both sources are asked for 1200x630, the size every scraper crops to.
+  const sized = (url: string) => `${url}?w=1200&h=630&fit=crop&auto=format`
+
+  const image = data.seo?.ogImage?.asset?.url
+    ? sized(data.seo.ogImage.asset.url)
+    : data.heroExternal?.url
+      ? cloudinaryUrl(data.heroExternal.url, 1200, 630)
+      : data.hero?.asset?.url
+        ? sized(data.hero.asset.url)
+        : undefined
 
   return {
     title,
@@ -65,7 +81,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       description,
       publishedTime: data.publishedAt ?? undefined,
       authors: (data.authors ?? []).map((a) => a?.name).filter(Boolean) as string[],
-      images: image ? [{ url: image }] : undefined,
+      images: image ? [{ url: image, width: 1200, height: 630 }] : undefined,
     },
     twitter: { card: 'summary_large_image' },
   }

@@ -15,6 +15,16 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: schema.json
+export type ExternalImage = {
+  _type: "externalImage";
+  url?: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+  caption?: string;
+  credit?: string;
+};
+
 export type SanityImageAssetReference = {
   _ref: string;
   _type: "reference";
@@ -50,6 +60,21 @@ export type BlockContent = Array<
       caption?: string;
       credit?: string;
       _type: "image";
+      _key: string;
+    }
+  | ({
+      _key: string;
+    } & ExternalImage)
+  | {
+      text?: string;
+      attribution?: string;
+      _type: "verse";
+      _key: string;
+    }
+  | {
+      text?: string;
+      placement?: "top" | "foot";
+      _type: "editorsNote";
       _key: string;
     }
   | {
@@ -240,6 +265,7 @@ export type Article = {
     credit?: string;
     _type: "image";
   };
+  heroExternal?: ExternalImage;
   body?: BlockContent;
   kind?: "feature" | "interview" | "review" | "essay";
   section?: SectionReference;
@@ -255,6 +281,9 @@ export type Article = {
   >;
   publishedAt?: string;
   featured?: "none" | "hero" | "featured";
+  retracted?: boolean;
+  retractedAt?: string;
+  retractionNote?: string;
   relatedArticles?: Array<
     {
       _key: string;
@@ -287,6 +316,7 @@ export type Article = {
     originalIssue?: ArchiveIssueReference;
     originalPage?: number;
     republishedAt?: string;
+    rewrittenAt?: string;
     editNote?: string;
     rightsCleared?: "full" | "textOnly" | "unchecked";
   };
@@ -489,6 +519,7 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
+  | ExternalImage
   | SanityImageAssetReference
   | BlockContent
   | AuthorReference
@@ -635,7 +666,14 @@ export type HOME_HERO_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -683,7 +721,14 @@ export type HOME_COMPACT_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -726,7 +771,14 @@ export type HOME_TALENT_SEARCH_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -769,7 +821,14 @@ export type HOME_LATEST_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -816,7 +875,14 @@ export type HOME_SECTIONS_QUERY_RESULT = Array<{
       hotspot: SanityImageHotspot | null;
       crop: SanityImageCrop | null;
     } | null;
-    heroExternal: null;
+    heroExternal: {
+      url: string | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      caption: string | null;
+      credit: string | null;
+    } | null;
     authors: Array<{
       name: string | null;
       slug: string | null;
@@ -860,7 +926,14 @@ export type HOME_TAIL_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -903,7 +976,14 @@ export type HOME_RAIL_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -946,7 +1026,14 @@ export type HOME_SECTION_FEATURE_QUERY_RESULT = {
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1014,7 +1101,14 @@ export type SEARCH_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1084,7 +1178,14 @@ export type SECTION_ARTICLES_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1143,7 +1244,14 @@ export type TAG_ARTICLES_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1232,7 +1340,14 @@ export type AUTHOR_ARTICLES_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1282,7 +1397,14 @@ export type ARTICLE_QUERY_RESULT = {
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   body: Array<
     | {
         children?: Array<{
@@ -1301,6 +1423,24 @@ export type ARTICLE_QUERY_RESULT = {
         level?: number;
         _type: "block";
         _key: string;
+      }
+    | {
+        text?: string;
+        placement?: "foot" | "top";
+        _type: "editorsNote";
+        _key: string;
+        markDefs: null;
+      }
+    | {
+        _key: string;
+        _type: "externalImage";
+        url: string | null;
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        caption: string | null;
+        credit: string | null;
+        markDefs: null;
       }
     | {
         asset: {
@@ -1326,6 +1466,13 @@ export type ARTICLE_QUERY_RESULT = {
         attribution?: string;
         highlightPhrase?: string;
         _type: "pullQuote";
+        _key: string;
+        markDefs: null;
+      }
+    | {
+        text?: string;
+        attribution?: string;
+        _type: "verse";
         _key: string;
         markDefs: null;
       }
@@ -1404,7 +1551,7 @@ export type ARTICLE_QUERY_RESULT = {
   archiveMeta: {
     originalPage: number | null;
     republishedAt: string | null;
-    rewrittenAt: null;
+    rewrittenAt: string | null;
     editNote: string | null;
     originalIssue: {
       title: string | null;
@@ -1443,7 +1590,14 @@ export type ARTICLE_QUERY_RESULT = {
       hotspot: SanityImageHotspot | null;
       crop: SanityImageCrop | null;
     } | null;
-    heroExternal: null;
+    heroExternal: {
+      url: string | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      caption: string | null;
+      credit: string | null;
+    } | null;
     authors: Array<{
       name: string | null;
       slug: string | null;
@@ -1493,7 +1647,9 @@ export type ARTICLE_SEO_QUERY_RESULT = {
       url: string | null;
     } | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+  } | null;
   seo: {
     title: string | null;
     description: string | null;
@@ -1544,7 +1700,14 @@ export type ARTICLE_SIDEBAR_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1587,7 +1750,14 @@ export type ARTICLE_FALLBACK_RELATED_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1630,7 +1800,14 @@ export type COVER_STORIES_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1678,7 +1855,14 @@ export type TALENT_SEARCH_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  heroExternal: null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
