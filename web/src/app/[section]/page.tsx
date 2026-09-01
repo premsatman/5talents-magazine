@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { sanityFetch } from '@/sanity/live'
+import { freshClient } from '@/sanity/client'
 import { NAV_SECTIONS_QUERY, SECTION_ARTICLES_QUERY, SECTION_QUERY } from '@/sanity/queries'
 import { clean } from '@/sanity/stega'
 import { SECTION_SLUGS, isSectionSlug } from '@/lib/sections'
@@ -30,11 +31,12 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const { section } = await props.params
   if (!isSectionSlug(section)) return {}
 
-  const { data } = await sanityFetch({
+  const { data: live } = await sanityFetch({
     query: SECTION_QUERY,
     params: { slug: section },
     stega: false,
   })
+  const data = live ?? (await freshClient.fetch(SECTION_QUERY, { slug: section }))
   if (!data) return {}
 
   return {
@@ -54,7 +56,13 @@ export default async function SectionPage(props: Props) {
     sanityFetch({ query: NAV_SECTIONS_QUERY, stega: false }),
   ])
 
-  if (!meta.data) notFound()
+  // Live fetch can return null for a section that is definitely in the dataset
+  // (seen on /culture while /faith on the same request was fine). Articles for
+  // that slug still arrive. Fall back to an uncached API read before 404ing.
+  const sectionMeta =
+    meta.data ?? (await freshClient.fetch(SECTION_QUERY, { slug: section }))
+
+  if (!sectionMeta) notFound()
   const articles = (list.data ?? []) as ArticleCardData[]
 
   // Structure adapted from relevantmagazine.com/faith-2/, measured 30 Aug 2026:
@@ -77,8 +85,8 @@ export default async function SectionPage(props: Props) {
       <SiteHeader />
       <main>
         <div className="wrap sectionhead">
-          <h1>{meta.data.name}</h1>
-          {meta.data.description && <p className="sectionhead__deck">{meta.data.description}</p>}
+          <h1>{sectionMeta.name}</h1>
+          {sectionMeta.description && <p className="sectionhead__deck">{sectionMeta.description}</p>}
 
           {siblings.length > 0 && (
             <nav className="sectionhead__siblings" aria-label="Other sections">
@@ -97,7 +105,7 @@ export default async function SectionPage(props: Props) {
           </div>
         ) : (
           <>
-            <HeroSync articles={featured} label={`Latest in ${meta.data.name}`} />
+            <HeroSync articles={featured} label={`Latest in ${sectionMeta.name}`} />
 
             {rest.length > 0 && (
               <>
@@ -108,7 +116,7 @@ export default async function SectionPage(props: Props) {
                 <section className="wrap" aria-labelledby="more-head">
                   <div className="sechead">
                     <h2 className="brush-rule" id="more-head">
-                      More from {meta.data.name}
+                      More from {sectionMeta.name}
                     </h2>
                   </div>
                   {/* Was `grid g3` - neither class exists in globals.css, so this
