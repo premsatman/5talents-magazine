@@ -67,18 +67,28 @@ export const AD_SIZES = {
   // properly here, and still off by default in siteSettings.
   A: { w: 970, h: 250, label: 'Billboard', accepts: ['970×250', '970×90', '728×90', '320×100'] },
 
-  B: { w: 728, h: 90, label: 'Leaderboard', accepts: ['728×90', '320×50'] },
-  C: { w: 728, h: 90, label: 'Leaderboard', accepts: ['728×90', '320×50'] },
+  // In-article units float left with the text wrapping beside them, so they are
+  // rectangles rather than leaderboards. A 728-wide banner spans the whole
+  // measure and can only sit between paragraphs; 336x280 leaves roughly 320px
+  // of text alongside, which is a readable column and the shape advertisers
+  // most want after the leaderboard.
+  B: { w: 336, h: 280, label: 'Large rectangle', accepts: ['336×280', '300×250'] },
+  C: { w: 336, h: 280, label: 'Large rectangle', accepts: ['336×280', '300×250'] },
 
   D: { w: 300, h: 600, label: 'Half page', accepts: ['300×600', '300×250'] },
   E: { w: 336, h: 280, label: 'Large rectangle', accepts: ['336×280', '300×250'] },
 
-  // Large leaderboard before each section heading. 970 wide fits the 1200px
-  // measure with margin either side; it falls back to 728 on narrower screens.
-  F: { w: 970, h: 90, label: 'Large leaderboard', accepts: ['970×90', '728×90', '320×50'] },
+  /**
+   * Large leaderboard between section blocks. 970 wide sits inside the 1200px
+   * measure with margin either side, and steps to 728 on narrower screens.
+   *
+   * On a phone it becomes a 320x100 large mobile banner rather than the 320x50
+   * it used to collapse to. Stretched to phone width a 90px unit reads as a
+   * horizontal rule rather than an advertisement, which is worth nothing to
+   * sell - the height is what makes it an ad, not the width.
+   */
+  F: { w: 970, h: 90, label: 'Large leaderboard', accepts: ['970×90', '728×90', '320×100'] },
 
-  G: { w: 600, h: 150, label: 'Newsletter', accepts: ['600×150'] },
-  H: { w: 300, h: 250, label: 'House ad', accepts: ['300×250'] },
 
   /**
    * Gutter skyscrapers, fixed in the empty margins either side of the 1200px

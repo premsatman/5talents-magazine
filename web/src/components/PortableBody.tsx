@@ -8,17 +8,30 @@ import { AdSlot } from './AdSlot'
 
 type Block = { _type?: string; style?: string; [key: string]: unknown }
 
+/**
+ * A picture inside the article.
+ *
+ * Rendered at just under half the measure and centred, so it reads as an
+ * illustration within the piece rather than a second hero. The hero is the
+ * full-width photograph; anything below it competing at that size flattens the
+ * hierarchy of the page.
+ *
+ * The request is 800px wide, not 1200. At 46% of a 68ch measure the image
+ * paints around 320px, so 800 covers a 2x screen with room to spare - asking
+ * for 1200 was serving well over twice the pixels the slot uses, on the
+ * connections least able to afford them.
+ */
 function BodyImage({ sanity, external }: { sanity?: ImageLike; external?: ExternalImage }) {
-  const media = resolveMedia(sanity, external, { width: 1200 })
+  const media = resolveMedia(sanity, external, { width: 800 })
   if (!media) return null
   return (
-    <figure>
+    <figure className="bodyfig">
       <Image
         src={media.src}
         alt={media.alt}
         width={media.width}
         height={media.height}
-        sizes="(max-width: 720px) 100vw, 720px"
+        sizes="(max-width: 700px) 78vw, 320px"
         placeholder={media.blur ? 'blur' : 'empty'}
         blurDataURL={media.blur}
       />
@@ -112,14 +125,27 @@ const components: PortableTextComponents = {
  *
  * The count is of paragraphs specifically, not of blocks, so a subhead or an
  * image does not push an ad earlier than intended.
+ *
+ * The ad opens the chunk it belongs to rather than closing the one before it.
+ * That is what lets the text wrap: a unit sitting *between* two blocks of prose
+ * can only ever be a full-width band, whereas one floated at the head of the
+ * following block has paragraphs running down beside it. Same position in the
+ * reading order, a fraction of the vertical space.
  */
 export function PortableBody({ value }: { value: unknown }) {
   const blocks = (value ?? []) as Block[]
   if (!Array.isArray(blocks) || blocks.length === 0) return null
 
-  const chunks: { blocks: Block[]; adAfter?: 'B' | 'C' }[] = []
+  const chunks: { blocks: Block[]; adBefore?: 'B' | 'C' }[] = []
   let current: Block[] = []
   let paragraphs = 0
+  let pending: 'B' | 'C' | undefined
+
+  const flush = (next?: 'B' | 'C') => {
+    chunks.push({ blocks: current, adBefore: pending })
+    pending = next
+    current = []
+  }
 
   for (const block of blocks) {
     current.push(block)
@@ -127,25 +153,18 @@ export function PortableBody({ value }: { value: unknown }) {
     if (!isParagraph) continue
 
     paragraphs += 1
-    if (paragraphs === 3) {
-      chunks.push({ blocks: current, adAfter: 'B' })
-      current = []
-    } else if (paragraphs === 8) {
-      chunks.push({ blocks: current, adAfter: 'C' })
-      current = []
-    }
+    if (paragraphs === 3) flush('B')
+    else if (paragraphs === 8) flush('C')
   }
-  if (current.length) chunks.push({ blocks: current })
+  if (current.length || pending) flush()
 
   return (
     <>
       {chunks.map((chunk, index) => (
-        <div key={index}>
-          <div className={index === 0 ? 'body body--opening' : 'body'}>
-            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-            <PortableText value={chunk.blocks as any} components={components} />
-          </div>
-          {chunk.adAfter && <AdSlot slot={chunk.adAfter} />}
+        <div className={index === 0 ? 'body body--opening' : 'body'} key={index}>
+          {chunk.adBefore && <AdSlot slot={chunk.adBefore} className="ad--inbody" />}
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          <PortableText value={chunk.blocks as any} components={components} />
         </div>
       ))}
     </>

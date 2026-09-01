@@ -199,6 +199,27 @@ figcaption { font-family: var(--font-sans); font-size: 0.76rem; color: var(--ink
 .body a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .body figure { margin: var(--s-5) 0; }
 
+/* Pictures inside the article run at just under half the measure, centred.
+   The hero is the full-width photograph; anything below it at the same size
+   competes with it and flattens the page. On a phone a third of 375px is a
+   thumbnail, so the share goes up as the column narrows. */
+.body figure.bodyfig {
+  max-width: 46%;
+  margin-inline: auto;
+  clear: both;
+}
+.body figure.bodyfig img { width: 100%; height: auto; }
+.body figure.bodyfig figcaption { text-align: center; }
+
+/* Floats escape their parent unless something contains them, which on a short
+   final chunk would drop an in-article ad through the author card and into the
+   footer. Subheads clear too, so a section never opens level with an advert. */
+.body::after { content: ''; display: table; clear: both; }
+.body h2, .body h3 { clear: both; }
+@media (max-width: 700px) {
+  .body figure.bodyfig { max-width: 78%; }
+}
+
 blockquote { margin: var(--s-6) 0; padding: 0; border: 0; }
 blockquote p { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.18; margin: 0; }
 blockquote cite {
@@ -449,13 +470,25 @@ blockquote cite {
   .ad--a.ad--empty .ad__frame,
   .ad--f.ad--empty .ad__frame { width: 728px !important; height: 90px !important; }
 }
+
+/* On a phone a leaderboard is the wrong unit entirely. Stretched to 375px a
+   970x90 becomes a 35px sliver - it reads as a rule, not an ad, and it is worth
+   almost nothing to sell. The wide slots therefore become 320x100, the IAB
+   large mobile banner, which is a real unit at a real price.
+   B and C are 336x280 rectangles now and keep their own shape; they are only
+   unfloated and centred, never flattened. */
 @media (max-width: 780px) {
-  .ad--empty .ad__frame { width: 100% !important; max-width: 100%; }
-  .ad--a.ad--empty .ad__frame { height: 100px !important; }   /* 320x100 */
-  .ad--b.ad--empty .ad__frame,
-  .ad--c.ad--empty .ad__frame,
-  .ad--f.ad--empty .ad__frame { height: 50px !important; }    /* 320x50  */
-  .ad--d.ad--empty .ad__frame { height: 250px !important; }   /* 300x250 */
+  /* The two wide units become a large mobile banner - 100px tall, not the 50
+     it used to be. A 35px band reads as a rule, not an advertisement. */
+  .ad--a.ad--empty .ad__frame,
+  .ad--f.ad--empty .ad__frame {
+    width: 100% !important; max-width: 320px; height: 100px !important;   /* 320x100 */
+  }
+  /* Everything else is already a rectangle and simply keeps its shape. The
+     half-page is the one exception: 600px of ad on a phone is a wall. */
+  .ad--d.ad--empty .ad__frame {
+    width: 100% !important; max-width: 300px; height: 250px !important;   /* 300x250 */
+  }
 }
 
 /* A booked creative keeps its aspect and shrinks to fit. The width and height
@@ -463,6 +496,38 @@ blockquote cite {
    layout shift. */
 .ad--filled .ad__frame { width: auto !important; height: auto !important; max-width: 100%; }
 .ad--filled img { max-width: 100%; height: auto; }
+
+/* ---------- in-article ads ----------
+   Floated left with the prose running beside them. This block has to sit AFTER
+   the generic .ad rules: both are single-class selectors, so the later one wins
+   and `.ad { align-items: center }` was quietly cancelling the alignment here.
+
+   The width is pinned rather than left to shrink-to-fit, because a filled slot
+   sets `width: auto` on its frame and would otherwise size itself to the 2x
+   creative and swallow the whole measure - leaving nothing for text to wrap
+   into, which looks exactly like the float having failed. */
+.body .ad--inbody {
+  float: left;
+  align-items: flex-start;
+  width: 336px;
+  max-width: 100%;
+  margin: var(--s-2) var(--s-5) var(--s-4) 0;
+}
+.body .ad--inbody .ad__frame { width: 336px !important; max-width: 100%; }
+.body .ad--inbody.ad--filled .ad__frame { height: auto !important; }
+.body .ad--inbody img { width: 100%; height: auto; }
+.body .ad--inbody .ad__label { align-self: flex-start; }
+
+/* Under about 720px there is no room for 336px of ad plus a readable column,
+   so it stops floating and becomes a centred block. */
+@media (max-width: 720px) {
+  .body .ad--inbody {
+    float: none;
+    align-items: center;
+    width: 336px;
+    margin: var(--s-5) auto;
+  }
+}
 
 /* ---------- grids ---------- */
 .hero-row { margin-block: var(--s-5) var(--s-6); }
