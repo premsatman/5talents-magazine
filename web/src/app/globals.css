@@ -10,6 +10,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+html { overflow-x: clip; }
 body {
   margin: 0;
   background: var(--paper);
@@ -18,6 +19,7 @@ body {
   font-size: var(--step-0);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -102,7 +104,8 @@ a { color: inherit; }
 .newsletter p { max-width: 46ch; margin: 0 auto var(--s-4); font-size: 1.02rem; }
 .nlform { display: flex; flex-wrap: wrap; gap: var(--s-2); justify-content: center; }
 .nlform input {
-  font: inherit; font-family: var(--font-sans); padding: 12px 14px; min-width: 260px;
+  font: inherit; font-family: var(--font-sans); padding: 12px 14px;
+  min-width: 0; width: min(260px, 100%);
   border: 2px solid #14130E; background: #FDFCF7; color: #14130E; border-radius: var(--radius);
 }
 .nlform button {
@@ -157,6 +160,7 @@ a { color: inherit; }
 .piecehero h1 {
   font-family: var(--font-display); font-size: var(--step-4); line-height: 0.95;
   letter-spacing: -0.015em; margin: var(--s-3) 0;
+  overflow-wrap: break-word;
 }
 .deck {
   font-size: var(--step-1); font-style: italic; color: var(--ink-secondary);
@@ -171,7 +175,7 @@ a { color: inherit; }
 
 figcaption { font-family: var(--font-sans); font-size: 0.76rem; color: var(--ink-muted); margin-top: var(--s-2); }
 
-.body { max-width: var(--measure); font-size: var(--step-body); }
+.body { max-width: var(--measure); font-size: var(--step-body); overflow-wrap: break-word; }
 .body p { margin: 0 0 var(--s-4); line-height: 1.7; }
 /* Drop cap on the opening paragraph of the article and nowhere else. The body
    is split into chunks around the in-article ads, so `.body > p:first-of-type`
@@ -276,8 +280,9 @@ blockquote cite {
 .piece-main  { grid-area: main; }
 .piece-aside { grid-area: rail; }
 
-.piece-layout { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--s-4); }
-.piece-layout .col { padding-inline: 0; max-width: none; }
+.piece-layout { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--s-4); min-width: 0; }
+.piece-layout .col { padding-inline: 0; max-width: none; min-width: 0; }
+.piece-meta, .piece-main, .piece-aside { min-width: 0; }
 
 @media (min-width: 1024px) {
   .piece-layout {
@@ -1096,8 +1101,16 @@ nav.primary.compact { border-top: 0; }
 @media (max-width: 900px) {
   .navtoggle { display: grid; }
   .primary__list { display: none; }
-  .primary__bar { justify-content: space-between; }
-  .searchform--compact input { width: 130px; }
+  .primary__bar { justify-content: space-between; min-width: 0; gap: var(--s-2); }
+  .minilogo { font-size: 1.25rem; margin-right: 0; }
+  .searchform--compact { max-width: min(200px, calc(100vw - 9.5rem)); }
+  .searchform--compact input { width: 100%; min-width: 0; flex: 1 1 auto; }
+
+  /* Article chrome: hamburger, wordmark, search. The dark utility row
+     crams five labels into 390px and is what shoved the page sideways. */
+  .utility--quiet { display: none; }
+  .util-lede, .util-secondary { display: none; }
+  .utility .wrap { justify-content: flex-end; }
 }
 @media (min-width: 901px) {
   .drawer { display: none !important; }
@@ -1177,20 +1190,23 @@ nav.primary.compact { border-top: 0; }
 .piecehero__frame img { width: 100%; height: 100%; object-fit: cover; }
 
 .piecehero--overlay .piecehero__frame {
+  /* Width must be definite. min-height + aspect-ratio with width:auto lets
+     the box grow sideways (340 × 4/3 = 453px) and the page pans on a phone. */
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
   /* 4:3 on a phone so a face survives the crop, widening to 2:1 on a desktop
      where there is room for the type beside it. */
   aspect-ratio: 4 / 3;
-  min-height: 340px;
 }
-@media (min-width: 700px)  { .piecehero--overlay .piecehero__frame { aspect-ratio: 16 / 9; } }
+@media (min-width: 700px)  {
+  .piecehero--overlay .piecehero__frame {
+    aspect-ratio: 16 / 9;
+    min-height: 340px;
+  }
+}
 @media (min-width: 1100px) {
   .piecehero--overlay .piecehero__frame { aspect-ratio: 2 / 1; }
-}
-/* Held to the measure and centred, so the overlaid headline sits on the same
-   axis as the body copy below it. Capping height alone left it shrunk and
-   pinned to the left edge. */
-.piecehero--overlay .piecehero__frame {
-  max-width: var(--wrap); margin-inline: auto;
 }
 
 /* Only the headline sits on the photograph now, so the wash can be lighter
@@ -1220,6 +1236,7 @@ nav.primary.compact { border-top: 0; }
   font-size: calc(var(--step-3) * var(--display-scale));
   max-width: 24ch; margin: 0 auto;
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
 .piecehero__below { padding-top: var(--s-4); }
 .piecehero__below .crumb { display: block; margin-bottom: var(--s-2); }

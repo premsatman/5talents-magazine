@@ -250,7 +250,7 @@ export const TAG_SLUGS_QUERY = defineQuery(/* groq */ `
 
 export const AUTHOR_QUERY = defineQuery(/* groq */ `
   *[_type == "author" && slug.current == $slug][0]{
-    name, "slug": slug.current, bio, role, institution, country, isStaff,
+    name, "slug": slug.current, bio, role, institution, country, isStaff, died,
     photo { ${imageFragment} },
     socials[]{ platform, url }
   }
@@ -289,7 +289,7 @@ export const ARTICLE_QUERY = defineQuery(/* groq */ `
       markDefs[]{ ... }
     },
     "authors": authors[]->{
-      name, "slug": slug.current, bio, role, institution,
+      name, "slug": slug.current, bio, role, institution, died,
       photo { ${imageFragment} }
     },
     "sponsor": sponsor->{ name, url, logo { ${imageFragment} } },

@@ -56,14 +56,20 @@ async function navItems(): Promise<NavItem[]> {
  * contributor accounts and paid memberships "a year away at least". A login
  * button with nothing behind it is worse than no login button.
  */
-export function UtilityBar() {
+export function UtilityBar({ quiet = false }: { quiet?: boolean }) {
   return (
-    <div className="utility">
+    <div className={quiet ? 'utility utility--quiet' : 'utility'}>
       <div className="wrap">
-        <Link href="/archive">Published since 2012 · 18 issues</Link>
+        <Link className="util-lede" href="/archive">
+          Published since 2012 · 18 issues
+        </Link>
         <div className="util-right">
-          <Link href="/write-for-us">Write for us</Link>
-          <Link href="/advertise">Advertise</Link>
+          <Link className="util-secondary" href="/write-for-us">
+            Write for us
+          </Link>
+          <Link className="util-secondary" href="/advertise">
+            Advertise
+          </Link>
           <ThemeToggle />
           <Link className="subscribebtn" href="#newsletter">
             Subscribe
@@ -99,7 +105,7 @@ export async function CompactHeader() {
   const items = await navItems()
   return (
     <>
-      <UtilityBar />
+      <UtilityBar quiet />
       <PrimaryNav items={items} compact />
     </>
   )

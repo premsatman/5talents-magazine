@@ -27,6 +27,21 @@ import { SponsorLabel, isSponsored } from './SponsorLabel'
  */
 const MIN_OVERLAY_WIDTH = 1400
 
+/**
+ * ...and it has to be a landscape photograph, not merely a large one.
+ *
+ * Width alone was not enough. Peggy Kennedy's portrait in the June 2013 issue
+ * is 1815x2024 - comfortably over the width threshold, and the wrong shape
+ * entirely. Cropping a portrait to the hero's 2:1 throws away more than half
+ * its height, and on a headshot that means a horizontal band across somebody's
+ * eyes.
+ *
+ * A source has to be at least half again as wide as it is tall before the
+ * overlay is allowed to crop it. Anything squarer or taller falls to the
+ * stacked treatment and keeps its own proportions.
+ */
+const MIN_OVERLAY_RATIO = 1.5
+
 type HeroArticle = {
   title?: string | null
   deck?: string | null
@@ -117,7 +132,10 @@ export function ArticleHero({ article }: { article: HeroArticle }) {
   // Cloudinary and referenced by URL. Everything below is source-agnostic.
   const wide = resolveMedia(article.hero, article.heroExternal, { width: 2400, height: 1200 })
   const width = wide?.sourceWidth ?? 0
-  const overlay = Boolean(wide) && width >= MIN_OVERLAY_WIDTH
+  const height = wide?.sourceHeight ?? 0
+  // Landscape and large. Either test on its own lets the wrong picture through.
+  const landscape = height > 0 && width / height >= MIN_OVERLAY_RATIO
+  const overlay = Boolean(wide) && width >= MIN_OVERLAY_WIDTH && landscape
 
   /* ---- Overlay: headline over the photograph ------------------------- */
   if (overlay && wide) {

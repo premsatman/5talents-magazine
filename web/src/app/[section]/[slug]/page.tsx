@@ -220,6 +220,14 @@ export default async function ArticlePage(props: Props) {
                         author?.name
                       )}
                     </h3>
+                    {/* A contributor who has died. Stated plainly and once,
+                        under the name, so a reader is not left writing to
+                        somebody who cannot answer. */}
+                    {author?.died && (
+                      <p className="note">
+                        <em>In memoriam. Died {formatDate(clean(author.died))}.</em>
+                      </p>
+                    )}
                     {author?.bio && <p>{author.bio}</p>}
                   </div>
                 </div>

@@ -46,8 +46,11 @@ export type Media = {
   alt: string
   caption: string
   blur?: string
-  /** Intrinsic width of the original, for the hero's overlay decision. */
+  /** Intrinsic size of the original, for the hero's overlay decision. The
+   *  height matters as much as the width: the overlay crops to 2:1, so a tall
+   *  source has to be refused however many pixels across it is. */
   sourceWidth: number
+  sourceHeight: number
   from: 'sanity' | 'cloudinary' | 'url'
 }
 
@@ -127,6 +130,7 @@ export function resolveMedia(
         .filter((p) => typeof p === 'string' && p.length > 0)
         .join(' · '),
       sourceWidth,
+      sourceHeight,
       from: isCloudinary ? 'cloudinary' : 'url',
     }
   }
@@ -145,6 +149,7 @@ export function resolveMedia(
     caption: imgCaption(sanityImage),
     blur: imgBlur(sanityImage),
     sourceWidth: sanityImage.asset?.metadata?.dimensions?.width ?? 0,
+    sourceHeight: sanityImage.asset?.metadata?.dimensions?.height ?? 0,
     from: 'sanity',
   }
 }

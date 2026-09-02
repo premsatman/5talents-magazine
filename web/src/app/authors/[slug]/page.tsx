@@ -6,6 +6,7 @@ import { freshClient } from '@/sanity/client'
 import { AUTHOR_ARTICLES_QUERY, AUTHOR_QUERY, AUTHOR_SLUGS_QUERY } from '@/sanity/queries'
 import { urlFor } from '@/sanity/image'
 import { clean } from '@/sanity/stega'
+import { formatDate } from '@/lib/format'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { ArticleCard } from '@/components/ArticleCard'
@@ -70,6 +71,13 @@ export default async function AuthorPage(props: Props) {
               </p>
             </div>
           </div>
+          {author.died && (
+            <p className="note" style={{ marginTop: 'var(--s-2)' }}>
+              {/* clean() first: formatDate parses this, and a stega-branded
+                  string parses to Invalid Date. */}
+              <em>In memoriam. Died {formatDate(clean(author.died))}.</em>
+            </p>
+          )}
           {author.bio && <p style={{ marginTop: 'var(--s-3)' }}>{author.bio}</p>}
           {(author.socials ?? []).length > 0 && (
             <p className="note" style={{ marginTop: 'var(--s-2)' }}>
