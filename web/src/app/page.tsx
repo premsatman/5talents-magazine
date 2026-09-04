@@ -139,8 +139,10 @@ export default async function HomePage() {
           </div>
         </section>
 
+        {/* The homepage runs slot F three times. Each needs its own seed or all
+            three show the same advertiser stacked down one page. */}
         <div className="wrap adband">
-          <AdSlot slot="F" />
+          <AdSlot slot="F" seed="home-top" />
         </div>
 
         {/* ---- The Latest + rail ---------------------------------------- */}
@@ -196,7 +198,7 @@ export default async function HomePage() {
           return (
             <div key={slug}>
               <div className="wrap adband">
-                <AdSlot slot="F" />
+                <AdSlot slot="F" seed={`home-${slug}`} />
               </div>
 
               <section className="wrap section-block" aria-labelledby={`sec-${slug}`}>
@@ -302,7 +304,7 @@ export default async function HomePage() {
         )}
 
         <div className="wrap adband">
-          <AdSlot slot="F" />
+          <AdSlot slot="F" seed="home-foot" />
         </div>
       </main>
 

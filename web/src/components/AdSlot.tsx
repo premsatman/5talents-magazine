@@ -54,12 +54,48 @@ export type { SlotId }
 /** Show labelled boxes rather than blank reserved space. */
 const showPlaceholders = process.env.NEXT_PUBLIC_AD_PLACEHOLDERS !== 'false'
 
+/**
+ * Deterministic pick from a pool.
+ *
+ * Pages are statically generated, so an ad chosen at render time is baked into
+ * the HTML: picking at random would hand every visitor the same "random" ad
+ * until the next revalidation. Real per-impression rotation needs client-side
+ * JavaScript, which costs a render-blocking script and a layout shift on a slot
+ * whose whole job is to not shift.
+ *
+ * So this distributes advertisers *across pages* instead. Each page seeds the
+ * hash with something stable and distinct - its slug, or which occurrence of a
+ * repeated slot it is - and gets a stable advertiser. Three bookings on slot B
+ * means roughly a third of articles each, the same advertiser every time on any
+ * given article.
+ *
+ * That is weaker than true rotation in one way and stronger in two: an
+ * advertiser can be shown exactly which pages carry them, and nothing moves
+ * after paint.
+ */
+function pick<T>(items: T[], seed: string): T | undefined {
+  if (items.length <= 1) return items[0]
+  let h = 2166136261
+  for (let i = 0; i < seed.length; i += 1) {
+    h ^= seed.charCodeAt(i)
+    h = Math.imul(h, 16777619)
+  }
+  return items[Math.abs(h) % items.length]
+}
+
 export async function AdSlot({
   slot,
   className = '',
+  seed,
 }: {
   slot: SlotId
   className?: string
+  /**
+   * What makes this placement distinct - an article slug, a section, or which
+   * copy of a repeated slot this is. Omit and every page showing this slot
+   * picks the same advertiser.
+   */
+  seed?: string
 }) {
   const size = AD_SIZES[slot]
 
@@ -76,16 +112,31 @@ export async function AdSlot({
   const adsEnabled = clean(settings?.adsEnabled)
   const slotOn = enabled.includes(slot)
 
-  // ACTIVE_ADS_QUERY orders paid bookings ahead of house ones, so the first
-  // result is the right one whenever both exist.
   const candidates = ads ?? []
-  const booked =
-    // "house" runs our own promotions only. A paid booking sitting in the
-    // dataset must not go live just because someone forgot to change this
-    // setting back, so it is filtered out rather than merely outranked.
+  const house = candidates.filter((a) => clean(a.tier) === 'house')
+  const paid = candidates.filter((a) => clean(a.tier) !== 'house')
+
+  // Which bookings may run at all, by mode:
+  //
+  //   house   our own promotions only. A paid booking sitting in the dataset
+  //           must not go live because someone forgot to change this back, so
+  //           it is filtered out rather than merely outranked.
+  //   direct  sold inventory only, with house filling a slot nobody bought -
+  //           an empty box earns nothing and a promotion of our own does.
+  //   mixed   both compete on equal terms and share the pages between them.
+  //   all     as mixed; AdSense fills what is left once that is wired up.
+  const pool =
     adsEnabled === 'house'
-      ? candidates.find((a) => clean(a.tier) === 'house')
-      : candidates[0]
+      ? house
+      : adsEnabled === 'direct'
+        ? paid.length > 0
+          ? paid
+          : house
+        : candidates
+
+  // Seeded by slot as well as page, so two different slots on one article do
+  // not both land on the same advertiser.
+  const booked = pick(pool, `${slot}:${seed ?? ''}`)
 
   const live = Boolean(adsEnabled && adsEnabled !== 'off' && slotOn)
   const isHouse = clean(booked?.tier) === 'house'

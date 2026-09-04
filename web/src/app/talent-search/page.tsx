@@ -40,7 +40,7 @@ export default async function TalentSearchPage() {
           </div>
         )}
 
-        <AdSlot slot="F" />
+        <AdSlot slot="F" seed="talent-search" />
       </main>
       <SiteFooter />
     </>

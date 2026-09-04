@@ -40,7 +40,7 @@ export default async function InterviewsPage() {
           </div>
         )}
 
-        <AdSlot slot="F" />
+        <AdSlot slot="F" seed="interviews" />
       </main>
       <SiteFooter />
     </>

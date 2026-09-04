@@ -189,11 +189,11 @@ export default async function ArticlePage(props: Props) {
                 </p>
               )}
 
-              <PortableBody value={article.body} />
+              <PortableBody value={article.body} seed={slug} />
 
               <ShareBar url={shareUrl} title={article.title ?? ''} deck={article.deck} />
 
-              <AdSlot slot="E" />
+              <AdSlot slot="E" seed={slug} />
 
               {(article.authors ?? []).map((author, index) => (
                 <div className="authorcard" key={author?.slug ?? index}>
@@ -294,7 +294,7 @@ export default async function ArticlePage(props: Props) {
                 <NewsletterForm compact />
               </section>
 
-              <AdSlot slot="D" />
+              <AdSlot slot="D" seed={slug} />
             </div>
           </aside>
         </div>

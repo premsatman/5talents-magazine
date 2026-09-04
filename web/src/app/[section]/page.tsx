@@ -110,7 +110,7 @@ export default async function SectionPage(props: Props) {
             {rest.length > 0 && (
               <>
                 <div className="wrap adband">
-                  <AdSlot slot="F" />
+                  <AdSlot slot="F" seed={section} />
                 </div>
 
                 <section className="wrap" aria-labelledby="more-head">
@@ -133,7 +133,8 @@ export default async function SectionPage(props: Props) {
         )}
 
         <div className="wrap adband">
-          <AdSlot slot="F" />
+          {/* Distinct seed from the mid-page F, or both land on one advertiser. */}
+          <AdSlot slot="F" seed={`${section}-foot`} />
         </div>
       </main>
       <SiteFooter />
