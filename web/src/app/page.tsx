@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { sanityFetch } from '@/sanity/live'
@@ -18,6 +19,28 @@ import { AdSlot } from '@/components/AdSlot'
 import { Card, CardPlaceholder, ListRow, layoutPreview, padded } from '@/components/Card'
 import { Newsletter } from '@/components/Newsletter'
 import type { ArticleCardData } from '@/components/types'
+import { defaultDescription, siteName, tagline } from '@/lib/site'
+
+/**
+ * The homepage was inheriting the layout's title template and nothing else -
+ * no description of its own and no explicit canonical. `absolute` stops the
+ * template appending " — 5Talents Magazine" to a title that already ends in it.
+ *
+ * The share image comes from app/opengraph-image.tsx, which Next applies to
+ * every route that does not export one.
+ */
+export const metadata: Metadata = {
+  title: { absolute: `${siteName} — ${tagline}` },
+  description: defaultDescription,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    title: `${siteName} — ${tagline}`,
+    description: defaultDescription,
+    url: '/',
+  },
+  twitter: { card: 'summary_large_image' },
+}
 
 /**
  * Homepage.
@@ -95,7 +118,13 @@ export default async function HomePage() {
                   key={article._id}
                   article={article}
                   shape="portrait"
+                  /* All three are above the fold on a desktop, so any of them
+                     can be the LCP. Only the first is above the fold on a
+                     phone, where grid-3 collapses to one column. So: preload
+                     the first, load the other two eagerly but without a
+                     preload competing for a phone's first bytes. */
                   priority={i === 0}
+                  eager={i > 0}
                   showDeck={false}
                 />
               ) : (

@@ -388,8 +388,18 @@ export const ARCHIVE_SLUGS_QUERY = defineQuery(/* groq */ `
  * Advertising
  * ------------------------------------------------------------------ */
 
+/**
+ * Bookings live in a slot today.
+ *
+ * Ordered so a paying advertiser always outranks one of our own promotions.
+ * Both can legitimately be booked into the same slot at the same time: the
+ * house ad is what fills the space the rest of the year, and it should step
+ * aside the moment somebody pays for the position rather than competing with
+ * them for it by document order, which is what happened before.
+ */
 export const ACTIVE_ADS_QUERY = defineQuery(/* groq */ `
-  *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today]{
+  *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today]
+  | order(select(tier == "house" => 1, 0) asc, activeFrom desc){
     _id, name, url, tier,
     creative { ${imageFragment} }
   }

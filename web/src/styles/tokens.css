@@ -142,12 +142,28 @@
   color: var(--ink);
 }
 
-/* In dark mode the ink inside a highlight must flip back to near-black,
-   because the yellow stays yellow. */
+/* In dark mode the ink inside a highlight flips back to near-black, because
+   the yellow stays yellow - but dark ink over a half-height stripe leaves the
+   top of every glyph black on a black page. So in dark the stroke becomes a
+   full-height marker block instead, and the dark ink sits entirely on yellow. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .brush { color: #14130E; }
+  :root:not([data-theme="light"]) .brush {
+    color: #14130E;
+    background-size: 100% 100%;
+    background-position: 0 0;
+    padding: 0.04em 0.18em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
 }
-:root[data-theme="dark"] .brush { color: #14130E; }
+:root[data-theme="dark"] .brush {
+  color: #14130E;
+  background-size: 100% 100%;
+  background-position: 0 0;
+  padding: 0.04em 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
 
 /* Section markers: a short stroke above a heading. */
 .brush-rule::before {

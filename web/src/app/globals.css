@@ -1315,3 +1315,12 @@ nav.primary.compact { border-top: 0; }
 /* A note above the article must not take the drop cap - that belongs to the
    first real paragraph of the piece. */
 .body--opening .ednote + p::first-letter { initial-letter: unset; }
+
+/* ---------- house ads ----------
+   Our own promotions, running in the slots we have not sold. They keep the
+   same reserved box as a paid ad so nothing shifts if one is later sold into
+   the same position, but the label reads "From 5Talents" rather than
+   "Advertisement", and it is set in the accent rather than the muted grey a
+   real advertisement gets. A reader should be able to tell at a glance that
+   this is the magazine talking about itself. */
+.ad--house .ad__label { color: var(--accent-ink, var(--ink)); opacity: .75; }

@@ -25,9 +25,28 @@ import type { ArticleCardData } from './types'
 function OverlayCard({
   article,
   priority,
+  eager,
 }: {
   article: ArticleCardData
   priority?: boolean
+  /**
+   * Load immediately, but do not preload.
+   *
+   * `priority` is three things at once: eager loading, high fetch priority, and
+   * a preload link in the head. That is right for one image and wasteful for
+   * several, because every preload competes with the others.
+   *
+   * The hero row is three cards. On a desktop they sit side by side and all
+   * three are above the fold, so any of them can turn out to be the Largest
+   * Contentful Paint. On a phone `grid-3` collapses to one column and only the
+   * first is visible; preloading the other two would spend a phone's first
+   * bytes on pictures nobody has scrolled to.
+   *
+   * So the first card gets `priority` and the other two get `eager`: fetched
+   * during document parse rather than waiting on the intersection observer,
+   * but without three preloads racing each other on a slow connection.
+   */
+  eager?: boolean
 }) {
   const spec = SHAPES.portrait
   const href = articleHref(clean(article.section?.slug), clean(article.slug))
@@ -51,6 +70,7 @@ function OverlayCard({
               placeholder={media.blur ? 'blur' : 'empty'}
               blurDataURL={media.blur}
               priority={priority}
+              loading={!priority && eager ? 'eager' : undefined}
             />
           )}
           <span className="card__scrim" aria-hidden="true" />
@@ -102,15 +122,21 @@ export function Card({
   showSection = true,
   showDeck = true,
   priority = false,
+  eager = false,
 }: {
   article: ArticleCardData
   shape?: CardShape
   showSection?: boolean
   showDeck?: boolean
+  /** Preload this image. At most one card on a page should set it. */
   priority?: boolean
+  /** Load without waiting to scroll into view, but without a preload. */
+  eager?: boolean
 }) {
   // The hero shape is a different composition, not a different size.
-  if (shape === 'portrait') return <OverlayCard article={article} priority={priority} />
+  if (shape === 'portrait') {
+    return <OverlayCard article={article} priority={priority} eager={eager} />
+  }
 
   const spec = SHAPES[shape]
   const href = articleHref(clean(article.section?.slug), clean(article.slug))
@@ -136,6 +162,7 @@ export function Card({
               placeholder={media.blur ? 'blur' : 'empty'}
               blurDataURL={media.blur}
               priority={priority}
+              loading={!priority && eager ? 'eager' : undefined}
             />
           ) : (
             <span className="card__noimage" aria-hidden="true">

@@ -16,14 +16,19 @@ export type { SlotId }
  * one tall unit in the rail and one square. Eleven leaderboards down an
  * 18,000px homepage.
  *
- *   A  Top leaderboard, above the hero    728 x 90   <- off by default, see below
- *   B  In-article, after paragraph 3      728 x 90
- *   C  In-article, after paragraph 8      728 x 90
- *   D  Rail, sticky                       300 x 600
+ *   A  Top leaderboard, above the hero    970 x 250  <- off by default, see below
+ *   B  In-article, after paragraph 3      336 x 280  floated, text wraps beside
+ *   C  In-article, after paragraph 8      336 x 280  floated, text wraps beside
+ *   D  Article rail                       300 x 600
  *   E  End of article                     336 x 280
- *   F  Before each section heading        728 x 90
- *   G  Newsletter inline                  600 x 150
- *   H  House ad                           300 x 250
+ *   F  Before each section heading        970 x 90
+ *   I  Left gutter skyscraper             160 x 600  above 1500px only
+ *   J  Right gutter skyscraper            160 x 600  above 1500px only
+ *
+ * Slots G and H were defined and never placed on a page, and were deleted.
+ * AD_SIZES in lib/media.ts is the authority; the booking dropdown in
+ * schemaTypes/advertiser.ts must match it, or a slot can be booked that
+ * renders nowhere.
  *
  * Every slot reserves its exact height in every state. An ad that loads into
  * unreserved space shifts the layout and costs ranking, and that is the single
@@ -31,6 +36,19 @@ export type { SlotId }
  *
  * Slot A stays out of the default enabledSlots. Relevant runs one at 73px;
  * at $3-8 RPM it earns little and it is the most reliable way to wreck LCP.
+ *
+ * HOUSE ADS
+ *
+ * A booking with tier "house" is one of our own promotions, and it is not an
+ * advertisement. It is not sold, nobody paid for it, and it points at our own
+ * pages. So it must not carry the word "Advertisement", must not be marked
+ * rel="sponsored" (which tells a search engine the link was paid for, and
+ * throws away internal link equity into the bargain), and must not open in a
+ * new tab, because a reader is not leaving the site. It is labelled as coming
+ * from us and it behaves like every other internal link.
+ *
+ * `adsEnabled: "house"` runs these and nothing else, which is how a magazine
+ * with no advertisers yet fills its own space honestly.
  */
 
 /** Show labelled boxes rather than blank reserved space. */
@@ -56,19 +74,41 @@ export async function AdSlot({
 
   const enabled = clean(settings?.enabledSlots) ?? []
   const adsEnabled = clean(settings?.adsEnabled)
-  const live = adsEnabled && adsEnabled !== 'off' && enabled.includes(slot)
-  const booked = ads?.[0]
+  const slotOn = enabled.includes(slot)
 
-  // Sold and live.
+  // ACTIVE_ADS_QUERY orders paid bookings ahead of house ones, so the first
+  // result is the right one whenever both exist.
+  const candidates = ads ?? []
+  const booked =
+    // "house" runs our own promotions only. A paid booking sitting in the
+    // dataset must not go live just because someone forgot to change this
+    // setting back, so it is filtered out rather than merely outranked.
+    adsEnabled === 'house'
+      ? candidates.find((a) => clean(a.tier) === 'house')
+      : candidates[0]
+
+  const live = Boolean(adsEnabled && adsEnabled !== 'off' && slotOn)
+  const isHouse = clean(booked?.tier) === 'house'
+
   if (live && booked?.creative?.asset?.url) {
+    const href = clean(booked.url) ?? '#'
+    // Our own pages are internal links: same tab, no sponsored marker.
+    const external = /^https?:\/\//.test(href) && !isHouse
+
     return (
-      <aside className={`ad ad--${slot.toLowerCase()} ad--filled ${className}`}>
-        <span className="ad__label">Advertisement</span>
+      <aside
+        className={`ad ad--${slot.toLowerCase()} ad--filled${isHouse ? ' ad--house' : ''} ${className}`}
+      >
+        <span className="ad__label">{isHouse ? 'From 5Talents' : 'Advertisement'}</span>
         <div className="ad__frame" style={{ width: size.w, height: size.h }}>
-          <a href={clean(booked.url) ?? '#'} rel="sponsored noopener" target="_blank">
+          <a
+            href={href}
+            rel={isHouse ? undefined : 'sponsored noopener'}
+            target={external ? '_blank' : undefined}
+          >
             <Image
               src={urlFor(booked.creative).width(size.w * 2).url()}
-              alt={imgAlt(booked.creative, clean(booked.name) ?? 'Advertisement')}
+              alt={imgAlt(booked.creative, clean(booked.name) ?? (isHouse ? '5Talents' : 'Advertisement'))}
               width={size.w}
               height={size.h}
               loading={slot === 'A' ? 'eager' : 'lazy'}

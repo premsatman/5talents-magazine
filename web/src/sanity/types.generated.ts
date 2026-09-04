@@ -125,7 +125,7 @@ export type SiteSettings = {
     email?: string;
     address?: string;
   };
-  adsEnabled?: "off" | "direct" | "all";
+  adsEnabled?: "off" | "house" | "direct" | "all";
   enabledSlots?: Array<string>;
 };
 
@@ -620,7 +620,7 @@ export type SITE_SETTINGS_QUERY_RESULT =
       description: string | null;
       scopeStatement: string | null;
       contactEmail: string | null;
-      adsEnabled: "all" | "direct" | "off" | null;
+      adsEnabled: "all" | "direct" | "house" | "off" | null;
       enabledSlots: Array<string> | null;
       socials: Array<{
         platform: string | null;
@@ -1963,7 +1963,7 @@ export type ARCHIVE_SLUGS_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: ACTIVE_ADS_QUERY
-// Query: *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today]{    _id, name, url, tier,    creative {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop }  }
+// Query: *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today]  | order(select(tier == "house" => 1, 0) asc, activeFrom desc){    _id, name, url, tier,    creative {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop }  }
 export type ACTIVE_ADS_QUERY_RESULT = Array<{
   _id: string;
   name: string | null;
@@ -2148,7 +2148,7 @@ declare module "@sanity/client" {
     '\n  *[_type == "archiveIssue"] | order(issueDate desc){\n    _id, title, "slug": slug.current, issueDate, issueNumber, pageCount,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    "articleCount": count(tableOfContents[defined(article)])\n  }\n': ARCHIVE_ISSUES_QUERY_RESULT;
     '\n  *[_type == "archiveIssue" && slug.current == $slug][0]{\n    _id, title, "slug": slug.current, issueDate, issueNumber, pageCount, pdfUrl,\n    "pdfFile": pdfFile.asset->url,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    tableOfContents[]{\n      _key, title, page, byline,\n      "article": article->{\n        title, "slug": slug.current,\n        "section": section->{ name, "slug": slug.current }\n      }\n    }\n  }\n': ARCHIVE_ISSUE_QUERY_RESULT;
     '\n  *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current }\n': ARCHIVE_SLUGS_QUERY_RESULT;
-    '\n  *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today]{\n    _id, name, url, tier,\n    creative { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n  }\n': ACTIVE_ADS_QUERY_RESULT;
+    '\n  *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today]\n  | order(select(tier == "house" => 1, 0) asc, activeFrom desc){\n    _id, name, url, tier,\n    creative { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n  }\n': ACTIVE_ADS_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false] | order(publishedAt desc)[0...40]{\n    title, "slug": slug.current, deck, publishedAt, sponsorTier,\n    "section": section->{ name, "slug": slug.current },\n    "authors": authors[]->{ name }\n  }\n': FEED_QUERY_RESULT;
     '{\n  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{\n    "slug": slug.current, "section": section->slug.current, _updatedAt\n  },\n  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "tags": *[_type == "tag" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }\n}': SITEMAP_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    title, tagline, mission, scopeStatement, contactEmail,\n    doctrinalStatement,\n    masthead[]{\n      role,\n      "person": person->{ name, "slug": slug.current, role, bio, photo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } }\n    }\n  }\n': ABOUT_QUERY_RESULT;
