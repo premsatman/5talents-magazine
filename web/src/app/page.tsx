@@ -19,7 +19,7 @@ import { AdSlot } from '@/components/AdSlot'
 import { Card, CardPlaceholder, ListRow, layoutPreview, padded } from '@/components/Card'
 import { Newsletter } from '@/components/Newsletter'
 import type { ArticleCardData } from '@/components/types'
-import { defaultDescription, siteName, tagline } from '@/lib/site'
+import { defaultDescription, siteName, socialDescription, tagline } from '@/lib/site'
 
 /**
  * The homepage was inheriting the layout's title template and nothing else -
@@ -33,13 +33,18 @@ export const metadata: Metadata = {
   title: { absolute: `${siteName} — ${tagline}` },
   description: defaultDescription,
   alternates: { canonical: '/' },
+  // Next replaces the parent openGraph object wholesale rather than merging
+  // into it, so siteName and locale have to be restated here or they vanish
+  // from the page that most needs them. Same in [section]/[slug].
   openGraph: {
     type: 'website',
+    siteName,
+    locale: 'en_IN',
     title: `${siteName} — ${tagline}`,
-    description: defaultDescription,
+    description: socialDescription,
     url: '/',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', description: socialDescription },
 }
 
 /**

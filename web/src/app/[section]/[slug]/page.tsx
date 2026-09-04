@@ -77,6 +77,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     robots: data.seo?.noIndex ? { index: false, follow: true } : undefined,
     openGraph: {
       type: 'article',
+      // Restated because Next replaces the layout's openGraph rather than
+      // merging with it. Without these the card reads as anonymous.
+      siteName,
+      locale: 'en_IN',
       title: title ?? undefined,
       description,
       publishedTime: data.publishedAt ?? undefined,
