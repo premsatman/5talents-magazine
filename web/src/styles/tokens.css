@@ -189,6 +189,47 @@
 .brush-link:hover,
 .brush-link:focus-visible { background-size: 100% 0.35em; }
 
+/* ---- Dark mode: a full block, not an underline ----------------------------
+   The underline works on paper because the ink stays dark and the yellow sits
+   under it. On the dark theme the type is cream, so a yellow band through its
+   lower third reads as damage rather than emphasis — and the overlap is the
+   least legible part of it.
+   So dark mode fills the whole line and flips the text to ink, which is the
+   same logic as .brush: the yellow does not follow the theme, so anything on
+   top of it must not either. Resting size is 0% x 100% so only the width
+   animates and the wipe still runs left to right.
+   box-decoration-break keeps a wrapped headline highlighted line by line
+   instead of as one rectangle behind the block. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .brush-link {
+    background-size: 0% 100%;
+    background-position: 0 0;
+    padding: 0 0.08em;
+    margin: 0 -0.08em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  :root:not([data-theme="light"]) .brush-link:hover,
+  :root:not([data-theme="light"]) .brush-link:focus-visible {
+    background-size: 100% 100%;
+    color: #14130E;
+  }
+}
+
+:root[data-theme="dark"] .brush-link {
+  background-size: 0% 100%;
+  background-position: 0 0;
+  padding: 0 0.08em;
+  margin: 0 -0.08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+:root[data-theme="dark"] .brush-link:hover,
+:root[data-theme="dark"] .brush-link:focus-visible {
+  background-size: 100% 100%;
+  color: #14130E;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .brush-link { transition: none; }
 }
