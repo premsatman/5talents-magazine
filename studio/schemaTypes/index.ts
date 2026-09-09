@@ -3,6 +3,7 @@ import { author } from './author'
 import { section } from './section'
 import { tag } from './tag'
 import { archiveIssue } from './archiveIssue'
+import { onlineIssue } from './onlineIssue'
 import { advertiser } from './advertiser'
 import { submission } from './submission'
 import { siteSettings } from './siteSettings'
@@ -16,6 +17,7 @@ export const schemaTypes = [
   section,
   tag,
   archiveIssue,
+  onlineIssue,
   advertiser,
   submission,
   siteSettings,

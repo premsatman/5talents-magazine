@@ -1,0 +1,112 @@
+{
+  "issue": "february-2014",
+  "note": "Issue 17. Two pieces of five published. The editorial was confirmed copied from catholicbible101.com; the Andhra Christian Theological College spread is printed ADVERTORIAL; and the unsigned joy piece is a near-verbatim copy of a GotQuestions.org article of the same title, the second GotQuestions lift found in this archive. See TRIAGE.md.",
+  "authors": [
+    {
+      "slug": "george-powell",
+      "name": "Dr. George Powell",
+      "role": "Contributing writer",
+      "country": "United States",
+      "isStaff": "contributor",
+      "bio": "Pastor of Abundant Life Church in Portland, Oregon, and an independent coach, teacher and speaker certified with the John Maxwell Team.",
+      "republishConsent": "pending"
+    },
+    {
+      "slug": "5talents-staff",
+      "name": "5Talents",
+      "role": "Staff",
+      "country": "India",
+      "isStaff": "staff",
+      "bio": "Written by the 5Talents editorial desk.",
+      "republishConsent": "granted"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "what-do-your-relationships-say-about-your-leadership",
+      "title": "If relationships are good, life is good. If they are bad, life stinks",
+      "deck": "Five things a pastor of thirty-nine years has learned about getting on with people, starting with the two he calls the ugly twin sisters.",
+      "kind": "essay",
+      "section": "work-money",
+      "authors": ["george-powell"],
+      "tags": ["leadership", "relationships", "communication"],
+      "publishedAt": "2014-02-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 10,
+        "editNote": "Published as it appeared in the February 2014 issue, pages 10 and 11. Column reading order repaired and typographical errors corrected; the wording is the author's throughout. He credits Florence Littauer by name for Personality Plus. Four other borrowed lines carried no credit on the 2013 page and are attributed in a note at the foot.",
+        "rightsCleared": "textOnly"
+      },
+      "body": [
+        { "t": "p", "v": "Life is all about relationships. Period. If relationships are great, life is great. If relationships are bad, life stinks, at home, in the office, and in your circle of friends." },
+        { "t": "p", "v": "So what do your relationships say about your leadership? The really fantastic leaders I know are great relationally. They are people, people!" },
+        { "t": "p", "v": "They know how to get along with others. They are able to deal with conflict in a constructive and healthy manner. They possess tact. They make you feel like you are the most important person on the face of the earth." },
+        { "t": "p", "v": "But let's face it, good relationships don't just happen. They require intentionality, take lots of hard work, and entail a lot of time." },
+        { "t": "p", "v": "So here are my top five tips on having great relationships at home and at work." },
+        { "t": "h2", "v": "1. Get rid of the two biggest relational destroyers: pride and selfishness" },
+        { "t": "p", "v": "These are two sides of the same coin. They are ugly twin sisters and have no place in a relationship." },
+        { "t": "verse", "v": "Arrogance only produces arguments...", "attr": "Proverbs 13:10, The Voice" },
+        { "t": "verse", "v": "Do you know where your fights and arguments come from? They come from the selfish desires that war within you.", "attr": "James 4:1, New Century Version" },
+        { "t": "h2", "v": "2. Figure out what makes the other person tick" },
+        { "t": "p", "v": "One of the best ways to do this is to engage the people you're attempting to relate to in various personality profiles." },
+        { "t": "p", "v": "Have you ever said of another person, \"I just can't figure her out!\" Or have you had others say of you, \"I have the hardest time working with him. We just don't see things the same way.\" Many times it is simply a matter of personality, the way you're wired, what makes you tick." },
+        { "t": "p", "v": "Personality tests are lots of fun and a great way not only to help you figure out others, but yourself, as well. A book I've enjoyed and would recommend is Personality Plus: How to Understand Others by Understanding Yourself, by Florence Littauer." },
+        { "t": "h2", "v": "3. Somebody take the lead" },
+        { "t": "p", "v": "We've all seen relationships fall apart that could have been avoided if someone would have just taken the initiative to start a conversation and work toward reconciliation. But pride and selfishness creep in and keep both parties from stepping up." },
+        { "t": "p", "v": "If you're the leader, lead. It's that simple." },
+        { "t": "p", "v": "This has a lot to do with servant leadership. Positional leaders will never do this because they only lead from a position of authority or some title they wear. The reason servant leaders are the best leaders is because they are secure enough in their person that they don't need position." },
+        { "t": "quote", "v": "He was Lord but it was not beneath Him to wash His disciples' feet.", "attr": "Dr. George Powell", "highlight": "not beneath Him" },
+        { "t": "verse", "v": "But Jesus called them together and said, \"You know that the rulers in this world lord it over their people, and officials flaunt their authority over those under them. But among you it will be different. Whoever wants to be a leader among you must be your servant, and whoever wants to be first among you must become your slave. For even the Son of Man came not to be served but to serve others and to give his life as a ransom for many.\"", "attr": "Matthew 20:25-28, New Living Translation" },
+        { "t": "h2", "v": "4. Make the decision to communicate" },
+        { "t": "p", "v": "How many relationships remain unhealthy and often crumble simply because of a failure to communicate? Here are a few communication helps." },
+        { "t": "p", "v": "Talk less and listen more. One of my favorite quotes is: \"Wisdom is the reward you get for a lifetime of listening when you would have preferred to talk.\" And a very important note, while you're listening, listen with the intent of understanding, not responding." },
+        { "t": "p", "v": "Learn to ask good questions." },
+        { "t": "p", "v": "Choose peace making over peace keeping. Peacemakers choose to talk it over while peacekeepers choose to stuff it down. This means you have to get comfortable with confrontation." },
+        { "t": "p", "v": "Seek first to understand before being understood." },
+        { "t": "p", "v": "Avoid \"you\" statements and words like \"never\" and \"always\"." },
+        { "t": "h2", "v": "5. Be big enough to ask for and extend forgiveness" },
+        { "t": "p", "v": "Or mature, if you prefer that word. In life, you're going to get hurt, sometimes intentionally and sometimes unintentionally. Regardless, forgiveness is the oil of great relationships." },
+        { "t": "quote", "v": "The first to apologize is the bravest. The first to forgive is the strongest. And the first to forget is the happiest.", "attr": "A saying quoted in the piece, author unknown", "highlight": "the first to forget is the happiest" },
+        { "t": "p", "v": "So, do you desire to be a great leader? Then focus on relationships. They will make or break your leadership." },
+        { "t": "note", "placement": "foot", "v": "Four credits the 2014 page did not carry. \"Seek first to understand before being understood\" and \"listen with the intent of understanding, not responding\" are both Stephen R. Covey, from Habit 5 of The 7 Habits of Highly Effective People; Covey's own wording is \"Seek first to understand, then to be understood\" and \"Most people do not listen with the intent to understand; they listen with the intent to reply\". The line about wisdom being the reward for a lifetime of listening is attributed to the columnist Doug Larson, though no primary source for it has ever been traced. The saying about the bravest, the strongest and the happiest circulates widely with no reliable author. Florence Littauer is credited by the author himself in the text." }
+      ]
+    },
+    {
+      "slug": "getting-rich-by-unjust-means",
+      "title": "Some believers make money by unlawful means and then give generously to the church, as though that settles it",
+      "deck": "Wanting to be rich is not the sin. An unsigned page from 2014 on bribes, substandard goods, and the bribe that has become normal procedure for moving a pastor from one parish to another.",
+      "kind": "essay",
+      "section": "work-money",
+      "authors": ["5talents-staff"],
+      "tags": ["money", "ethics", "india", "corruption"],
+      "publishedAt": "2014-02-01T07:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 20,
+        "editNote": "Published as it appeared in the February 2014 issue, pages 20 and 21. It ran unsigned, so it appears here under the magazine's own byline. Column reading order repaired and typographical errors corrected; the wording is otherwise as it appeared. Four distinctive phrases were searched and returned nothing, and the Indian English and the accountancy metaphors both read as original composition. The same voice appears in an unsigned piece in the October 2013 issue, and the two may well be by one recurring contributor whose name the magazine did not print.",
+        "rightsCleared": "textOnly"
+      },
+      "body": [
+        { "t": "p", "v": "Everyone wants to become rich and this desire is not bad. Money is an essential factor for a better living, though it alone is not sufficient." },
+        { "t": "p", "v": "There are many people who have plenty of money, but no peace and happiness in life. Similarly, there are many people who are very poor, but leading a life full of happiness and peace. This clearly shows that money or wealth is not the basis of happiness and peace in life. The source of peace is God the almighty, and anyone who puts his trust in God can lead a peaceful life." },
+        { "t": "p", "v": "But having more money or getting richer is not a sin. The means for it should be ethical. There are many people who adopt any kind of crookedness to make money, and this is not scriptural and God will not be pleased in it." },
+        { "t": "h2", "v": "Whoever you are" },
+        { "t": "p", "v": "If you are an employee, be satisfied with your salary or other perks, but do not make any effort to make money by bribes, wrong statements and the like." },
+        { "t": "p", "v": "If you are a businessman, you have the freedom to have your profit, but not by giving a substandard product and cheating the customer. Whatever is due to the government has to be paid, and the rest belongs to you." },
+        { "t": "p", "v": "If you are a pastor or a priest, never accept money to show partiality or to ignore the sins of someone. Nowadays the bribe has become a normal procedure in churches for transfer of priests or pastors. It is very shameful." },
+        { "t": "quote", "v": "Nowadays the bribe has become a normal procedure in churches for transfer of priests or pastors. It is very shameful.", "attr": "5Talents Magazine, February 2014", "highlight": "a normal procedure in churches" },
+        { "t": "p", "v": "Never use the money, which is a gift of God, to bring disgrace to the giver, God almighty." },
+        { "t": "h2", "v": "The balance sheet" },
+        { "t": "p", "v": "There are some people, believers, who make money by unlawful means and spend more for the church and charitable activities. They think that by giving money like this, God will certify their income statement. No. God is a just God and will never be pleased in wealth accumulated by unjust means." },
+        { "t": "p", "v": "Let us see what the Bible says about such wealth." },
+        { "t": "verse", "v": "People who want to get rich fall into temptation and a trap and into many foolish and harmful desires that plunge men into ruin and destruction. For the love of money is a root of all kinds of evil. Some people, eager for money, have wandered from the faith and pierced themselves with many griefs.", "attr": "1 Timothy 6:9-10" },
+        { "t": "verse", "v": "Dishonest money dwindles away, but he who gathers money little by little by hard work makes it grow.", "attr": "Proverbs 13:11" },
+        { "t": "verse", "v": "Like a bird that hatches eggs it did not lay is the man who gains riches by unjust means. When his life is half gone, they will desert him, and in the end he will prove to be a fool.", "attr": "Jeremiah 17:11" },
+        { "t": "verse", "v": "You accept bribes to shed blood, you take usury and excessive interest and make unjust gain from your neighbors by extortion... I will surely strike my hands together at the unjust gain you have made and at the blood you have shed in your midst. Will your hands be strong in the day I will deal with you?", "attr": "Ezekiel 22:12-14" },
+        { "t": "p", "v": "Let us try to keep our hands clean. Let our financial balance sheet be attested by our Lord Almighty. Eternity is much, much more valuable than all the earthly riches. Never lose eternity." }
+      ]
+    }
+  ]
+}

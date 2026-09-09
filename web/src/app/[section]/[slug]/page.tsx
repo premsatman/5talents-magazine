@@ -18,6 +18,7 @@ import { isSectionSlug } from '@/lib/sections'
 import { readingTimeLabel } from '@/lib/reading-time'
 import { absoluteUrl, articleHref, siteName } from '@/lib/site'
 import { formatDate, formatMonth, joinNames } from '@/lib/format'
+import { Citation } from '@/components/Citation'
 import { CompactHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { ReadingProgress } from '@/components/ReadingProgress'
@@ -151,6 +152,12 @@ export default async function ArticlePage(props: Props) {
               below it - see .piece-layout in globals.css. */}
           <div className="piece-meta">
             <ArticleMeta article={article}>
+              {/* ISSN India detailed information document s7: publication name,
+                  volume, issue, month and year on the first page of every
+                  article. On a phone this rail sits above the body, so it is
+                  the first thing under the headline either way. */}
+              <Citation issue={article.onlineIssue} />
+
               <ShareBar url={shareUrl} title={article.title ?? ''} deck={article.deck} />
 
               {/* Blueprint s7: the original issue date shown prominently, with

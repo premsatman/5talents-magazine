@@ -20,7 +20,7 @@ import './globals.css'
  * Two roles, deliberately separated:
  *
  *   --font-wordmark   Anton, always. It is the closest living relative to the
- *                     printed masthead that ran across eighteen issues, and it
+ *                     masthead that ran across all eighteen early issues, and it
  *                     is the one piece of the identity worth keeping fixed
  *                     while the rest is still moving.
  *

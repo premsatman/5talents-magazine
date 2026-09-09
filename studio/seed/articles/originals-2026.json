@@ -1,0 +1,250 @@
+{
+  "issue": null,
+  "note": "Original 2026 work, not an archive conversion. This file exists for pieces written now; the importer gives them no issue reference and no archive provenance line.",
+  "authors": [
+    {
+      "slug": "5talents-staff",
+      "name": "5Talents",
+      "role": "Staff",
+      "country": "India",
+      "isStaff": "staff",
+      "bio": "Written by the 5Talents editorial desk.",
+      "republishConsent": "granted"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "youversion-fifty-million-to-one-billion",
+      "title": "In 2012 we printed a page of YouVersion's numbers. It has since passed a billion installs",
+      "deck": "Fifty-two installs a minute, back when we ran the figures. Seventeen years after an idea in an airport queue, the Bible App is on a billion devices — and the way it counts itself is worth a second look.",
+      "kind": "feature",
+      "section": "technology",
+      "authors": [
+        "5talents-staff"
+      ],
+      "tags": [
+        "technology",
+        "bible",
+        "apps"
+      ],
+      "publishedAt": "2026-09-01T08:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "body": [
+        {
+          "t": "note",
+          "placement": "top",
+          "v": "Our July 2012 issue carried a page of YouVersion's per-minute usage figures, taken from the company's own material. This is not that page. It is a new article, written in September 2026 from published sources, which takes those 2012 numbers as its starting point."
+        },
+        {
+          "t": "p",
+          "v": "In July 2012 we printed a page of statistics. The Bible App had just passed fifty million downloads, and the numbers on that page counted what happened in a single minute: fifty-two new installs, the app opened 1,698 times, 32,543 requests hitting the servers."
+        },
+        {
+          "t": "p",
+          "v": "It read as a large number at the time. It was the whole app, running for sixty seconds."
+        },
+        {
+          "t": "p",
+          "v": "In late 2025 YouVersion announced one billion installs across its family of apps. It now records a billion app opens roughly every thirty-nine days."
+        },
+        {
+          "t": "h2",
+          "v": "An idea in an airport queue"
+        },
+        {
+          "t": "p",
+          "v": "Bobby Gruenewald was standing in an airport security line, on staff at what was then LifeChurch.tv in Oklahoma, when the question occurred to him: could technology help him read the Bible more consistently?"
+        },
+        {
+          "t": "p",
+          "v": "It started as a website and did not go anywhere in particular. What changed it was timing. When Apple opened the App Store in 2008, the Bible App was among the first two hundred applications in it — which meant that for a while, if you had an iPhone and wanted a Bible, there was essentially one."
+        },
+        {
+          "t": "p",
+          "v": "Seventeen years later it offers more than 3,600 Bible translations in over 2,300 languages, and adds around 1,200 new pieces of content a month — reading plans, videos, devotionals — supplied through a network of more than 31,000 partners, including some 7,200 content partners and 25,000 churches."
+        },
+        {
+          "t": "h2",
+          "v": "The part that matters most here"
+        },
+        {
+          "t": "p",
+          "v": "There are three apps, not one, and the second is the interesting one for readers in India."
+        },
+        {
+          "t": "p",
+          "v": "Bible App Lite is built for offline use, for markets with device and data limitations. That is a deliberate engineering decision with a cost attached: somebody had to argue for building a stripped-down version for people on cheap phones and expensive data, in a company that could have spent the same effort on features for the users it already had."
+        },
+        {
+          "t": "p",
+          "v": "The third is the Bible App for Kids, made with OneHope, which is animation rather than text."
+        },
+        {
+          "t": "p",
+          "v": "And the whole thing is free. No advertising, no subscription tier, funded by donations. At a billion installs that is a genuinely unusual choice, and it is worth naming plainly, because almost nothing else operating at that scale has made it."
+        },
+        {
+          "t": "h2",
+          "v": "A note about the numbers"
+        },
+        {
+          "t": "p",
+          "v": "Here is where a magazine ought to be careful, including about its own 2012 page."
+        },
+        {
+          "t": "p",
+          "v": "Installs, app opens, daily active users, engagement days — these are the metrics of the attention economy, and they are the right ones for measuring an app. Whether they measure what anyone actually wants measured is a different question. An install is a download. An app open is a tap. Neither is a person understanding anything, and the distance between the two is precisely where the interesting part of the Christian life happens."
+        },
+        {
+          "t": "quote",
+          "v": "An install is a download. An app open is a tap. Neither is a person understanding anything.",
+          "attr": "On measuring Bible engagement",
+          "highlight": "Neither is a person understanding anything"
+        },
+        {
+          "t": "p",
+          "v": "YouVersion knows this better than its critics do — Gruenewald talks about lives changed rather than downloads, and the company's own framing is that the milestone is a celebration of the Bible rather than of the software. But the figure that gets printed is still the billion, because the billion is the figure that exists."
+        },
+        {
+          "t": "p",
+          "v": "We printed 1,698 app opens a minute in 2012 without asking what an app open was. Worth doing better with the next set."
+        },
+        {
+          "t": "h2",
+          "v": "What actually changed"
+        },
+        {
+          "t": "p",
+          "v": "The thing that has genuinely moved in fourteen years is not the install count. It is the language count."
+        },
+        {
+          "t": "p",
+          "v": "Over 2,300 languages, and rising, mostly through translation partners and volunteer localisation teams doing unglamorous work that nobody markets. For a reader in a language with four speakers of English for every hundred people, that is the number that means something. Fifty million downloads in 2012 was a story about American iPhones. Two thousand three hundred languages is a story about everybody else."
+        },
+        {
+          "t": "p",
+          "v": "That is the part our 2012 page missed, and it was the part worth printing."
+        },
+        {
+          "t": "note",
+          "placement": "foot",
+          "v": "Sources: YouVersion's own newsroom announcement of one billion installs (28 October 2025) and its published company information; TechCrunch's report of the fifty-million milestone (10 May 2012); and the per-minute figures carried in our own July 2012 issue, page 10, which came from YouVersion's material at the time. 5Talents has no commercial relationship with YouVersion or Life.Church."
+        }
+      ]
+    },
+    {
+      "slug": "fire-and-forgiveness-became-the-staines-film",
+      "title": "In 2013 we profiled two men trying to fund a film. It became the Graham Staines story",
+      "deck": "They had won an award for a three-page treatment and were looking for investors. Six years later Aneesh Daniel directed and Andrew Matthews wrote The Least of These — about a murder this magazine had covered ten months before we ever met them.",
+      "kind": "feature",
+      "section": "culture",
+      "authors": [
+        "5talents-staff"
+      ],
+      "tags": [
+        "film",
+        "india",
+        "archive",
+        "odisha"
+      ],
+      "publishedAt": "2026-09-01T10:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "body": [
+        {
+          "t": "note",
+          "placement": "top",
+          "v": "This piece was written in September 2026, while converting the magazine's 2012–14 archive for the web. It is about something we found in the process, not something we published at the time."
+        },
+        {
+          "t": "p",
+          "v": "In May 2013 this magazine ran a profile of two film-makers with an idea and no money."
+        },
+        {
+          "t": "p",
+          "v": "Aneesh Daniel in India and Andrew Matthews in Australia had spent three years shaping a story and nine more refining it. They had entered a competition, missed the deadline, been rolled into the following year's without being told, and then won it — Best Treatment at the San Antonio Independent Christian Film Festival, an award given for a three-page document describing a film nobody had shot yet."
+        },
+        {
+          "t": "p",
+          "v": "The piece described what the film was about: religious tension in India over the previous fifteen years, and a journalist who uncovers facts that force him to change what he believes. It was tentatively titled Fire and Forgiveness. It ended with an email address and an appeal for partners."
+        },
+        {
+          "t": "p",
+          "v": "The film got made. It came out in 2019, directed by Aneesh Daniel and written by Andrew Matthews, with Stephen Baldwin and Sharman Joshi. It was called The Least of These: The Graham Staines Story."
+        },
+        {
+          "t": "h2",
+          "v": "What we did not know"
+        },
+        {
+          "t": "p",
+          "v": "Ten months before that profile, in our July 2012 issue, we had run a piece on Graham Staines — the Australian who spent thirty-four years running a leprosy home at Baripada in Odisha, and who was killed with his two sons at Manoharpur in January 1999."
+        },
+        {
+          "t": "p",
+          "v": "Neither piece mentions the other. The 2013 profile never names Staines. It says only that Aneesh had become distressed by rising tensions between religious groups in some parts of India, “including a neighbouring state to his own”, and that he had become captivated by the idea of a story that would speak into it."
+        },
+        {
+          "t": "p",
+          "v": "Reading the two pages side by side, thirteen years later, the neighbouring state is Odisha and the story is Staines. The magazine had both halves and never joined them."
+        },
+        {
+          "t": "h2",
+          "v": "What the 2013 page actually shows"
+        },
+        {
+          "t": "p",
+          "v": "This is the part that makes the find worth writing up rather than just noting."
+        },
+        {
+          "t": "p",
+          "v": "A finished film arrives looking inevitable. Cast, distribution, a poster, a release date. The 2013 page catches the same project at the stage where it is two men, a three-page document and a hope, and where the honest description of its status is that they were looking for anyone who would help pay for it."
+        },
+        {
+          "t": "p",
+          "v": "They had been at it twelve years by then. Aneesh had come out of ten years in Bollywood, working on features for Mira Nair and Shyam Benegal, and had made eleven television dramas. Matthews had prayed for direction, read a prayer letter about displaced Christian families in India, and decided that ignoring an answer he had asked for would be a form of disobedience."
+        },
+        {
+          "t": "quote",
+          "v": "He often sacrifices profits for the sake of excellence in his projects. If you find him on set he'll be avidly constructing shots, an impulsive creative, wringing every last rupee out of the budget.",
+          "attr": "5Talents Magazine, May 2013",
+          "highlight": "wringing every last rupee out of the budget"
+        },
+        {
+          "t": "p",
+          "v": "Six more years passed between that page and the release."
+        },
+        {
+          "t": "h2",
+          "v": "Two things worth saying plainly"
+        },
+        {
+          "t": "p",
+          "v": "The first is about the archive. We have been converting these issues for the web on the assumption that the valuable material is the interviews — the people the magazine sat down with who exist nowhere else online. That is still true. But this is a different kind of value: a page that was unremarkable when it was made, and became evidence of something once the world caught up with it. Nobody could have commissioned it. It only exists because a small magazine wrote up a project that had not worked yet."
+        },
+        {
+          "t": "p",
+          "v": "The second is about the 2013 page itself, and it is a caveat rather than a boast. It carried no byline, and its voice is not ours — it reads as though it was supplied by someone close to the production. We have not republished it for exactly that reason. What is set out above is drawn from it as a source, with its origins stated, rather than reprinted as though it were our own reporting."
+        },
+        {
+          "t": "h2",
+          "v": "Where it stands"
+        },
+        {
+          "t": "p",
+          "v": "The Least of These was released in the United States in February 2019 and in India that March. Reviews were mixed. It is a small film about a large event, and it was made on a limited budget on location in India by a first-time director."
+        },
+        {
+          "t": "p",
+          "v": "None of which is really the point here. The point is that in May 2013 the honest summary was: two men, one award for a document, no money, and an email address at the end of the article."
+        },
+        {
+          "t": "note",
+          "placement": "foot",
+          "v": "Sources: 5Talents Magazine, May 2013, pages 4–7 (unsigned); 5Talents Magazine, July 2012, page 19; and the public record of The Least of These: The Graham Staines Story (2019), directed by Aneesh Daniel, written by Andrew Matthews. Our own account of Graham Staines is in the Heritage section."
+        }
+      ]
+    }
+  ]
+}

@@ -61,7 +61,7 @@ export function UtilityBar({ quiet = false }: { quiet?: boolean }) {
     <div className={quiet ? 'utility utility--quiet' : 'utility'}>
       <div className="wrap">
         <Link className="util-lede" href="/archive">
-          Published since 2012 · 18 issues
+          Founded 2012 · 18 issues in the archive
         </Link>
         <div className="util-right">
           <Link className="util-secondary" href="/write-for-us">

@@ -1,0 +1,424 @@
+{
+  "issue": "april-2013",
+  "note": "Issue 7, April 2013 - the redesign. New masthead, sections renamed, Talent Search replaced by Innovator and Great Missionaries. Three of nine. Sadhu Sundar Singh was the sixth confirmed copy, from jeevanmarg.com again - the same site as Ramabai. Rewritten. See TRIAGE.md.",
+  "authors": [
+    {
+      "slug": "george-powell",
+      "name": "George Powell",
+      "role": "Contributing writer",
+      "country": "United States",
+      "isStaff": "contributor",
+      "bio": "A speaker and coach certified with the John Maxwell Team, writing on leadership and influence.",
+      "republishConsent": "pending"
+    },
+    {
+      "slug": "jennifer-pinto",
+      "name": "Jennifer Pinto",
+      "role": "Contributing writer",
+      "country": "India",
+      "isStaff": "contributor",
+      "bio": "A licensed Zumba fitness instructor and childbirth educator who runs parenting workshops with her husband.",
+      "republishConsent": "pending"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "zumba-my-way-of-life",
+      "title": "A woman prayed over my family and said God wanted me to exercise",
+      "deck": "Jennifer Pinto teaches Zumba, prepares women for childbirth, and runs parenting workshops. All three started with something that went wrong.",
+      "kind": "essay",
+      "section": "wellbeing",
+      "authors": [
+        "jennifer-pinto"
+      ],
+      "tags": [
+        "fitness",
+        "women",
+        "motherhood",
+        "mental-health"
+      ],
+      "hero": {
+        "file": "2013-04-jennifer-pinto.jpg",
+        "alt": "Jennifer Pinto photographed smiling against a green background",
+        "credit": "Supplied"
+      },
+      "archiveMeta": {
+        "originalPage": 14,
+        "editNote": "Typographical errors corrected and subheads added. The wording is the author's throughout.",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "Some say, “Never have too much on your plate!” Others say, “You can pile on more!” I don't know which one is true of me. But I do a whole lot of different things that give me personal satisfaction from reaching out and sharing my learning with others."
+        },
+        {
+          "t": "p",
+          "v": "I am a licensed Zumba fitness instructor, a childbirth educator, and I conduct parenting seminars and workshops."
+        },
+        {
+          "t": "h2",
+          "v": "“God wants you to exercise”"
+        },
+        {
+          "t": "p",
+          "v": "It all started at a spiritual retreat in 2010. A fateful meeting with a sister with the gift of knowledge changed my career life. When she prayed with us as a family, she gave us many points to ponder on, and one of them was that God wanted me to exercise!"
+        },
+        {
+          "t": "p",
+          "v": "I couldn't believe my ears."
+        },
+        {
+          "t": "p",
+          "v": "I knew I had put on weight post-delivery and had no clue how to shed it. Various things I had tried out failed to give me results. Until I discovered Zumba Fitness."
+        },
+        {
+          "t": "p",
+          "v": "Zumba is a form of dance fitness that is aerobic in nature and uses the basics of South American dance forms like salsa, merengue, cumbia and reggaeton. It is a form of fitness that anyone from age 6 to 80 can do. I believe exercise is a very important aspect of our lives that we tend to ignore till it is too late. I have seen the physical and emotional transformation in many of my students, and it is extremely satisfying for me."
+        },
+        {
+          "t": "quote",
+          "v": "As a Christian I think it is vital to look after not only our spiritual wellbeing but our physical too. We are the temple of the Holy Spirit, and that is how we ought to look after our soul, spirit and body.",
+          "attr": "Jennifer Pinto",
+          "highlight": "soul, spirit and body"
+        },
+        {
+          "t": "h2",
+          "v": "Why I became a childbirth educator"
+        },
+        {
+          "t": "p",
+          "v": "I took up this line of work because of the traumatic experience I had at the time of my son's birth. I realised that women are not treated the right way by many doctors, who fail to fully inform their pregnant patients of what to expect and to offer them all the choices available to them at delivery. As a result, many of us go through terrible birth stories for no good reason."
+        },
+        {
+          "t": "p",
+          "v": "My work as a childbirth educator involves offering informed choices to women and their spouses — letting them know what is available to them, how to relax during labour, and how to choose natural birthing methods that are easier for them rather than easier for their caregivers."
+        },
+        {
+          "t": "p",
+          "v": "I am available to help mothers in labour, and I am also qualified to assist young mothers to cope with the frequently ignored yet ever-so-real aspect of post-natal depression."
+        },
+        {
+          "t": "h2",
+          "v": "And the parenting workshops"
+        },
+        {
+          "t": "p",
+          "v": "Together with my spouse, as a family, we conduct parenting workshops to assist parents who are keen to help their children. Children need the ability to adapt to changes as fast as the world expects them to. More importantly, when faced with challenges, they need to be able to turn to parents as easily as to a friend. Through these workshops we hope to help parents and children find solutions and cope with family challenges."
+        },
+        {
+          "t": "p",
+          "v": "In the future I would really like these three aspects to come together, especially my work as a childbirth educator and the parenting. I feel there is a dearth of helpers in this world, and if in some way we can help others find their way, find solutions and make life better for families, beginning with birth, that would be a great opportunity to do what God calls us to."
+        }
+      ]
+    },
+    {
+      "slug": "are-you-a-leader-influence",
+      "title": "I asked a room of people to raise a hand if they were a leader. Half did",
+      "deck": "George Powell on why most people disqualify themselves from the word — and the nine things that actually build influence, starting with the one Eisenhower called the supreme quality.",
+      "kind": "essay",
+      "section": "work-money",
+      "authors": [
+        "george-powell"
+      ],
+      "tags": [
+        "leadership",
+        "influence",
+        "workplace"
+      ],
+      "archiveMeta": {
+        "originalPage": 8,
+        "editNote": "Lightly edited for reading order and typographical errors. All nine steps and the quotations are the author's, as it appeared.",
+        "rightsCleared": "textOnly"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "A few weeks ago I was teaching a seminar on leadership, and I asked everyone in the room to raise a hand if they thought they were a leader."
+        },
+        {
+          "t": "p",
+          "v": "About half the hands went up."
+        },
+        {
+          "t": "p",
+          "v": "Most people do not see themselves as leaders, and the reason is that most people have the wrong idea of what a leader is. We tend to think leadership has something to do with where your office is, how many letters come after your name, or what is framed on the wall behind you. Those things may indicate a level of accomplishment. They do not make anyone a leader."
+        },
+        {
+          "t": "h2",
+          "v": "Influence, and nothing else"
+        },
+        {
+          "t": "p",
+          "v": "Leadership is not about titles or positions. It is about influence. As my mentor John Maxwell puts it: leadership is influence, nothing more and nothing less."
+        },
+        {
+          "t": "p",
+          "v": "So — are you a leader? If you exercise influence over another person, then yes."
+        },
+        {
+          "t": "p",
+          "v": "You may be a mother at home with influence over your children. You may be a schoolteacher with influence over students. You may run a team at work with influence over the people on it. If you exercise influence over others, whether a few or a great many, you are a leader."
+        },
+        {
+          "t": "quote",
+          "v": "True leadership cannot be assigned, appointed or awarded. It is given. All a position or a title can do is buy you a little time, to either gain or lose influence.",
+          "attr": "George Powell",
+          "highlight": "buy you a little time"
+        },
+        {
+          "t": "p",
+          "v": "Harry Overstreet put it well: the essence of all power to influence lies in getting the other person to participate."
+        },
+        {
+          "t": "h2",
+          "v": "So how do you gain influence?"
+        },
+        {
+          "t": "h2",
+          "v": "Nine steps to increase your influence"
+        },
+        {
+          "t": "p",
+          "v": "Some of what follows comes from a course I am certified to teach with the John Maxwell Team, Becoming a Person of Influence."
+        },
+        {
+          "t": "h3",
+          "v": "1. Have integrity with people"
+        },
+        {
+          "t": "p",
+          "v": "Dwight D. Eisenhower put it this way: “In order to be a leader a man must have followers. And to have followers, a man must have their confidence. Hence the supreme quality for a leader is unquestionably integrity. Without it, no real success is possible, no matter whether it is on a section gang, a football field, in an army, or in an office. If a man's associates find him guilty of phoniness, if they find that he lacks forthright integrity, he will fail. His teachings and actions must square with each other. The first great need, therefore, is integrity and high purpose.”"
+        },
+        {
+          "t": "h3",
+          "v": "2. Nurture people"
+        },
+        {
+          "t": "p",
+          "v": "Ask yourself: do I value my position more than my people, or do I value my people more than my position? When you love your people more than your position, and seek to lift them to a higher level, you will gain influence."
+        },
+        {
+          "t": "h3",
+          "v": "3. Have faith in people"
+        },
+        {
+          "t": "p",
+          "v": "By far one of the greatest gifts you can give another person is to express belief in someone who does not believe in himself."
+        },
+        {
+          "t": "h3",
+          "v": "4. Truly listen to people"
+        },
+        {
+          "t": "p",
+          "v": "One important principle I am learning in my own quest to become a better leader is to listen with the intent of understanding, rather than with the intent of responding. Truly listen. As Paul Tillich said, the first duty of love is to listen."
+        },
+        {
+          "t": "h3",
+          "v": "5. Seek to understand people"
+        },
+        {
+          "t": "p",
+          "v": "People do not care how much you know until they know how much you care. So in order to grow in influence, seek first to understand before being understood."
+        },
+        {
+          "t": "h3",
+          "v": "6. Determine to enlarge people"
+        },
+        {
+          "t": "p",
+          "v": "The late Zig Ziglar expressed it well: “You'll always have everything in life that you want if you help enough people get what they want.”"
+        },
+        {
+          "t": "h3",
+          "v": "7. Navigate for people"
+        },
+        {
+          "t": "p",
+          "v": "“A leader is one who knows the way, goes the way, and shows the way.” — John Maxwell"
+        },
+        {
+          "t": "h3",
+          "v": "8. Connect with people"
+        },
+        {
+          "t": "p",
+          "v": "Connecting increases your influence in every situation, whether one to one, in a small group, or with a large audience. Leaders who have learned the art of connection are able to communicate their ideas persuasively, establish buy-in, and attract followers."
+        },
+        {
+          "t": "h3",
+          "v": "9. Empower people"
+        },
+        {
+          "t": "p",
+          "v": "Great leaders do not hold power over others. They empower others to get the job done."
+        },
+        {
+          "t": "p",
+          "v": "Are you a leader? If you have influence over others, you are. Can you increase that influence? Yes, you can. And when you do, you can achieve success at home, in the marketplace, and in every other area of your life."
+        }
+      ]
+    },
+    {
+      "slug": "sadhu-sundar-singh-water-in-an-indian-cup",
+      "title": "He burned a Bible in front of his father, and three days later would not leave the house without one",
+      "deck": "Sundar Singh was fifteen, had lost his mother, and had decided to end his life on the Ludhiana line. What he did afterwards — in a saffron robe, on foot, for twenty-four years — is the argument he is still remembered for.",
+      "kind": "feature",
+      "section": "heritage",
+      "authors": [
+        "elizabeth-clayton"
+      ],
+      "tags": [
+        "church-history",
+        "india",
+        "punjab",
+        "lives"
+      ],
+      "archiveMeta": {
+        "originalPage": 20,
+        "rewrittenAt": "2026-08-31",
+        "editNote": "The 2013 version of this piece was not original work and has been replaced. This is a new article, written from his own writings and from published biography; sources at the foot. It also corrects the original, which named the wrong religion for his family. They were Sikhs.",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "note",
+          "placement": "top",
+          "v": "This piece first ran in our April 2013 issue. That version was not our own writing and has been replaced. What follows is new work. Sources are listed at the end."
+        },
+        {
+          "t": "p",
+          "v": "He burned it in the courtyard, page by page, where his father and the neighbours could see."
+        },
+        {
+          "t": "p",
+          "v": "He was fourteen. His mother had died a few months earlier, and he had been throwing stones at the missionaries who preached near his village and disrupting their meetings. Burning the Bible was the loudest thing he could think of to do, and it seems to have frightened even him."
+        },
+        {
+          "t": "p",
+          "v": "Three days later he decided to lie down on the railway line."
+        },
+        {
+          "t": "h2",
+          "v": "A rich Sikh household in Patiala"
+        },
+        {
+          "t": "p",
+          "v": "His mother took him regularly to a sadhu who lived in the forest nearby, and she wanted him to grow into a holy man rather than a landowner. He was given the Granth to learn, and the Bhagavad Gita, and he read the Vedas and the Quran. By his teens he had a serious religious education by any standard."
+        },
+        {
+          "t": "p",
+          "v": "He was also sent to the mission school in the village, because it was the school there was — and he hated the Bible lessons. Then his mother died, and the whole structure of his faith came apart at once. He had been looking for peace and had not found it in anything he had been given."
+        },
+        {
+          "t": "h2",
+          "v": "18 December 1903"
+        },
+        {
+          "t": "p",
+          "v": "He had settled on the Ludhiana express, which passed the house in the early morning. The night before, he prayed — for hours, and by his own account not to any god in particular."
+        },
+        {
+          "t": "quote",
+          "v": "O God, if there is a God, reveal yourself to me tonight.",
+          "attr": "Sundar Singh, aged fifteen",
+          "highlight": "if there is a God"
+        },
+        {
+          "t": "p",
+          "v": "What he described afterwards was a light in the room before dawn, and a figure, and a voice asking how long he would go on denying him. He said he had been expecting one of the gods he had grown up with and instead saw a man with pierced hands."
+        },
+        {
+          "t": "p",
+          "v": "He went and woke his father to tell him he was a Christian. It is worth holding both halves of that in view: this is a fifteen-year-old who had lost his mother and planned to die that morning, and it is also the account he gave consistently for the rest of his life, to anyone who asked, without embellishment."
+        },
+        {
+          "t": "p",
+          "v": "His family disowned him. He was, by his own report, poisoned by a relative. He was baptised on his sixteenth birthday in 1905, at the church in Simla."
+        },
+        {
+          "t": "h2",
+          "v": "The saffron robe"
+        },
+        {
+          "t": "p",
+          "v": "A month or so after his baptism he did the thing that made him significant, and it was a decision about form rather than about belief."
+        },
+        {
+          "t": "p",
+          "v": "He put on the saffron robe of a sadhu. He gave up possessions, took no money, ate what he was given, stayed celibate, and walked."
+        },
+        {
+          "t": "p",
+          "v": "His reasoning was straightforward and has been quoted ever since: India was not rejecting the water of life, it was rejecting the European cup it was being handed in. A man in a suit with a foreign accent and an institution behind him was, to a village in Punjab, an official of somebody else's empire. A barefoot sadhu with a begging bowl was a category his listeners already had. Same water, Indian cup."
+        },
+        {
+          "t": "p",
+          "v": "So he walked: Punjab, Kashmir, Rajputana, Baluchistan, Nepal, and repeatedly into Tibet over the passes, which nearly killed him more than once and left him with the frostbite and injuries that earned him the name the apostle with the bleeding feet."
+        },
+        {
+          "t": "h2",
+          "v": "Famous, and uneasy about it"
+        },
+        {
+          "t": "p",
+          "v": "From about 1918 the world came to him. South India, Ceylon, Malaya, China and Japan; then in 1920 Britain, America and Australia; then Europe again in 1922, and Palestine. He preached in Jerusalem, Berlin and Amsterdam. Crowds turned out in numbers that embarrassed him."
+        },
+        {
+          "t": "p",
+          "v": "He was not comfortable with any of it and said so. He kept the robe on in London, refused most of what was offered, and went home."
+        },
+        {
+          "t": "p",
+          "v": "From about 1922 his health was failing and he wrote instead — short books, direct and plain: At the Master's Feet, Reality and Religion, The Search After Reality, Visions of the Spiritual World."
+        },
+        {
+          "t": "h2",
+          "v": "What is disputed"
+        },
+        {
+          "t": "p",
+          "v": "An honest account has to include this. In the 1920s a group of European critics, mostly in Germany and Sweden, went through his accounts of miracles and of his imprisonment in Nepal and argued that some episodes could not be corroborated and that dates did not always agree. The argument ran for years and was not settled."
+        },
+        {
+          "t": "p",
+          "v": "What was never seriously disputed by anyone, including his critics, is the rest of it — that he gave away everything he had at sixteen, that he walked into Tibet again and again knowing what it cost, and that he did not profit from any of it."
+        },
+        {
+          "t": "h2",
+          "v": "1929"
+        },
+        {
+          "t": "p",
+          "v": "In April 1929, against advice and in poor health, he set out for Tibet again. He was last seen heading up the road beyond Badrinath, into the mountains."
+        },
+        {
+          "t": "p",
+          "v": "He did not come back. Friends went up the trail after him and found nothing. Nobody knows what happened. He was thirty-nine."
+        },
+        {
+          "t": "h2",
+          "v": "So what, in 2026?"
+        },
+        {
+          "t": "p",
+          "v": "The interesting thing about him is not the vision. Plenty of people report visions and it changes nothing outside their own heads."
+        },
+        {
+          "t": "p",
+          "v": "The interesting thing is that at sixteen he identified the actual obstacle. It was not that people disagreed with him. It was that the form the message arrived in made it unhearable — foreign, institutional, attached to power. So he changed the form and kept the content, and it cost him everything he owned."
+        },
+        {
+          "t": "p",
+          "v": "That question has not aged at all. Whatever you care about, some of the resistance you meet is disagreement and some of it is packaging, and telling the two apart is most of the work. He is worth reading because he got that distinction right at an age when almost nobody does."
+        },
+        {
+          "t": "note",
+          "placement": "foot",
+          "v": "Sources: Sundar Singh's own writings, particularly At the Master's Feet (1922) and The Search After Reality; B. H. Streeter and A. J. Appasamy, The Sadhu: A Study in Mysticism and Practical Religion (1921); A. J. Appasamy, Sundar Singh: A Biography (1958); and the contemporary record of the 1920s European controversy over his accounts."
+        }
+      ]
+    }
+  ]
+}

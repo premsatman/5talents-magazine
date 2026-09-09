@@ -326,156 +326,47 @@
       ],
       "archiveMeta": {
         "originalPage": 16,
-        "editNote": "First published unsigned across two pages. The study questions that filled the second page are kept here as a closing section rather than a worksheet.",
+        "editNote": "Published from the July 2012 issue. Reading order repaired, typographical errors corrected, and the prose lightly tightened. The piece carried no byline in the original.",
         "rightsCleared": "textOnly"
       },
       "body": [
         {
           "t": "p",
-          "v": "God created us with a great variety of talents. You may be able to run a marathon, organise a group meeting, teach, or write. Your skill may be typing, photography, or painting. Perhaps you sing or play an instrument. Maybe you are a carpenter, a landscaper, an engineer, a mechanic, or a bookkeeper. Each of us has a unique function to perform in life and in the body of Christ."
+          "v": "God created us with a great variety of talents. You may be able to run a marathon, organize a group meeting, teach, or write. Your skill may be typing, photography, or painting. Perhaps you sing or play a musical instrument. Maybe you are a carpenter, landscaper, engineer, mechanic, or bookkeeper. Each of us has a unique function to perform in life and in the Body of Christ."
         },
         {
           "t": "p",
-          "v": "The Bible refers to the church as the body of Christ, with Christ as its head (1 Corinthians 12:27; Ephesians 5:23). Just as your body has many specialised parts, each with its own function, so the church is composed of many individuals, each with a special function to perform and a contribution to make to the rest of the body."
+          "v": "The Bible refers to the church as the Body of Christ, with Christ as its Head (1 Corinthians 12:27; Ephesians 5:23). Just as your body has many specialised parts, each with its own function, so the church is composed of many individuals — each with his own function to perform, and his own contribution to make, to the rest of the Body."
         },
         {
           "t": "quote",
-          "v": "Every Christian possesses both natural talents and spiritual gifts.",
-          "attr": "1 Peter 4:10",
-          "highlight": "natural talents and spiritual gifts"
+          "v": "I encourage you to identify your talents, and ask God to show you how to use them for His glory.",
+          "attr": "From the original page",
+          "highlight": "identify your talents"
         },
         {
           "t": "h2",
-          "v": "Two different things"
+          "v": "Natural gifts and spiritual gifts"
         },
         {
           "t": "p",
-          "v": "Our natural abilities come to us at physical birth and are developed through life. Our spiritual gifts are imparted by the Holy Spirit, enabling us to minister to others on behalf of Christ. The distinction matters, because the first is largely yours to cultivate and the second is given for somebody else’s good."
-        },
-        {
-          "t": "p",
-          "v": "“Each of you should use whatever gift you have received to serve others, as faithful stewards of God’s grace in its various forms.” (1 Peter 4:10)"
+          "v": "Every Christian possesses both natural talents and spiritual gifts. Our natural abilities come to us at physical birth and are developed through life. Our spiritual gifts are imparted by the Holy Spirit, enabling us to minister to others on behalf of Christ."
         },
         {
           "t": "h2",
-          "v": "Work it through"
+          "v": "Natural gifts"
         },
         {
           "t": "p",
-          "v": "The original article closed with a set of questions. They are worth sitting with rather than skimming."
+          "v": "What talents and natural abilities do you have? How did you acquire them, or improve upon them?"
         },
         {
           "t": "p",
-          "v": "On natural gifts. What talents and natural abilities do you have? How did you acquire them, or improve on them? According to 1 Corinthians 4:6–7 and Exodus 4:11, what should your attitude to them be? How would you apply Colossians 3:17 to the stewardship of your natural gifts?"
+          "v": "According to 1 Corinthians 4:6–7 and Exodus 4:11, what should your attitude be about them? How would you apply Colossians 3:17 to the stewardship of your natural gifts?"
         },
         {
           "t": "p",
-          "v": "On spiritual gifts. The major passages are Romans 12:3–8, 1 Corinthians 12:1–31, Ephesians 4:4–8 and 11–16, and 1 Peter 4:10–11. From these, make a list of the spiritual gifts, combining any two that seem identical, and write a brief description of each."
-        },
-        {
-          "t": "p",
-          "v": "Why has God given gifted people to the church (Ephesians 4:11–16)? Why will two people not exercise the same gift in the same way (1 Corinthians 12:4–6)? Though some gifts seem to be of greater value than others (1 Corinthians 12:28–31), what does Paul stress in order to keep Christians from pride about the ones they have (Romans 12:4–5; 1 Corinthians 12:12–16; 1 Corinthians 13; Ephesians 4:11–16)?"
-        },
-        {
-          "t": "p",
-          "v": "Then: list several principles describing what your attitude and responsibilities should be towards your spiritual gifts (Romans 12:3–8). Start from the assumption that you have at least one, and probably more."
-        }
-      ]
-    },
-    {
-      "slug": "youversion-fifty-million-to-one-billion",
-      "title": "We marked fifty million installs in 2012. The Bible App has now passed a billion.",
-      "deck": "In our first issue we ran an infographic celebrating what YouVersion had achieved in four years. Fourteen years on, the numbers have moved by a factor of twenty — and the more interesting figure is not installs.",
-      "kind": "feature",
-      "section": "technology",
-      "authors": [
-        "premasis-satman"
-      ],
-      "tags": [
-        "youversion",
-        "bible-engagement",
-        "apps"
-      ],
-      "featured": "featured",
-      "archiveMeta": {
-        "originalPage": 10,
-        "editNote": "Substantially rewritten and updated in August 2026. The July 2012 original was an interview extract with Bobby Gruenewald plus a YouVersion infographic marking fifty million installs; the reporting below is new, and the closing note is the one that ran in the original issue.",
-        "rightsCleared": "full"
-      },
-      "body": [
-        {
-          "t": "p",
-          "v": "In the first issue of this magazine, in July 2012, we gave a page to an infographic from YouVersion. It described one minute inside the Bible App: fifty-two new installs, the app opened 1,698 times, 6,080 chapters read, 642 audio streams started. At the foot of the page, in a yellow flash, it said CELEBRATING 50 MILLION INSTALLS."
-        },
-        {
-          "t": "p",
-          "v": "That felt like a large number at the time. The app was four years old."
-        },
-        {
-          "t": "h2",
-          "v": "One billion"
-        },
-        {
-          "t": "p",
-          "v": "In October 2025 YouVersion announced that its family of apps — the Bible App, Bible App Lite and the Bible App for Kids — had passed one billion device installs. The milestone was marked through November with a Global Bible Month campaign and a gathering at the Paycom Center in Oklahoma City on 17 November."
-        },
-        {
-          "t": "p",
-          "v": "That is twenty times the figure we printed, reached in thirteen years. But the install count is the least interesting number YouVersion publishes, because an install is a one-time act and says nothing about whether anyone came back."
-        },
-        {
-          "t": "quote",
-          "v": "One billion app opens every thirty-nine days.",
-          "attr": "YouVersion, October 2025",
-          "highlight": "every thirty-nine days"
-        },
-        {
-          "t": "h2",
-          "v": "The number that matters"
-        },
-        {
-          "t": "p",
-          "v": "The figure worth watching is engagement, and it is rising faster than installs. YouVersion reported global installs up more than 12% year on year and daily usage up 18%. Its apps register one billion opens every thirty-nine days."
-        },
-        {
-          "t": "p",
-          "v": "During Holy Week 2026 an average of 18.7 million people a day opened one of the apps. On Easter Sunday the figure passed 21.6 million — the most engaged single day in the platform’s history. Engagement across Holy Week grew 15% against the previous year, and every region of the world rose: sub-Saharan Africa by 37%, Latin America by 22%. The most-read verse worldwide that Easter was Matthew 28:6."
-        },
-        {
-          "t": "p",
-          "v": "The reach has widened as well as deepened. The Bible App now offers Scripture in more than 2,400 languages and over 3,750 translations, supported by a network of more than 31,000 partners, including 7,224 content partners and over 25,000 churches."
-        },
-        {
-          "t": "h2",
-          "v": "An idea in an airport queue"
-        },
-        {
-          "t": "p",
-          "v": "The origin story has not changed in the retelling. Bobby Gruenewald, an innovation leader at Life.Church, was standing in an airport security queue when he asked himself whether technology could help him read the Bible more consistently. It launched as a website first, and gained its momentum by being among the first apps available when the App Store opened in 2008."
-        },
-        {
-          "t": "p",
-          "v": "What he told this magazine in 2012 still reads well, and is arguably the more useful part of the story than any of the numbers above:"
-        },
-        {
-          "t": "p",
-          "v": "“Keeping pace with technology advancements can be overwhelming. In fact, if they don’t affect us and we aren’t interested, it’s tempting to ignore them. But if we’re building the church for the world and not ourselves, it’s worth the effort to understand. The good news? We don’t have to change as fast as technology changes. We just have to stay in step with how quickly people are changing.”"
-        },
-        {
-          "t": "h2",
-          "v": "What we said in 2012"
-        },
-        {
-          "t": "p",
-          "v": "The original page carried a short note from this desk, and it can stand as it was written:"
-        },
-        {
-          "t": "p",
-          "v": "“It’s amazing to see how technology is used for the kingdom of God. Technology can be used to make us better stewards and ministers. We can enable the good news to be spread widely and rapidly, in ways that grip the viewer, listener or reader. If you have plans and concepts to use your talents and skills for the kingdom, go ahead. Do not wait — the harvest is plentiful, but the workers are few.”"
-        },
-        {
-          "t": "p",
-          "v": "Fourteen years and 950 million installs later, that still seems like the right advice."
+          "v": "Each of you should use whatever gift you have received to serve others, as faithful stewards of God's grace in its various forms. (1 Peter 4:10)"
         }
       ]
     },

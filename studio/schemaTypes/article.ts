@@ -127,6 +127,24 @@ export const article = defineType({
         'For archive pieces this is the REPUBLICATION date, not the original. The original issue date lives in Archive provenance and is displayed prominently. Blueprint s7.',
       validation: (r) => r.required(),
     }),
+    /**
+     * Which online issue this piece belongs to.
+     *
+     * ISSN India wants the publication name, volume, issue, month and year on
+     * the first page of every article (detailed information document, s7), and
+     * an archive that lists each issue's articles with a link each (s4). One
+     * reference gives both. Optional on the document so that nothing already
+     * published breaks, but every live article needs one before the ISSN
+     * application goes in.
+     */
+    defineField({
+      name: 'onlineIssue',
+      title: 'Online issue',
+      type: 'reference',
+      group: 'meta',
+      to: [{ type: 'onlineIssue' }],
+      description: 'Drives the citation line on the article and its entry in the issue archive.',
+    }),
     defineField({
       name: 'featured',
       title: 'Homepage placement',

@@ -3,6 +3,7 @@ import { sanityFetch } from '@/sanity/live'
 import { SITE_SETTINGS_QUERY } from '@/sanity/queries'
 import { scopeStatement as fallbackScope, tagline } from '@/lib/site'
 import { clean } from '@/sanity/stega'
+import { imprint } from '@/lib/publisher'
 import { NewsletterForm } from './NewsletterForm'
 import { BrushStroke } from './Wordmark'
 
@@ -33,6 +34,12 @@ export async function SiteFooter() {
   const { data: settings } = await sanityFetch({ query: SITE_SETTINGS_QUERY })
   const scope = settings?.scopeStatement ?? fallbackScope
   const socials = settings?.socials ?? []
+  /* ISSN India, general guidelines: "The name and complete postal address
+     (Specifically India) of the publisher must be displayed on the publication
+     or publication website." Put in the footer so it is on every page, not
+     only on /about, and driven from Site settings so it can never drift from
+     the value filed on the application form. */
+  const publisherLine = imprint(settings?.publisher ?? null)
 
   return (
     <footer className="site">
@@ -79,6 +86,7 @@ export async function SiteFooter() {
               <ul>
                 <li><Link href="/interviews">Cover stories</Link></li>
                 <li><Link href="/talent-search">Talent search</Link></li>
+                <li><Link href="/issues">Issues</Link></li>
                 <li><Link href="/archive">The archive</Link></li>
                 <li><Link href="/rss.xml">RSS feed</Link></li>
               </ul>
@@ -96,7 +104,9 @@ export async function SiteFooter() {
               <ul>
                 <li><Link href="/about">Who we are</Link></li>
                 <li><Link href="/about#scope">What we cover</Link></li>
+                <li><Link href="/editorial-board">Editorial board</Link></li>
                 <li><Link href="/corrections">Corrections</Link></li>
+                <li><Link href="/plagiarism">Plagiarism policy</Link></li>
                 <li><Link href="/privacy">Privacy</Link></li>
               </ul>
             </div>
@@ -119,8 +129,37 @@ export async function SiteFooter() {
         {/* Blueprint sections 4 and 8: the published scope statement. */}
         <p className="scope">{scope}</p>
 
+        {publisherLine && (
+          <p className="footer-imprint">
+            {publisherLine}
+            {settings?.particulars?.issnOnline && (
+              <>
+                <span aria-hidden="true"> · </span>
+                e-ISSN {settings.particulars.issnOnline}
+              </>
+            )}
+            <span aria-hidden="true"> · </span>
+            <Link href="/about#particulars">Journal particulars</Link>
+            <span aria-hidden="true"> · </span>
+            <Link href="/editorial-board">Editorial board</Link>
+          </p>
+        )}
+
         <p className="footer-legal">
-          © {new Date().getFullYear()} 5Talents Magazine. Published since 2012.
+          {/* The magazine owns the collective work - the selection, arrangement,
+              editing and everything written in-house. It does not own the
+              contributors' articles: under the Copyright Act 1957 those stay
+              with their authors unless assigned in writing, and no such
+              assignment exists. A blanket "© 5Talents Magazine" would claim
+              them, so the notice names both.
+
+              Deliberately NOT "and appear here by permission". As of Sep 2026
+              that is not true of every piece - see issn/RIGHTS.md - and a
+              notice that overstates permission is the same kind of error as one
+              that overstates ownership. Add the clause when it is true. */}
+          © {new Date().getFullYear()} 5Talents Magazine. Founded 2012.
+          <span aria-hidden="true"> · </span>
+          Articles are © their authors.
           <span aria-hidden="true"> · </span>
           {/* The lockup is white on transparency, so it only works against the
               dark footer — which is fixed to --inverse-bg in both themes. If

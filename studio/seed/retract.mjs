@@ -25,15 +25,6 @@ import { query, mutate } from './lib.mjs'
 /** The confirmed cases, with the source each was taken from. */
 const CONFIRMED = [
   {
-    slug: 'graham-staines-thirty-four-years-in-orissa',
-    reason:
-      'Text is taken near-verbatim from the English Wikipedia article "Graham Staines" ' +
-      'and was published under a 5Talents staff byline. Wikipedia is CC BY-SA, so ' +
-      'republication is possible, but only with attribution and share-alike licensing - ' +
-      'not under our own byline. Retracted 30 August 2026 pending a decision on whether ' +
-      'to attribute it properly or rewrite it from primary sources.',
-  },
-  {
     slug: 'martin-luther-the-reformer',
     reason:
       'Text is taken near-verbatim from "Martin Luther Biography" by Mary Fairchild, ' +
@@ -44,14 +35,51 @@ const CONFIRMED = [
   },
 ]
 
+/**
+ * Closed cases. Kept as a record, never acted on.
+ *
+ * A slug that has been dealt with must come out of CONFIRMED the moment it is
+ * resolved. Leaving it there means the next bare `npm run retract` quietly takes
+ * down the replacement - the list would be aimed at the very work that fixed the
+ * problem.
+ */
+const RESOLVED = [
+  {
+    slug: 'graham-staines-thirty-four-years-in-orissa',
+    note:
+      'Retracted 30 August 2026: the text was near-verbatim from the English Wikipedia ' +
+      'article, published under a staff byline. Replaced on 31 August 2026 by an article ' +
+      'written from published reporting and reference sources, and brought back to the same ' +
+      'URL. No longer a live case.',
+  },
+  {
+    slug: 'youversion-fifty-million-to-one-billion',
+    note:
+      'Retracted 31 August 2026: the 2012 page was not an article but a quotation from ' +
+      'LifeChurch.tv plus YouVersion\'s own usage infographic, unsigned. Replaced on ' +
+      '1 September 2026 by an original 2026 feature written from published sources, ' +
+      'bylined to 5Talents and filed outside the archive. No longer a live case.',
+  },
+]
+
 async function retract(slug, reason) {
   const doc = await query(
-    '*[_type == "article" && slug.current == $s][0]{_id, title, retracted}',
+    '*[_type == "article" && slug.current == $s][0]{_id, title, retracted, "rewritten": archiveMeta.rewrittenAt}',
     { s: slug },
   )
 
   if (!doc) return { slug, outcome: 'not found - nothing to do' }
   if (doc.retracted === true) return { slug, outcome: 'already retracted' }
+
+  // A piece carrying archiveMeta.rewrittenAt has already been replaced with new
+  // work. Retracting it would take down the fix rather than the fault, which is
+  // exactly the mistake a stale list invites. Requires --force to override.
+  if (doc.rewritten && !process.argv.includes('--force')) {
+    return {
+      slug,
+      outcome: `REFUSED - this was rewritten on ${doc.rewritten}. Retracting would remove the replacement. Use --force if that is really what you want.`,
+    }
+  }
 
   await mutate([
     {
@@ -81,12 +109,25 @@ const targets =
 if (listOnly) {
   for (const t of targets) {
     const doc = await query(
-      '*[_type == "article" && slug.current == $s][0]{title, retracted}',
+      `*[_type == "article" && slug.current == $s][0]{
+        title, retracted, retractionNote, "rewritten": archiveMeta.rewrittenAt
+      }`,
       { s: t.slug },
     )
-    const state = !doc ? 'not in the dataset' : doc.retracted ? 'already retracted' : 'live'
-    console.log(`${t.slug}\n  currently: ${state}\n  ${t.reason}\n`)
+    if (!doc) {
+      console.log(`${t.slug}\n  not in the dataset\n`)
+      continue
+    }
+    console.log(t.slug)
+    console.log(`  ${doc.retracted ? 'RETRACTED - off the site' : 'LIVE on the site'}`)
+    // Print the note the document actually carries, not the reason in this file.
+    // Those two drift apart, and the file's copy is the one that goes stale.
+    if (doc.retracted && doc.retractionNote) console.log(`  on the document: ${doc.retractionNote}`)
+    if (!doc.retracted) console.log(`  would be retracted for: ${t.reason}`)
+    if (doc.rewritten) console.log(`  NOTE: rewritten ${doc.rewritten} - retracting would remove the replacement`)
+    console.log()
   }
+  for (const r of RESOLVED) console.log(`${r.slug}\n  CLOSED - ${r.note}\n`)
   console.log('--list: nothing was changed.')
 } else {
   for (const t of targets) {

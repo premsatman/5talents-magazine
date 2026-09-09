@@ -176,9 +176,43 @@ async function main() {
     console.log(`  ${created ? 'created' : 'updated'}  section  ${slug}`)
   }
 
-  // 2. Site settings (a true singleton - fixed _id is correct here) ----
-  await mutate([{ createOrReplace: SITE_SETTINGS }])
-  console.log('  written   siteSettings\n')
+  // 2. Site settings -------------------------------------------------
+  //
+  // Created if absent, never overwritten.
+  //
+  // This used to be a createOrReplace, which was correct exactly once: on an
+  // empty dataset, before anyone had opened the Studio. It stopped being
+  // correct the moment siteSettings became a document people edit by hand,
+  // because a re-run would silently revert whatever they had changed.
+  //
+  // The two fields that made this urgent are `adsEnabled` and `enabledSlots`.
+  // Turn ads on, sell a slot, run this script for any unrelated reason weeks
+  // later, and the site quietly goes back to ads off with two slots enabled -
+  // while the advertiser's booking still sits in the dataset looking fine.
+  // Nothing on the page, nothing in the logs, nothing to notice.
+  //
+  // Missing fields are still filled in, so adding a new setting to the object
+  // above and re-running does what you would expect. Existing values are left
+  // alone. Same principle as `featured` and `sponsorTier` in the article
+  // importer: an editor's choice outranks a script's default.
+  const existing = await query('*[_id == "siteSettings"][0]')
+  if (!existing) {
+    await mutate([{ createOrReplace: SITE_SETTINGS }])
+    console.log('  created   siteSettings')
+  } else {
+    const gaps = Object.fromEntries(
+      Object.entries(SITE_SETTINGS).filter(
+        ([k, v]) => !k.startsWith('_') && existing[k] === undefined && v !== undefined,
+      ),
+    )
+    if (Object.keys(gaps).length) {
+      await mutate([{ patch: { id: 'siteSettings', set: gaps } }])
+      console.log(`  filled    siteSettings, added ${Object.keys(gaps).join(', ')}`)
+    } else {
+      console.log('  kept      siteSettings as edited (nothing overwritten)')
+    }
+  }
+  console.log('')
 
   // 3. Archive issues --------------------------------------------------
   const issues = JSON.parse(await readFile(join(HERE, 'issues.json'), 'utf8'))

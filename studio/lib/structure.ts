@@ -4,6 +4,7 @@ import { DocumentTextIcon } from '@sanity/icons/DocumentText'
 import { UserIcon } from '@sanity/icons/User'
 import { TagIcon } from '@sanity/icons/Tag'
 import { BookIcon } from '@sanity/icons/Book'
+import { DocumentsIcon } from '@sanity/icons/Documents'
 import { CaseIcon } from '@sanity/icons/Case'
 import { InboxIcon } from '@sanity/icons/Inbox'
 
@@ -65,6 +66,13 @@ export const structure: StructureResolver = (S) =>
                     .filter('_type == "article" && defined(archiveMeta.originalIssue)'),
                 ),
               S.listItem()
+                .title('Not in an issue yet')
+                .child(
+                  S.documentList()
+                    .title('No online issue set - fix before the ISSN application')
+                    .filter('_type == "article" && !defined(onlineIssue)'),
+                ),
+              S.listItem()
                 .title('Sponsored & supplied')
                 .child(
                   S.documentList()
@@ -77,7 +85,8 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('author').title('Contributors').icon(UserIcon),
       S.documentTypeListItem('section').title('Sections').icon(TagIcon),
       S.documentTypeListItem('tag').title('Tags').icon(TagIcon),
-      S.documentTypeListItem('archiveIssue').title('Archive issues').icon(BookIcon),
+      S.documentTypeListItem('onlineIssue').title('Online issues').icon(DocumentsIcon),
+      S.documentTypeListItem('archiveIssue').title('Print archive 2012-14').icon(BookIcon),
       S.documentTypeListItem('advertiser').title('Advertisers').icon(CaseIcon),
       S.divider(),
       S.listItem()

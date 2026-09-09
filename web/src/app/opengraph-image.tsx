@@ -115,7 +115,7 @@ export default async function Image() {
           }}
         >
           <div style={{ display: 'flex' }}>EDITED FROM INDIA</div>
-          <div style={{ display: 'flex' }}>PUBLISHED SINCE 2012</div>
+          <div style={{ display: 'flex' }}>FOUNDED 2012</div>
         </div>
       </div>
     ),

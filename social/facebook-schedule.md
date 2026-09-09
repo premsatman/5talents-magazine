@@ -1,0 +1,707 @@
+# 5Talents on Facebook - daily posting schedule
+
+One post a day to [facebook.com/5TalentsMagazine](https://www.facebook.com/5TalentsMagazine), 2026-09-07 to 2026-10-29. 53 posts.
+
+No two consecutive days share a section, Sundays lean devotional, and the Talent Search interviews are spread through rather than saved up.
+
+**To load this into Notion:** import `facebook-schedule.csv` as a database rather than pasting this file - you get a Status property you can tick off and a calendar view. This version is for reading and for copying one post at a time.
+
+---
+
+## Index
+
+| Date | Day | Section | Headline |
+|---|---|---|---|
+| 2026-09-07 | Mon | Faith | Why we stopped in 2014, and why we are back |
+| 2026-09-08 | Tue | Culture | Twenty-four thousand cases in one year, and two words we use to make that bearable |
+| 2026-09-09 | Wed | Faith | We named this magazine after a parable where the master hands out the money before anyone has earned it |
+| 2026-09-10 | Thu | Work & money | I asked a room of people to raise a hand if they were a leader. Half did |
+| 2026-09-11 | Fri | Faith | We cannot see faith, but we see everything because of it |
+| 2026-09-12 | Sat | Culture | She left school, and now she is the only woman running the sound desk at her church |
+| 2026-09-13 | Sun | Faith | Zacharias had believed the promises for forty years and had quietly written himself out of them |
+| 2026-09-14 | Mon | Work & money | My mother is ninety-four, and I still hear her telling me to do it as if I were doing it for God |
+| 2026-09-15 | Tue | Faith | An empty lampstand looks exactly like a full one until the room goes dark |
+| 2026-09-16 | Wed | Culture | We cut the tags off in the changing room, walked out, and sold the clothes at half price to rich college kids |
+| 2026-09-17 | Thu | Faith | Every Christian has both natural talents and spiritual gifts |
+| 2026-09-18 | Fri | Work & money | If relationships are good, life is good. If they are bad, life stinks |
+| 2026-09-19 | Sat | Culture | Mary Sujani has made three hundred puppets, and every one of them preaches |
+| 2026-09-20 | Sun | Faith | Crossing the Bandra–Worli sea link, I could not see the other end |
+| 2026-09-21 | Mon | Work & money | Some believers make money by unlawful means and then give generously to the church, as though that settles it |
+| 2026-09-22 | Tue | Culture | Samuel Stanley Jones: “Prayer is the only source that gives life to our talents” |
+| 2026-09-23 | Wed | Faith | “I just came to tell you one thing” |
+| 2026-09-24 | Thu | Work & money | A sewing machine in somebody's front room does more than a cheque does |
+| 2026-09-25 | Fri | Culture | The street fighter who became a cameraman for the kingdom |
+| 2026-09-26 | Sat | Faith | We say freedom on the fifteenth of August and mostly mean permission |
+| 2026-09-27 | Sun | Wellbeing | Two things you can say when you wake up, and they decide the rest of the day |
+| 2026-09-28 | Mon | Heritage | She walked into Newgate against advice, and found three hundred women sleeping on stone |
+| 2026-09-29 | Tue | Work & money | In nine years of ministry I have watched leaders quietly become puppets |
+| 2026-09-30 | Wed | Culture | Bhaskar Rao played twenty instruments, and sang in ten languages |
+| 2026-10-01 | Thu | Faith | The same day they fed five thousand people, they were terrified in a boat |
+| 2026-10-02 | Fri | Heritage | He burned a Bible in front of his father, and three days later would not leave the house without one |
+| 2026-10-03 | Sat | Work & money | In 2008 God asked us to fallow the entire farm, and the neighbours queued up the lane to rent it |
+| 2026-10-04 | Sun | Faith | This is the Camp that God Built |
+| 2026-10-05 | Mon | Culture | She learned oil painting at a work offsite, and has painted sixty-eight Bible scenes since |
+| 2026-10-06 | Tue | Heritage | He saw a photograph of a boy his own age with leprosy, and gave India the next thirty-four years |
+| 2026-10-07 | Wed | Work & money | I moved seats because of the draught, and did not explain why. So of course they assumed it was them |
+| 2026-10-08 | Thu | Culture | He taught film dance for a living, then taught himself keyboard, guitar and drums |
+| 2026-10-09 | Fri | Faith | Every job in a king’s palace has a match in the church |
+| 2026-10-10 | Sat | Heritage | He fed two thousand children a day and never once asked anyone for money |
+| 2026-10-11 | Sun | Wellbeing | Elijah asked God to take his life. God let him sleep, and then fed him twice |
+| 2026-10-12 | Mon | Work & money | Thirty-nine years a pastor, and I have changed my mind about who makes the difference |
+| 2026-10-13 | Tue | Culture | If one of my three children were caught in the match-fixing, I know exactly what I would do |
+| 2026-10-14 | Wed | Faith | I prayed for wisdom to win a Sunday school prize, then prayed a whole week that the coin would land my way |
+| 2026-10-15 | Thu | Heritage | She could recite eighteen thousand verses of Sanskrit, and used it to argue for widows |
+| 2026-10-16 | Fri | Wellbeing | When Serpent Suicide Slithers in |
+| 2026-10-17 | Sat | Work & money | Every giant introduces a man to himself, and mine was a small, polite church secretary |
+| 2026-10-18 | Sun | Faith | The welcome mat says Live, Love and Laugh Often, and it is quite worn out |
+| 2026-10-19 | Mon | Culture | The candle failed in the mould and left a hole, so she filled it with orange wax and had room for one short verse |
+| 2026-10-20 | Tue | Heritage | An American wrote the Hindi grammar that Indian Civil Service candidates had to pass their exams on, and it is still in print |
+| 2026-10-21 | Wed | Wellbeing | Accelerator, brake, clutch. Every driving instructor in Hyderabad teaches the same three things |
+| 2026-10-22 | Thu | Work & money | You can invest your talent in success, or in something that lasts |
+| 2026-10-23 | Fri | Campus | For two years of my teenage life I did not look in a mirror |
+| 2026-10-24 | Sat | Culture | An MLA recited the whole of Psalm 103 to her in Telugu, and she went to the ladies' restroom and cried |
+| 2026-10-25 | Sun | Faith | The only bowing down I do to the tree in our house is to water the thing so it does not catch fire |
+| 2026-10-26 | Mon | Heritage | A shoemaker who taught himself six languages, and spent seven years in India without a single convert |
+| 2026-10-27 | Tue | Technology | In 2012 we printed a page of YouVersion's numbers. It has since passed a billion installs |
+| 2026-10-28 | Wed | Wellbeing | A woman prayed over my family and said God wanted me to exercise |
+| 2026-10-29 | Thu | Work & money | David did not start out fighting giants. He started out with smelly, stupid sheep where nobody could see him |
+
+---
+
+## The posts
+
+### 2026-09-07 · Mon · Faith
+
+```
+Why we stopped in 2014, and why we are back
+
+Eighteen issues, a new baby, a format that stopped working, and a website taken from us. What happened to 5Talents in 2014 — and what returns in January.
+
+Read it: https://5talentsmag.com/faith/why-we-stopped-in-2014-and-why-we-are-back
+```
+
+*Point of view - an editorial. Worth saying in your own words why you are posting it.*
+
+### 2026-09-08 · Tue · Culture
+
+```
+Twenty-four thousand cases in one year, and two words we use to make that bearable
+
+The outrage lasts about a fortnight. Then the protests thin out, the panel discussions move on, and the country goes back to chalta hai until the next one is brutal enough to interrupt us.
+
+Read it: https://5talentsmag.com/culture/chalta-hai-is-how-we-make-it-bearable
+```
+
+*Point of view - an editorial. Worth saying in your own words why you are posting it.*
+
+### 2026-09-09 · Wed · Faith
+
+```
+We named this magazine after a parable where the master hands out the money before anyone has earned it
+
+Somebody has told you that you are good for nothing. Matthew 25 does not open with what the servants produced. It opens with what they were handed.
+
+Read it: https://5talentsmag.com/faith/the-master-hands-out-the-talents-first
+```
+
+*Point of view - an editorial. Worth saying in your own words why you are posting it.*
+
+### 2026-09-10 · Thu · Work & money
+
+```
+I asked a room of people to raise a hand if they were a leader. Half did
+
+George Powell on why most people disqualify themselves from the word — and the nine things that actually build influence, starting with the one Eisenhower called the supreme quality.
+
+Read it: https://5talentsmag.com/work-money/are-you-a-leader-influence
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-09-11 · Fri · Faith
+
+```
+We cannot see faith, but we see everything because of it
+
+The woman on the corner who feeds her children first and sleeps hungry. The student who sits an exam she has not read for and thinks she might just make it. If that is not faith, what is she living on?
+
+Read it: https://5talentsmag.com/faith/we-cannot-see-faith-but-we-see-because-of-it
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-09-12 · Sat · Culture
+
+```
+She left school, and now she is the only woman running the sound desk at her church
+
+Esther grew up the eldest of four daughters of daily-wage workers, and was pulled out of English-medium school so a younger sister could stay in. Then the church asked for someone to learn the mixer.
+
+Read it: https://5talentsmag.com/culture/esther-only-woman-on-the-sound-crew
+```
+
+*Talent Search. Esther in their own words - the franchise the magazine is named for.*
+
+### 2026-09-13 · Sun · Faith
+
+```
+Zacharias had believed the promises for forty years and had quietly written himself out of them
+
+The Christmas chapters are usually read as pageantry. Read as a description of how God moves, they are about who gets called in, and the answer is not a professional cast.
+
+Read it: https://5talentsmag.com/faith/people-of-the-plan
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-09-14 · Mon · Work & money
+
+```
+My mother is ninety-four, and I still hear her telling me to do it as if I were doing it for God
+
+He enrolled in Bible college at nineteen as what he calls a reluctant leader, asking Moses's question: who am I that I should lead these people? Thirty-nine years later he has an answer.
+
+Read it: https://5talentsmag.com/work-money/are-you-living-up-to-your-potential
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-09-15 · Tue · Faith
+
+```
+An empty lampstand looks exactly like a full one until the room goes dark
+
+God gave Moses the dimensions of a tent and specified the oil for its lamps. Three thousand years later the question the tent was asking is still the only one that matters: where does your light come from?
+
+Read it: https://5talentsmag.com/faith/an-empty-lampstand-looking-good-and-running-on-empty
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-09-16 · Wed · Culture
+
+```
+We cut the tags off in the changing room, walked out, and sold the clothes at half price to rich college kids
+
+He failed eight papers out of ten and lost a year. Three friends died of overdoses. Then somebody asked him to play guitar at a prayer meeting, and he went because he had nothing else on that afternoon.
+
+Read it: https://5talentsmag.com/culture/we-cut-the-tags-off-and-sold-the-clothes
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-09-17 · Thu · Faith
+
+```
+Every Christian has both natural talents and spiritual gifts
+
+One comes to you at birth and is developed over a life. The other is given by the Spirit for the sake of other people. Knowing which is which changes what you do with them.
+
+Read it: https://5talentsmag.com/faith/stewardship-of-our-talents-and-gifts
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-09-18 · Fri · Work & money
+
+```
+If relationships are good, life is good. If they are bad, life stinks
+
+Five things a pastor of thirty-nine years has learned about getting on with people, starting with the two he calls the ugly twin sisters.
+
+Read it: https://5talentsmag.com/work-money/what-do-your-relationships-say-about-your-leadership
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-09-19 · Sat · Culture
+
+```
+Mary Sujani has made three hundred puppets, and every one of them preaches
+
+A Hyderabad designer on childhood play that turned into a profession, and on why the smallest talent is worth refining.
+
+Read it: https://5talentsmag.com/culture/mary-sujani-puppets-for-jesus
+```
+
+*Talent Search. Mary Sujani in their own words - the franchise the magazine is named for.*
+
+### 2026-09-20 · Sun · Faith
+
+```
+Crossing the Bandra–Worli sea link, I could not see the other end
+
+Five and a half kilometres of cable, thirty thousand vehicles a day, and no way to see where it finishes. A short essay on faith.
+
+Read it: https://5talentsmag.com/faith/life-as-a-hanging-bridge
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-09-21 · Mon · Work & money
+
+```
+Some believers make money by unlawful means and then give generously to the church, as though that settles it
+
+Wanting to be rich is not the sin. An unsigned page from 2014 on bribes, substandard goods, and the bribe that has become normal procedure for moving a pastor from one parish to another.
+
+Read it: https://5talentsmag.com/work-money/getting-rich-by-unjust-means
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-09-22 · Tue · Culture
+
+```
+Samuel Stanley Jones: “Prayer is the only source that gives life to our talents”
+
+A Hyderabad worship leader on being chosen to lead, staying undistracted on a stage, and why a gift is never a burden.
+
+Read it: https://5talentsmag.com/culture/samuel-stanley-jones-prayer-gives-life-to-our-talents
+```
+
+*Talent Search. Samuel Stanley Jones in their own words - the franchise the magazine is named for.*
+
+### 2026-09-23 · Wed · Faith
+
+```
+“I just came to tell you one thing”
+
+A conversation with God on a wet afternoon, in verse, with the scripture He keeps answering in.
+
+Read it: https://5talentsmag.com/faith/love-you-a-conversation-in-the-rain
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-09-24 · Thu · Work & money
+
+```
+A sewing machine in somebody's front room does more than a cheque does
+
+Charity relieves a hardship for a week. Ability changes what a family can do for the next twenty years. That is the argument, and Indian churches are sitting on the resources to act on it.
+
+Read it: https://5talentsmag.com/work-money/a-sewing-machine-does-more-than-a-cheque
+```
+
+*Point of view - an editorial. Worth saying in your own words why you are posting it.*
+
+### 2026-09-25 · Fri · Culture
+
+```
+The street fighter who became a cameraman for the kingdom
+
+Pavithran Golconda grew up in a Christian home in Hyderabad and wanted nothing to do with it. He talks about the night that changed him, the band he started, and why he tells beginners to learn on film.
+
+Read it: https://5talentsmag.com/culture/pavithran-golconda-street-fighter-to-cameraman
+```
+
+*Talent Search. Pavithran Golconda in their own words - the franchise the magazine is named for.*
+
+### 2026-09-26 · Sat · Faith
+
+```
+We say freedom on the fifteenth of August and mostly mean permission
+
+Flags, the anthem, the telecast from the Red Fort. Then a year in which a girl was surrounded outside a bar in Guwahati and an infant died in Punjab over two hundred rupees.
+
+Read it: https://5talentsmag.com/faith/we-say-freedom-and-mean-permission
+```
+
+*Point of view - an editorial. Worth saying in your own words why you are posting it.*
+
+### 2026-09-27 · Sun · Wellbeing
+
+```
+Two things you can say when you wake up, and they decide the rest of the day
+
+“Good Lord, it's morning” or “Good morning, Lord.” Lorita Das on gratitude, on the exercise of imagining you have lost everything, and on why humility is not the same as being a doormat.
+
+Read it: https://5talentsmag.com/wellbeing/tools-of-a-perfect-prayer
+```
+
+*Wellbeing. Post it in the morning - this is the kind of piece people forward to one person.*
+
+### 2026-09-28 · Mon · Heritage
+
+```
+She walked into Newgate against advice, and found three hundred women sleeping on stone
+
+Elizabeth Fry was a banker's wife with eleven children who became the first woman to give evidence to a committee of the House of Commons. What she did to English prisons, and what it cost her family.
+
+Read it: https://5talentsmag.com/heritage/elizabeth-fry-angel-of-prisons
+```
+
+*Heritage. Stands alone for someone who has never heard of the magazine.*
+
+### 2026-09-29 · Tue · Work & money
+
+```
+In nine years of ministry I have watched leaders quietly become puppets
+
+The manager who never leaves the chair. The supreme leader who decides by preference. And Elijah, who went from calling down fire to lying under a tree asking to die.
+
+Read it: https://5talentsmag.com/work-money/are-you-a-prophet-or-a-puppet
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-09-30 · Wed · Culture
+
+```
+Bhaskar Rao played twenty instruments, and sang in ten languages
+
+He sat in the corner of a room until he was ten. Then a pastor asked whether he wanted to go to school. Our 2012 conversation with the flutist, who died in May.
+
+Read it: https://5talentsmag.com/culture/bhaskar-rao-blind-musician
+```
+
+*Talent Search. V. Bhaskar Rao in their own words - the franchise the magazine is named for.*
+
+### 2026-10-01 · Thu · Faith
+
+```
+The same day they fed five thousand people, they were terrified in a boat
+
+Twelve men watched bread multiply in their own hands at lunchtime. By three in the morning they were rowing into a headwind and frightened out of their wits. Mark tells you exactly why.
+
+Read it: https://5talentsmag.com/faith/the-same-night-they-fed-five-thousand
+```
+
+*Point of view - an editorial. Worth saying in your own words why you are posting it.*
+
+### 2026-10-02 · Fri · Heritage
+
+```
+He burned a Bible in front of his father, and three days later would not leave the house without one
+
+Sundar Singh was fifteen, had lost his mother, and had decided to end his life on the Ludhiana line. What he did afterwards — in a saffron robe, on foot, for twenty-four years — is the argument he is still remembered for.
+
+Read it: https://5talentsmag.com/heritage/sadhu-sundar-singh-water-in-an-indian-cup
+```
+
+*Heritage. Stands alone for someone who has never heard of the magazine.*
+
+### 2026-10-03 · Sat · Work & money
+
+```
+In 2008 God asked us to fallow the entire farm, and the neighbours queued up the lane to rent it
+
+A farmer in Ontario on the four things he learned about running land: follow the sower, give generously, take the year of rest, and when it all goes wrong, keep asking questions until you get an answer.
+
+Read it: https://5talentsmag.com/work-money/the-year-we-fallowed-the-whole-farm
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-10-04 · Sun · Faith
+
+```
+This is the Camp that God Built
+
+Jenny Svetec on Numbers 5, a Hebrew word that means to move in permanently rather than rent, and what was actually waiting for the people who got sent outside.
+
+Read it: https://5talentsmag.com/faith/the-camp-that-god-built
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-10-05 · Mon · Culture
+
+```
+She learned oil painting at a work offsite, and has painted sixty-eight Bible scenes since
+
+Maria Clara works at Genpact, runs a household, and paints. Some canvases take six months. She talks about Daniel among lion-faced men, and why she calls it a mission rather than a hobby.
+
+Read it: https://5talentsmag.com/culture/maria-clara-painting-for-jesus
+```
+
+*Talent Search. Maria Clara in their own words - the franchise the magazine is named for.*
+
+### 2026-10-06 · Tue · Heritage
+
+```
+He saw a photograph of a boy his own age with leprosy, and gave India the next thirty-four years
+
+Graham Staines was fifteen, in Queensland, sitting through a missionary's slideshow. What he built in Baripada afterwards is still standing.
+
+Read it: https://5talentsmag.com/heritage/graham-staines-thirty-four-years-in-orissa
+```
+
+*Heritage. Stands alone for someone who has never heard of the magazine.*
+
+### 2026-10-07 · Wed · Work & money
+
+```
+I moved seats because of the draught, and did not explain why. So of course they assumed it was them
+
+A small thing left unsaid in a coffee shop, and what it costs at scale. Four questions worth asking before you open your mouth, and one before you keep it shut.
+
+Read it: https://5talentsmag.com/work-money/i-should-have-told-them
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-10-08 · Thu · Culture
+
+```
+He taught film dance for a living, then taught himself keyboard, guitar and drums
+
+Ricky Biswasi led an orchestra in Jeypore singing film songs. He talks about the year his friends left, the verse that stopped him, and why he no longer thinks of prayer as asking.
+
+Read it: https://5talentsmag.com/culture/ricky-biswasi-self-taught-worship-leader
+```
+
+*Talent Search. Ricky Biswasi in their own words - the franchise the magazine is named for.*
+
+### 2026-10-09 · Fri · Faith
+
+```
+Every job in a king’s palace has a match in the church
+
+Soldiers, watchmen, messengers, potters, musicians, gardeners, administrators. A theology lecturer runs the whole staff list and asks who you are on it.
+
+Read it: https://5talentsmag.com/faith/workforce-in-the-royal-palace
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-10-10 · Sat · Heritage
+
+```
+He fed two thousand children a day and never once asked anyone for money
+
+George Müller was a thief at ten and a fraud at twenty. Then he built five orphanages in Bristol, ran them for sixty years on donations he refused to solicit, and published his accounts so anyone could check him.
+
+Read it: https://5talentsmag.com/heritage/george-muller-never-asked-anyone-for-money
+```
+
+*Heritage. Stands alone for someone who has never heard of the magazine.*
+
+### 2026-10-11 · Sun · Wellbeing
+
+```
+Elijah asked God to take his life. God let him sleep, and then fed him twice
+
+There is no lecture in that passage. No list of reasons he should keep going, no reminder of who was depending on him. An angel touched him and said the journey was too much for him, which it was.
+
+Read it: https://5talentsmag.com/wellbeing/elijah-asked-god-to-take-his-life
+```
+
+*Point of view - an editorial. Worth saying in your own words why you are posting it.*
+
+### 2026-10-12 · Mon · Work & money
+
+```
+Thirty-nine years a pastor, and I have changed my mind about who makes the difference
+
+He used to tell his sons he felt sorry for people whose work had no eternal significance. He does not say that any more, and this is the article explaining why.
+
+Read it: https://5talentsmag.com/work-money/thirty-nine-years-a-pastor-and-i-changed-my-mind
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-10-13 · Tue · Culture
+
+```
+If one of my three children were caught in the match-fixing, I know exactly what I would do
+
+She would cry herself hoarse in front of the cameras insisting they were innocent, and go on saying it long after guilt was proved. Then she works out what she believes God would want instead.
+
+Read it: https://5talentsmag.com/culture/if-my-child-were-caught-in-the-match-fixing
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-10-14 · Wed · Faith
+
+```
+I prayed for wisdom to win a Sunday school prize, then prayed a whole week that the coin would land my way
+
+It did, and he thought he had worked out how prayer functions. It took him considerably longer to notice what Solomon had actually been given, and by whom.
+
+Read it: https://5talentsmag.com/faith/i-prayed-for-a-week-that-the-coin-would-fall-my-way
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-10-15 · Thu · Heritage
+
+```
+She could recite eighteen thousand verses of Sanskrit, and used it to argue for widows
+
+Pandita Ramabai was orphaned by famine at sixteen, widowed at twenty-three, and went to England to train as a doctor. Deafness ended that. What she built instead at Kedgaon is still open.
+
+Read it: https://5talentsmag.com/heritage/pandita-ramabai-sanskrit-scholar-who-built-mukti
+```
+
+*Heritage. Stands alone for someone who has never heard of the magazine.*
+
+### 2026-10-16 · Fri · Wellbeing
+
+```
+When Serpent Suicide Slithers in
+
+It was 10.45 at night when a stranger rang Ingrid Albuquerque-Solomon to say she was going to die. She had walked that road herself, which is the only reason the call kept going.
+
+Read it: https://5talentsmag.com/wellbeing/when-serpent-suicide-slithers-in
+```
+
+*Wellbeing. Post it in the morning - this is the kind of piece people forward to one person.*
+
+### 2026-10-17 · Sat · Work & money
+
+```
+Every giant introduces a man to himself, and mine was a small, polite church secretary
+
+He was twenty-one and running the youth programme. She did not like how he was doing it and told everyone except him. Three things a pastor of thirty-nine years has learned about the things that tower over us.
+
+Read it: https://5talentsmag.com/work-money/facing-the-giants-in-your-life
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-10-18 · Sun · Faith
+
+```
+The welcome mat says Live, Love and Laugh Often, and it is quite worn out
+
+Not a call to try harder at loving people. An argument that the love is already in you, and that being convinced you are loved is the thing that releases it.
+
+Read it: https://5talentsmag.com/faith/our-welcome-mat-is-quite-worn-out
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-10-19 · Mon · Culture
+
+```
+The candle failed in the mould and left a hole, so she filled it with orange wax and had room for one short verse
+
+The verse that fitted was "I am fearfully and wonderfully made". Months later a pastor in Trivandrum reached for that candle while sitting with a couple who had been told to abort their baby.
+
+Read it: https://5talentsmag.com/culture/a-failed-candle-with-a-hole-in-it
+```
+
+*Talent Search. the subject in their own words - the franchise the magazine is named for.*
+
+### 2026-10-20 · Tue · Heritage
+
+```
+An American wrote the Hindi grammar that Indian Civil Service candidates had to pass their exams on, and it is still in print
+
+Samuel Kellogg learned the language because he was posted alone to a station outside Farrukhabad with nobody to speak English to. The book he produced gave its name to forty-four years of Hindi scholarship, and it is on sale in Delhi today.
+
+Read it: https://5talentsmag.com/heritage/the-american-who-wrote-the-hindi-grammar
+```
+
+*Heritage. Stands alone for someone who has never heard of the magazine.*
+
+### 2026-10-21 · Wed · Wellbeing
+
+```
+Accelerator, brake, clutch. Every driving instructor in Hyderabad teaches the same three things
+
+The illustration works. The trouble is what we usually do with it, which is to tell people to press the brake harder and then act surprised when they cannot.
+
+Read it: https://5talentsmag.com/wellbeing/you-cannot-brake-by-trying-harder
+```
+
+*Point of view - an editorial. Worth saying in your own words why you are posting it.*
+
+### 2026-10-22 · Thu · Work & money
+
+```
+You can invest your talent in success, or in something that lasts
+
+The world rewards a hard worker, and it should. But everything built for this world alone has a short life on it.
+
+Read it: https://5talentsmag.com/work-money/investing-our-talents-for-his-kingdom
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*
+
+### 2026-10-23 · Fri · Campus
+
+```
+For two years of my teenage life I did not look in a mirror
+
+She wanted to be a doctor, followed her friends into a diploma she did not understand, and then heard a voice tell her to resign a job she had held for thirteen months. She ended up running a theological college.
+
+Read it: https://5talentsmag.com/campus/for-two-years-of-my-teenage-life-i-did-not-look-in-a-mirror
+```
+
+*Talent Search. Stella Bogi in their own words - the franchise the magazine is named for.*
+
+### 2026-10-24 · Sat · Culture
+
+```
+An MLA recited the whole of Psalm 103 to her in Telugu, and she went to the ladies' restroom and cried
+
+She had been a Crusader, then Legion of Mary, then twenty-five years in the Christian Workers Movement. She was a nominated Member of the Legislative Assembly. And she could not name a single Bible reference.
+
+Read it: https://5talentsmag.com/culture/an-mla-recited-psalm-103-in-telugu-and-i-cried-in-the-restroom
+```
+
+*Talent Search. Christine Lazares in their own words - the franchise the magazine is named for.*
+
+### 2026-10-25 · Sun · Faith
+
+```
+The only bowing down I do to the tree in our house is to water the thing so it does not catch fire
+
+Four objections to celebrating Christmas, taken seriously and answered one at a time, by a pastor who remembers a silver tree with a colour wheel and is buying a fake one this year.
+
+Read it: https://5talentsmag.com/faith/to-celebrate-or-not-to-celebrate
+```
+
+*From the archive. Mention the original issue - twelve years of back numbers is the point.*
+
+### 2026-10-26 · Mon · Heritage
+
+```
+A shoemaker who taught himself six languages, and spent seven years in India without a single convert
+
+William Carey was apprenticed indoors because sunlight blistered his skin. He made a globe out of scrap leather, and did not stop for forty-one years. “I can plod,” he said, when asked to account for himself.
+
+Read it: https://5talentsmag.com/heritage/william-carey-i-can-plod
+```
+
+*Heritage. Stands alone for someone who has never heard of the magazine.*
+
+### 2026-10-27 · Tue · Technology
+
+```
+In 2012 we printed a page of YouVersion's numbers. It has since passed a billion installs
+
+Fifty-two installs a minute, back when we ran the figures. Seventeen years after an idea in an airport queue, the Bible App is on a billion devices — and the way it counts itself is worth a second look.
+
+Read it: https://5talentsmag.com/technology/youversion-fifty-million-to-one-billion
+```
+
+*Straight share. The deck carries it.*
+
+### 2026-10-28 · Wed · Wellbeing
+
+```
+A woman prayed over my family and said God wanted me to exercise
+
+Jennifer Pinto teaches Zumba, prepares women for childbirth, and runs parenting workshops. All three started with something that went wrong.
+
+Read it: https://5talentsmag.com/wellbeing/zumba-my-way-of-life
+```
+
+*Wellbeing. Post it in the morning - this is the kind of piece people forward to one person.*
+
+### 2026-10-29 · Thu · Work & money
+
+```
+David did not start out fighting giants. He started out with smelly, stupid sheep where nobody could see him
+
+Part two. Most people want the giant opportunity now and are not patient enough to be faithful in the small things. A pastor who spent his first seventeen years in churches of under three hundred on what that time was for.
+
+Read it: https://5talentsmag.com/work-money/he-started-out-tending-sheep-on-the-hillside
+```
+
+*Work & money. Ask something in the comments; this section invites replies.*

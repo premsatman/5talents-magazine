@@ -30,7 +30,25 @@ import { mutate, query, uploadImage } from './lib.mjs'
 const HERE = dirname(fileURLToPath(import.meta.url))
 const OFF = process.argv.includes('--off')
 
-/** Matches the AD_SIZES table in web/src/lib/media.ts. */
+/**
+ * Slot sizes, kept in step with web/src/lib/media.ts.
+ *
+ * Duplicated rather than imported: this script runs under plain node in studio/
+ * and that table is TypeScript over in web/. If you change a size there, change
+ * it here too - the filename check below will say so loudly if you forget.
+ */
+const AD_SIZES = {
+  A: { w: 970, h: 250 },
+  B: { w: 336, h: 280 },
+  C: { w: 336, h: 280 },
+  D: { w: 300, h: 600 },
+  E: { w: 336, h: 280 },
+  F: { w: 970, h: 90 },
+  I: { w: 160, h: 600 },
+  J: { w: 160, h: 600 },
+}
+
+/** Which advertiser sits in which slot. */
 const BOOKINGS = [
   { slot: 'A', name: 'Serampore College',  tier: 'partner',   alt: 'Serampore College — study theology where Carey started. MTh applications open for the 2027 intake.' },
   { slot: 'B', name: 'Lectio Press',       tier: 'supporter', alt: 'Lectio Press — new, the Thomas Christian Reader.' },
@@ -38,8 +56,6 @@ const BOOKINGS = [
   { slot: 'D', name: 'Hosanna Sound',      tier: 'sponsor',   alt: 'Hosanna Sound — every mic your worship team will ever need. Free delivery across India on orders over Rs 5,000.' },
   { slot: 'E', name: 'Maranatha Tours',    tier: 'supporter', alt: 'Maranatha Tours — walk where Paul walked. Greece and Turkey, March 2027.' },
   { slot: 'F', name: 'Shiloh Financial',   tier: 'sponsor',   alt: 'Shiloh Financial — your first salary deserves a plan, not a panic.' },
-  { slot: 'G', name: 'The Upper Room',     tier: 'partner',   alt: 'The Upper Room — a retreat house in the Nilgiris. Silent weekends, September onward.' },
-  { slot: 'H', name: '5Talents — write for us', tier: 'house', alt: '5Talents — write for us. Pitches from students and first-timers welcome.' },
   { slot: 'I', name: 'Ananda Seeds',       tier: 'supporter', alt: 'Ananda Seeds — grow something this season. Heirloom kitchen-garden seed, posted anywhere in India.' },
   { slot: 'J', name: 'Bethel Books',       tier: 'supporter', alt: 'Bethel Books — ten years of back issues. Secondhand theology, Hyderabad, free pickup.' },
 ]
@@ -77,9 +93,25 @@ async function main() {
   console.log('Booking every slot with dummy creatives\n')
 
   for (const booking of BOOKINGS) {
-    const file = files.find((f) => f.startsWith(`slot-${booking.slot.toLowerCase()}-`))
+    const size = AD_SIZES[booking.slot]
+    // Match the exact size, not just the slot letter.
+    //
+    // This used to be a startsWith on `slot-b-` and it silently rotted: slot B
+    // was changed from a 728x90 leaderboard to a 336x280 rectangle, the old
+    // leaderboard PNG was still sitting in the folder, and the booking kept
+    // picking it up. A filled slot renders the creative at its own aspect, so
+    // the article page showed a wide banner where the design called for a
+    // rectangle - and nothing anywhere reported a problem.
+    //
+    // Naming the expected file makes the mismatch loud instead of invisible.
+    const expected = `slot-${booking.slot.toLowerCase()}-${size.w}x${size.h}.png`
+    const file = files.includes(expected) ? expected : undefined
     if (!file) {
-      console.log(`  SKIPPED  slot ${booking.slot} - no creative in seed/ad-creatives/`)
+      const stale = files.filter((f) => f.startsWith(`slot-${booking.slot.toLowerCase()}-`))
+      console.log(`  SKIPPED  slot ${booking.slot} - expected ${expected}`)
+      if (stale.length) {
+        console.log(`           found ${stale.join(', ')} instead - the slot size changed; regenerate the creative`)
+      }
       continue
     }
 

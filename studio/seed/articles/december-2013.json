@@ -1,0 +1,113 @@
+{
+  "issue": "december-2013",
+  "note": "Issue 15, the Christmas issue, recovered on 3 September 2026 after the cover numbering showed it was missing. The PDF had been sitting in archive/ all along and was never extracted. Two pieces of six published. The editorial is held on a register break and a pronoun slip; the cover story could not be verified; the Vanny Bourne profile is unsigned promotional copy; and the George Powell piece runs with a credit the 2013 page did not carry. See TRIAGE.md.",
+  "authors": [
+    {
+      "slug": "peggy-kennedy",
+      "name": "Rev. Peggy I. Kennedy",
+      "role": "Contributing writer",
+      "country": "Canada",
+      "isStaff": "contributor",
+      "bio": "Speaker and author with Two Silver Trumpets Ministry in Beamsville, Ontario, where she and Jack Kennedy have served the church for over fifty years.",
+      "republishConsent": "pending"
+    },
+    {
+      "slug": "george-powell",
+      "name": "Dr. George Powell",
+      "role": "Contributing writer",
+      "country": "United States",
+      "isStaff": "contributor",
+      "bio": "Pastor of Abundant Life Church in Portland, Oregon, and an independent coach, teacher and speaker certified with the John Maxwell Team.",
+      "republishConsent": "pending"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "people-of-the-plan",
+      "title": "Zacharias had believed the promises for forty years and had quietly written himself out of them",
+      "deck": "The Christmas chapters are usually read as pageantry. Read as a description of how God moves, they are about who gets called in, and the answer is not a professional cast.",
+      "kind": "essay",
+      "section": "faith",
+      "authors": ["peggy-kennedy"],
+      "tags": ["christmas", "luke", "calling"],
+      "publishedAt": "2013-12-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 16,
+        "editNote": "Published as it appeared in the December 2013 issue, page 16, under the heading \"People of the Plan\". Column reading order repaired and typographical errors corrected; the wording is the author's throughout. No prior publication was found, though her own newsletter archive is not public, so self-syndication cannot be ruled out and is in any case a disclosure matter rather than a rights one.",
+        "rightsCleared": "textOnly"
+      },
+      "body": [
+        { "t": "p", "v": "As soon as you say the word \"Christmas\", most people begin to think of decorations, gifts, festive foods, and carols. The beloved annual celebration is well-detailed in both the Gospel of Matthew and Luke." },
+        { "t": "p", "v": "However, these scriptures are about more, much more, than seasonal pageantry. Here are the dynamics for how the Christ will be revealed. These chapters could be entitled: People of the Plan." },
+        { "t": "p", "v": "In whatever walk of life you are serving, you are first of all called to be part of that plan to reveal Christ to our world. The same dynamics are in place today. Let me share four of them with you." },
+        { "t": "h2", "v": "God is a God of plans" },
+        { "t": "p", "v": "Many think of God as the God of past endeavors. Others consider Him as one who will unfold a dramatic plan at some future date. However, when God is revealed to us as a God who has dynamic plans, He is setting the stage for our participation." },
+        { "t": "p", "v": "In Luke 1 Zacharias is faithfully performing the same religious ritual that has been performed for hundreds of years. However, his service unto the Lord in the Temple, and note it was at the time of prayer, was gloriously interrupted by an angelic visitor." },
+        { "t": "p", "v": "Zacharias just could not believe that he and Elizabeth were about to become personally involved with the God of the past. He had faithfully anticipated God's promises but had likely dismissed himself as part of that plan." },
+        { "t": "quote", "v": "He had faithfully anticipated God's promises but had likely dismissed himself as part of that plan.", "attr": "Rev. Peggy I. Kennedy", "highlight": "dismissed himself as part of that plan" },
+        { "t": "h2", "v": "He tells people His plans" },
+        { "t": "p", "v": "Secondly, when God gets ready to reveal the Christ to a city, to a nation, to nations, He begins to tell people His plans. Both Luke 1 and 2 and Matthew 2 give the account of heaven's messenger, the angel Gabriel, being dispatched to announce heaven's plans." },
+        { "t": "h2", "v": "He calls people into the plan" },
+        { "t": "p", "v": "This gives way to the third dynamic of how God works: He begins to call people into the plan." },
+        { "t": "p", "v": "In any Christmas pageant there are many characters. There's a Mary and a Joseph, there are angels, there's an innkeeper, there are shepherds and there are wisemen. God's plans today for nations will include many, many people. You are a part of that plan." },
+        { "t": "p", "v": "There's no professional cast. Rather, the Lord intends to use many in diverse walks of life. And that includes you." },
+        { "t": "quote", "v": "There's no professional cast.", "attr": "Rev. Peggy I. Kennedy", "highlight": "professional cast" },
+        { "t": "h2", "v": "He brings people together" },
+        { "t": "p", "v": "The final dynamic to be observed in these chapters is that when the Christ is to be revealed, the Lord will begin to bring people together into relationship with each other in the plan." },
+        { "t": "p", "v": "It was the angel Gabriel that announced to Mary that Elizabeth, her cousin, was also pregnant with the plan of God. That relationship would be vital to confirm to Mary that she had really heard from God." },
+        { "t": "p", "v": "Our relationships with each other are initiated by the Lord. This is more, much more, than just networking. These relationships will all find their place in the big picture of God." },
+        { "t": "p", "v": "You are a part. You are one of His chosen people of the plan." }
+      ]
+    },
+    {
+      "slug": "to-celebrate-or-not-to-celebrate",
+      "title": "The only bowing down I do to the tree in our house is to water the thing so it does not catch fire",
+      "deck": "Four objections to celebrating Christmas, taken seriously and answered one at a time, by a pastor who remembers a silver tree with a colour wheel and is buying a fake one this year.",
+      "kind": "essay",
+      "section": "faith",
+      "authors": ["george-powell"],
+      "tags": ["christmas", "tradition"],
+      "publishedAt": "2013-12-01T07:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 10,
+        "editNote": "Published as it appeared in the December 2013 issue, page 10. Column reading order repaired and typographical errors corrected; the wording is the author's throughout. The four objections he answers, and his closing formulation about a club and a badge of honour, follow the GotQuestions.org article on whether Christians should celebrate Christmas closely enough that it is credited in a note at the foot. The 2013 page carried no such credit.",
+        "rightsCleared": "textOnly"
+      },
+      "body": [
+        { "t": "p", "v": "Well, it's Christmas time again, a time of celebrating, exchanging gifts, and spending time with family and friends." },
+        { "t": "p", "v": "I have so many fond memories from my childhood that surround this time of the year. The silver tree with the color wheel. Some of you might have to Google that to know what I'm talking about. Shaking senseless the gifts under the tree trying to figure out what they were before opening them. Our entire family, aunts, uncles, cousins, everybody, people we hadn't seen all year, coming together for a great dinner and gift exchange." },
+        { "t": "p", "v": "So, so many fond memories." },
+        { "t": "p", "v": "Now some of you might be thinking, is it right for us to even celebrate Christmas? Isn't that a pagan holiday? The Bible doesn't instruct us to celebrate the birth of Jesus." },
+        { "t": "p", "v": "To be sure, the debate among Christians over celebrating Christmas has been going on for centuries. But then, Christians love to debate things, so this is nothing new. And I'm sure there are equally committed Christ followers on both sides of the issue." },
+        { "t": "h2", "v": "The four objections" },
+        { "t": "p", "v": "So let's think about it. Why do some who follow Jesus choose not to celebrate Christmas? Here are the top reasons I hear expressed. That the traditions surrounding Christmas have their roots in paganism. That the Bible doesn't instruct us to celebrate Jesus' birth. That the Bible forbids bringing a tree into your house. And that the world celebrates Christmas, so it should be something we avoid." },
+        { "t": "p", "v": "Here is my response to these objections." },
+        { "t": "h2", "v": "On pagan roots" },
+        { "t": "p", "v": "First off, finding reliable information on the topic of our Christmas traditions having their roots in paganism is difficult, because the origins of many of our traditions are so vague that the sources often contradict one another." },
+        { "t": "p", "v": "Sure, the use of candles, holly, and other items are mentioned in the history of pagan worship, but to use them in your home and celebrations doesn't mean you're a pagan worshipper." },
+        { "t": "p", "v": "While there may be pagan roots in some traditions, there are many more traditions associated with the real meaning of the season, the birth of the Savior of the world. Bells ring out the joyful news. Lights remind us of the Light of the world. Stars remind us of the Star of Bethlehem. Gifts remind us of the Magi and their gifts to Jesus, and God's most amazing gift to us." },
+        { "t": "h2", "v": "On the silence of scripture" },
+        { "t": "p", "v": "Secondly, while the Bible doesn't specifically instruct us to celebrate Jesus' birth, neither does it forbid the celebration. Just because the Bible doesn't give us the specific date of Jesus' birth is not justification to avoid its celebration. The opposite could be true as well. One could also argue the Bible's silence on the issue is unspoken approval." },
+        { "t": "h2", "v": "On the tree" },
+        { "t": "p", "v": "Thirdly, the passage typically referenced instructing us not to bring a tree into the house is Jeremiah 10:1-16. Like most erroneous beliefs people adhere to, which come from the misinterpretation of scripture, here is a perfect example. The context of these verses refers to cutting down a tree and fashioning it into an idol and then decorating it for the purpose of bowing down to worship it." },
+        { "t": "quote", "v": "Personally, the only bowing down I do to the tree in our house is to water the dang thing so it doesn't catch fire.", "attr": "Dr. George Powell", "highlight": "so it doesn't catch fire" },
+        { "t": "p", "v": "Which is one reason we are getting a fake tree this year. You simply cannot take this passage out of its context and use it to make a legitimate argument against having a Christmas tree in your home." },
+        { "t": "h2", "v": "On what the world does" },
+        { "t": "p", "v": "And finally, the reality is, more and more the world is not celebrating Christmas. They are celebrating the holidays." },
+        { "t": "p", "v": "This is the same argument made by false religious groups like the Jehovah's Witnesses who deny the deity of Jesus altogether. I prefer not to take my cues from them or similar groups." },
+        { "t": "h2", "v": "Where I land" },
+        { "t": "p", "v": "For me personally, I see this beautiful season of the year as an amazing opportunity to set aside a time of the year to specifically focus on the birth of my Lord and Savior Jesus Christ." },
+        { "t": "p", "v": "For me, it offers a very relevant way to bring to the minds of the people in my world the most remarkable truth of Isaiah 9:6." },
+        { "t": "verse", "v": "For unto us a Child is born, unto us a Son is given... and His name will be called Wonderful, Counselor, Mighty God, Everlasting Father, Prince of Peace.", "attr": "Isaiah 9:6" },
+        { "t": "p", "v": "Ultimately, to celebrate or not to celebrate is a personal decision, and whatever position you hold should neither be used as a club to beat others down nor as a badge of honor to lift yourself above others." },
+        { "t": "p", "v": "So remember, Jesus is the true reason for the season. Were it not for Jesus, we would have nothing to celebrate, not even your own birthday. Because without Jesus, life has no meaning and nothing else matters." },
+        { "t": "p", "v": "Merry Christmas." },
+        { "t": "note", "placement": "foot", "v": "A credit the 2013 page did not carry. The four objections answered here, and the closing formulation about a club to beat others down and a badge of honour, follow the GotQuestions.org article \"Should Christians celebrate Christmas?\" closely. That article's own conclusion reads: \"their views should not be used as a club with which to beat down or denigrate those with opposing views. Neither should one's view be used as a badge of honor.\" The childhood memories, the silver tree with the colour wheel and the fake tree are the author's own." }
+      ]
+    }
+  ]
+}

@@ -166,3 +166,24 @@ with a face.
 Do not convert a piece from this column without reading `MISSIONARY-STORIES.md`
 first. Three of them were copied text, the 2012 framing is wrong for India in
 2026, and that document holds both the rewrite structure and the checklist.
+
+## Bylined pieces get edited, not rewritten
+
+A distinction that was got wrong in April 2013 and is worth stating plainly.
+
+**Staff-written material** — the interview framing, the questions, the standfirsts,
+anything running as the magazine's own voice — can be rewritten freely. That is
+house style and there is no one else's name on it.
+
+**A piece running under a contributor's byline is theirs.** Fix the typography,
+repair the two-column reading order, add subheads for the web, pull a quote. Do
+not reword their sentences. Publishing rewritten prose under someone's name is
+the same failure as putting a staff name on copied text, only pointed the other
+way, and it is worse when they are alive and can read it.
+
+The test: if the author opened the page, would they recognise the sentences as
+theirs? For Jennifer Pinto and George Powell the answer was no on the first pass.
+
+**And never cut a numbered list.** Powell's piece said "nine powerful steps" and
+was published with five. That is not an editing judgment, it is an error that
+makes the piece contradict itself.

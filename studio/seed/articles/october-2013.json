@@ -1,0 +1,125 @@
+{
+  "issue": "october-2013",
+  "note": "Issue 13. Two pieces of six published. The editorial is held with the Point of View column. The Barnabas Fund page is a supplied organisational notice tied to a 2013 date. The unsigned self-image list could not be cleared. The unsigned giving piece is weakly cleared but raises an editorial question rather than a rights one. See TRIAGE.md.",
+  "authors": [
+    {
+      "slug": "paul-svetec",
+      "name": "Paul Svetec",
+      "role": "Contributing writer",
+      "country": "Canada",
+      "isStaff": "contributor",
+      "bio": "A farmer in Durham Region, Ontario. He worked his family's land with his father and brothers, spent years as an electrician at General Motors, and in 1997 bought his own farm a mile east of his father's.",
+      "republishConsent": "pending"
+    },
+    {
+      "slug": "jenny-svetec",
+      "name": "Jenny Svetec",
+      "role": "Contributing writer",
+      "country": "Canada",
+      "isStaff": "contributor",
+      "bio": "A teacher and professional writer who farmed organically with her husband Paul in Ontario. She writes on the Hebrew scriptures and what they ask of the people who read them.",
+      "republishConsent": "pending"
+    },
+    {
+      "slug": "george-powell",
+      "name": "Dr. George Powell",
+      "role": "Contributing writer",
+      "country": "United States",
+      "isStaff": "contributor",
+      "bio": "Pastor of Abundant Life Church in Portland, Oregon, and an independent coach, teacher and speaker certified with the John Maxwell Team.",
+      "republishConsent": "pending"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "the-year-we-fallowed-the-whole-farm",
+      "title": "In 2008 God asked us to fallow the entire farm, and the neighbours queued up the lane to rent it",
+      "deck": "A farmer in Ontario on the four things he learned about running land: follow the sower, give generously, take the year of rest, and when it all goes wrong, keep asking questions until you get an answer.",
+      "kind": "essay",
+      "section": "work-money",
+      "authors": ["paul-svetec", "jenny-svetec"],
+      "tags": ["farming", "provision", "canada", "work"],
+      "publishedAt": "2013-10-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 4,
+        "editNote": "Published as it appeared in the October 2013 issue, pages 4 to 7. Column reading order repaired and typographical errors corrected; the wording is the authors' throughout. Paul Svetec tells it and Jenny Svetec wrote it, which is how the original page credited them. Pull quotes are drawn from their own sentences.",
+        "rightsCleared": "textOnly"
+      },
+      "body": [
+        { "t": "note", "placement": "top", "v": "Paul has been a farmer since he was a young boy, working his family farm in Ontario, Canada with his brothers and father until 1997, when he purchased a 38 hectare farm just one mile east of his dad's. Paul accepted Jesus Christ as his Lord in 1995. Paul and his wife Jenny have combined their talents of farming and writing to tell this story." },
+        { "t": "p", "v": "When I was a kid and I walked our family farm, I enjoyed being on the fields. It was fun to watch things grow. As a kid, I could see God in everything. I didn't understand who God was but I knew God was there." },
+        { "t": "p", "v": "When things didn't work the way we expected, like poor crops or bad weather or animals dying, I just thought that was the way farming is. Now I know differently. There are principles to farming which God has set out in the Bible which bring success. In my journey as a farmer, I have slowly learnt some of these principles, which I call farming, God style." },
+        { "t": "h2", "v": "Follow the Sower" },
+        { "t": "p", "v": "In 1997, I learnt my first principle. I was an electrician at General Motors, farming land which I rented in the area, as well as my dad's farm, when the Lord nudged me to check out a beautiful farm which was for sale one mile east." },
+        { "t": "p", "v": "Reluctantly, as I walked the land with the realtor, I felt the Lord restore my childhood dream of buying my own farm. Prices had skyrocketed over farm land in our country, and for a while, I had accepted that the only land I would ever own would be a shared inheritance with my brothers. God had a different plan. To my surprise, the farmers who owned this property accepted my humble asking price, as all the interested buyers suddenly moved on." },
+        { "t": "p", "v": "If God hadn't led me to inquire about the farm, I would never have become a landowner." },
+        { "t": "h2", "v": "Give as generously as the Sower gives" },
+        { "t": "p", "v": "In farming, being a good neighbour is necessary for survival. When your tractor breaks down on a muddy fall day and you are desperate to get the corn in before more showers steal every cent of your profit in drying costs, the kindness of neighbours who take the time to roll out chains and pull out your only equipment can't be measured." },
+        { "t": "p", "v": "A few years back, when we had a power failure and the farmer two roads over was desperate for a generator, we had no idea we would need his freezer space for our chickens just a few years later. Giving generously is crucial for farming, God style, as your life is as much a testimony as your crops." },
+        { "t": "quote", "v": "We had no idea we would need his freezer space for our chickens just a few years later.", "attr": "Paul Svetec", "highlight": "just a few years later" },
+        { "t": "h2", "v": "The year we let the whole farm rest" },
+        { "t": "p", "v": "Farming God style requires courage. In 2008, when God asked my beloved wife Jenny and I to fallow the entire farm, I agonized over the decision." },
+        { "t": "p", "v": "I had faithfully rotated one-seventh of my farm to fallow every year, since giving the land a rest is mandatory for sustainability. However, this was a different mandate. God knew the rest we would need, and longed to show us that fallowing the land on a seven-year cycle replenished more than just nutrients to the soil. Fallowing replenishes the farmer, and in doing so, replenishes the farmer's family." },
+        { "t": "p", "v": "As I gritted my teeth and obeyed my God, there was a long line of farmers driving up the lane, asking to rent our farmland, since they had heard through the astonished grapevine that we would be fallowing the whole farm that year." },
+        { "t": "p", "v": "It took courage to follow God's law of rest. I believe that honouring God's blueprints in the Bible about fallowing, pruning and harvesting always reaps the greatest measure of success." },
+        { "t": "h2", "v": "Then the organic years, which nearly finished us" },
+        { "t": "p", "v": "In 2009, God prompted us to change direction from traditional cash crop farming to organic farming. In Canada, cash crop farming involves a continual cycle of tilling the land, planting the treated seed, spraying the land with pesticides and herbicides, adding commercial fertilizers and then harvesting the crops. Often the land is sprayed with a strong herbicide to prepare for the next year's crop." },
+        { "t": "p", "v": "I had done this all my life, and now my wife urged me to consider a method of farming for which I had no experience and no desire to undertake. Nevertheless, after much prayer, I left my job at the car plant to farm full-time, opening a large organic vegetable operation, with free-range chickens and grass-fed beef as well as venturing into farm markets all across the Toronto area." },
+        { "t": "p", "v": "The experience was very tough. Though the farm quickly became well known as a rising organic business, the cost of labour devoured our savings, and after two years, hard decisions had to be made to keep the business profitable." },
+        { "t": "h2", "v": "Keep asking until you hear the answer" },
+        { "t": "p", "v": "This last principle is the most important. When things get rough in farming, and they often do, keep asking God questions and wait until you hear His answers, then do it." },
+        { "t": "p", "v": "It was painful to let go of our staff, close up the farm market business and end our weekly vegetable bin program which blessed a hundred and fifty families all across our region with chemical-free healthy fruits and vegetables for a twenty week season. It was painful to see my wife seek other employment, knowing her dream had been to walk alongside me in farming and we could no longer afford that option." },
+        { "t": "p", "v": "As I sought God, I knew He wanted me to keep farming, but differently. My wife suggested a pastured operation, letting the land work for the business, instead of leaching all our resources into labour costs. Humbly, we let go of the big dream of the big farm business, asking questions from God each step of the way as we transitioned our farm into an organic business based solely on grass-fed meat, sold weekly from our front farm porch store." },
+        { "t": "quote", "v": "Humbly, we let go of the big dream of the big farm business.", "attr": "Paul Svetec", "highlight": "the big dream of the big farm business" },
+        { "t": "p", "v": "God was our comfort and our Provider. He doesn't change even when we must, to grow forward." },
+        { "t": "p", "v": "Today, our farm business is very successful and we give God all the credit. Families both locally and across southern Ontario make the trek to our farm on Fridays or Saturdays to speak with me about the food crisis we are facing, the need for healthy eating, and their gratitude that we farm with simplicity and integrity, raising our animals on organic pasture and feeding them only the oats and peas and barley we plant every season. My wife is now enjoying the freedom to write as well as working off farm, while I farm full-time, following the Sower, and enjoying the peace that comes from His presence." },
+        { "t": "p", "v": "Organic farming or traditional farming yield different measures of success. Yet true success in farming, God style, comes from a close partnership with Jesus. As I humbly apply the principles of His Word, I enjoy the comfort of His love, as I follow the Sower and enjoy the increase in the bountiful fields He sows." }
+      ]
+    },
+    {
+      "slug": "are-you-living-up-to-your-potential",
+      "title": "My mother is ninety-four, and I still hear her telling me to do it as if I were doing it for God",
+      "deck": "He enrolled in Bible college at nineteen as what he calls a reluctant leader, asking Moses's question: who am I that I should lead these people? Thirty-nine years later he has an answer.",
+      "kind": "essay",
+      "section": "work-money",
+      "authors": ["george-powell"],
+      "tags": ["potential", "leadership", "calling"],
+      "publishedAt": "2013-10-01T07:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 10,
+        "editNote": "Published as it appeared in the October 2013 issue, page 10. Column reading order repaired and typographical errors corrected; the wording is the author's throughout, including the dedication to his mother at the end. Pull quotes are drawn from his own sentences.",
+        "rightsCleared": "textOnly"
+      },
+      "body": [
+        { "t": "p", "v": "As a young boy, I remember my mom saying to me, \"Whatever you do, do it as if you were doing it for God.\" For some reason those words have stayed with me to this day, even now as a young man of 58 years of age. Whether it was washing the car or mowing the lawn, remember, do it as if you were doing it for God." },
+        { "t": "p", "v": "As I reflect upon those words, I believe they have served me well. Tucked away in the inner recesses of my mind, those words motivate me today. They've encouraged me to live up to my potential." },
+        { "t": "p", "v": "Ah, there's a great word, potential. What is it? Potential is what could be, what you are capable of becoming, what is possible." },
+        { "t": "quote", "v": "Potential is God's gift to you. What you do with it is your gift to God.", "attr": "Dr. George Powell", "highlight": "What you do with it is your gift to God" },
+        { "t": "h2", "v": "A reluctant leader" },
+        { "t": "p", "v": "5Talents asked me to share some ways I've been developing my potential and using my God given talents. I tell you that because honestly I feel a bit awkward talking about my accomplishments, as small as they are, in comparison to the greats of the faith. But really, it is not about me comparing myself with anyone else, nor you comparing yourself to others. It is about each of us living up to our potential." },
+        { "t": "p", "v": "For me, it all started when at the young age of 19 I decided to enroll in Bible College to prepare for a life of ministry as a Pastor. I must say I didn't go into it full of confidence. In fact, I would describe myself during that season of life, and for many years to follow, as a reluctant leader. Much like Moses in the book of Exodus, I questioned God and myself, \"Who am I that I should lead the people?\"" },
+        { "t": "p", "v": "But with that still small voice of my mom reminding me to do everything as if for God and my own burning desire to live up to my highest potential, now 39 years later, God has taken me on some amazing adventures." },
+        { "t": "p", "v": "I've had the privilege of serving churches in North Carolina, Indiana, and now Portland, Oregon. It was here, 24 years ago, I had the incredible opportunity of actually starting a church with just my wife and two sons, who were only 9 and 4 at the time. By God's grace, and my own need and passion to grow as a leader, the church survived and actually grew to become today a church of several thousand people." },
+        { "t": "p", "v": "This journey has allowed me to not only serve people in the greater Portland area, but literally around the world. Through teaching, preaching, and leadership training, I've been privileged to speak in Africa: Uganda, Nairobi and Kenya; Napoli, Italy; and all over India from Darjeeling in the north to Bangalore in the south." },
+        { "t": "p", "v": "Most recently I was given the unique privilege of traveling with the John Maxwell Team to Guatemala and being a part of training over fifteen thousand business leaders from every major influence stream. From government officials and police force personnel to educators and entertainers, we spent a week training leaders in transformational leadership." },
+        { "t": "p", "v": "I say none of this to impress you. I know there are many, many others who have done so much more for the Kingdom. But I do say it to impress upon you this principle: live up to your potential." },
+        { "t": "h2", "v": "A few questions" },
+        { "t": "p", "v": "Are you living up to your highest potential? Are you doing all that you can? Is there something more inside of you that needs to come out? The world needs it. The world needs you. What you have to offer will make a monumental difference in someone's life." },
+        { "t": "p", "v": "The word potential is a powerful word that speaks of promise, opportunity, and more to come. However, to the contrary, few words are sadder than the words, unfulfilled potential. Yet, for too many, this is where they settle down." },
+        { "t": "quote", "v": "Too many die with the music still in them, the words of a book yet to be written, or the encouragement and training yet to be offered.", "attr": "Dr. George Powell", "highlight": "die with the music still in them" },
+        { "t": "h2", "v": "Stop believing the lies" },
+        { "t": "p", "v": "Let me challenge you, as a reluctant leader, to dig down deep and discover your God-given potential. You have it. There's more to you." },
+        { "t": "p", "v": "Stop believing the lies you tell yourself that keep your potential chained in a prison. Lies like: Who am I? No one would listen anyway. So many others can do it better. I have nothing to offer. I don't have the credentials. And the list could go on and on and on. Believe me, I know." },
+        { "t": "p", "v": "Stop believing the voices in your past that told you, you would never amount to anything, that you didn't have what it takes, that you were a nobody." },
+        { "t": "p", "v": "Remember this, everybody is a somebody in God's Kingdom. And God has given you, no, He has gifted you with potential. Great potential! So determine today that you are not going to waste it. Make the decision right now that you are going to develop it." },
+        { "t": "p", "v": "The tragedy of life is not dying. The tragedy of life is never to have lived. Make the decision today that from now on the rest of your life is going to be the best of your life and one that is lived to its highest potential." },
+        { "t": "p", "v": "If you don't have a parent whose voice you hear whispering to you, then let mine suffice. Do it! Do it now! Do it as if you are doing it for God. Live to your potential!" },
+        { "t": "p", "v": "By the way, thanks mom. You're 94 and still kicking, and I dedicate this to you." }
+      ]
+    }
+  ]
+}

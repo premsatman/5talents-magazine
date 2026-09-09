@@ -18,6 +18,19 @@ const imageFragment = /* groq */ `
   crop
 `
 
+/**
+ * Publisher of record and journal particulars.
+ *
+ * ISSN India requires the publisher's name and complete Indian postal address
+ * to be displayed on the publication, and the particulars block on its opening
+ * page. Both are projected into the site chrome so they appear on every page,
+ * not only on /about.
+ */
+const publisherFragment = /* groq */ `
+  publisher { name, address, city, state, pinCode, country, email, mobile },
+  particulars { startYear, frequency, subject, languages, format, issnOnline, issnPrint }
+`
+
 /** Everything a card needs and nothing more. */
 const cardFragment = /* groq */ `
   _id,
@@ -55,6 +68,7 @@ export const SITE_SETTINGS_QUERY = defineQuery(/* groq */ `
   *[_id == "siteSettings"][0]{
     title, tagline, description, scopeStatement, contactEmail,
     adsEnabled, enabledSlots,
+    ${publisherFragment},
     socials[]{ platform, url }
   }
 `)
@@ -302,6 +316,7 @@ export const ARTICLE_QUERY = defineQuery(/* groq */ `
       originalPage, republishedAt, rewrittenAt, editNote,
       originalIssue->{ title, "slug": slug.current, issueDate }
     },
+    "onlineIssue": onlineIssue->{ volume, issueNumber, issueDate, "slug": slug.current },
     "tags": tags[]->{ name, "slug": slug.current },
     "related": relatedArticles[]->{ ${cardFragment} },
     "wordCount": length(pt::text(body)),
@@ -355,6 +370,61 @@ export const TALENT_SEARCH_QUERY = defineQuery(/* groq */ `
     ${cardFragment},
     interviewMeta { subject, subjectBio, country }
   }
+`)
+
+/* ------------------------------------------------------------------ *
+ * Editorial board
+ * ------------------------------------------------------------------ */
+
+/**
+ * Every field here is one ISSN India asks for by name, so none of them is
+ * optional in practice even though the schema allows a blank.
+ */
+export const EDITORIAL_BOARD_QUERY = defineQuery(/* groq */ `
+  *[_id == "siteSettings"][0]{
+    title,
+    ${publisherFragment},
+    editorialBoard[]{
+      _key,
+      role,
+      "person": person->{
+        name, "slug": slug.current, designation, institution,
+        institutionAddress, institutionalEmail, profileUrl, country
+      }
+    }
+  }
+`)
+
+/* ------------------------------------------------------------------ *
+ * Online issues
+ * ------------------------------------------------------------------ */
+
+/**
+ * Article membership lives on the article, so an issue's contents are found by
+ * looking back at what points here rather than by reading a list on the issue.
+ * That way moving a piece between issues is one edit in one place, and an
+ * issue can never list something that has since been retracted.
+ */
+export const ONLINE_ISSUES_QUERY = defineQuery(/* groq */ `
+  *[_type == "onlineIssue"] | order(volume desc, issueNumber desc){
+    _id, volume, issueNumber, issueDate, summary, "slug": slug.current,
+    coverImage { ${imageFragment} },
+    "articleCount": count(*[${live} && onlineIssue._ref == ^._id])
+  }
+`)
+
+export const ONLINE_ISSUE_QUERY = defineQuery(/* groq */ `
+  *[_type == "onlineIssue" && slug.current == $slug][0]{
+    _id, volume, issueNumber, issueDate, summary, "slug": slug.current,
+    coverImage { ${imageFragment} },
+    "articles": *[${live} && onlineIssue._ref == ^._id] | order(publishedAt asc){
+      ${cardFragment}
+    }
+  }
+`)
+
+export const ONLINE_ISSUE_SLUGS_QUERY = defineQuery(/* groq */ `
+  *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current }
 `)
 
 export const ARCHIVE_ISSUES_QUERY = defineQuery(/* groq */ `
@@ -424,7 +494,8 @@ export const SITEMAP_QUERY = defineQuery(/* groq */ `{
   "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },
   "tags": *[_type == "tag" && defined(slug.current)]{ "slug": slug.current, _updatedAt },
   "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },
-  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }
+  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },
+  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }
 }`)
 
 /* ------------------------------------------------------------------ *
@@ -435,6 +506,7 @@ export const ABOUT_QUERY = defineQuery(/* groq */ `
   *[_id == "siteSettings"][0]{
     title, tagline, mission, scopeStatement, contactEmail,
     doctrinalStatement,
+    ${publisherFragment},
     masthead[]{
       role,
       "person": person->{ name, "slug": slug.current, role, bio, photo { ${imageFragment} } }

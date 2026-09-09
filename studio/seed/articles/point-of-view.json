@@ -1,0 +1,768 @@
+{
+  "issue": null,
+  "note": "The Point of View column. Premasis Satman wrote an editorial on page 2 of every issue from July 2012 to July 2014; only the April 2013 one carried the column name in the issue. Six of these survived the source check of September 2026 and have been rewritten by the author in a grace-based frame; the seventh is new. The other eleven editorials are held: three are confirmed copies, and eight are unresolved. See TRIAGE.md. Each article names its own issue rather than the file naming one, because the column ran across all eighteen issues. The sewing-machine piece carries no issue: it is 2026 work that replaces a withdrawn page rather than a republication of it.",
+  "authors": [
+    {
+      "slug": "premasis-satman",
+      "name": "Premasis Satman",
+      "role": "Executive Director",
+      "country": "India",
+      "isStaff": "staff",
+      "bio": "Founder and Executive Director of 5Talents Magazine, writing from Hyderabad. He has written the magazine's editorial column since the first issue in July 2012.",
+      "republishConsent": "granted"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "the-master-hands-out-the-talents-first",
+      "issue": "july-2012",
+      "title": "We named this magazine after a parable where the master hands out the money before anyone has earned it",
+      "deck": "Somebody has told you that you are good for nothing. Matthew 25 does not open with what the servants produced. It opens with what they were handed.",
+      "kind": "essay",
+      "section": "faith",
+      "authors": [
+        "premasis-satman"
+      ],
+      "tags": [
+        "talents",
+        "grace",
+        "editorial",
+        "point-of-view"
+      ],
+      "publishedAt": "2012-07-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 2,
+        "editNote": "First published as the editorial on page 2 of the July 2012 issue, under the headline \"Don't hide your talents!\". Rewritten by the author in September 2026 in a grace-based frame. The argument, the parable and the account of being told he was good for nothing are all from the original page; the reading of the third servant is new.",
+        "rewrittenAt": "2026-09-02T00:00:00.000Z",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "Someone has told you that you are good for nothing. I have been told it. It lands somewhere under the ribs and stays there, and the reason it stays is usually that a part of you was already half convinced."
+        },
+        {
+          "t": "p",
+          "v": "This magazine takes its name from Matthew 25. That parable is normally preached as a warning. Use it or lose it. Do something with your life before the master comes back. The preaching gets the urgency right and the story wrong, because the story does not begin with anybody working."
+        },
+        {
+          "t": "verse",
+          "v": "And unto one he gave five talents, to another two, and to another one; to every man according to his several ability; and straightway took his journey.",
+          "attr": "Matthew 25:15"
+        },
+        {
+          "t": "p",
+          "v": "Read the first six words again. Nobody in that story earned anything. The master owned all of it, handed it out before a single servant had traded one coin, and measured what he gave to what each man could already carry. The capital came first. The trading came second. There is no other order in the text."
+        },
+        {
+          "t": "h2",
+          "v": "The third servant was not lazy"
+        },
+        {
+          "t": "p",
+          "v": "He is the one we point at, and we usually call him idle. He gives a different account of himself."
+        },
+        {
+          "t": "verse",
+          "v": "Lord, I knew thee that thou art an hard man, reaping where thou hast not sown, and gathering where thou hast not strawed: And I was afraid, and went and hid thy talent in the earth.",
+          "attr": "Matthew 25:24-25"
+        },
+        {
+          "t": "p",
+          "v": "He was afraid. He was afraid because of what he believed about the man who had given him the money. He had decided the master was harsh, so burying the coin looked safer than trading it. His ability was never the problem."
+        },
+        {
+          "t": "quote",
+          "v": "His ability was never the problem. His picture of the giver was.",
+          "attr": "On the third servant",
+          "highlight": "His picture of the giver was"
+        },
+        {
+          "t": "p",
+          "v": "Sit with that one, because the same fear keeps people in the back row of a church for thirty years. If you think God is watching to catch you out, you will not risk anything in front of him. You will bury it and call the burying humility."
+        },
+        {
+          "t": "h2",
+          "v": "A talent is not a genius"
+        },
+        {
+          "t": "p",
+          "v": "The word in the parable is a weight of silver, not a gift for singing. Whatever is in your hands is in your hands because somebody put it there."
+        },
+        {
+          "t": "verse",
+          "v": "For who maketh thee to differ from another? and what hast thou that thou didst not receive? now if thou didst receive it, why dost thou glory, as if thou hadst not received it?",
+          "attr": "1 Corinthians 4:7"
+        },
+        {
+          "t": "p",
+          "v": "That question cuts in both directions. It removes any grounds for showing off. It also removes any grounds for hiding, because a gift you did not produce is not yours to be embarrassed about."
+        },
+        {
+          "t": "h2",
+          "v": "What we are going to print"
+        },
+        {
+          "t": "p",
+          "v": "So here is the plan for this magazine. We will find people who worked out what was already in their hands and did something with it, and we will print what they did. Some of them run sound desks in churches. One of them makes puppets for Sunday school. None of them are famous and that is the point."
+        },
+        {
+          "t": "p",
+          "v": "You are not being asked to manufacture something out of nothing. You are being asked to stop believing the master is hard. The trading starts by itself once that goes, because you are no longer protecting yourself from him."
+        },
+        {
+          "t": "p",
+          "v": "Dig it up. It was never yours to lose."
+        }
+      ]
+    },
+    {
+      "slug": "we-say-freedom-and-mean-permission",
+      "issue": "august-2012",
+      "title": "We say freedom on the fifteenth of August and mostly mean permission",
+      "deck": "Flags, the anthem, the telecast from the Red Fort. Then a year in which a girl was surrounded outside a bar in Guwahati and an infant died in Punjab over two hundred rupees.",
+      "kind": "essay",
+      "section": "faith",
+      "authors": [
+        "premasis-satman"
+      ],
+      "tags": [
+        "india",
+        "independence-day",
+        "grace",
+        "editorial",
+        "point-of-view"
+      ],
+      "publishedAt": "2012-08-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 2,
+        "editNote": "First published as the editorial on page 2 of the August 2012 issue, under the headline \"Pray for India\". Rewritten by the author in September 2026 in a grace-based frame. One correction of fact: the original said the Guwahati mob was more than fifty people, and contemporary reporting put it at around thirty, of whom seventeen were identified. The Galatians reading is new; the Independence Day setting, Anil Kant's song, the two incidents and the 2 Chronicles passage are all from the original page.",
+        "rewrittenAt": "2026-09-02T00:00:00.000Z",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "It is August, so there will be flags in school assemblies and Anil Kant's \"Pray for India\" in churches, and a good number of us will watch the Red Fort telecast at home. Sixty-five years of it this month. The generation that won it gave up a great deal, and I am not going to be clever about that."
+        },
+        {
+          "t": "p",
+          "v": "The question is what we did with it afterwards."
+        },
+        {
+          "t": "p",
+          "v": "Last month in Guwahati a teenage girl was surrounded outside a bar by a crowd of around thirty men, filmed while it happened, and left there. This year a newborn in Punjab was taken off an incubator in a government hospital because the family could not produce two hundred rupees. Neither of those is a failure of law. India has plenty of law. Both are failures of what a person thinks he is allowed to do when nobody who matters is watching."
+        },
+        {
+          "t": "h2",
+          "v": "Freedom is not the problem"
+        },
+        {
+          "t": "p",
+          "v": "The usual response from a pulpit at this point is that we have too much freedom and need more rules. Paul goes somewhere else with it, and he is writing to people who had just been told the same thing."
+        },
+        {
+          "t": "verse",
+          "v": "For, brethren, ye have been called unto liberty; only use not liberty for an occasion to the flesh, but by love serve one another.",
+          "attr": "Galatians 5:13"
+        },
+        {
+          "t": "p",
+          "v": "He does not withdraw the liberty. He never once suggests the answer to its misuse is less of it. He tells them what it was given for. Freedom that turns into serving people is the thing working properly. Freedom that turns into helping yourself is the thing being wasted, and the cure is not a smaller allowance."
+        },
+        {
+          "t": "quote",
+          "v": "Paul does not withdraw the liberty. He tells them what it was given for.",
+          "attr": "On Galatians 5",
+          "highlight": "He tells them what it was given for"
+        },
+        {
+          "t": "h2",
+          "v": "The verse everybody quotes in August"
+        },
+        {
+          "t": "p",
+          "v": "You will hear this one from most Indian pulpits this month, usually as a formula. Do four things and God will fix the country."
+        },
+        {
+          "t": "verse",
+          "v": "If my people, which are called by my name, shall humble themselves, and pray, and seek my face, and turn from their wicked ways; then will I hear from heaven, and will forgive their sin, and will heal their land.",
+          "attr": "2 Chronicles 7:14"
+        },
+        {
+          "t": "p",
+          "v": "Read it as a transaction and it becomes a machine for guilt, because the nation stays broken and you conclude somebody did not pray hard enough. Read who is speaking and it changes. God offers this before anybody asks. The humbling in that verse is not effort, it is agreement. It is a people stopping the pretence that they can manage without him."
+        },
+        {
+          "t": "p",
+          "v": "Which is the opposite of trying harder. You cannot strain your way into humility."
+        },
+        {
+          "t": "h2",
+          "v": "So what do we actually do"
+        },
+        {
+          "t": "p",
+          "v": "Pray for the country, and expect it to be answered rather than filed. Then look at the two hundred rupees. Somebody in that hospital corridor could have paid it and did not, and the reason was not a shortage of money in Punjab."
+        },
+        {
+          "t": "p",
+          "v": "A nation is not healed by a national event. It is healed in corridors like that one, by people who have been so thoroughly convinced of God's goodness toward them that it starts leaking onto whoever is standing nearby. That is what the Spirit does in a person. It is not a campaign."
+        },
+        {
+          "t": "p",
+          "v": "Sing the song this month. Then go and be free in the way Paul meant."
+        }
+      ]
+    },
+    {
+      "slug": "the-same-night-they-fed-five-thousand",
+      "issue": "september-2012",
+      "title": "The same day they fed five thousand people, they were terrified in a boat",
+      "deck": "Twelve men watched bread multiply in their own hands at lunchtime. By three in the morning they were rowing into a headwind and frightened out of their wits. Mark tells you exactly why.",
+      "kind": "essay",
+      "section": "faith",
+      "authors": [
+        "premasis-satman"
+      ],
+      "tags": [
+        "faith",
+        "grace",
+        "mark",
+        "editorial",
+        "point-of-view"
+      ],
+      "publishedAt": "2012-09-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 2,
+        "editNote": "First published as the editorial on page 2 of the September 2012 issue, under the headline \"happy :) sad :( happy :)\". Rewritten by the author in September 2026 in a grace-based frame. The structure of the original page is kept. Mark 6:52, which the original did not use, now carries the argument.",
+        "rewrittenAt": "2026-09-02T00:00:00.000Z",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "Jesus and the twelve had gone to a quiet place to rest. John the Baptist had just been executed and they needed the afternoon off. The crowd worked out where the boat was heading and got there first, on foot, five thousand men before anyone counted the women and children."
+        },
+        {
+          "t": "p",
+          "v": "By evening everyone was hungry and there were five loaves. You know how it ends. Bread kept coming out of the disciples' own hands, basket after basket, until a hillside of people had eaten and there were twelve baskets left over. Whatever else those men were that day, they were not spectators. They served it."
+        },
+        {
+          "t": "p",
+          "v": "That night he sent them across the lake and the wind turned against them. Around three in the morning he came walking on the water and they screamed, because they thought he was a ghost."
+        },
+        {
+          "t": "verse",
+          "v": "But when they saw him walking upon the sea, they supposed it had been a spirit, and cried out: For they all saw him, and were troubled. And immediately he talked with them, and saith unto them, Be of good cheer: it is I; be not afraid.",
+          "attr": "Mark 6:49-50"
+        },
+        {
+          "t": "h2",
+          "v": "Mark tells you why"
+        },
+        {
+          "t": "p",
+          "v": "This is the line I missed for years. Mark does not leave the terror unexplained."
+        },
+        {
+          "t": "verse",
+          "v": "For they considered not the miracle of the loaves: for their heart was hardened.",
+          "attr": "Mark 6:52"
+        },
+        {
+          "t": "p",
+          "v": "Not because the storm was unusually bad. Because they had not taken in what had already happened that afternoon. The evidence was under their fingernails and it had not gone anywhere near their hearts."
+        },
+        {
+          "t": "quote",
+          "v": "The evidence was under their fingernails and it had not gone anywhere near their hearts.",
+          "attr": "On Mark 6:52",
+          "highlight": "had not gone anywhere near their hearts"
+        },
+        {
+          "t": "p",
+          "v": "I find that oddly encouraging rather than the reverse. These are not weak men who never saw anything. They saw more than most people see in a lifetime, and eight hours later they were shouting at a ghost. The gap between what God has done and what we have actually received is a normal gap. It is the ordinary Christian problem."
+        },
+        {
+          "t": "h2",
+          "v": "Which means faith is not a mood"
+        },
+        {
+          "t": "p",
+          "v": "If the twelve had needed more courage that night, the story would tell us to be braver. It does not. It says they had not considered the loaves. What they needed was already behind them."
+        },
+        {
+          "t": "p",
+          "v": "So when you are in the middle of something at home or at work and you cannot see the far shore, the question is not whether you can summon enough belief. It is what you have already seen him do, and whether you have let it settle."
+        },
+        {
+          "t": "p",
+          "v": "He fed five thousand people who had not been invited, had not asked properly and had ruined his day off. He did not check whether they deserved lunch. Nothing about your situation is going to be handled on a stricter basis than that hillside was."
+        },
+        {
+          "t": "p",
+          "v": "The wind dropped when he got in the boat. It did not drop because they rowed better."
+        }
+      ]
+    },
+    {
+      "slug": "you-cannot-brake-by-trying-harder",
+      "issue": "october-2012",
+      "title": "Accelerator, brake, clutch. Every driving instructor in Hyderabad teaches the same three things",
+      "deck": "The illustration works. The trouble is what we usually do with it, which is to tell people to press the brake harder and then act surprised when they cannot.",
+      "kind": "essay",
+      "section": "wellbeing",
+      "authors": [
+        "premasis-satman"
+      ],
+      "tags": [
+        "self-control",
+        "grace",
+        "habits",
+        "editorial",
+        "point-of-view"
+      ],
+      "publishedAt": "2012-10-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 2,
+        "editNote": "First published as the editorial on page 2 of the October 2012 issue, under the headline \"A B C's of Life\". Rewritten by the author in September 2026 in a grace-based frame. This is the piece whose theology changed most in the rewrite: the original located self-control in the reader's willpower, and this version locates it in the Spirit, following Galatians 5:23 and Titus 2:11-12. The driving illustration, the red-light warning and the Proverbs passage are all from the original page.",
+        "rewrittenAt": "2026-09-02T00:00:00.000Z",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "Before a learner is allowed near traffic he is taught three pedals. Accelerator, brake, clutch. Almost every accident on an Indian road comes down to one of those three being used at the wrong moment, and the licence exists to certify that you know which is which."
+        },
+        {
+          "t": "p",
+          "v": "It is a decent picture of a life. You are free to go fast. There are junctions. There are red lights, and a red light does not become green because you would prefer it to be. A man who is about to be unfaithful to his wife is a man reading a red signal as green, and he usually knows it while he does it."
+        },
+        {
+          "t": "p",
+          "v": "I have preached this. I would like to correct the part I got wrong."
+        },
+        {
+          "t": "h2",
+          "v": "The brake is not a muscle"
+        },
+        {
+          "t": "p",
+          "v": "The way I told it, self-control was something you generated. Grip harder. Want it more. That advice has one obvious defect, which is that everybody reading it has already tried it. Nobody arrives at forty having never attempted to control themselves."
+        },
+        {
+          "t": "verse",
+          "v": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance: against such there is no law.",
+          "attr": "Galatians 5:22-23"
+        },
+        {
+          "t": "p",
+          "v": "Temperance is the old word for self-control, and look where Paul files it. Fruit. Not equipment you buy, not a discipline you build in the gym before dawn. Fruit is what a living thing produces because of what it is connected to. A mango tree is not straining."
+        },
+        {
+          "t": "quote",
+          "v": "Temperance is fruit. A mango tree is not straining.",
+          "attr": "On Galatians 5:23",
+          "highlight": "A mango tree is not straining"
+        },
+        {
+          "t": "p",
+          "v": "And then the last clause, which almost nobody quotes. Against such there is no law. There is no rule to enforce on a man who is already doing it. The rule was for the man who was not."
+        },
+        {
+          "t": "h2",
+          "v": "Grace does the teaching"
+        },
+        {
+          "t": "p",
+          "v": "If that sounds like a licence to do whatever you like, Paul saw the objection coming and answered it in a letter to Titus."
+        },
+        {
+          "t": "verse",
+          "v": "For the grace of God that bringeth salvation hath appeared to all men, Teaching us that, denying ungodliness and worldly lusts, we should live soberly, righteously, and godly, in this present world.",
+          "attr": "Titus 2:11-12"
+        },
+        {
+          "t": "p",
+          "v": "Grace is the instructor in that sentence. It is the thing doing the teaching, and what it teaches is exactly the denying that we keep trying to produce by effort. So the man who cannot stop is not short of willpower. He is short of a settled conviction that God is already for him, and appetite rushes into that vacancy every time."
+        },
+        {
+          "t": "h2",
+          "v": "What to do on Monday"
+        },
+        {
+          "t": "p",
+          "v": "Solomon says get wisdom and pay whatever it costs."
+        },
+        {
+          "t": "verse",
+          "v": "Wisdom is the principal thing; therefore get wisdom: and with all thy getting get understanding. I have taught thee in the way of wisdom; I have led thee in right paths. When thou goest, thy steps shall not be straitened; and when thou runnest, thou shalt not stumble.",
+          "attr": "Proverbs 4:7, 11-12"
+        },
+        {
+          "t": "p",
+          "v": "Notice who is doing the leading in those lines. I have taught thee. I have led thee. The steps not being straitened is the outcome, not the entry fee."
+        },
+        {
+          "t": "p",
+          "v": "So keep the driving lesson. The junctions are real and so are the consequences, and a diabetic still cannot eat whatever is in front of him. Just stop trying to be your own instructor. You have a better one living in you, and he has been offering to take the wheel for years."
+        }
+      ]
+    },
+    {
+      "slug": "elijah-asked-god-to-take-his-life",
+      "issue": "january-2013",
+      "title": "Elijah asked God to take his life. God let him sleep, and then fed him twice",
+      "deck": "There is no lecture in that passage. No list of reasons he should keep going, no reminder of who was depending on him. An angel touched him and said the journey was too much for him, which it was.",
+      "kind": "essay",
+      "section": "wellbeing",
+      "authors": [
+        "premasis-satman"
+      ],
+      "tags": [
+        "despair",
+        "grace",
+        "elijah",
+        "mental-health",
+        "editorial",
+        "point-of-view"
+      ],
+      "publishedAt": "2013-01-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 2,
+        "editNote": "First published as the editorial on page 2 of the January 2013 issue, under the headline \"You have a long way to go...\". Substantially rewritten by the author in September 2026. The original made four arguments against ending your life, including that the reader's problems were small and that they were accountable to their family. Both have been removed: current guidance on writing about suicide is that minimising a person's distress and appealing to their obligations can increase risk rather than reduce it. The original's description of people who die by suicide as cowardly or mentally unstable has also been removed. What remains, and now carries the piece, is the Elijah passage the original ended with.",
+        "rewrittenAt": "2026-09-02T00:00:00.000Z",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "There is a point where a person stops saying they are struggling and starts saying it would be better to be dead. If you have said it, you are not the first prophet to say it, and I mean that literally."
+        },
+        {
+          "t": "p",
+          "v": "Elijah had just come off the biggest day of his working life. Fire on Mount Carmel, in front of the whole nation, four hundred and fifty prophets of Baal on the other side of the argument and God answering by fire in front of all of them. Then Jezebel sent a message saying she would have him killed by that hour tomorrow, and he ran."
+        },
+        {
+          "t": "p",
+          "v": "He went a day's journey into the desert, sat under a juniper tree, and asked to die."
+        },
+        {
+          "t": "verse",
+          "v": "But he himself went a day's journey into the wilderness, and came and sat down under a juniper tree: and he requested for himself that he might die; and said, It is enough; now, O LORD, take away my life; for I am not better than my fathers.",
+          "attr": "1 Kings 19:4"
+        },
+        {
+          "t": "h2",
+          "v": "What God does not say"
+        },
+        {
+          "t": "p",
+          "v": "This is the part I want you to see, because it is what is missing that matters."
+        },
+        {
+          "t": "p",
+          "v": "God does not tell him to think of his responsibilities. He does not remind him that his life is not his own to take. He does not point out that other people have it worse, or that a man who fronted Carmel should be made of stronger stuff. Any of those would fit comfortably into a sermon. None of them is in the chapter."
+        },
+        {
+          "t": "verse",
+          "v": "And as he lay and slept under a juniper tree, behold, then an angel touched him, and said unto him, Arise and eat. And he looked, and, behold, there was a cake baken on the coals, and a cruse of water at his head. And he did eat and drink, and laid him down again. And the angel of the LORD came again the second time, and touched him, and said unto him, Arise and eat; because the journey is too great for thee.",
+          "attr": "1 Kings 19:5-7"
+        },
+        {
+          "t": "p",
+          "v": "He is allowed to sleep. He is fed. He goes back to sleep and is fed again. And the only explanation offered is that the journey is too great for him, which is not a rebuke. It is an accurate observation, spoken by heaven, without a syllable of blame attached."
+        },
+        {
+          "t": "quote",
+          "v": "The journey is too great for thee. That is not a rebuke. It is an accurate observation, spoken without a syllable of blame.",
+          "attr": "On 1 Kings 19:7",
+          "highlight": "without a syllable of blame"
+        },
+        {
+          "t": "h2",
+          "v": "The lie about being alone"
+        },
+        {
+          "t": "p",
+          "v": "Later Elijah says the thing that despair always says, which is that he is the only one left. He is wrong by a factor of seven thousand, and God tells him so plainly rather than arguing him out of the feeling first."
+        },
+        {
+          "t": "p",
+          "v": "That order matters. Sleep, food, food again, a quiet voice, and only then the correction. Not one word of it is earned. Elijah does nothing in that chapter except run away and lie down, and God does not withhold anything until he improves."
+        },
+        {
+          "t": "h2",
+          "v": "If this is you"
+        },
+        {
+          "t": "p",
+          "v": "I am not going to tell you your problems are small. I do not know what they are, and when somebody told me mine were small it did not help me either."
+        },
+        {
+          "t": "p",
+          "v": "What I will tell you is that God's disposition toward you right now, at your worst, is the one in that chapter. Not disappointed. Not waiting for you to pull yourself together before he comes near. Jesus said something to men who were about to abandon him, and he said it in the future tense as a promise, not a condition."
+        },
+        {
+          "t": "verse",
+          "v": "I will not leave you comfortless: I will come to you.",
+          "attr": "John 14:18"
+        },
+        {
+          "t": "p",
+          "v": "Tell one person. That is the whole ask. Not because you owe anybody an explanation, but because Elijah's recovery started with somebody else showing up while he was asleep, and it usually still does."
+        },
+        {
+          "t": "note",
+          "placement": "foot",
+          "v": "If you are struggling, India's national mental health helpline Tele-MANAS is free and open at all hours on 14416 or 1800-891-4416, in twenty languages. AASRA can be reached on +91 9820466726. Speaking to your own doctor is a reasonable first step and is not an overreaction."
+        }
+      ]
+    },
+    {
+      "slug": "chalta-hai-is-how-we-make-it-bearable",
+      "issue": "may-2013",
+      "title": "Twenty-four thousand cases in one year, and two words we use to make that bearable",
+      "deck": "The outrage lasts about a fortnight. Then the protests thin out, the panel discussions move on, and the country goes back to chalta hai until the next one is brutal enough to interrupt us.",
+      "kind": "essay",
+      "section": "culture",
+      "authors": [
+        "premasis-satman"
+      ],
+      "tags": [
+        "india",
+        "violence-against-women",
+        "justice",
+        "editorial",
+        "point-of-view"
+      ],
+      "publishedAt": "2013-05-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 2,
+        "editNote": "First published as the editorial on page 2 of the May 2013 issue, under the headline \"Rapes in India - You can put a stop to this\". Rewritten by the author in September 2026 in a grace-based frame. One correction of fact: the original gave the National Crime Records Bureau total for 2012 as 23,582, and the published figure is 24,923. The original also stated that television and internet pornography cause sexual assault; that claim is contested in the research and has been rewritten as a point about how men are formed rather than a causal chain.",
+        "rewrittenAt": "2026-09-02T00:00:00.000Z",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "The National Crime Records Bureau recorded 24,923 rapes in India in 2012. That is the reported figure, which everybody working in this area agrees is a fraction of the real one, because most women who are assaulted in this country never go near a police station and have sound reasons."
+        },
+        {
+          "t": "p",
+          "v": "Last month a five year old in Delhi. Before that, December. Each time the same sequence runs: the story breaks, there is genuine national fury, there are dharnas, the politicians condemn it on television, and about two weeks later most of us are back to our routine because it did not happen to anyone we know."
+        },
+        {
+          "t": "p",
+          "v": "We have a phrase for that stage. Chalta hai. It goes on. What can I really do."
+        },
+        {
+          "t": "quote",
+          "v": "Chalta hai. It goes on. What can I really do.",
+          "attr": "The two words this piece is about",
+          "highlight": "What can I really do"
+        },
+        {
+          "t": "h2",
+          "v": "Why nothing changes"
+        },
+        {
+          "t": "p",
+          "v": "My pastor read this verse out a few Sundays ago and I have not been able to put it down since."
+        },
+        {
+          "t": "verse",
+          "v": "Because sentence against an evil work is not executed speedily, therefore the heart of the sons of men is fully set in them to do evil.",
+          "attr": "Ecclesiastes 8:11"
+        },
+        {
+          "t": "p",
+          "v": "Three thousand years old, and it describes our courts exactly. Cases run for a decade and more. Men grow old and die without ever seeing the inside of a jail. Solomon is not making a moral point there, he is making an observational one about what delay does to a population: when consequence is theoretical, people calculate that they will get away with it, and they are usually correct."
+        },
+        {
+          "t": "p",
+          "v": "So the law needs to work faster. That is a real demand and worth making noisily. But I have stopped believing it is the first problem."
+        },
+        {
+          "t": "h2",
+          "v": "The thing underneath"
+        },
+        {
+          "t": "p",
+          "v": "A man who assaults a woman has already decided, long before that evening, that she is a thing rather than a person. Nobody arrives at that conclusion in the moment. It is assembled slowly, out of a thousand small permissions in a culture that treats women as decoration and appetite as an entitlement, and it is assembled in the company of other men who never once contradicted him."
+        },
+        {
+          "t": "p",
+          "v": "That is where I want to be careful, because the version of this argument I made the first time round was too quick. I blamed television and the internet, as though a screen produces a rapist. Millions of men watch the same material and do not do this. The screen is not the cause. What it does is confirm, in a man who is already going that way, that nobody around him thinks differently."
+        },
+        {
+          "t": "p",
+          "v": "Which puts the responsibility somewhere much closer to home. Boys are formed by the men in the room. If a fourteen year old hears his uncles laugh at a comment about a girl on the street, he has just been taught something, and no youth camp is going to undo it in a weekend."
+        },
+        {
+          "t": "h2",
+          "v": "What the church actually has"
+        },
+        {
+          "t": "p",
+          "v": "We tend to respond to this with a call to prayer and moral education, and I am not against either. But the specific thing Christians are holding is not a stricter rule. Every religion in India already has the rule."
+        },
+        {
+          "t": "p",
+          "v": "What we are holding is that a person can be made new, and that this is a gift rather than a reformation project."
+        },
+        {
+          "t": "verse",
+          "v": "Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.",
+          "attr": "2 Corinthians 5:17"
+        },
+        {
+          "t": "p",
+          "v": "A man who has genuinely received that does not look at a woman the way he did, and he does not get there by gritting his teeth. It works from the inside out or it does not work. This is the one contribution the church can make that the law cannot, and we mostly waste it by preaching rules instead."
+        },
+        {
+          "t": "h2",
+          "v": "And the two words"
+        },
+        {
+          "t": "p",
+          "v": "Chalta hai is not indifference. It is a conclusion about whether anything you do makes a difference, and it is the reason a corridor full of people can watch something and film it."
+        },
+        {
+          "t": "p",
+          "v": "So pray for this country and expect an answer. Then be the man in the room who does not laugh."
+        }
+      ]
+    },
+    {
+      "slug": "a-sewing-machine-does-more-than-a-cheque",
+      "title": "A sewing machine in somebody's front room does more than a cheque does",
+      "deck": "Charity relieves a hardship for a week. Ability changes what a family can do for the next twenty years. That is the argument, and Indian churches are sitting on the resources to act on it.",
+      "kind": "essay",
+      "section": "work-money",
+      "authors": [
+        "premasis-satman"
+      ],
+      "tags": [
+        "work",
+        "poverty",
+        "church",
+        "business",
+        "editorial",
+        "point-of-view"
+      ],
+      "publishedAt": "2026-09-02T09:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "body": [
+        {
+          "t": "note",
+          "placement": "top",
+          "v": "The editorial published under this title in July 2013 reproduced several paragraphs from businessasmission.com without attribution. That page has been withdrawn rather than reprinted. This article is written fresh in 2026, keeps only the material that was the author's own, and quotes and credits the source properly."
+        },
+        {
+          "t": "p",
+          "v": "Give a man a fish and he eats today. Teach him to fish and he eats for the rest of his life. Everybody has heard it, usually from somebody explaining why they are not going to give you the fish."
+        },
+        {
+          "t": "p",
+          "v": "Strip the sentiment off and there is a real distinction underneath it. Charity against ability. Charity meets a hardship this week. Ability changes what a household can do for the next twenty years, and it does something charity cannot do at all, which is that it hands somebody back their own agency."
+        },
+        {
+          "t": "p",
+          "v": "I want to be careful here, because the fish line gets used as a reason to close a wallet. Sometimes the right answer is the fish. A family that has not eaten today does not need a training module. But if the fish is the only thing a church ever does, it has built a queue rather than a way out, and after a few years the queue is the relationship."
+        },
+        {
+          "t": "h2",
+          "v": "What this looks like in practice"
+        },
+        {
+          "t": "p",
+          "v": "A sewing machine costs less than most churches spend on a single conference banner. Put one in the front room of a woman whose child has a disability and cannot be left, and she can earn without leaving the house. That is not a metaphor. I have watched it work in Hyderabad, and the change it makes is not really the income. It is what she says about herself afterwards."
+        },
+        {
+          "t": "p",
+          "v": "Most congregations already contain the teachers. There is a tailor in the third row, an electrician, somebody who has run a small shop for fifteen years and knows exactly how a small shop fails. Nobody has to be hired. They have to be asked."
+        },
+        {
+          "t": "quote",
+          "v": "Most congregations already contain the teachers. Nobody has to be hired. They have to be asked.",
+          "attr": "On vocational training in local churches",
+          "highlight": "They have to be asked"
+        },
+        {
+          "t": "h2",
+          "v": "The movement, and what it actually says"
+        },
+        {
+          "t": "p",
+          "v": "There is a global network of people thinking about this seriously, and its own working introduction, written by Jo Plummer of the BAM Global Think Tank, puts the idea plainly."
+        },
+        {
+          "t": "verse",
+          "v": "Business is a God-given vocation and institution in society, with the potential to bring multiple benefits to people, communities and nations.",
+          "attr": "Jo Plummer, BAM Global Think Tank, businessasmission.com"
+        },
+        {
+          "t": "p",
+          "v": "That first clause is the load-bearing one. Business as a vocation, not as the compromise a Christian makes when he fails to get into ministry. A profitable company that lasts creates jobs, and a job is the most reliable anti-poverty device anybody has yet invented. There is no version of caring about the poor in this country that can afford to be sniffy about commerce."
+        },
+        {
+          "t": "h2",
+          "v": "Why the church keeps stopping short"
+        },
+        {
+          "t": "p",
+          "v": "The usual objection is that this is not spiritual work. Paul disagrees, and his reasoning is worth reading slowly."
+        },
+        {
+          "t": "verse",
+          "v": "Let him that stole steal no more: but rather let him labour, working with his hands the thing which is good, that he may have to give to him that needeth.",
+          "attr": "Ephesians 4:28"
+        },
+        {
+          "t": "p",
+          "v": "The purpose of the work in that sentence is not survival and it is not status. It is capacity to give. Paul assumes a believer will end up on the giving side, and the route he names is ordinary employment. Nothing about that is a lesser calling."
+        },
+        {
+          "t": "p",
+          "v": "And notice the order, because it is the order in everything Paul writes. He is not telling a thief to earn his way back into acceptance. He is writing to people he has already spent three chapters telling that they are seated with Christ, accepted, complete. The work comes out of that. It never buys it."
+        },
+        {
+          "t": "h2",
+          "v": "One thing this is not"
+        },
+        {
+          "t": "p",
+          "v": "I should say this plainly, because it matters here more than it did in 2013. Helping somebody earn a living is not a strategy for changing what they believe, and it must never be run as one. Training that comes with an expectation attached is not generosity, whatever it is called, and in several Indian states it is also the precise thing the law is written to catch."
+        },
+        {
+          "t": "p",
+          "v": "Do the work because a woman with an income is better off than a woman with a monthly envelope. That reason is sufficient on its own. It does not need a second one."
+        },
+        {
+          "t": "p",
+          "v": "The vision of the church in India has been limited to what happens inside the building on Sunday, and it was never meant to be that small. Break a cycle of poverty in one family and you have changed a street within a generation. There is money sitting in church accounts across this country that could start tomorrow."
+        },
+        {
+          "t": "note",
+          "placement": "foot",
+          "v": "The quoted definition is from \"What is Business as Mission?\" by Jo Plummer, co-chair of the BAM Global Think Tank, published at businessasmission.com and developed in Lausanne Occasional Paper 59. 5Talents has no affiliation with BAM Global."
+        }
+      ]
+    }
+  ]
+}

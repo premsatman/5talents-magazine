@@ -2,7 +2,13 @@ import { defineType, defineField, defineArrayMember } from 'sanity'
 import { BookIcon } from '@sanity/icons/Book'
 
 /**
- * One of the 17 back issues, 2012-2014.
+ * One of the 18 early issues, July 2012 to July 2014.
+ *
+ * These were never printed and never publicly circulated: they were PDFs sent
+ * to a small private list. They are the magazine's origins, not prior
+ * publication, and the site says so - which is what keeps 2026 defensible as
+ * the starting year on the ISSN application. Do not describe them as a print
+ * run anywhere a reader or an assessor can see.
  *
  * Note on the PDF field: blueprint trigger 2 warns that 119 MB of PDFs may push
  * the Sanity free asset allowance. If it does, host the raw files on R2 and put
@@ -17,7 +23,7 @@ export const archiveIssue = defineType({
     defineField({
       name: 'title',
       type: 'string',
-      description: 'As printed, e.g. "August 2013" or "March-April 2014".',
+      description: 'As it appeared on the cover, e.g. "August 2013" or "March-April 2014".',
       validation: (r) => r.required(),
     }),
     defineField({
@@ -35,7 +41,7 @@ export const archiveIssue = defineType({
     defineField({
       name: 'issueNumber',
       type: 'number',
-      description: 'Where the original printed one.',
+      description: 'Where the original issue carried one.',
     }),
     defineField({
       name: 'coverImage',
@@ -61,7 +67,7 @@ export const archiveIssue = defineType({
     defineField({
       name: 'tableOfContents',
       type: 'array',
-      description: 'Transcribed from the printed contents page. Drives the issue browser.',
+      description: 'Transcribed from the original contents page. Drives the issue browser.',
       of: [
         defineArrayMember({
           type: 'object',

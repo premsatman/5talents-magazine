@@ -12,7 +12,7 @@ import { SiteFooter } from '@/components/SiteFooter'
 export const metadata: Metadata = {
   title: 'The archive',
   description:
-    'Every issue of 5Talents Magazine from 2012 to 2014 — 17 issues, 400 pages — rebuilt as readable web articles with the original PDFs alongside.',
+    'The origins of 5Talents Magazine, 2012 to 2014 — eighteen PDF issues circulated privately, now rebuilt as readable web articles with the original files alongside.',
   alternates: { canonical: '/archive' },
 }
 
@@ -27,9 +27,14 @@ export default async function ArchivePage() {
         <div className="pagehead">
           <h1>The archive</h1>
           <p>
-            Seventeen issues, published between 2012 and 2014. Each one is being rebuilt as
-            readable web articles — the original PDFs remain downloadable alongside, but the point
-            is that the writing now works on a phone.
+            Eighteen issues, made between July 2012 and July 2014. They were never printed and
+            never publicly circulated — they were PDFs, sent to a small list of friends and
+            supporters. Each one is being rebuilt as readable web articles; the original files
+            remain downloadable alongside, but the point is that the writing now works on a phone.
+          </p>
+          <p>
+            Issues of the online magazine, from 2026 onwards, are in{' '}
+            <Link href="/issues">Issues</Link>.
           </p>
         </div>
 

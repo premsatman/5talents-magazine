@@ -267,6 +267,18 @@ blockquote cite {
 }
 .provenance a { text-decoration: underline; }
 
+/* The bibliographic line (ISSN India, detailed doc s7). Quieter than
+   .provenance on purpose: provenance is editorial information a reader wants,
+   this is a citation they only look for when they need it. */
+.citation {
+  font-family: var(--font-sans); font-size: 0.78rem;
+  letter-spacing: 0.04em; color: var(--ink-muted);
+  margin: 0 0 var(--s-3); padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--rule);
+}
+.citation cite { font-style: normal; font-weight: 600; color: var(--ink); }
+.citation a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
 /* ---------- article layout ---------- */
 /* Three regions. On a wide screen the body runs down the left and the rail
    carries the article meta above the most-read list; on a phone the meta comes
@@ -381,6 +393,19 @@ blockquote cite {
 .ratecard thead th { border-bottom: 2px solid var(--ink); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; }
 .ratecard tbody tr:nth-child(odd) { background: var(--highlight-soft); }
 .table-scroll { overflow-x: auto; }
+
+/* ---------- journal particulars (ISSN India, detailed doc s6) ---------- */
+/* A two-column reference table, not a data grid: the label column is the
+   narrower one and is set as a row header so a screen reader announces which
+   particular each value belongs to. */
+.particulars th[scope='row'] {
+  width: 40%;
+  font-weight: 600;
+  white-space: nowrap;
+}
+@media (max-width: 560px) {
+  .particulars th[scope='row'] { white-space: normal; width: 45%; }
+}
 
 /* ---------- issue browser ---------- */
 .issuegrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--s-5); }
@@ -929,6 +954,16 @@ footer.site :focus-visible { outline-color: var(--highlight); }
   border-top: 1px solid var(--inverse-rule); margin-top: var(--s-5); padding-top: var(--s-4);
   font-family: var(--font-sans); font-size: 0.8rem; color: var(--inverse-muted); max-width: 62ch;
 }
+/* Publisher of record. ISSN India requires the publisher's name and complete
+   postal address to be displayed on the publication, so it sits in the footer
+   where it is on every page rather than on /about alone. Sized between the
+   scope statement and the legal line: findable, not shouted. */
+.footer-imprint {
+  font-family: var(--font-sans); font-size: 0.8rem; color: var(--inverse-ink);
+  margin: var(--s-4) 0 0; max-width: var(--measure);
+}
+.footer-imprint a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
 .footer-legal {
   font-family: var(--font-sans); font-size: 0.76rem; color: var(--inverse-muted);
   margin: var(--s-3) 0 0; padding-bottom: var(--s-5);
@@ -1324,3 +1359,72 @@ nav.primary.compact { border-top: 0; }
    real advertisement gets. A reader should be able to tell at a glance that
    this is the magazine talking about itself. */
 .ad--house .ad__label { color: var(--accent-ink, var(--ink)); opacity: .75; }
+
+
+/* ---------- editorial board ---------- */
+/* An ordered list because the sequence is meaningful — Patron, Editor-in-Chief,
+   Editor, Managing Editor, then members — but the numbers are suppressed,
+   since a numbered board reads as a ranking of people rather than of roles. */
+.board {
+  list-style: none;
+  margin: var(--s-6) 0 var(--s-7);
+  padding: 0;
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.board__member {
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s-3);
+  font-family: var(--font-sans);
+}
+.board__role {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 var(--s-2);
+}
+.board__name { font-size: 1.15rem; margin: 0 0 var(--s-2); line-height: 1.25; }
+.board__name a { color: inherit; text-decoration: none; }
+.board__name a:hover,
+.board__name a:focus-visible { text-decoration: underline; text-decoration-color: var(--accent); }
+.board__designation { font-size: 0.92rem; margin: 0 0 var(--s-1); }
+.board__institution { font-size: 0.92rem; margin: 0 0 var(--s-2); color: var(--ink-muted); }
+/* The institutional address is required in full, and it arrives as one text
+   field with the editor's own line breaks in it. Preserve them. */
+.board__address {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  white-space: pre-line;
+  margin: 0 0 var(--s-2);
+}
+.board__contact { font-size: 0.85rem; margin: 0; overflow-wrap: anywhere; }
+.board__foot { margin-bottom: var(--s-7); }
+.board__imprint { color: var(--ink-muted); font-size: 0.9rem; }
+
+
+/* ---------- online issues ---------- */
+.issue-volume { margin-bottom: var(--s-6); }
+.issue-volume h2 {
+  font-family: var(--font-sans); font-size: 0.78rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  border-bottom: 2px solid var(--ink); padding-bottom: var(--s-2); margin: 0 0 var(--s-3);
+}
+.issue-list { list-style: none; margin: 0; padding: 0; }
+.issue-list li { padding: var(--s-3) 0; border-bottom: 1px solid var(--rule); }
+.issue-list a { text-decoration: none; }
+.issue-list a:hover strong,
+.issue-list a:focus-visible strong { text-decoration: underline; }
+.issue-list__summary { margin: var(--s-2) 0 0; max-width: var(--measure); font-size: 0.92rem; }
+
+/* Table of contents for one issue. Numbered, because the running order of an
+   issue is real information, unlike the editorial board list. */
+.toc { margin: var(--s-5) 0 var(--s-6); padding-left: var(--s-4); max-width: var(--measure); }
+.toc li { margin-bottom: var(--s-5); }
+.toc h2 { font-size: 1.3rem; margin: 0 0 var(--s-2); line-height: 1.25; }
+.toc h2 a { color: inherit; text-decoration: none; }
+.toc h2 a:hover,
+.toc h2 a:focus-visible { text-decoration: underline; text-decoration-color: var(--accent); }
+.toc__deck { margin: 0 0 var(--s-2); color: var(--ink-muted); }

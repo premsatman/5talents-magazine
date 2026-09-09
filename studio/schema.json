@@ -611,6 +611,77 @@
         },
         "optional": true
       },
+      "editorialBoard": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "role": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "Patron"
+                    },
+                    {
+                      "type": "string",
+                      "value": "Editor-in-Chief"
+                    },
+                    {
+                      "type": "string",
+                      "value": "Editor"
+                    },
+                    {
+                      "type": "string",
+                      "value": "Managing Editor"
+                    },
+                    {
+                      "type": "string",
+                      "value": "Associate Editor"
+                    },
+                    {
+                      "type": "string",
+                      "value": "Member"
+                    }
+                  ]
+                },
+                "optional": true
+              },
+              "person": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "inline",
+                  "name": "author.reference"
+                },
+                "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "member"
+                }
+              }
+            },
+            "rest": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "optional": true
+      },
       "doctrinalStatement": {
         "type": "objectAttribute",
         "value": {
@@ -723,6 +794,180 @@
         },
         "optional": true
       },
+      "publisher": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "name": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "address": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "city": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "state": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "pinCode": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "country": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "email": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "mobile": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "particulars": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "startYear": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "number"
+              },
+              "optional": true
+            },
+            "frequency": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "union",
+                "of": [
+                  {
+                    "type": "string",
+                    "value": "Daily"
+                  },
+                  {
+                    "type": "string",
+                    "value": "Weekly"
+                  },
+                  {
+                    "type": "string",
+                    "value": "Fortnightly"
+                  },
+                  {
+                    "type": "string",
+                    "value": "Monthly"
+                  },
+                  {
+                    "type": "string",
+                    "value": "Bi-monthly"
+                  },
+                  {
+                    "type": "string",
+                    "value": "Quarterly"
+                  },
+                  {
+                    "type": "string",
+                    "value": "Half-yearly"
+                  },
+                  {
+                    "type": "string",
+                    "value": "Annual"
+                  }
+                ]
+              },
+              "optional": true
+            },
+            "subject": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "languages": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "string"
+                }
+              },
+              "optional": true
+            },
+            "format": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "union",
+                "of": [
+                  {
+                    "type": "string",
+                    "value": "Online"
+                  },
+                  {
+                    "type": "string",
+                    "value": "Print"
+                  },
+                  {
+                    "type": "string",
+                    "value": "Online and Print"
+                  }
+                ]
+              },
+              "optional": true
+            },
+            "issnOnline": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "issnPrint": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
       "adsEnabled": {
         "type": "objectAttribute",
         "value": {
@@ -734,7 +979,15 @@
             },
             {
               "type": "string",
+              "value": "house"
+            },
+            {
+              "type": "string",
               "value": "direct"
+            },
+            {
+              "type": "string",
+              "value": "mixed"
             },
             {
               "type": "string",
@@ -1102,6 +1355,41 @@
         },
         "optional": true
       },
+      "designation": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "institutionAddress": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "institutionalEmail": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "profileUrl": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "died": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "isStaff": {
         "type": "objectAttribute",
         "value": {
@@ -1209,6 +1497,10 @@
             {
               "type": "string",
               "value": "declined"
+            },
+            {
+              "type": "string",
+              "value": "estate"
             }
           ]
         },
@@ -1362,6 +1654,36 @@
         }
       },
       "dereferencesTo": "tag"
+    }
+  },
+  {
+    "type": "type",
+    "name": "onlineIssue.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "onlineIssue"
     }
   },
   {
@@ -1676,6 +1998,14 @@
         "type": "objectAttribute",
         "value": {
           "type": "string"
+        },
+        "optional": true
+      },
+      "onlineIssue": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "onlineIssue.reference"
         },
         "optional": true
       },
@@ -2584,6 +2914,133 @@
                     "type": "string"
                   }
                 }
+              }
+            }
+          }
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "onlineIssue",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "onlineIssue"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "volume": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
+      "issueNumber": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
+      "issueDate": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "slug": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": true
+      },
+      "summary": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "coverImage": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "asset": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "sanity.imageAsset.reference"
+              },
+              "optional": true
+            },
+            "media": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "unknown"
+              },
+              "optional": true
+            },
+            "hotspot": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "sanity.imageHotspot"
+              },
+              "optional": true
+            },
+            "crop": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "sanity.imageCrop"
+              },
+              "optional": true
+            },
+            "alt": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "_type": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string",
+                "value": "image"
               }
             }
           }
