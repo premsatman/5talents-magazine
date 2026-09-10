@@ -11,6 +11,7 @@ import { formatMonth } from '@/lib/format'
 import { articleHref } from '@/lib/site'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
+import { IssueReader } from '@/components/IssueReader'
 
 type Props = { params: Promise<{ issue: string }> }
 
@@ -40,6 +41,7 @@ export default async function IssuePage(props: Props) {
   if (!issue) notFound()
 
   const pdf = clean(issue.pdfUrl) ?? clean(issue.pdfFile)
+  const embed = clean(issue.embedUrl)
   const contents = issue.tableOfContents ?? []
 
   return (
@@ -77,9 +79,10 @@ export default async function IssuePage(props: Props) {
                 style={{ border: '1px solid var(--rule-strong)', width: '100%', height: 'auto' }}
               />
             )}
+            {embed && <IssueReader url={embed} title={clean(issue.title) ?? 'This issue'} />}
             {pdf && (
-              <p style={{ marginTop: 'var(--s-4)' }}>
-                <a className="btn" href={pdf} download style={{ display: 'inline-block', textDecoration: 'none' }}>
+              <p style={{ marginTop: 'var(--s-4)', textAlign: 'center' }}>
+                <a className="brush-link note" href={pdf} download>
                   Download the original PDF
                 </a>
               </p>

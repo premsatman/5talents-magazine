@@ -26,6 +26,7 @@ import { PortableBody } from '@/components/PortableBody'
 import { SponsorLabel, isSponsored } from '@/components/SponsorLabel'
 import { AdSlot } from '@/components/AdSlot'
 import { ShareBar } from '@/components/ShareBar'
+import { EndCards } from '@/components/EndCards'
 import { ArticleHero, ArticleMeta } from '@/components/ArticleHero'
 import { ListRow } from '@/components/Card'
 import { NewsletterForm } from '@/components/NewsletterForm'
@@ -201,6 +202,11 @@ export default async function ArticlePage(props: Props) {
               <ShareBar url={shareUrl} title={article.title ?? ''} deck={article.deck} />
 
               <AdSlot slot="E" seed={slug} />
+
+              {/* Between our ad and the author card: the contributor's own
+                  links read as part of the byline furniture rather than as
+                  more advertising. */}
+              <EndCards cards={article.endCards} />
 
               {(article.authors ?? []).map((author, index) => (
                 <div className="authorcard" key={author?.slug ?? index}>

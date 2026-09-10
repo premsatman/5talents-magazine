@@ -306,6 +306,17 @@ export const ARTICLE_QUERY = defineQuery(/* groq */ `
       name, "slug": slug.current, bio, role, institution, died,
       photo { ${imageFragment} }
     },
+    endCards[]{
+      _key, _type,
+      _type == "spotifyCard" => { url, label, compact },
+      _type == "youtubeCard" => { channelName, url, blurb, cta, avatar { ${externalImageFragment} } },
+      _type == "bookCard" => {
+        title, author, blurb,
+        cover { ${externalImageFragment} },
+        links[]{ _key, label, url, affiliate }
+      },
+      _type == "linkCard" => { title, url, blurb, cta, affiliate, image { ${externalImageFragment} } }
+    },
     "sponsor": sponsor->{ name, url, logo { ${imageFragment} } },
     interviewMeta {
       subject, subjectBio, country, isCoverStory, pullQuotes,
@@ -437,7 +448,7 @@ export const ARCHIVE_ISSUES_QUERY = defineQuery(/* groq */ `
 
 export const ARCHIVE_ISSUE_QUERY = defineQuery(/* groq */ `
   *[_type == "archiveIssue" && slug.current == $slug][0]{
-    _id, title, "slug": slug.current, issueDate, issueNumber, pageCount, pdfUrl,
+    _id, title, "slug": slug.current, issueDate, issueNumber, pageCount, pdfUrl, readerUrl, embedUrl,
     "pdfFile": pdfFile.asset->url,
     coverImage { ${imageFragment} },
     tableOfContents[]{
