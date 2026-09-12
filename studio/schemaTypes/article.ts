@@ -78,6 +78,29 @@ export const article = defineType({
       options: { collapsible: true, collapsed: true },
     }),
     defineField({ name: 'body', type: 'blockContent', group: 'content' }),
+    /**
+     * Contributor's own links, printed after the piece.
+     *
+     * Deliberately a separate field rather than blocks inside `body`: these
+     * belong after the article, not in the middle of it, and keeping them out
+     * of the body means the reading-time count and the plain-text extract used
+     * for search stay editorial. See endCards.ts for the disclosure rules.
+     */
+    defineField({
+      name: 'endCards',
+      title: 'Links after the piece',
+      type: 'array',
+      group: 'content',
+      description:
+        'The contributor’s own podcast, channel, book or site. Not for paid placement - that is an advertiser booking in an ad slot.',
+      validation: (r) => r.max(4).warning('More than three or four and the end of the piece turns into a link farm.'),
+      of: [
+        defineArrayMember({ type: 'spotifyCard' }),
+        defineArrayMember({ type: 'youtubeCard' }),
+        defineArrayMember({ type: 'bookCard' }),
+        defineArrayMember({ type: 'linkCard' }),
+      ],
+    }),
 
     // ---- Filing ----------------------------------------------------------
     defineField({

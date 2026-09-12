@@ -65,15 +65,25 @@ facebook     connected      5Talents Magazine Page       acc_fb_def456
 
 You want the **ACCOUNT ID** column — not the handle, not the Page name.
 
-## Step 3 — Notion integration
+## Step 3 — Notion token
 
-1. Go to **notion.so/my-integrations** → *New integration* → name it anything →
-   copy the **Internal Integration Secret** (starts `ntn_` or `secret_`).
-2. Open the **5Talents — social posting schedule** database in Notion →
-   `···` menu top right → *Connections* → *Connect to* → pick your integration.
+1. Go to **https://www.notion.so/developers/tokens**
+2. **New token** → name it ("5Talents posting") → tick the **Notion API**
+   capability → **Create token**
+3. Copy it. It starts `ntn_`.
 
-Step 2 is the one everyone forgets. Without it the API returns 404 on a
-perfectly valid token, and the error looks like a bad key.
+That is the whole step. A personal access token runs with *your* permissions,
+so it can already read every database you can — there is no "share the database
+with the integration" step.
+
+(That step does exist for the older-style internal integration, added via the
+database's `···` → *Connections* menu. You do not need it here. If you ever use
+an internal integration instead of a PAT, skipping it produces a 404 that looks
+exactly like a bad token.)
+
+On Business and Enterprise workspaces token creation is off by default — a
+workspace owner enables it under **Settings → Connections**. If the **New
+token** button is missing, that is why.
 
 ## Step 4 — Set your environment
 

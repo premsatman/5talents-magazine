@@ -1,0 +1,160 @@
+{
+  "_held": true,
+  "_heldReason": "Five named people wrote about themselves in this piece. They were between 20 and 23 in 2017 and are identifiable by full name, so the text is theirs and not the magazine's to republish. Prepared and ready; do not import until all five have agreed. This file lives in seed/articles/held/ rather than seed/articles/ precisely so that npm run import cannot pick it up: the importer reads *.json from the articles directory only and does not descend into subdirectories. Move the file up one level when consent is in, and add the authors to the issue file.",
+  "_consentNeeded": [
+    "Leonard Joshua — vocals",
+    "Suman Kumar — guitar",
+    "Nikhil Dalton — bass",
+    "Nithin Richardson — guitar",
+    "Kenneth Harisson — drums"
+  ],
+  "_queriesForTheBand": [
+    "Page 8 of the 2017 issue prints Kenneth Harisson's paragraph and then captions it 'Suman Kumar'. Suman's own caption is on page 7. One of the two is wrong and we have guessed that the page 8 text belongs to Kenneth, since it introduces itself as the drummer. Confirm before publishing.",
+    "Suman Kumar and Nithin Richardson are both captioned 'lead guitarist'. One is presumably rhythm, or they shared. We have written 'guitar' for both rather than invent a distinction.",
+    "Is the band still together, and under this name? If the answer is no, the piece may want a line saying when it ended, and the members may feel differently about republication.",
+    "Spelling: the 2017 page has 'Harisson' and 'greatful'. The first may be his spelling and we have kept it; the second is corrected."
+  ],
+  "issue": "january-february-2017",
+  "note": "The Empty Sepulchre cover story, pages 5 to 8 of the January-February 2017 issue. Converted September 2026 and held pending consent.",
+  "authors": [
+    {
+      "slug": "empty-sepulchre",
+      "name": "Empty Sepulchre",
+      "role": "Band, Hyderabad",
+      "country": "India",
+      "isStaff": "contributor",
+      "bio": "A Christian band formed in Hyderabad in August 2013, taking its name from Matthew 28:7. They played Youth for Christ Hyderabad, the LiveJam Breakfree Tour, and college festivals across India.",
+      "republishConsent": "pending"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "we-played-college-festivals-because-that-is-where-the-crowd-was",
+      "issue": "january-february-2017",
+      "title": "A band named after an empty grave, playing college festivals because that is where the crowd is",
+      "deck": "Five young men from Hyderabad on why they entered competitions, what they were trying to say to teenagers, and the difference between playing music and worshipping God.",
+      "kind": "interview",
+      "section": "culture",
+      "authors": [
+        "empty-sepulchre"
+      ],
+      "tags": [
+        "music",
+        "hyderabad",
+        "youth",
+        "bands"
+      ],
+      "publishedAt": "2017-01-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "interviewMeta": {
+        "subject": "Empty Sepulchre",
+        "country": "India",
+        "isCoverStory": "cover"
+      },
+      "archiveMeta": {
+        "originalPage": 5,
+        "editNote": "The cover story of the January-February 2017 issue, pages 5 to 8, where it ran as an unsigned band introduction followed by five first-person pieces by the members. Spelling and punctuation corrected; the SMS-style contractions of the 2017 pages ('dis', 'evrythn', 'u') have been expanded. Nothing has been added and no sentence has been completed that the original left unfinished. The section breaks and the ordering follow the printed pages.",
+        "rightsCleared": "pending"
+      },
+      "body": [
+        {
+          "t": "p",
+          "v": "Empty Sepulchre is a band that started its journey in August 2013. The name means empty grave, and it comes from Matthew 28:7. We believe in Jesus, the living God, and that he left an empty grave. That is what we proclaim."
+        },
+        {
+          "t": "p",
+          "v": "The band played under a different name before Empty Sepulchre, with a different agenda. One day we realised we could do more with the music we had, and with God's help we began a new journey."
+        },
+        {
+          "t": "p",
+          "v": "Most of us are family. We have known each other a while. Friends. We meet rarely to practise, but more often just to spend time with each other. Staying tight as a band makes our music that much tighter."
+        },
+        {
+          "t": "p",
+          "v": "A great many Christian organisations have backed the Christian music scene, and we are grateful to everyone who has trusted us and given us a platform to do what we want to do. Youth for Christ Hyderabad, the LiveJam Breakfree Tour and others are doors God provided to spread our message."
+        },
+        {
+          "t": "p",
+          "v": "We take our music to colleges and other places where there are a lot of young people. Going for competitions and playing at college festivals helps us reach crowds who would not normally be anywhere near a Christian environment."
+        },
+        {
+          "t": "p",
+          "v": "The band won a majority of the competitions it entered, starting with our first victory on 15 August 2013. With every step we took we scaled greater heights, and colleges invited us to play in states far up north, for his glory."
+        },
+        {
+          "t": "p",
+          "v": "It is a tedious job to balance our education and our music. But our passion drives us to meet often. We do not meet at a set time; we try to meet up as much as we can."
+        },
+        {
+          "t": "p",
+          "v": "Music can be made out of anything, and almost anyone can play an instrument if they are interested. But finding a force that drives your band is the priority. Playing and praising his name, and helping teenagers through our music, has been ours. All we would like to say is: play your music, to make a difference."
+        },
+        {
+          "t": "p",
+          "v": "The future is unknown. As a band we would like to stick together. But God's plan might be different."
+        },
+        {
+          "t": "h2",
+          "v": "Leonard Joshua, vocals"
+        },
+        {
+          "t": "p",
+          "v": "Hello, my name is Leonard Joshua. I am 20 years old and I am the vocalist of the band. From a young age I was encouraged into singing and other musical activities by my family and at church, by people who saw what I could do, and that gave me a good foundation to work on my talents. Over time, through the support of my mentors, I have learnt and grown in music."
+        },
+        {
+          "t": "p",
+          "v": "As a teen band, we hoped to attack the struggles in a teenager's life. Our music and our lyrics try to portray the same."
+        },
+        {
+          "t": "p",
+          "v": "Music is a gift from God. I will use it to praise him."
+        },
+        {
+          "t": "h2",
+          "v": "Suman Kumar, guitar"
+        },
+        {
+          "t": "p",
+          "v": "Hello, I'm Suman Kumar. It was my childhood dream to be a guitarist and play in bands. I started playing guitar when I was 16. Watching other bands while they sang and praised his name made me ask myself: why couldn't I do it too? That was when I realised my talent was given by God, and that I should give him all the glory and praise through whatever I do. That is my ultimate goal as a guitarist and a musician."
+        },
+        {
+          "t": "p",
+          "v": "The act of worshipping God does not always have to be by singing songs or playing music. People go through a lot of struggles in life. If you can help someone through their struggles, spread the word of God and give the glory to him, that is an act of worship."
+        },
+        {
+          "t": "h2",
+          "v": "Nikhil Dalton, bass"
+        },
+        {
+          "t": "p",
+          "v": "Hi, I'm Nikhil Dalton. I am 23 years old and I am the bass guitarist of the band."
+        },
+        {
+          "t": "p",
+          "v": "It was in the first year of my degree that I started playing guitar, and as the days went by that became my passion. To me this platform has given me the opportunity to share the gospel in this secular world through our music. Worshipping and praising God means surrendering ourselves to God in everything we do."
+        },
+        {
+          "t": "h2",
+          "v": "Nithin Richardson, guitar"
+        },
+        {
+          "t": "p",
+          "v": "Hi, I'm Nithin Richardson. I am 23 years old. I started playing guitar in 2012 as a hobby, started learning from then, and later it became a passion while I was looking at the many musicians in the city. My goal is to be one of the finest guitarists in the field."
+        },
+        {
+          "t": "p",
+          "v": "Later an organisation called Youth for Christ chose me to be a worship leader at one of their youth gatherings, which happens every week. The way God touched me from then on, and the way he showed his true love to me, changed my entire life. Since then I have worshipped God, and later we formed this band, and for four years now we have been together — worshipping the greatest God, personally and as a band, and we always will."
+        },
+        {
+          "t": "h2",
+          "v": "Kenneth Harisson, drums"
+        },
+        {
+          "t": "p",
+          "v": "Hello, my name is Kenneth Harisson. I am 21 years old and I am the drummer of the band. I have been learning and playing drums for the past 12 years. I have been passionate about music for as long as I can remember. It all started while I was drumming on pillows and my dad played the guitar. Whatever I have achieved is with the help of God, and I am forever grateful for his talents and his mercy."
+        }
+      ]
+    }
+  ]
+}

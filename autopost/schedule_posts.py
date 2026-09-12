@@ -56,6 +56,12 @@ X_COST_PLAIN = 0.015    # per post without a link
 X_COST_URL   = 0.200    # per post containing an http/https link (13x more)
 
 MAX_X_HASHTAGS = 2      # your Notion note: "For X use at most two"
+
+# The Notion formula emits tags brand-first, section-last:
+#   [#5Talents, #IndianChristians, #Faith]
+# Taking the first two would put the SAME pair on every post. Taking the first
+# and the last keeps the brand tag and picks up the tag that actually varies.
+X_TAG_STRATEGY = "brand_and_section"   # or "first" for plain first-N
 MAX_FB_HASHTAGS = 0     # 0 = no limit; all of them
 
 STATUS_TODO = "To post"
@@ -138,7 +144,7 @@ def parse_hashtags(raw):
     return tags
 
 
-def with_hashtags(text, tags, max_tags=0, max_len=None):
+def with_hashtags(text, tags, max_tags=0, max_len=None, strategy="first"):
     """
     Append hashtags on their own line at the end of a post.
 
@@ -148,7 +154,13 @@ def with_hashtags(text, tags, max_tags=0, max_len=None):
     """
     if not text or not tags:
         return text, []
-    chosen = tags[:max_tags] if max_tags else list(tags)
+
+    if not max_tags:
+        chosen = list(tags)
+    elif max_tags == 2 and strategy == "brand_and_section" and len(tags) >= 3:
+        chosen = [tags[0], tags[-1]]      # brand + the section-specific one
+    else:
+        chosen = tags[:max_tags]
 
     while chosen:
         candidate = f"{text}\n\n{' '.join(chosen)}"
@@ -245,7 +257,16 @@ def mark_posted(token, page_id):
 
 # ------------------------------------------------------------------------ zernio
 
-def list_accounts(api_key):
+def pick(obj, *keys):
+    """First present, non-empty value among several candidate key names."""
+    for key in keys:
+        value = obj.get(key)
+        if value not in (None, "", []):
+            return value
+    return None
+
+
+def list_accounts(api_key, raw=False):
     """Print connected accounts and their ids, for filling in the env vars."""
     payload = http(
         f"{ZERNIO_API}/accounts",
@@ -259,16 +280,51 @@ def list_accounts(api_key):
               "Zernio dashboard first.")
         return 1
 
+    if raw:
+        print("Raw response:\n")
+        print(json.dumps(payload, indent=2)[:6000])
+        print()
+
+    rows = []
+    for acc in accounts:
+        if not isinstance(acc, dict):
+            continue
+        rows.append({
+            "platform": pick(acc, "platform", "provider", "network", "type") or "?",
+            "status":   pick(acc, "status", "state", "connectionStatus",
+                              "isConnected", "connected", "active") or "?",
+            "name":     pick(acc, "displayName", "name", "username", "handle",
+                              "profileName", "screenName") or "?",
+            "id":       pick(acc, "id", "accountId", "account_id", "uuid", "_id",
+                             "accountID", "socialAccountId", "platformAccountId",
+                             "externalId"),
+        })
+
+    missing = [r for r in rows if not r["id"]]
+    if missing and not raw:
+        # Couldn't find the id under any expected key - show the real shape so
+        # the right field name is obvious, rather than printing "?" again.
+        print("Could not find an account id field. Keys actually returned:\n")
+        for acc in accounts:
+            if isinstance(acc, dict):
+                print("  " + ", ".join(sorted(acc.keys())))
+        print("\nFull response:\n")
+        print(json.dumps(payload, indent=2)[:6000])
+        return 1
+
     print(f"{'PLATFORM':<12} {'STATUS':<14} {'NAME':<28} ACCOUNT ID")
     print("-" * 92)
-    for acc in accounts:
-        print(f"{str(acc.get('platform','?')):<12} "
-              f"{str(acc.get('status','?')):<14} "
-              f"{str(acc.get('displayName','?'))[:26]:<28} "
-              f"{acc.get('id','?')}")
-    print("\nExport the two you want:")
-    print('  export ZERNIO_X_ACCOUNT_ID="<id of the twitter row>"')
-    print('  export ZERNIO_FB_ACCOUNT_ID="<id of the facebook row>"')
+    for r in rows:
+        print(f"{str(r['platform']):<12} {str(r['status']):<14} "
+              f"{str(r['name'])[:26]:<28} {r['id']}")
+
+    x_id = next((r["id"] for r in rows
+                 if str(r["platform"]).lower() in ("twitter", "x")), None)
+    fb_id = next((r["id"] for r in rows
+                  if str(r["platform"]).lower() == "facebook"), None)
+    print("\nCopy-paste these:\n")
+    print(f'  export ZERNIO_X_ACCOUNT_ID="{x_id or "<not connected>"}"')
+    print(f'  export ZERNIO_FB_ACCOUNT_ID="{fb_id or "<not connected>"}"')
     return 0
 
 
@@ -298,10 +354,12 @@ def main():
                     help="do not append the Notion Hashtags column to posts")
     ap.add_argument("--accounts", action="store_true",
                     help="list your connected Zernio accounts and their ids, then exit")
+    ap.add_argument("--raw", action="store_true",
+                    help="with --accounts, also dump the raw API response")
     args = ap.parse_args()
 
     if args.accounts:
-        return list_accounts(env("ZERNIO_API_KEY"))
+        return list_accounts(env("ZERNIO_API_KEY"), raw=args.raw)
 
     notion_token = env("NOTION_TOKEN")
     if args.commit:
@@ -333,7 +391,7 @@ def main():
     for row in queue:
         tags = [] if args.no_hashtags else row.get("hashtags", [])
         row["x_final"], row["x_tags"] = with_hashtags(
-            row["x_text"], tags, MAX_X_HASHTAGS, X_LIMIT)
+            row["x_text"], tags, MAX_X_HASHTAGS, X_LIMIT, X_TAG_STRATEGY)
         row["fb_final"], row["fb_tags"] = with_hashtags(
             row["fb_text"], tags, MAX_FB_HASHTAGS, None)
         row["tags_available"] = tags

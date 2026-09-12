@@ -1,6 +1,6 @@
 {
   "issue": null,
-  "note": "The Point of View column. Premasis Satman wrote an editorial on page 2 of every issue from July 2012 to July 2014; only the April 2013 one carried the column name in the issue. Six of these survived the source check of September 2026 and have been rewritten by the author in a grace-based frame; the seventh is new. The other eleven editorials are held: three are confirmed copies, and eight are unresolved. See TRIAGE.md. Each article names its own issue rather than the file naming one, because the column ran across all eighteen issues. The sewing-machine piece carries no issue: it is 2026 work that replaces a withdrawn page rather than a republication of it.",
+  "note": "The Point of View column. Premasis Satman wrote an editorial on page 2 of every issue from July 2012 to July 2014, and one more on page 3 of the January-February 2017 relaunch issue; only the April 2013 one carried the column name in the issue. Six of the 2012-14 editorials survived the source check of September 2026 and have been rewritten by the author in a grace-based frame; one is new; the 2017 restart editorial is rewritten with the knowledge that the restart did not hold. The other eleven editorials are held: three are confirmed copies, and eight are unresolved. See TRIAGE.md. Each article names its own issue rather than the file naming one, because the column ran across every issue. The sewing-machine piece carries no issue: it is 2026 work that replaces a withdrawn page rather than a republication of it.",
   "authors": [
     {
       "slug": "premasis-satman",
@@ -761,6 +761,116 @@
           "t": "note",
           "placement": "foot",
           "v": "The quoted definition is from \"What is Business as Mission?\" by Jo Plummer, co-chair of the BAM Global Think Tank, published at businessasmission.com and developed in Lausanne Occasional Paper 59. 5Talents has no affiliation with BAM Global."
+        }
+      ]
+    },
+    {
+      "slug": "i-wrote-a-restart-editorial-in-2017-and-nothing-restarted",
+      "issue": "january-february-2017",
+      "title": "I wrote a restart editorial in 2017, and then the magazine went quiet for nine years",
+      "deck": "I told the readers God gives fresh starts. One issue came out. Then nothing. Here is what I got wrong about what a fresh start actually is.",
+      "kind": "essay",
+      "section": "faith",
+      "authors": [
+        "premasis-satman"
+      ],
+      "tags": [
+        "grace",
+        "new-creation",
+        "failure",
+        "editorial",
+        "point-of-view"
+      ],
+      "publishedAt": "2017-01-01T06:00:00.000Z",
+      "retracted": false,
+      "featured": "none",
+      "archiveMeta": {
+        "originalPage": 3,
+        "editNote": "First published as the editorial on page 3 of the January-February 2017 issue, under the headline \"New year, New start!\". Rewritten by the author in September 2026. The account of the two-year silence, the mission trips, the dead-end job and failing marriage passage, and the two verses are all from the 2017 page. What is new is everything after it: the 2017 relaunch did not hold, and a piece about fresh starts that pretends otherwise would be worth nothing.",
+        "rewrittenAt": "2026-09-12T00:00:00.000Z",
+        "rightsCleared": "full"
+      },
+      "body": [
+        {
+          "t": "note",
+          "placement": "top",
+          "v": "This was the editorial of the January-February 2017 issue, written to announce that 5Talents was coming back. That issue was the only one. The magazine returned in 2026. The author has rewritten the piece with that knowledge rather than reprinting the original as though it had come true."
+        },
+        {
+          "t": "p",
+          "v": "In January 2017 I sat down to write that the magazine was back. We had been silent since July 2014. People had been emailing to ask what happened, and I had been putting off answering them, which is its own kind of answer."
+        },
+        {
+          "t": "p",
+          "v": "So I wrote the editorial. I called it \"New year, New start\". I quoted John 10:10 and 2 Corinthians 5:17. I told our readers that God says, I want to do something new in your life, I want to give you a fresh start. I meant every word of it."
+        },
+        {
+          "t": "p",
+          "v": "That issue came out. Then nothing came out for nine years."
+        },
+        {
+          "t": "h2",
+          "v": "What I actually believed, underneath"
+        },
+        {
+          "t": "p",
+          "v": "Looking at that page now, I can see what I was really running on. I had written that new beginnings come to those who step out in faith, and that changing anything in your life by the power of God takes faith. Which sounds right, and which I now think is slightly but importantly wrong."
+        },
+        {
+          "t": "p",
+          "v": "Read it again with a cold eye. It makes faith the thing I generate, and the fresh start the thing I earn by generating enough of it. Push hard enough, believe hard enough, and God moves. That is not a promise. That is a transaction with better vocabulary."
+        },
+        {
+          "t": "p",
+          "v": "And when the relaunch collapsed — because we ran out of money, and time, and the team went back to work that paid — the logic of that sentence turns on you. If new beginnings come to those who step out in faith, and my new beginning did not come, then the fault is in my faith. I was not standing far enough out. I did not believe hard enough."
+        },
+        {
+          "t": "p",
+          "v": "I spent a good part of those nine years quietly assuming exactly that."
+        },
+        {
+          "t": "h2",
+          "v": "The verse I quoted and did not read"
+        },
+        {
+          "t": "p",
+          "v": "The verse I put in that editorial says: if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new."
+        },
+        {
+          "t": "p",
+          "v": "Notice the tense. It does not say he will become a new creation if the plan works. It does not say the newness arrives with the relaunch and departs when the relaunch fails. It is a statement about what is already the case, made before I had done anything at all, and unaffected by a magazine that did not come out."
+        },
+        {
+          "t": "p",
+          "v": "That is the thing I missed while quoting it. I treated the new creation as the outcome I was working towards. It was the ground I was already standing on."
+        },
+        {
+          "t": "p",
+          "v": "So the nine silent years were not evidence about my standing with God. They were evidence about my funding, my capacity, and my timing. Those are real problems and they deserved real answers, and none of those answers was \"believe harder\". God was not withholding a fresh start pending better performance. He had already handed one over, and I kept trying to buy it."
+        },
+        {
+          "t": "h2",
+          "v": "What a fresh start actually is"
+        },
+        {
+          "t": "p",
+          "v": "In 2017 I wrote that at the beginning of a new year it is customary to think of new beginnings and new resolutions, but that with God any time is a time for a new beginning. That sentence I would keep. I would just mean something different by it now."
+        },
+        {
+          "t": "p",
+          "v": "A fresh start is not a window that opens on 1 January and closes when you fail to use it. It is not a reward for stepping out. It is the settled condition of anyone who belongs to Christ, available on a Tuesday in the middle of a bad decade, available on the far side of something you launched and could not sustain."
+        },
+        {
+          "t": "p",
+          "v": "Which means the failed relaunch was never the disqualification I took it for. It was a project that did not work, and there is no shortage of those. The man writing about it was a new creation the whole way through — in 2014 when the magazine stopped, in 2017 when it briefly started, and across all nine years in between when it did nothing whatsoever."
+        },
+        {
+          "t": "p",
+          "v": "You may be reading this having announced something that then did not happen. I know how specific that shame is, and how it attaches itself to your standing with God rather than to your budget, where it belongs. Put it back where it belongs. Nothing about you moved."
+        },
+        {
+          "t": "p",
+          "v": "The magazine is back now, nine years later than I said. Late is not the same as disqualified. It never was."
         }
       ]
     }

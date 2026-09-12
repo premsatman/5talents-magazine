@@ -2085,7 +2085,7 @@ Held. Two different unattributed sources in one page.
 
 ---
 
-# May–July 2014 (issue 19) — the last issue
+# May–July 2014 (issue 19)
 
 *Converted 3 September 2026.* **Two pieces of six published.** No ADVERTORIAL
 label anywhere in the issue.
@@ -2230,3 +2230,111 @@ against IMDb's own synopsis for *Jackson's Run* (2013), which begins "Jackson
 Stone is a reckless and troubled teen who rejects faith and the church". Given
 that the March-April review was two lifts stitched together, the expectation is a
 match.
+
+---
+
+# January–February 2017 (issue 20) — the restart that did not hold
+
+*Converted 12 September 2026.* **Two pieces of six published, one held pending
+consent.** The magazine's own cover calls this No 20, which follows correctly
+from May–July 2014 as No 19.
+
+**This issue was not known to exist when the archive was converted.** The
+conversion treated May–July 2014 as the final issue and it was not. Premasis
+produced this PDF on 12 September 2026. He has since confirmed it was a single
+attempted restart — one issue, then silence again until 2026. Whether anything
+came out between February 2017 and now is still worth asking; assume the archive
+may be incomplete rather than assuming it is closed.
+
+**Three things changed in 2017 and should not be silently normalised.** The
+masthead reads **FiveTalents Magazine**, one word, with the domain
+FiveTalentsmag.com and the addresses article@ and ad@FiveTalentsmag.com; the
+cover wordmark is FIVE TALENTS, two words. The masthead names people who appear
+nowhere else in the run — **Deepakshi Kolia** as Publisher, **Dr. Julious Watts**
+as Editor, **Elizabeth Clayton** as Creative Director — and these are historical,
+not candidates for the 2026 masthead. And the issue describes itself as "a webzine
+published internationally", which is useful wording for the e-ISSN application.
+
+The masthead also carries the only real postal address the magazine has ever
+printed: 403, Sree Sai Ashray Residency, St no 13, Tarnaka, Hyderabad 500 017.
+
+| p | Piece | Byline | Verdict |
+|---|---|---|---|
+| 3 | New year, New start! | Premasis Satman | **published**, rewritten — see below |
+| 5–8 | Empty Sepulchre (cover) | unsigned intro + five first-person pieces | **held** pending the band's consent. Converted and ready in `seed/articles/held/` |
+| 9 | How do I know which of God's promises are for me? | unsigned | **not republished** — GotQuestions.org, the third confirmed lift from them in this archive |
+| 10–15 | Facing the Giants in Your Life, Parts One to Three | George Powell | **skipped** at the Executive Director's instruction — see below |
+| 16–19 | AWAKE Mission Trip 2016 | Premasis Satman | **published** with the host church unnamed — see below |
+| 20–21 | Movie review: *God's Not Dead 2* | unsigned | **not republished** — three IMDb user reviews pasted verbatim |
+| 22 | William Tyndale | unsigned | **not republished**; replaced by an original Heritage piece |
+
+The contents page on page 2 is wrong: it puts AWAKE on 13 and Tyndale on 16.
+They are on 16 and 22. It also puts the cover story on 3, which is the editorial.
+The table above uses the real pages.
+
+## The editorial, rewritten knowing how it turned out
+
+The 2017 editorial announced that the magazine was back after two years of
+silence. One issue followed. The honest move was not to reprint a relaunch
+announcement as though it had worked.
+
+It also contains the exact theology this column was rewritten to correct. The
+original says **"New beginnings come to those who step out in faith. To change
+anything in your life by the power of God takes faith."** Read with a cold eye
+that makes faith the thing you generate and the fresh start the thing you earn by
+generating enough of it — and it turns on the writer when the relaunch fails,
+because the only available conclusion is that he did not believe hard enough.
+
+The rewrite keeps the 2017 material and adds what nine years supplied: the verse
+he quoted, 2 Corinthians 5:17, is in the perfect tense. The new creation was not
+the outcome he was working towards. It was the ground he was already standing on,
+and a magazine that did not come out said nothing whatsoever about it.
+
+## The Jagdalpur report, and why the hosts are unnamed
+
+Published, copy-edited, and with one deliberate subtraction. The 2017 pages name
+the host church in Jagdalpur, its pastor and his wife, and its two youth leaders,
+inside a first-person account of a three-day outreach at which about thirty-five
+young people rededicated their lives.
+
+**Jagdalpur is in Bastar, Chhattisgarh — a state with an anti-conversion
+statute.** In 2017 this was a report in a webzine almost nobody read. Republished
+in 2026 on an indexed site it becomes a permanent, searchable, named record of a
+named local congregation hosting exactly the kind of event those statutes are
+used against, published without their knowledge. The magazine's own team is named
+because they are the magazine's team. The hosts are not. They can be restored the
+moment they ask for it, which is the direction that runs the right way.
+
+## The George Powell serial, skipped
+
+Parts One, Two and Three reprinted together across pages 10 to 15. Skipped at the
+Executive Director's instruction, and the reasons are worth recording because
+they would have made this awkward:
+
+- Powell's consent is still `pending`, as it is for his other nine pieces
+- The text carries forward both errors corrected during the 2013–14 conversion —
+  **"Cradles of Imminence"** (it is *Cradles of Eminence*, 1962) and the Booker T.
+  Washington misquote
+- It has been **localised without disclosure**. Powell is a pastor in Portland,
+  Oregon. The 2017 text reads "the athletic skill of a **Milkha Singh**". Someone
+  edited a named contributor's article to suit an Indian readership and marked
+  nothing. That is a thing to tell him about when the consent conversation happens,
+  not a thing to republish.
+
+## The Tyndale page: copied, and wrong
+
+Unsigned, and the prose has the shape of a stock local-history source. It is also
+factually wrong in ways that matter for a magazine claiming a Heritage section:
+
+- It says Tyndale was **"strangled then burned in the market square of Antwerp"**.
+  He was executed at **Vilvoorde**, near Brussels.
+- It says *The Parable of the Wicked Mammon* was **published in 1538 and banned in
+  1530** — banned eight years before publication, and published two years after his
+  death. It was 1528.
+- "Thomas and many others viciously protested" is presumably **Thomas More** with
+  the surname lost.
+
+Replaced with an original piece written from sources rather than corrected in
+place, on the principle established with the Sundar Singh rewrite: when the text
+is probably not ours and the facts are wrong, fixing the facts still leaves
+somebody else's prose on the site under no byline.

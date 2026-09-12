@@ -9,6 +9,7 @@ import { submission } from './submission'
 import { siteSettings } from './siteSettings'
 import { blockContent } from './blockContent'
 import { externalImage } from './externalImage'
+import { spotifyCard, youtubeCard, bookCard, linkCard } from './endCards'
 
 export const schemaTypes = [
   // Documents
@@ -24,4 +25,9 @@ export const schemaTypes = [
   // Objects
   blockContent,
   externalImage,
+  // End-of-article cards a contributor can attach to their own piece
+  spotifyCard,
+  youtubeCard,
+  bookCard,
+  linkCard,
 ]

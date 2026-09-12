@@ -63,6 +63,20 @@ export const archiveIssue = defineType({
       type: 'url',
       description: 'Use instead of the upload above if the PDFs are hosted off-Sanity.',
     }),
+    defineField({
+      name: 'readerUrl',
+      title: 'Online reader link',
+      type: 'url',
+      description:
+        'Where the "Read this issue" button under the cover goes. Paste the reader link ending in /1 so it opens on the first page, e.g. https://covver.com/magazine/prem/5talents-magazine-issue-1-july-2012/1. Leave empty and the button is not rendered.',
+    }),
+    defineField({
+      name: 'embedUrl',
+      title: 'Flipbook preview (embed URL)',
+      type: 'url',
+      description:
+        'Optional small flip-through preview shown under the "Read this issue" button. Use the src from the host\'s embed snippet, e.g. https://online.anyflip.com/hyynx/xopw/index.html - not the page you view it on.',
+    }),
     defineField({ name: 'pageCount', type: 'number' }),
     defineField({
       name: 'tableOfContents',

@@ -11,6 +11,7 @@
     "seed": "node seed/seed.mjs",
     "seed:ads": "node seed/seed-ads.mjs",
     "ads:why": "node seed/diagnose-ads.mjs",
+    "why:hidden": "node seed/why-hidden.mjs",
     "import": "node seed/import-articles.mjs",
     "check": "node seed/check-articles.mjs",
     "extract": "node seed/extract-pdf.mjs",
@@ -19,10 +20,10 @@
   },
   "dependencies": {
     "@sanity/icons": "^5.2.1",
-    "@sanity/vision": "^6.12.0",
+    "@sanity/vision": "^6.13.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "sanity": "^6.12.0",
+    "sanity": "^6.13.2",
     "styled-components": "^6.5.3"
   },
   "devDependencies": {

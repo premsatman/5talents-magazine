@@ -1,0 +1,38 @@
+# 5Talents Archive — PDF viewer metadata
+
+Copy-paste fields for the 19 archive issues (Issue 1, July 2012 → Issue 19, May–July 2014).
+
+Wording note: nothing here says *printed* or *published* of the 2012–14 run — that language stays off
+anything a reader or an ISSN assessor can see. See `issn/PLAN.md`.
+
+| # | Magazine Title | Collection | Category | Description |
+|---|---|---|---|---|
+| 1 | 5Talents Magazine – Issue 1, July 2012 | 5Talents Archive: 2012 | Launch Issue | The first issue of 5Talents, an Indian Christian webzine for young believers. Opens with stewardship of talents and gifts, a puppet ministry profile of Mary Sujani, and five reasons to watch *Courageous*. 24 pages. |
+| 2 | 5Talents Magazine – Issue 2, August 2012 | 5Talents Archive: 2012 | Testimony | An Independence Day issue built around prayer for the nation, with cover subject Pavithran on how miracles still happen, plus interview, technology and movie-review pages. 24 pages. |
+| 3 | 5Talents Magazine – Issue 3, September 2012 | 5Talents Archive: 2012 | Talent Search | Blind musician Bhaskar Rao — eight gold medals in music and a working electronics engineer — leads an issue asking "Are you a prophet or a puppet?", with a profile of George Müller, father to 10,000 orphans. 22 pages. |
+| 4 | 5Talents Magazine – Issue 4, October 2012 | 5Talents Archive: 2012 | Talent Search | Artist Maria Clara on painting for Jesus, alongside Philippians 4 on where the mind settles, a piece on why God allows problems, and Indian social reformer Pandita Ramabai. 22 pages. |
+| 5 | 5Talents Magazine – Issue 5, January 2013 | 5Talents Archive: 2013 | Talent Search | Worship leader Ricky Biswasi fronts the new year issue, with tools for a fuller prayer life, "Does God love everyone or just Christians?", and Crossing the Bridge. 22 pages. |
+| 6 | 5Talents Magazine – Issue 6, March 2013 | 5Talents Archive: 2013 | Talent Search | Sound operator Esther on serving behind the desk, plus loving the law of God, what the Bible says about interracial marriage, and prayer as privilege. 22 pages. |
+| 7 | 5Talents Magazine – Issue 7, April 2013 | 5Talents Archive: 2013 | Ministry & Mission | Allen Derksen on voice-based mobile ministry, a look at Sadhu Sundar Singh, an essay on secular work as God's calling, and reviews of *Amazing Love*. 24 pages. |
+| 8 | 5Talents Magazine – Issue 8, May 2013 | 5Talents Archive: 2013 | Arts & Film | Filmmaker Aneesh Daniel on his journey to the "Christian Oscars", with Soumya Susan on humble beginnings and Rev. Peggy Kennedy from the pulpit to the pen. 24 pages. |
+| 9 | 5Talents Magazine – Issue 9, June 2013 | 5Talents Archive: 2013 | Leadership | Rev. Peggy I. Kennedy on the long road from pulpit to pen, George Powell on trusting the process, the Olive Learning Center, and the church's responsibility to the poor. 24 pages. |
+| 10 | 5Talents Magazine – Issue 10, July 2013 | 5Talents Archive: 2013 | Faith & Business | Pianist Stephen Devassy on "I can do all things", the CCCI Business Conference third anniversary, Jenny Svetec on the camp that God built, and business as mission. 24 pages. |
+| 11 | 5Talents Magazine – Issue 11, August 2013 | 5Talents Archive: 2013 | Church Life | Peter and Sandra McIntosh, "From Sea to Shining Sea", NewLife Assembly of God's 30th anniversary, Karen Munroe on being empowered by His love, and CHAI Foundation Day. 24 pages. |
+| 12 | 5Talents Magazine – Issue 12, September 2013 | 5Talents Archive: 2013 | Leadership | Ken Blanchard on leading like Jesus, Rev. Peggy Kennedy on good seed and good soil, George Powell on doing business with integrity, and Elizabeth Clayton on David Livingstone. 24 pages. |
+| 13 | 5Talents Magazine – Issue 13, October 2013 | 5Talents Archive: 2013 | Faith & Business | Paul and Jenny Svetec on farming God's way, George Powell on living up to your potential, giving and receiving, a Day of Prayer report, and building a healthy self-image. 24 pages. |
+| 14 | 5Talents Magazine – Issue 14, November 2013 | 5Talents Archive: 2013 | Testimony | Gospel singer Sheldon Bangera on how he met Jesus, George Powell on the words we leave unsaid, Lorita Das on moving mountains, and missionary Samuel Kellong's voyage to India. 24 pages. |
+| 15 | 5Talents Magazine – Issue 15, December 2013 | 5Talents Archive: 2013 | Christmas Issue | A Christmas issue on Immanuel, God with us: Vijay Madhukar Mohod on kingdom business, Vanny Bourne as a star from down under, and whether to celebrate at all. 24 pages. |
+| 16 | 5Talents Magazine – Issue 16, January 2014 | 5Talents Archive: 2014 | Faith & Business | The Marketplace Revolution issue — Michael Brian of Business Seva, Swaranjit Sen of CCCI and Joseph Wilson of BMFI on what kingdom business actually means, plus Seeking Wisdom. 24 pages. |
+| 17 | 5Talents Magazine – Issue 17, February 2014 | 5Talents Archive: 2014 | Relationships | An issue on love and leadership: ACTC's 50th anniversary, George Powell on what your relationships reveal about your leadership, finding joy in trials, and the cost of unjust gain. 24 pages. |
+| 18 | 5Talents Magazine – Issue 18, March–April 2014 | 5Talents Archive: 2014 | Easter Issue | Stella Bogi's life journey, George Powell on facing the giants, Jenny Stevec on convergence, a prayer ahead of India's 2014 general election, and a review of *Grace Unplugged*. 24 pages. |
+| 19 | 5Talents Magazine – Issue 19, May–July 2014 | 5Talents Archive: 2014 | Final Issue | The last issue of the original run: Christine Lazares on the cover, part two of Facing the Giants, Mate and Help Meet, Joseph Dias on Gandhi's view of Christianity, and *Jackson's Run*. 24 pages. |
+
+## If your viewer uses a fixed category list
+
+All 19 sit under **Religion & Spirituality** (or *Religion / Christianity*). Keep the column above as tags
+or keywords instead.
+
+## Shared keyword set
+
+`5Talents`, `Christian magazine`, `India`, `Christian youth`, `webzine archive`, `Hyderabad`, plus the
+cover subject's name per issue.
