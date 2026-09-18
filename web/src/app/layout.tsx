@@ -149,13 +149,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* In <head> because Travelpayouts verifies by fetching the HTML. */}
+        <TravelpayoutsDrive />
       </head>
       <body>
         {children}
         <SanityLive />
         {isDraft && <VisualEditing />}
         <Analytics />
-        <TravelpayoutsDrive />
       </body>
     </html>
   )
