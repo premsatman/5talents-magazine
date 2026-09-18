@@ -163,12 +163,34 @@ export async function AdSlot({
    * would blank this page rather than append to it.
    *
    * So the snippet is served as its own document by /api/ad-embed/[id] and
-   * framed here. The sandbox withholds allow-same-origin deliberately, which
-   * gives the frame an opaque origin: the widget cannot reach into this page,
-   * read our cookies, or be found by Drive's link rewriter. It keeps
-   * allow-top-navigation-by-user-activation so that pressing Search actually
-   * goes somewhere, and allow-popups-to-escape-sandbox so the destination is
-   * not itself sandboxed.
+   * framed here. The sandbox keeps allow-top-navigation-by-user-activation so
+   * that pressing Search actually goes somewhere, and
+   * allow-popups-to-escape-sandbox so the destination is not itself sandboxed.
+   *
+   * WHY allow-same-origin IS PRESENT
+   *
+   * It was withheld at first, for the obvious reason: without it the frame gets
+   * an opaque origin and cannot touch this page. But these widgets nest another
+   * iframe inside themselves - Klook's actual renderer, on affiliate.klook.com -
+   * and a nested frame inherits its parent's sandbox flags. Opaque origin
+   * reached the renderer too, and it drew nothing. Tested side by side on the
+   * live site: identical frames, the one without this flag blank and the one
+   * with it showing the card.
+   *
+   * Since the document is served from our own origin, the flag makes the frame
+   * same-origin with this page, and the widget can reach parent.document. That
+   * is a real loss, and it is survivable here for a specific reason rather than
+   * a general one: Travelpayouts' Drive script already runs unsandboxed in the
+   * top document on every page. This vendor has more access without the iframe
+   * than with it, so isolating this one widget more tightly than the tag in
+   * layout.tsx protects nothing.
+   *
+   * That reasoning is about Travelpayouts, not about embeds in general. The
+   * field takes any vendor's code, and for one we do not already trust with the
+   * whole page this flag is too much. The fix then is to serve /api/ad-embed
+   * from a separate origin - an embeds. subdomain - which restores a real origin
+   * for the nested frame while keeping it genuinely foreign to this one. Worth
+   * doing before a second vendor is added, not before the first.
    *
    * The route rather than `srcdoc` because a srcdoc document has no hostname:
    * `location.hostname` is "" inside it, with or without a sandbox. Klook's
@@ -200,7 +222,7 @@ export async function AdSlot({
             height={embedHeight}
             loading={slot === 'A' ? 'eager' : 'lazy'}
             referrerPolicy="no-referrer-when-downgrade"
-            sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
+            sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-same-origin"
             style={{ border: 0, display: 'block', width: size.w, height: embedHeight }}
           />
         </div>
