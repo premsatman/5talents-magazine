@@ -23,6 +23,12 @@ export type ArticleCardData = {
   authors?: ({ name?: string | null; slug?: string | null } | null)[] | null
   wordCount?: number | null
   originalIssue?: { title?: string | null; slug?: string | null; issueDate?: string | null } | null
+  /**
+   * First tag on a brief, projected by HOME_BRIEFS_QUERY and the stream page.
+   * On /current every card would otherwise read CURRENT, which tells the reader
+   * nothing - the franchise is the useful label.
+   */
+  franchise?: { name?: string | null; slug?: string | null } | null
   interviewMeta?: {
     subject?: string | null
     subjectBio?: string | null

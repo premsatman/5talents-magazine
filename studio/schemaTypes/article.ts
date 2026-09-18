@@ -66,6 +66,52 @@ export const article = defineType({
           type: 'string',
           description: 'Photographer or archive source. Required for archival images.',
         }),
+        /**
+         * Credit is not a licence.
+         *
+         * A credit line is what a licence usually REQUIRES; it is never what
+         * creates one. A `credit` string alone cannot record why we may use a
+         * picture, so it cannot stop the mistake. This can. Deliberately not
+         * required() - that would block every existing article on next save.
+         * Make it required once the back catalogue is filled in.
+         */
+        defineField({
+          name: 'rightsBasis',
+          title: 'Why we may use this image',
+          type: 'string',
+          description:
+            'Credit is not permission. Every image needs a basis, and "found it online" is not one.',
+          options: {
+            list: [
+              { title: 'Ours - we made it, or it is from our own archive', value: 'owned' },
+              { title: 'Licensed stock - Adobe, Envato, paid', value: 'licensed' },
+              { title: 'Free licence - Unsplash, Pexels', value: 'free' },
+              { title: 'Creative Commons - credit is required by the licence', value: 'cc' },
+              { title: 'Written permission from the rights holder', value: 'permission' },
+              { title: 'Public domain', value: 'publicDomain' },
+              { title: 'AI generated', value: 'generated' },
+            ],
+          },
+        }),
+        defineField({
+          name: 'rightsNote',
+          title: 'Where the permission lives',
+          type: 'string',
+          description:
+            'For CC: the licence and the attribution string. For permission: where the reply is saved, e.g. "DM from @handle, 12 Sep 2026". For stock: the licence or order number.',
+          hidden: ({ parent }) =>
+            !['cc', 'permission', 'licensed'].includes(
+              (parent as { rightsBasis?: string } | undefined)?.rightsBasis ?? '',
+            ),
+          validation: (r) =>
+            r.custom((value, ctx) => {
+              const basis = (ctx.parent as { rightsBasis?: string } | undefined)?.rightsBasis
+              if (['cc', 'permission', 'licensed'].includes(basis ?? '') && !value) {
+                return 'Say where the permission is recorded. In six months nobody will remember.'
+              }
+              return true
+            }),
+        }),
       ],
     }),
     defineField({
@@ -115,6 +161,7 @@ export const article = defineType({
           { title: 'Interview', value: 'interview' },
           { title: 'Review', value: 'review' },
           { title: 'Essay', value: 'essay' },
+          { title: 'Brief - daily post', value: 'brief' },
         ],
         layout: 'radio',
       },
@@ -167,6 +214,22 @@ export const article = defineType({
       group: 'meta',
       to: [{ type: 'onlineIssue' }],
       description: 'Drives the citation line on the article and its entry in the issue archive.',
+      /**
+       * Briefs stay outside the numbered issues.
+       *
+       * The ISSN application claims monthly frequency. If the daily stream
+       * starts appearing inside numbered issues that claim stops being true,
+       * so the schema refuses it rather than relying on anyone remembering.
+       */
+      hidden: ({ document }) => document?.kind === 'brief',
+      validation: (r) =>
+        r.custom((value, ctx) => {
+          const kind = (ctx.document as { kind?: string } | undefined)?.kind
+          if (kind === 'brief' && value) {
+            return 'Briefs stay outside the numbered issues - the ISSN frequency claim depends on it.'
+          }
+          return true
+        }),
     }),
     defineField({
       name: 'featured',
@@ -320,6 +383,39 @@ export const article = defineType({
       ],
       options: { collapsible: true },
     }),
+    /**
+     * Deliberately minimal.
+     *
+     * A five-checkbox verification form would be more thorough and would kill
+     * the cadence by week two. The full check lives in the plan; what the
+     * schema enforces is the one thing that must never be missing.
+     */
+    defineField({
+      name: 'briefMeta',
+      title: 'Brief',
+      type: 'object',
+      group: 'kindMeta',
+      hidden: ({ parent }) => parent?.kind !== 'brief',
+      fields: [
+        defineField({
+          name: 'sourceUrl',
+          title: 'Primary source',
+          type: 'url',
+          description:
+            'The report, the newsroom, the original upload. One link. If there is no source that can be named, there is no brief.',
+        }),
+        defineField({ name: 'sourceName', type: 'string', title: 'Source name' }),
+        defineField({
+          name: 'verifiedNote',
+          title: 'What was checked',
+          type: 'text',
+          rows: 2,
+          description:
+            'One line for our own record: who covered it, whether the people and place are named, anything that did not check out.',
+        }),
+      ],
+      options: { collapsible: true, collapsed: false },
+    }),
     defineField({
       name: 'archiveMeta',
       title: 'Archive provenance',
@@ -440,6 +536,19 @@ export const article = defineType({
       options: { collapsible: true, collapsed: true },
     }),
   ],
+
+  /**
+   * A brief without a source is not publishable. Enforced at document level
+   * because briefMeta is hidden for every other kind.
+   */
+  validation: (r) =>
+    r.custom((doc) => {
+      const d = doc as { kind?: string; briefMeta?: { sourceUrl?: string } } | undefined
+      if (d?.kind === 'brief' && !d?.briefMeta?.sourceUrl) {
+        return 'A brief needs a primary source link.'
+      }
+      return true
+    }),
 
   orderings: [
     { name: 'newest', title: 'Newest first', by: [{ field: 'publishedAt', direction: 'desc' }] },

@@ -121,6 +121,7 @@ export function Card({
   shape = 'standard',
   showSection = true,
   showDeck = true,
+  label,
   priority = false,
   eager = false,
 }: {
@@ -128,6 +129,12 @@ export function Card({
   shape?: CardShape
   showSection?: boolean
   showDeck?: boolean
+  /**
+   * Overrides the section name in the kicker. Used by the daily stream, where
+   * the franchise (WITNESS, FINDINGS, THEN & NOW) is what the reader needs and
+   * the section name is the same on every card.
+   */
+  label?: string | null
   /** Preload this image. At most one card on a page should set it. */
   priority?: boolean
   /** Load without waiting to scroll into view, but without a preload. */
@@ -176,7 +183,9 @@ export function Card({
         {sponsored ? (
           <SponsorLabel tier={article.sponsorTier} />
         ) : (
-          showSection && article.section?.name && <span className="card__kicker">{article.section.name}</span>
+          (label || (showSection && article.section?.name)) && (
+            <span className="card__kicker">{label ?? article.section?.name}</span>
+          )
         )}
 
         <h3 className="card__title">

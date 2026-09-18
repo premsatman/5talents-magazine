@@ -113,7 +113,7 @@ export const HOME_HERO_QUERY = defineQuery(/* groq */ `
 
 /** The five-across compact row under the hero. Newest first, featured or not. */
 export const HOME_COMPACT_QUERY = defineQuery(/* groq */ `
-  *[${live}] | order(publishedAt desc)[0...5]{
+  *[${live} && kind != "brief"] | order(publishedAt desc)[0...5]{
     ${cardFragment}
   }
 `)
@@ -123,8 +123,31 @@ export const HOME_TALENT_SEARCH_QUERY = defineQuery(/* groq */ `
   | order(publishedAt desc)[0...3]{ ${cardFragment} }
 `)
 
+/**
+ * Briefs are excluded here on purpose.
+ *
+ * This rail is ordered by publishedAt alone. The daily stream runs five posts a
+ * week; left in, it fills all five slots within a week and the features never
+ * appear on the homepage again. Filtered on `kind` rather than on the section
+ * slug, because the kind is the thing we actually mean and it keeps working if
+ * the section is ever renamed. Briefs get their own rail below.
+ */
 export const HOME_LATEST_QUERY = defineQuery(/* groq */ `
-  *[${live} && featured != "hero"] | order(publishedAt desc)[0...5]{ ${cardFragment} }
+  *[${live} && featured != "hero" && kind != "brief"] | order(publishedAt desc)[0...5]{ ${cardFragment} }
+`)
+
+/**
+ * The daily stream, as a compact strip.
+ *
+ * Headline-led and deliberately small: it should read as a ticker beside the
+ * features, not compete with them. The first tag doubles as the franchise
+ * label on the card (WITNESS, FINDINGS, THEN & NOW, REMEMBER WHEN).
+ */
+export const HOME_BRIEFS_QUERY = defineQuery(/* groq */ `
+  *[${live} && kind == "brief"] | order(publishedAt desc)[0...6]{
+    ${cardFragment},
+    "franchise": tags[0]->{ name, "slug": slug.current }
+  }
 `)
 
 /**
@@ -146,12 +169,12 @@ export const HOME_SECTIONS_QUERY = defineQuery(/* groq */ `
 
 /** The long tail at the foot of the homepage. */
 export const HOME_TAIL_QUERY = defineQuery(/* groq */ `
-  *[${live}] | order(publishedAt desc)[8...28]{ ${cardFragment} }
+  *[${live} && kind != "brief"] | order(publishedAt desc)[8...28]{ ${cardFragment} }
 `)
 
 /** Rail module. Most-read is not measurable yet, so this is most-recent. */
 export const HOME_RAIL_QUERY = defineQuery(/* groq */ `
-  *[${live}] | order(publishedAt desc)[0...6]{ ${cardFragment} }
+  *[${live} && kind != "brief"] | order(publishedAt desc)[0...6]{ ${cardFragment} }
 `)
 
 export const HOME_SECTION_FEATURE_QUERY = defineQuery(/* groq */ `
@@ -240,7 +263,8 @@ export const SECTION_QUERY = defineQuery(/* groq */ `
 
 export const SECTION_ARTICLES_QUERY = defineQuery(/* groq */ `
   *[${live} && section->slug.current == $slug] | order(publishedAt desc)[0...30]{
-    ${cardFragment}
+    ${cardFragment},
+    "franchise": tags[0]->{ name, "slug": slug.current }
   }
 `)
 

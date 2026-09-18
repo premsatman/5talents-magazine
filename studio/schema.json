@@ -297,6 +297,50 @@
             "type": "string"
           },
           "optional": true
+        },
+        "rightsBasis": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "owned"
+              },
+              {
+                "type": "string",
+                "value": "licensed"
+              },
+              {
+                "type": "string",
+                "value": "free"
+              },
+              {
+                "type": "string",
+                "value": "cc"
+              },
+              {
+                "type": "string",
+                "value": "permission"
+              },
+              {
+                "type": "string",
+                "value": "publicDomain"
+              },
+              {
+                "type": "string",
+                "value": "generated"
+              }
+            ]
+          },
+          "optional": true
+        },
+        "rightsNote": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
         }
       }
     }
@@ -2134,6 +2178,50 @@
               },
               "optional": true
             },
+            "rightsBasis": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "union",
+                "of": [
+                  {
+                    "type": "string",
+                    "value": "owned"
+                  },
+                  {
+                    "type": "string",
+                    "value": "licensed"
+                  },
+                  {
+                    "type": "string",
+                    "value": "free"
+                  },
+                  {
+                    "type": "string",
+                    "value": "cc"
+                  },
+                  {
+                    "type": "string",
+                    "value": "permission"
+                  },
+                  {
+                    "type": "string",
+                    "value": "publicDomain"
+                  },
+                  {
+                    "type": "string",
+                    "value": "generated"
+                  }
+                ]
+              },
+              "optional": true
+            },
+            "rightsNote": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
             "_type": {
               "type": "objectAttribute",
               "value": {
@@ -2253,6 +2341,10 @@
             {
               "type": "string",
               "value": "essay"
+            },
+            {
+              "type": "string",
+              "value": "brief"
             }
           ]
         },
@@ -2588,6 +2680,36 @@
               "type": "objectAttribute",
               "value": {
                 "type": "number"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "briefMeta": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "sourceUrl": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "sourceName": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "verifiedNote": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
               },
               "optional": true
             }

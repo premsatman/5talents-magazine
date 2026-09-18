@@ -18,6 +18,8 @@ export const SECTION_SLUGS = [
   'wellbeing',
   'campus',
   'heritage',
+  // The daily short-post stream. See readme/CURRENT-SECTION-SPEC.md.
+  'current',
 ] as const
 
 export type SectionSlug = (typeof SECTION_SLUGS)[number]

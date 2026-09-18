@@ -970,7 +970,28 @@ footer.site li { margin-bottom: 7px; }
 footer.site a { text-decoration: none; opacity: 0.82; }
 footer.site a:hover { opacity: 1; }
 footer.site :focus-visible { outline-color: var(--highlight); }
-.footer-socials { font-family: var(--font-sans); font-size: 0.85rem; margin-top: var(--s-5); color: var(--inverse-ink); }
+.footer-socials { margin-top: var(--s-5); }
+.social-links {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2);
+  list-style: none; margin: var(--s-4) 0 0; padding: 0;
+}
+.social-links__btn {
+  display: grid; place-items: center;
+  width: 40px; height: 40px;
+  border: 0; border-radius: var(--radius);
+  color: var(--ink-secondary); background: transparent;
+  text-decoration: none; opacity: 1;
+}
+.social-links__btn:hover {
+  color: var(--accent);
+}
+footer.site .social-links { margin: var(--s-5) 0 0; }
+footer.site .social-links__btn {
+  color: var(--inverse-ink); opacity: 0.9;
+}
+footer.site .social-links__btn:hover {
+  opacity: 1; color: var(--highlight);
+}
 .scope {
   border-top: 1px solid var(--inverse-rule); margin-top: var(--s-5); padding-top: var(--s-4);
   font-family: var(--font-sans); font-size: 0.8rem; color: var(--inverse-muted); max-width: 62ch;

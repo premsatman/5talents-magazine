@@ -76,6 +76,48 @@ export const externalImage = defineType({
       type: 'string',
       description: 'Photographer or source. Required for anything not shot by us.',
     }),
+    /**
+     * Mirrors the rights fields on the uploaded `hero` image. Without them here
+     * the Cloudinary path is the hole in the net: credit is not a licence, and
+     * a credit string cannot record why we may use the picture.
+     */
+    defineField({
+      name: 'rightsBasis',
+      title: 'Why we may use this image',
+      type: 'string',
+      description:
+        'Credit is not permission. Every image needs a basis, and "found it online" is not one.',
+      options: {
+        list: [
+          { title: 'Ours - we made it, or it is from our own archive', value: 'owned' },
+          { title: 'Licensed stock - Adobe, Envato, paid', value: 'licensed' },
+          { title: 'Free licence - Unsplash, Pexels', value: 'free' },
+          { title: 'Creative Commons - credit is required by the licence', value: 'cc' },
+          { title: 'Written permission from the rights holder', value: 'permission' },
+          { title: 'Public domain', value: 'publicDomain' },
+          { title: 'AI generated', value: 'generated' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'rightsNote',
+      title: 'Where the permission lives',
+      type: 'string',
+      description:
+        'For CC: the licence and the attribution string. For permission: where the reply is saved, e.g. "DM from @handle, 12 Sep 2026". For stock: the licence or order number.',
+      hidden: ({ parent }) =>
+        !['cc', 'permission', 'licensed'].includes(
+          (parent as { rightsBasis?: string } | undefined)?.rightsBasis ?? '',
+        ),
+      validation: (r) =>
+        r.custom((value, ctx) => {
+          const basis = (ctx.parent as { rightsBasis?: string } | undefined)?.rightsBasis
+          if (['cc', 'permission', 'licensed'].includes(basis ?? '') && !value) {
+            return 'Say where the permission is recorded. In six months nobody will remember.'
+          }
+          return true
+        }),
+    }),
   ],
   preview: {
     select: { title: 'alt', subtitle: 'url', media: 'url' },

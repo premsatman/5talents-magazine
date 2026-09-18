@@ -70,8 +70,18 @@ export default async function SectionPage(props: Props) {
   // overlay cards, then the rest as a plain grid. Their row is a carousel; this
   // is three static cards that share one photograph, because a carousel hides
   // two thirds of what it holds and costs the JavaScript to do it.
-  const featured = articles.slice(0, 3)
-  const rest = articles.slice(3)
+  /**
+   * The daily stream gets a different layout.
+   *
+   * HeroSync renders three large overlay cards sharing one photograph, which is
+   * built for features with strong lead images. Briefs frequently have no
+   * photograph at all - either because the only available shot is a wire photo
+   * we cannot licence, or because the card is deliberately typographic. Running
+   * them through HeroSync would produce three empty frames.
+   */
+  const isStream = section === 'current'
+  const featured = isStream ? [] : articles.slice(0, 3)
+  const rest = isStream ? articles : articles.slice(3)
 
   // Siblings, minus the page we are on. Restricted to the route allowlist, so a
   // section that exists in Sanity but is not deployed cannot produce a dead link.
@@ -105,7 +115,9 @@ export default async function SectionPage(props: Props) {
           </div>
         ) : (
           <>
-            <HeroSync articles={featured} label={`Latest in ${sectionMeta.name}`} />
+            {featured.length > 0 && (
+              <HeroSync articles={featured} label={`Latest in ${sectionMeta.name}`} />
+            )}
 
             {rest.length > 0 && (
               <>
@@ -116,14 +128,20 @@ export default async function SectionPage(props: Props) {
                 <section className="wrap" aria-labelledby="more-head">
                   <div className="sechead">
                     <h2 className="brush-rule" id="more-head">
-                      More from {sectionMeta.name}
+                      {isStream ? 'Latest' : `More from ${sectionMeta.name}`}
                     </h2>
                   </div>
                   {/* Was `grid g3` - neither class exists in globals.css, so this
                       had never gridded and every card stacked in one column. */}
                   <div className="grid-cards">
                     {rest.map((article) => (
-                      <Card key={article._id} article={article} showSection={false} />
+                      <Card
+                        key={article._id}
+                        article={article}
+                        showSection={false}
+                        // On the stream every card would otherwise read CURRENT.
+                        label={isStream ? clean(article.franchise?.name) : undefined}
+                      />
                     ))}
                   </div>
                 </section>

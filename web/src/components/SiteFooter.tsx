@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { sanityFetch } from '@/sanity/live'
+import { freshClient } from '@/sanity/client'
 import { SITE_SETTINGS_QUERY } from '@/sanity/queries'
 import { scopeStatement as fallbackScope, tagline } from '@/lib/site'
-import { clean } from '@/sanity/stega'
 import { imprint } from '@/lib/publisher'
 import { NewsletterForm } from './NewsletterForm'
+import { SocialLinks } from './SocialLinks'
 import { BrushStroke } from './Wordmark'
 
 /**
@@ -33,7 +34,13 @@ const TUNEDUP_LOCKUP =
 export async function SiteFooter() {
   const { data: settings } = await sanityFetch({ query: SITE_SETTINGS_QUERY })
   const scope = settings?.scopeStatement ?? fallbackScope
-  const socials = settings?.socials ?? []
+  // Socials are read off the API, not the Live CDN. After a siteSettings edit
+  // the Live tag can lag in local/dev (and briefly in production), which is how
+  // Instagram sat in Sanity while localhost still rendered Facebook alone.
+  const freshSocials = await freshClient.fetch<{
+    socials?: { platform?: string | null; url?: string | null }[] | null
+  }>('*[_id == "siteSettings"][0]{ socials[]{ platform, url } }')
+  const socials = freshSocials?.socials ?? settings?.socials ?? []
   /* ISSN India, general guidelines: "The name and complete postal address
      (Specifically India) of the publisher must be displayed on the publication
      or publication website." Put in the footer so it is on every page, not
@@ -113,18 +120,7 @@ export async function SiteFooter() {
           </div>
         </div>
 
-        {socials.length > 0 && (
-          <p className="footer-socials">
-            {socials.map((social, index) => (
-              <span key={clean(social?.url) ?? index}>
-                {index > 0 && <span aria-hidden="true"> · </span>}
-                <a href={clean(social?.url) ?? '#'} rel="noopener noreferrer" target="_blank">
-                  {social?.platform}
-                </a>
-              </span>
-            ))}
-          </p>
-        )}
+        <SocialLinks socials={socials} className="footer-socials social-links" />
 
         {/* Blueprint sections 4 and 8: the published scope statement. */}
         <p className="scope">{scope}</p>

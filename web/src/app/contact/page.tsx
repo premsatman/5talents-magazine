@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { sanityFetch } from '@/sanity/live'
+import { freshClient } from '@/sanity/client'
 import { SITE_SETTINGS_QUERY } from '@/sanity/queries'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
+import { SocialLinks } from '@/components/SocialLinks'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -13,6 +15,10 @@ export const metadata: Metadata = {
 
 export default async function ContactPage() {
   const { data } = await sanityFetch({ query: SITE_SETTINGS_QUERY })
+  const freshSocials = await freshClient.fetch<{
+    socials?: { platform?: string | null; url?: string | null }[] | null
+  }>('*[_id == "siteSettings"][0]{ socials[]{ platform, url } }')
+  const socials = freshSocials?.socials ?? data?.socials ?? []
 
   return (
     <>
@@ -50,18 +56,7 @@ export default async function ContactPage() {
             <p>Add a contact address in Site settings in the Studio.</p>
           )}
 
-          {(data?.socials ?? []).length > 0 && (
-            <p>
-              {(data?.socials ?? []).map((social, index) => (
-                <span key={social?.url ?? index}>
-                  {index > 0 && ' · '}
-                  <a href={social?.url ?? '#'} rel="noopener noreferrer" target="_blank">
-                    {social?.platform}
-                  </a>
-                </span>
-              ))}
-            </p>
-          )}
+          <SocialLinks socials={socials} />
         </div>
       </main>
       <SiteFooter />
