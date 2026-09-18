@@ -125,16 +125,47 @@ export default async function ArticlePage(props: Props) {
 
   const shareUrl = absoluteUrl(articleHref(section, slug))
 
+  /**
+   * The lead image for structured data.
+   *
+   * This used to read `article.hero?.asset?.url` alone, which meant any piece
+   * using the Cloudinary path emitted no image at all - and heroExternal is the
+   * path most of the daily stream uses. Order matches the schema's own rule:
+   * if a URL is set on heroExternal it wins and the upload is ignored.
+   */
+  const jsonLdImage = clean(article.heroExternal?.url) ?? article.hero?.asset?.url ?? undefined
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': kind === 'review' ? 'Review' : 'Article',
     headline: article.title,
     description: article.seo?.description ?? article.deck ?? undefined,
     datePublished: article.publishedAt,
-    author: (article.authors ?? []).map((a) => ({ '@type': 'Person', name: a?.name })),
-    publisher: { '@type': 'Organization', name: siteName },
+    /**
+     * TODO - dateModified. Google lists it as recommended and for a daily
+     * stream it is the freshness signal that matters most. It needs
+     * `_updatedAt` projected in ARTICLE_QUERY, and changing that query string
+     * invalidates its generated type until `sanity typegen generate` runs.
+     * Neither `schema extract` nor `typegen` will run in this workspace, so the
+     * two changes belong together in a dev environment:
+     *
+     *   1. add `_updatedAt,` after `_id,` in ARTICLE_QUERY
+     *   2. `dateModified: article._updatedAt ?? article.publishedAt,` here
+     *   3. schema extract, then typegen generate
+     */
+    author: (article.authors ?? []).map((a) => {
+      const authorSlug = clean(a?.slug)
+      return {
+        '@type': 'Person',
+        name: a?.name,
+        // Recommended by Google, and pointing each byline at its own page is
+        // the same author-entity work that E-E-A-T rewards.
+        url: authorSlug ? absoluteUrl(`/authors/${authorSlug}`) : undefined,
+      }
+    }),
+    publisher: { '@type': 'Organization', name: siteName, url: absoluteUrl('/') },
     mainEntityOfPage: absoluteUrl(articleHref(section, slug)),
-    image: article.hero?.asset?.url ? [article.hero.asset.url] : undefined,
+    image: jsonLdImage ? [jsonLdImage] : undefined,
     isAccessibleForFree: true,
   }
 
