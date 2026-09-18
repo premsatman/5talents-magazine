@@ -501,11 +501,29 @@ export const ARCHIVE_SLUGS_QUERY = defineQuery(/* groq */ `
  * house ad is what fills the space the rest of the year, and it should step
  * aside the moment somebody pays for the position rather than competing with
  * them for it by document order, which is what happened before.
+ *
+ * SECTION TARGETING
+ *
+ * A booking with no `sections` runs wherever its slot renders, which is how
+ * every booking behaved before the field existed — so the absent and empty
+ * cases both have to keep matching, or adding the field would silently unbook
+ * the whole inventory.
+ *
+ * Articles pass their own section, and a section index passes the section it
+ * lists — /culture is as much "culture" as an article inside it, and a booking
+ * narrowed to culture wants both.
+ *
+ * `$section` is null on the pages that belong to no section at all: the
+ * homepage, /interviews, /talent-search. There, only untargeted bookings match.
+ * That is the intended reading — a booking narrowed to "culture" has said
+ * nothing about whether it wants the homepage, and running it there anyway
+ * would defeat the narrowing.
  */
 export const ACTIVE_ADS_QUERY = defineQuery(/* groq */ `
-  *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today]
+  *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today
+    && (!defined(sections) || count(sections) == 0 || $section in sections)]
   | order(select(tier == "house" => 1, 0) asc, activeFrom desc){
-    _id, name, url, tier,
+    _id, name, url, tier, embedCode, embedHeight,
     creative { ${imageFragment} }
   }
 `)

@@ -3048,6 +3048,20 @@
         },
         "optional": true
       },
+      "embedCode": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "embedHeight": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
       "tier": {
         "type": "objectAttribute",
         "value": {
@@ -3088,6 +3102,16 @@
         "optional": true
       },
       "slots": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "string"
+          }
+        },
+        "optional": true
+      },
+      "sections": {
         "type": "objectAttribute",
         "value": {
           "type": "array",

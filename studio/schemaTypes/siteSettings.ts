@@ -136,9 +136,9 @@ export const siteSettings = defineType({
       rows: 3,
       group: 'policy',
       description:
-        'Blueprint s4 and s8. This line is your evidence of scope if anyone ever asks whether the IT Rules 2021 apply. It renders in the site footer and on the about page.',
+        'Blueprint s4 and s8. This line is your public statement of what the magazine covers, and your evidence of scope if anyone asks. Since Sep 2026 it says we do cover Christian news, events and conferences — which likely places the site inside the IT Rules 2021 "news and current affairs" category. Keep it accurate to what you actually publish; a scope statement that overstates or understates is worse than none.',
       initialValue:
-        '5Talents is a culture and formation magazine. We do not report news or cover political controversy.',
+        '5Talents covers Christian culture, formation, news, events and conferences. We do not cover political controversy.',
       validation: (r) => r.required(),
     }),
     defineField({

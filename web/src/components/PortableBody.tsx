@@ -132,7 +132,16 @@ const components: PortableTextComponents = {
  * following block has paragraphs running down beside it. Same position in the
  * reading order, a fraction of the vertical space.
  */
-export function PortableBody({ value, seed }: { value: unknown; seed?: string }) {
+export function PortableBody({
+  value,
+  seed,
+  section,
+}: {
+  value: unknown
+  seed?: string
+  /** Passed through to the in-body slots so section-targeted bookings apply. */
+  section?: string
+}) {
   const blocks = (value ?? []) as Block[]
   if (!Array.isArray(blocks) || blocks.length === 0) return null
 
@@ -162,7 +171,9 @@ export function PortableBody({ value, seed }: { value: unknown; seed?: string })
     <>
       {chunks.map((chunk, index) => (
         <div className={index === 0 ? 'body body--opening' : 'body'} key={index}>
-          {chunk.adBefore && <AdSlot slot={chunk.adBefore} className="ad--inbody" seed={seed} />}
+          {chunk.adBefore && (
+            <AdSlot slot={chunk.adBefore} className="ad--inbody" seed={seed} section={section} />
+          )}
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           <PortableText value={chunk.blocks as any} components={components} />
         </div>

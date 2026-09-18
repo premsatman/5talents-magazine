@@ -87,6 +87,7 @@ export async function AdSlot({
   slot,
   className = '',
   seed,
+  section,
 }: {
   slot: SlotId
   className?: string
@@ -96,6 +97,19 @@ export async function AdSlot({
    * picks the same advertiser.
    */
   seed?: string
+  /**
+   * The section this page belongs to, for bookings that have been narrowed to
+   * particular coverage. Articles pass their section and a section index passes
+   * the one it lists. Pages belonging to no section - the homepage,
+   * /interviews, /talent-search - pass nothing, and only untargeted bookings
+   * run there.
+   *
+   * Separate from `seed` on purpose. `seed` decides which of the eligible
+   * bookings this page gets; `section` decides which are eligible at all. They
+   * happen to be the same string on a section index, which is exactly the
+   * confusion worth keeping two names for.
+   */
+  section?: string
 }) {
   const size = AD_SIZES[slot]
 
@@ -103,7 +117,7 @@ export async function AdSlot({
     sanityFetch({ query: SITE_SETTINGS_QUERY }),
     sanityFetch({
       query: ACTIVE_ADS_QUERY,
-      params: { slot, today: new Date().toISOString().slice(0, 10) },
+      params: { slot, today: new Date().toISOString().slice(0, 10), section: section ?? null },
       stega: false,
     }),
   ])
@@ -140,6 +154,55 @@ export async function AdSlot({
 
   const live = Boolean(adsEnabled && adsEnabled !== 'off' && slotOn)
   const isHouse = clean(booked?.tier) === 'house'
+
+  /**
+   * THIRD-PARTY EMBEDS
+   *
+   * Travelpayouts and its like sell widgets rather than banner images: a
+   * <script> tag, often one that calls document.write, which after hydration
+   * would blank this page rather than append to it.
+   *
+   * So the snippet is handed to a sandboxed iframe via srcdoc and never touches
+   * our document. The sandbox withholds allow-same-origin deliberately, which
+   * gives the frame an opaque origin: the widget cannot reach into this page,
+   * read our cookies, or be found by Drive's link rewriter. It keeps
+   * allow-top-navigation-by-user-activation so that pressing Search actually
+   * goes somewhere, and allow-popups-to-escape-sandbox so the destination is
+   * not itself sandboxed.
+   *
+   * If a widget ever renders blank, the likely cause is that opaque origin -
+   * localStorage throws there. Adding allow-same-origin fixes it and costs the
+   * isolation above, so it is a decision to take knowingly rather than a
+   * default.
+   *
+   * Height comes from the booking, not from AD_SIZES. A search form is as tall
+   * as its fields end up at the configured width, and no provider commits to
+   * that number in advance - but the frame is fixed, so whatever is booked is
+   * reserved before paint and nothing moves. Width still comes from the slot:
+   * the slot is the hole in the layout, and only its height was ever negotiable.
+   */
+  const embedCode = clean(booked?.embedCode)
+  const embedHeight = booked?.embedHeight ?? undefined
+
+  if (live && embedCode && embedHeight) {
+    return (
+      <aside className={`ad ad--${slot.toLowerCase()} ad--embed ${className}`}>
+        <span className="ad__label">{isHouse ? 'From 5Talents' : 'Advertisement'}</span>
+        <div className="ad__frame" style={{ width: size.w, height: embedHeight }}>
+          <iframe
+            title={clean(booked?.name) ?? 'Advertisement'}
+            srcDoc={`<!doctype html><html><head><meta charset="utf-8"><base target="_blank"><style>html,body{margin:0;padding:0;overflow:hidden;font-family:system-ui,sans-serif}</style></head><body>${embedCode}</body></html>`}
+            width={size.w}
+            height={embedHeight}
+            loading={slot === 'A' ? 'eager' : 'lazy'}
+            referrerPolicy="no-referrer-when-downgrade"
+            sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
+            style={{ border: 0, display: 'block', width: size.w, height: embedHeight }}
+          />
+        </div>
+      </aside>
+    )
+  }
 
   if (live && booked?.creative?.asset?.url) {
     const href = clean(booked.url) ?? '#'

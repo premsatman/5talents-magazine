@@ -19,9 +19,17 @@ export const defaultDescription =
 export const socialDescription =
   'A magazine for young Christians — edited from India, written for the world. Founded 2012, published since 2026.'
 
-/** Blueprint s4: publish this as a line on the about page and in the footer. */
+/**
+ * Blueprint s4: publish this as a line on the about page and in the footer.
+ *
+ * Revised 18 Sep 2026. The magazine now covers Christian news, events and
+ * conferences, which it previously did not. That is a deliberate widening and
+ * it very likely brings the site inside "news and current affairs content"
+ * under the IT Rules 2021 — the thing the old wording existed to stay outside.
+ * See the note in src/app/about/page.tsx.
+ */
 export const scopeStatement =
-  '5Talents is a culture and formation magazine. We do not report news or cover political controversy.'
+  '5Talents covers Christian culture, formation, news, events and conferences. We do not cover political controversy.'
 
 export function absoluteUrl(path: string) {
   return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`

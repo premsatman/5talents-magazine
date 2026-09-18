@@ -87,7 +87,66 @@ export const advertiser = defineType({
       name: 'url',
       title: 'Click-through URL',
       type: 'url',
-      validation: (r) => r.uri({ scheme: ['http', 'https'] }).required(),
+      description: 'Required for an image booking. Leave empty for an embed — the widget carries its own links.',
+      validation: (r) =>
+        r.uri({ scheme: ['http', 'https'] }).custom((url, ctx) => {
+          const doc = ctx.document as { embedCode?: string } | undefined
+          if (!url && !doc?.embedCode) return 'A booking needs either a click-through URL or embed code.'
+          return true
+        }),
+    }),
+
+    /**
+     * THIRD-PARTY EMBEDS
+     *
+     * Travelpayouts sells widgets, not banners — search forms, calendars, maps,
+     * delivered as a <script> tag. Several of them call document.write, which in
+     * React after hydration blanks the page, so the snippet cannot simply be
+     * dropped into the tree.
+     *
+     * It is rendered into a sandboxed iframe instead. That fixes four things at
+     * once: document.write works because the iframe is a fresh document; the
+     * widget cannot read this page or its cookies; Drive cannot rewrite links
+     * that are not in our DOM; and the frame keeps a fixed height.
+     *
+     * Paste the snippet exactly as Travelpayouts gives it. Nothing here is
+     * executed in the Studio or on our own origin.
+     *
+     * Only ever paste code from a party you are actually doing business with. An
+     * embed runs whatever it is sent, and the sandbox limits the blast radius
+     * rather than removing it.
+     */
+    defineField({
+      name: 'embedCode',
+      title: 'Embed code (widgets)',
+      type: 'text',
+      rows: 6,
+      description:
+        'For Travelpayouts widgets and anything else that ships as a script tag. Paste the snippet unchanged. An embed booking needs no creative image and no click-through URL. Set the width in the provider\'s customizer to match the slot: 336 for B, C and E, 300 for D, 970 for F.',
+    }),
+
+    /**
+     * Height is the one thing a widget provider will not tell you in advance:
+     * the form is as tall as its fields end up at the width you chose. So it is
+     * recorded per booking rather than per slot, and the frame reserves exactly
+     * this many pixels.
+     *
+     * Get the number from the provider's live preview, or place it once and
+     * measure the frame in devtools. Too small and the Search button is clipped,
+     * which is the only failure that costs money rather than looks.
+     */
+    defineField({
+      name: 'embedHeight',
+      title: 'Embed height (px)',
+      type: 'number',
+      description:
+        'Measured height of the widget at the width you configured. Reserved exactly, so the page never shifts. Err 20px high rather than low — a clipped Search button converts nothing.',
+      validation: (r) =>
+        r.min(40).max(1200).custom((height, ctx) => {
+          const doc = ctx.document as { embedCode?: string } | undefined
+          if (doc?.embedCode && !height) return 'An embed needs a height, or it has nothing to reserve.'
+          return true
+        }),
     }),
     defineField({
       name: 'tier',
@@ -139,6 +198,47 @@ export const advertiser = defineType({
       },
       validation: (r) => r.required().min(1),
     }),
+    /**
+     * Section targeting.
+     *
+     * Left empty, a booking runs on every page that renders its slot — which is
+     * how every booking behaved before this field existed, and why empty has to
+     * keep meaning "everywhere". Filling it in narrows the booking to those
+     * sections and nothing else.
+     *
+     * This exists because affiliate inventory and editorial inventory want
+     * opposite things. A hotel banner earns its place at the foot of a
+     * conference report and looks like a mistake halfway through a piece on
+     * prayer. Slot alone cannot tell those two pages apart.
+     *
+     * Slugs must match SECTION_SLUGS in web/src/lib/sections.ts. A slug that
+     * matches no section targets nothing, silently — the same failure mode as
+     * booking a slot that no page renders.
+     *
+     * Only article pages carry a section. Slot F sits on the homepage and the
+     * index pages, which belong to no section, so a targeted booking will not
+     * appear there at all.
+     */
+    defineField({
+      name: 'sections',
+      title: 'Limit to sections',
+      type: 'array',
+      of: [defineArrayMember({ type: 'string' })],
+      description:
+        'Leave empty to run everywhere. Choose sections to restrict this booking to articles in them — useful for affiliate and travel creative that only suits some coverage. Note that slot F (homepage and index pages) belongs to no section, so a restricted booking never runs there.',
+      options: {
+        list: [
+          { title: 'Faith', value: 'faith' },
+          { title: 'Culture', value: 'culture' },
+          { title: 'Technology', value: 'technology' },
+          { title: 'Work & Money', value: 'work-money' },
+          { title: 'Wellbeing', value: 'wellbeing' },
+          { title: 'Campus', value: 'campus' },
+          { title: 'Heritage', value: 'heritage' },
+          { title: 'Current', value: 'current' },
+        ],
+      },
+    }),
     defineField({
       name: 'notes',
       type: 'text',
@@ -147,6 +247,27 @@ export const advertiser = defineType({
     }),
   ],
   preview: {
-    select: { title: 'name', subtitle: 'tier', media: 'logo' },
+    // Targeting is shown here because it is otherwise invisible until you open
+    // the booking, and a booking narrowed to one section behaves very
+    // differently from one that is not.
+    select: {
+      title: 'name',
+      tier: 'tier',
+      slots: 'slots',
+      sections: 'sections',
+      embedCode: 'embedCode',
+      media: 'logo',
+    },
+    prepare: ({ title, tier, slots, sections, embedCode, media }) => {
+      const where = (sections as string[] | undefined)?.length
+        ? (sections as string[]).join(', ')
+        : 'all sections'
+      const kind = embedCode ? 'embed' : 'image'
+      return {
+        title,
+        subtitle: `${kind} · ${tier ?? 'supporter'} · ${(slots as string[] | undefined)?.join('') || 'no slot'} · ${where}`,
+        media,
+      }
+    },
   },
 })

@@ -502,6 +502,22 @@ blockquote cite {
 }
 .ad--filled .ad__frame { border: 0; background: none; padding: 0; }
 .ad--filled img { max-width: 100%; height: auto; }
+
+/* Third-party widget embeds (Travelpayouts search forms and the like).
+   Chrome is stripped as for a booked image, but the sizing rules are the
+   opposite: a creative may scale to fit because its aspect ratio carries the
+   meaning, whereas an iframe holds a live form whose height was measured at one
+   specific width. So the frame keeps exactly the height the booking reserved.
+   The rail's 600px ceiling is lifted for the same reason - a booked embed has
+   already declared how tall it is.
+
+   Width is allowed to shrink below the slot on a narrow screen, and the widget
+   reflows inside the frame because an iframe lays out at its rendered width.
+   Height does not follow, so a form that gains a row on a phone can clip. Check
+   any embed at 360px before trusting it there. */
+.ad--embed .ad__frame { border: 0; background: none; padding: 0; }
+.ad--embed iframe { display: block; border: 0; max-width: 100%; }
+.rail__ad .ad--embed .ad__frame { max-height: none; }
 .ad__label,
 .ad__slotname {
   font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;

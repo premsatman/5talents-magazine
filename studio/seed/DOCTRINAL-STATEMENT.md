@@ -78,8 +78,9 @@ contributors come from Baptist, Pentecostal, Catholic, Anglican, Church of South
 India, Mar Thoma and independent congregations, and we would like to keep it
 that way.
 
-We publish about faith, work, culture, wellbeing and the history of the church.
-We do not report news and we do not take political sides.
+We publish about faith, work, culture, wellbeing and the history of the church,
+and we cover Christian news, events and conferences. We do not take political
+sides.
 
 **How this shapes what you read**
 

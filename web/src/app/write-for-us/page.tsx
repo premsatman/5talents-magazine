@@ -53,10 +53,11 @@ export default function WriteForUsPage() {
 
           <h2>What we do not publish</h2>
           <p>
-            No news, no current affairs, no political controversy, no persecution or caste
-            reporting. That is a deliberate scope, explained on the{' '}
-            <Link href="/about#scope">about page</Link>. A useful test: if the piece only makes
-            sense this month, it is outside what we do.
+            No political controversy, and no persecution or caste reporting. That is a deliberate
+            scope, explained on the <Link href="/about#scope">about page</Link>. We do cover
+            Christian news, events and conferences — but as reporting and reflection, not as
+            commentary on political disputes. A useful test: if the piece needs you to take a side
+            in an argument about power, it is outside what we do.
           </p>
 
           <h2>How to pitch</h2>

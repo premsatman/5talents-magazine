@@ -54,19 +54,29 @@ export default async function AboutPage() {
 
           {data?.mission && <p>{data.mission}</p>}
 
-          {/* Blueprint s4 and s8: the published scope statement. This is what
-              keeps the magazine outside the "news and current affairs" category
-              that triggers the IT Rules 2021 obligations, and it is the evidence
-              of scope if anyone ever asks. */}
+          {/* Blueprint s4 and s8: the published scope statement.
+              Widened 18 Sep 2026 to include Christian news, events and
+              conferences. The earlier wording existed specifically to keep the
+              magazine outside the "news and current affairs content" category
+              in Part III of the IT Rules 2021; covering news deliberately is
+              very likely to bring it inside. If so the obligations are a
+              grievance officer, a published redressal mechanism and intimation
+              to the MIB — not onerous, but not automatic either. This needs the
+              media-lawyer conversation in blueprint s8 confirming it. */}
           <h2 id="scope">What we cover, and what we do not</h2>
           <p>
             <strong>{scope}</strong>
           </p>
           <p>
             We publish culture, formation, work and money, wellbeing, campus writing, and the
-            history of the church in India and the Global South. We do not report news, cover
-            persecution or caste, or comment on political controversy. If a piece only makes sense
-            this month, it is outside what we do.
+            history of the church in India and the Global South. We also cover Christian news —
+            events and conferences before and after they happen, and the moments in public life
+            where faith surfaces.
+          </p>
+          <p>
+            What we do not do is politics. We do not take sides in political disputes, and we do
+            not report on persecution or caste. Where a story sits close to that line, we cover
+            what happened and leave the argument to others.
           </p>
 
           <h2 id="advertising">Advertising and disclosure</h2>

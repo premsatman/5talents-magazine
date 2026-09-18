@@ -228,11 +228,11 @@ export default async function ArticlePage(props: Props) {
                 </p>
               )}
 
-              <PortableBody value={article.body} seed={slug} />
+              <PortableBody value={article.body} seed={slug} section={section} />
 
               <ShareBar url={shareUrl} title={article.title ?? ''} deck={article.deck} />
 
-              <AdSlot slot="E" seed={slug} />
+              <AdSlot slot="E" seed={slug} section={section} />
 
               {/* Between our ad and the author card: the contributor's own
                   links read as part of the byline furniture rather than as
@@ -338,7 +338,7 @@ export default async function ArticlePage(props: Props) {
                 <NewsletterForm compact />
               </section>
 
-              <AdSlot slot="D" seed={slug} />
+              <AdSlot slot="D" seed={slug} section={section} />
             </div>
           </aside>
         </div>

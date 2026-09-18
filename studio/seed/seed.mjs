@@ -158,7 +158,7 @@ const SITE_SETTINGS = {
   mission:
     'We publish for Christians in their twenties and thirties — in India and across the diaspora — about the things that actually shape a life at that age: what to do with a gift, how to work, how to stay well, and where the church we belong to came from.',
   scopeStatement:
-    '5Talents is a culture and formation magazine. We do not report news or cover political controversy.',
+    '5Talents covers Christian culture, formation, news, events and conferences. We do not cover political controversy.',
   adsEnabled: 'off',
   enabledSlots: ['B', 'E'],
 }
