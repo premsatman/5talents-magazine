@@ -162,18 +162,22 @@ export async function AdSlot({
    * <script> tag, often one that calls document.write, which after hydration
    * would blank this page rather than append to it.
    *
-   * So the snippet is handed to a sandboxed iframe via srcdoc and never touches
-   * our document. The sandbox withholds allow-same-origin deliberately, which
+   * So the snippet is served as its own document by /api/ad-embed/[id] and
+   * framed here. The sandbox withholds allow-same-origin deliberately, which
    * gives the frame an opaque origin: the widget cannot reach into this page,
    * read our cookies, or be found by Drive's link rewriter. It keeps
    * allow-top-navigation-by-user-activation so that pressing Search actually
    * goes somewhere, and allow-popups-to-escape-sandbox so the destination is
    * not itself sandboxed.
    *
-   * If a widget ever renders blank, the likely cause is that opaque origin -
-   * localStorage throws there. Adding allow-same-origin fixes it and costs the
-   * isolation above, so it is a decision to take knowingly rather than a
-   * default.
+   * The route rather than `srcdoc` because a srcdoc document has no hostname:
+   * `location.hostname` is "" inside it, with or without a sandbox. Klook's
+   * widget reads that to build `publisher_host` on its own nested render call,
+   * and an empty host returns an empty widget - while the Travelpayouts
+   * wrapper has already logged the impression. The slot was blank and the
+   * dashboard looked fine. Sandboxing changes a document's origin, not its
+   * URL, so serving from a real path restores the hostname and keeps the
+   * isolation. See the route for the full account.
    *
    * Height comes from the booking, not from AD_SIZES. A search form is as tall
    * as its fields end up at the configured width, and no provider commits to
@@ -184,14 +188,14 @@ export async function AdSlot({
   const embedCode = clean(booked?.embedCode)
   const embedHeight = booked?.embedHeight ?? undefined
 
-  if (live && embedCode && embedHeight) {
+  if (live && booked && embedCode && embedHeight) {
     return (
       <aside className={`ad ad--${slot.toLowerCase()} ad--embed ${className}`}>
         <span className="ad__label">{isHouse ? 'From 5Talents' : 'Advertisement'}</span>
         <div className="ad__frame" style={{ width: size.w, height: embedHeight }}>
           <iframe
             title={clean(booked?.name) ?? 'Advertisement'}
-            srcDoc={`<!doctype html><html><head><meta charset="utf-8"><base target="_blank"><style>html,body{margin:0;padding:0;overflow:hidden;font-family:system-ui,sans-serif}</style></head><body>${embedCode}</body></html>`}
+            src={`/api/ad-embed/${encodeURIComponent(booked._id)}`}
             width={size.w}
             height={embedHeight}
             loading={slot === 'A' ? 'eager' : 'lazy'}
