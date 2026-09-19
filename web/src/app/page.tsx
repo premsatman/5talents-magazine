@@ -93,9 +93,12 @@ export default async function HomePage() {
   const railCards = ((rail.data ?? []) as ArticleCardData[]).slice(0, 5)
   const tailCards = padded((tail.data ?? []) as ArticleCardData[], layoutPreview ? 6 : 0)
 
-  const blocks = ((sections.data ?? []) as SectionBlock[]).filter((s) =>
-    isSectionSlug(clean(s.slug) ?? ''),
-  )
+  // Sanity's `ordering` field drives the nav, where Current sits last (99) so
+  // it never outranks the magazine sections. On the homepage it goes first,
+  // directly under The Latest. Sort here rather than touch `ordering`.
+  const blocks = ((sections.data ?? []) as SectionBlock[])
+    .filter((s) => isSectionSlug(clean(s.slug) ?? ''))
+    .sort((a, b) => Number(clean(b.slug) === 'current') - Number(clean(a.slug) === 'current'))
 
   return (
     <>
