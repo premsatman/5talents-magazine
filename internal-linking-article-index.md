@@ -1,4 +1,4 @@
-# 5Talents Magazine — article index (53 live)
+# 5Talents Magazine — article index (64 live)
 
 Sanity project `wdzgdrz5`, dataset `production`. URL = `https://www.5talentsmag.com/<section>/<slug>`.
 
@@ -7,9 +7,15 @@ Sanity project `wdzgdrz5`, dataset `production`. URL = `https://www.5talentsmag.
 ## campus
 - `l4U0qMpnuVLxOUx8hEl0s6` for-two-years-of-my-teenage-life-i-did-not-look-in-a-mirror — woman, wanted to be a doctor, drifted into a diploma, resigned a job after hearing a voice, ended up running a theological college. women/theology/hyderabad/education
 
+## current
+- `6a0991ec-506f-4bf4-824a-6ea492517ac0` germany-curacao-prayer-circle — Curaçao lose their first ever World Cup match 7–1, kneel to pray anyway, two German players join them. sport/prayer/talent/witness
+- `e004b3b9-818e-423c-b0c1-b7cc6fb1e614` daniel-movie-babylon-renamed-them — the Daniel film with Mena Massoud; the real story is Babylon renaming the four boys to strip God out of their names. film/daniel/identity/bible-study
+
 ## culture
 - `6FtVT4GCI0D5Uub6MYfh8B` chalta-hai-is-how-we-make-it-bearable — 24,000 cases a year and the two words India uses to cope. india/violence-against-women/justice/editorial
 - `7eAOjV367vQ0Hjzn8mjy0b` esther-only-woman-on-the-sound-crew — pulled out of school for a sister, now runs the church sound desk. talent-search/women/music/youth
+- `AeF96EEDSiP410uMeEo5x5` a-humble-beginning-church-photographer — tried to run away rather than shoot the Christmas drama, prayed for ten good shots, now a missionary photographer in Hyderabad. talent-search/photography/hyderabad/street-children
+- `g5Lx7hDyGWnjnbH4GjXPJW` fire-and-forgiveness-became-the-staines-film — in 2013 we profiled two film-makers with no money; the film became The Least of These, the Graham Staines story. film/india/staines/follow-up
 - `AWGxcl2dD5LlZ1gmDP11sK` we-cut-the-tags-off-and-sold-the-clothes — shoplifting, overdoses, three dead friends, then a guitar at a prayer meeting. testimony/music/mumbai/addiction
 - `DXxeyXMUFtqZYGnl7jehl7` mary-sujani-puppets-for-jesus — 300 puppets, childhood play into profession. talent-search/hyderabad/childrens-ministry
 - `dzLCkrLY0TIJVlqPZEmjPm` samuel-stanley-jones-prayer-gives-life-to-our-talents — worship leader on being chosen, staying undistracted. worship/talent-search/hyderabad
@@ -26,6 +32,10 @@ Sanity project `wdzgdrz5`, dataset `production`. URL = `https://www.5talentsmag.
 - `AWGxcl2dD5LlZ1gmDP13gS` we-cannot-see-faith-but-we-see-because-of-it — the woman who feeds her children first and sleeps hungry. faith/trust/india
 - `AWGxcl2dD5LlZ1gmDPCiH6` people-of-the-plan — Zacharias believed the promises forty years and wrote himself out of them. christmas/luke/calling
 - `AWGxcl2dD5LlZ1gmDPduU8` an-empty-lampstand-looking-good-and-running-on-empty — tabernacle dimensions, where does your light come from. tabernacle/holy-spirit/light/worship
+- `AeF96EEDSiP410uMeEoUej` good-seed-good-soil — a prayer through Luke 8; whether a prophetic word lands depends on the soil, not the seed. prayer/prophecy/hope-deferred/perseverance
+- `AeF96EEDSiP410uMeEoWFP` i-ran-out-of-the-church-service — a missionary preached, he bolted from his seat, became a modern Jonah, now serves abroad. jonah/calling/failure/restoration
+- `g5Lx7hDyGWnjnbH4GjXDde` sure-footed-and-climbing — Judges 4–5, Deborah, Barak and Jael; anointing that works outside the church walls. judges/women/influence/vocation
+- `kCK3WkZwscVPEUi7ar88IY` from-the-pulpit-to-the-pen — a preacher told to write; "not so much written as it was preached". writing/calling/ministry
 - `DXxeyXMUFtqZYGnl7jnD5U` stewardship-of-our-talents-and-gifts — natural talent vs spiritual gift, which is which. spiritual-gifts/formation/stewardship
 - `DXxeyXMUFtqZYGnl7nfJjB` life-as-a-hanging-bridge — Bandra–Worli sea link, could not see the other end. faith/mumbai
 - `DXxeyXMUFtqZYGnl7nfKv2` love-you-a-conversation-in-the-rain — poem, conversation with God in the rain. poetry/grace/faith
@@ -44,6 +54,7 @@ Sanity project `wdzgdrz5`, dataset `production`. URL = `https://www.5talentsmag.
 - `DXxeyXMUFtqZYGnl7jnC5I` graham-staines-thirty-four-years-in-orissa — a slideshow at fifteen, then Baripada leprosy work. church-history/odisha/leprosy/lives
 - `DXxeyXMUFtqZYGnl7pqsZU` george-muller-never-asked-anyone-for-money — DONE. thief at ten, 10,024 orphans, published every receipt.
 - `DXxeyXMUFtqZYGnl7qi1x4` pandita-ramabai-sanskrit-scholar-who-built-mukti — DONE. Sanskrit scholar, widow at 23, built Mukti, translated the Marathi Bible.
+- `kCK3WkZwscVPEUi7ar8WyY` livingstone-made-one-convert-who-outdid-him — Livingstone wrote Sechele off as a backslider; Sechele went on to lead thirty thousand. church-history/africa/lives/botswana
 - `l4U0qMpnuVLxOUx8hDpyBm` the-american-who-wrote-the-hindi-grammar — Samuel Kellogg, posted alone outside Farrukhabad, wrote the Hindi grammar still in print. missionary-story/hindi/india/language
 - `n4pXp1hXMEC5TOzZhx1p7o` william-carey-i-can-plod — DONE. shoemaker, six languages, seven years no convert, "I can plod".
 
@@ -58,6 +69,8 @@ Sanity project `wdzgdrz5`, dataset `production`. URL = `https://www.5talentsmag.
 - `Z0yxk2IKXF9XolP0tYPaXW` zumba-my-way-of-life — HERO. teaches Zumba, childbirth prep, parenting workshops; all three began with something going wrong. fitness/women/motherhood/mental-health
 
 ## work-money
+- `AeF96EEDSiP410uMeEo007` its-all-about-the-process — asked the Dean to redo five years rather than write the dissertation; leadership is a process, not a destination. leadership/persistence/growth
+- `AeF96EEDSiP410uMeEoVcn` why-should-i-do-business-with-you — a Portland baker drops her worst customers; know, like and trust, and do what you say you will do. business/trust/character/customer-service
 - `7eAOjV367vQ0Hjzn8mxH1y` are-you-a-leader-influence — asked a room who was a leader, half raised a hand; nine things that build influence. leadership/influence/workplace
 - `AWGxcl2dD5LlZ1gmDNu6Tc` are-you-living-up-to-your-potential — reluctant leader at nineteen asking Moses's question. potential/leadership/calling
 - `AWGxcl2dD5LlZ1gmDPbC0I` what-do-your-relationships-say-about-your-leadership — five things about getting on with people, the two "ugly twin sisters". leadership/relationships/communication
@@ -87,4 +100,6 @@ Sanity project `wdzgdrz5`, dataset `production`. URL = `https://www.5talentsmag.
 5. Also `set` `relatedArticles` to 4 refs: `{"_key":"relXX1","_type":"reference","_ref":"<ID>"}`. At least 2 from a different section than the source.
 6. Verify: `*[_id=="drafts.<ID>"][0]{body[_key in [...]]{"text": array::join(children[].text, "")}}` and confirm the text is unchanged.
 
-Patches save to drafts. Never publish.
+Patches save to drafts. Premasis publishes them at the end of a run (confirmed 14 Sep 2026) — Sanity does NOT auto-publish, so drafts left unpublished go stale and their block `_key`s stop matching the published document.
+
+Before patching a document that already has a draft, check the draft's block `_key`s still match the published version. If they don't, discard the draft and re-apply to the current published body.

@@ -110,6 +110,15 @@ export const metadata: Metadata = {
     canonical: '/',
     types: { 'application/rss+xml': `${siteUrl}/rss.xml` },
   },
+  icons: {
+    icon: [
+      { url: '/favicon/favicon.ico', sizes: 'any' },
+      { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/favicon/site.webmanifest',
   openGraph: {
     type: 'website',
     siteName,
