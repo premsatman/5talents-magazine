@@ -7,7 +7,7 @@ export default defineCliConfig({
   },
   // Auto-updates: a standalone Studio receives Sanity bugfixes and features
   // without a dependency bump or a redeploy. An embedded Studio cannot.
-  autoUpdates: true,
+  deployment: { autoUpdates: true },
 
   /**
    * TypeGen. Reads every GROQ query in the Next.js app and generates precise

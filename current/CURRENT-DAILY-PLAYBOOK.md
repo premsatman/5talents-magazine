@@ -38,9 +38,9 @@ Then do the edit pass: genzdevo voice rules (a GenZ phrase at most twice), human
 
 **4. Image (5 to 10 min).** Follow the rights table in `images-and-rights.md`. The default is our own typographic card: yellow/ink/cream, CURRENT label, big headline. Use studio press images only for editorial coverage of that title. Church kits and anything from Getty, AP or Reuters need permission first.
 
-**5. Publish to Sanity.** Section `current`, kind `brief`, `briefMeta.sourceUrl` filled in, `rightsBasis` set, no `onlineIssue`.
+**5. Publish to Sanity.** Section `current`, kind `brief`, `briefMeta.sourceUrl` filled in, `rightsBasis` set, no `onlineIssue`. **`publishedAt` controls when the post appears.** The site hides anything dated in the future, so set it to now to go live straight away. A future date works as a built-in scheduler: the post appears at that time on its own.
 
-**6. Instagram (15 min, the same evening).** A 5-slide carousel:
+**6. Instagram (15 min, the same evening).** Header on every slide: `5TALENTS` in Bebas Neue, a thin straight line, then `CURRENT` in Montserrat Bold, letter-spaced, in capitals (same pattern as the section cards: `FAITH`, `WORK & MONEY`). A 5-slide carousel:
 1. Hook headline
 2. What happened
 3. The verse

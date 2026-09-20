@@ -59,6 +59,15 @@ export const structure: StructureResolver = (S) =>
                 ),
               S.divider(),
               S.listItem()
+                .title('Current - daily briefs')
+                .child(
+                  S.documentList()
+                    .title('Current - daily briefs')
+                    .filter('_type == "article" && kind == "brief"')
+                    .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }]),
+                ),
+              S.divider(),
+              S.listItem()
                 .title('From the archive')
                 .child(
                   S.documentList()
@@ -70,7 +79,7 @@ export const structure: StructureResolver = (S) =>
                 .child(
                   S.documentList()
                     .title('No online issue set - fix before the ISSN application')
-                    .filter('_type == "article" && !defined(onlineIssue)'),
+                    .filter('_type == "article" && !defined(onlineIssue) && kind != "brief"'),
                 ),
               S.listItem()
                 .title('Sponsored & supplied')
