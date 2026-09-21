@@ -34,14 +34,15 @@ export default async function AboutPage() {
         <div className="prose">
           <p>
             5Talents is a magazine for young Christians, edited from India and written for the
-            world. It began in Hyderabad in July 2012 and ran to eighteen issues by July 2014 —
-            made as PDFs and passed around a small circle of friends and supporters rather than
-            published to anyone who wanted it. It became a magazine in the open sense in 2026,
+            world. It began in Hyderabad in July 2012 and ran to twenty issues — nineteen
+            monthly to July 2014, and a last one in January 2017 — made as PDFs and passed
+            around a small circle of friends and supporters rather than published to anyone
+            who wanted it. It became a magazine in the open sense in 2026,
             as a website, which — looking back at that first cover with its fake browser
             navigation drawn across the top — is probably what it always wanted to be.
           </p>
           <p>
-            Those eighteen issues are <Link href="/archive">the archive</Link>. They are the
+            Those twenty issues are <Link href="/archive">the archive</Link>. They are the
             magazine&rsquo;s origins rather than its back catalogue: they were never printed, never
             sold and never publicly circulated, and we do not count them as publication. 5Talents
             has been published, in the ordinary meaning of the word, since 2026.

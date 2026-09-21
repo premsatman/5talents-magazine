@@ -45,7 +45,7 @@ export default async function AdvertisePage() {
         <div className="prose">
           <h2>Who reads us</h2>
           <p>
-            The magazine was founded in 2012, ran to eighteen issues circulated privately as
+            The magazine was founded in 2012, ran to twenty issues circulated privately as
             PDFs, and launched publicly as a website in 2026 with that archive behind it. Our readers are students, early-career professionals, ministry
             workers and people working out what to do with a gift. If you are selling to an older,
             institutional Christian audience, we are probably not your best buy — and we would

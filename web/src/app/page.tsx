@@ -253,7 +253,7 @@ export default async function HomePage() {
               <div className="sechead">
                 <h2 className="brush-rule">From the archive</h2>
                 <Link href="/archive">
-                  All 18 issues <span aria-hidden="true">→</span>
+                  All 20 issues <span aria-hidden="true">→</span>
                 </Link>
               </div>
               <div className="covers">

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 /**
  * The online issue archive.
  *
- * Separate from /archive, which is the eighteen PDF issues of 2012-14 that were
+ * Separate from /archive, which is the twenty PDF issues of 2012-17 that were
  * circulated privately and never publicly published. Section 4 of the ISSN India detailed information document asks
  * for an archive kept in step with the publication's stated frequency, listing
  * each issue's articles by title with a link per article — and asks
@@ -42,7 +42,7 @@ export default async function IssuesPage() {
           <h1>Issues</h1>
           <p>
             The magazine is published monthly. Volume 1 is 2026, the year 5Talents returned as a
-            website. The eighteen PDF issues of 2012 to 2014, circulated privately at the time,
+            website. The twenty PDF issues of 2012 to 2017, circulated privately at the time,
             are in <Link href="/archive">the archive</Link>.
           </p>
         </div>
