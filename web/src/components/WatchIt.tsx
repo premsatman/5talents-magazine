@@ -49,6 +49,31 @@ function fmt(date?: string | null) {
   })
 }
 
+/**
+ * Pull the video id out of any YouTube URL form an editor might paste:
+ * watch?v=, youtu.be/, /embed/, /shorts/. Returns null for anything else,
+ * so a non-YouTube link never becomes an iframe.
+ */
+function youtubeId(url?: string | null): string | null {
+  const u = clean(url)
+  if (!u) return null
+  try {
+    const parsed = new URL(u)
+    const host = parsed.hostname.replace(/^www\.|^m\./, '')
+    let id: string | null = null
+    if (host === 'youtu.be') id = parsed.pathname.slice(1)
+    else if (host === 'youtube.com' || host === 'youtube-nocookie.com') {
+      id =
+        parsed.searchParams.get('v') ??
+        parsed.pathname.match(/^\/(?:embed|shorts|live)\/([^/?]+)/)?.[1] ??
+        null
+    }
+    return id && /^[A-Za-z0-9_-]{6,20}$/.test(id) ? id : null
+  } catch {
+    return null
+  }
+}
+
 export function WatchIt({ meta }: { meta: ScreenMeta }) {
   const rows = (meta?.availability ?? []).filter((r) => clean(r.region) && clean(r.platform))
   const adv = meta?.contentAdvisory
@@ -60,7 +85,8 @@ export function WatchIt({ meta }: { meta: ScreenMeta }) {
         ['Themes', adv.themes],
       ] as const).filter(([, v]) => clean(v))
     : []
-  if (!rows.length && !advItems.length && !clean(meta?.advisoryNote)) return null
+  const trailerId = youtubeId(meta?.trailerUrl)
+  if (!rows.length && !advItems.length && !clean(meta?.advisoryNote) && !clean(meta?.trailerUrl)) return null
 
   const title = clean(meta?.workTitle)
   const type = WORK_TYPE[clean(meta?.workType) ?? ''] ?? ''
@@ -105,13 +131,29 @@ export function WatchIt({ meta }: { meta: ScreenMeta }) {
         </p>
       )}
 
-      {clean(meta?.trailerUrl) && (
+      {trailerId ? (
+        // The studio's own upload, embedded - nothing is copied or re-hosted.
+        // youtube-nocookie keeps YouTube from setting cookies until play.
+        <figure className="watchit-video">
+          <div className="watchit-frame">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${trailerId}?rel=0`}
+              title={`${title ?? 'Official'} trailer`}
+              loading="lazy"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          </div>
+          <figcaption>Official trailer, embedded from YouTube</figcaption>
+        </figure>
+      ) : clean(meta?.trailerUrl) ? (
         <p className="watchit-trailer">
           <a href={clean(meta?.trailerUrl) ?? undefined} target="_blank" rel="noopener noreferrer">
             Watch the official trailer
           </a>
         </p>
-      )}
+      ) : null}
     </aside>
   )
 }
