@@ -136,9 +136,12 @@ export function PortableBody({
   value,
   seed,
   section,
+  adsOff = false,
 }: {
   value: unknown
   seed?: string
+  /** Sensitive stories (suicide, abuse, a death): no in-body ads at all. */
+  adsOff?: boolean
   /** Passed through to the in-body slots so section-targeted bookings apply. */
   section?: string
 }) {
@@ -156,14 +159,27 @@ export function PortableBody({
     current = []
   }
 
+  /*
+   * Only real paragraphs count, never list items: a bullet list is one unit,
+   * and an ad must never land between its items (it split a "What to know"
+   * box in two on 22 Sep 2026). Slot C only runs on long reads; a 600-word
+   * piece with two ads in its body reads as an ad page with text around it.
+   */
+  const isPara = (b: Block) =>
+    clean(b._type) === 'block' &&
+    (clean(b.style) ?? 'normal') === 'normal' &&
+    !(b as { listItem?: string }).listItem
+  const totalParagraphs = blocks.filter(isPara).length
+  const slotB = adsOff ? 0 : 3
+  const slotC = adsOff || totalParagraphs < 14 ? 0 : 9
+
   for (const block of blocks) {
     current.push(block)
-    const isParagraph = clean(block._type) === 'block' && (clean(block.style) ?? 'normal') === 'normal'
-    if (!isParagraph) continue
+    if (!isPara(block)) continue
 
     paragraphs += 1
-    if (paragraphs === 3) flush('B')
-    else if (paragraphs === 8) flush('C')
+    if (paragraphs === slotB) flush('B')
+    else if (paragraphs === slotC) flush('C')
   }
   if (current.length || pending) flush()
 

@@ -42,6 +42,17 @@ const MIN_OVERLAY_WIDTH = 1400
  */
 const MIN_OVERLAY_RATIO = 1.5
 
+/**
+ * Sections whose lead image is usually one of our own typographic cards.
+ *
+ * A text card already carries words, so setting the headline over it makes
+ * both unreadable. These sections always take the headline-first layout:
+ * headline, then the card uncropped at its own shape. It is also the right
+ * default for studio stills on Screen - Netflix's media terms say assets must
+ * be used unmodified, and type laid over a still is a modification.
+ */
+const HEADLINE_FIRST_SECTIONS = new Set(['current', 'screen'])
+
 type HeroArticle = {
   title?: string | null
   deck?: string | null
@@ -136,6 +147,34 @@ export function ArticleHero({ article }: { article: HeroArticle }) {
   // Landscape and large. Either test on its own lets the wrong picture through.
   const landscape = height > 0 && width / height >= MIN_OVERLAY_RATIO
   const overlay = Boolean(wide) && width >= MIN_OVERLAY_WIDTH && landscape
+
+  /* ---- Headline first: text cards and studio stills ------------------ */
+  if (HEADLINE_FIRST_SECTIONS.has(clean(article.section?.slug) ?? '')) {
+    const card = resolveMedia(article.hero, article.heroExternal, {
+      width: Math.min(Math.max(width, 1200), 2000),
+    })
+    return (
+      <header className="piecehero piecehero--card">
+        <div className="col">
+          <h1>{article.title}</h1>
+        </div>
+        {card && (
+          <figure className="piecehero__frame">
+            <Image
+              src={card.src}
+              alt={card.alt}
+              width={card.width}
+              height={card.height}
+              sizes="(max-width: 1100px) 100vw, 1100px"
+              placeholder={card.blur ? 'blur' : 'empty'}
+              blurDataURL={card.blur}
+              priority
+            />
+          </figure>
+        )}
+      </header>
+    )
+  }
 
   /* ---- Overlay: headline over the photograph ------------------------- */
   if (overlay && wide) {

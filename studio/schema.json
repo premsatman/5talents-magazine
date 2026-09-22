@@ -2717,6 +2717,13 @@
         },
         "optional": true
       },
+      "sensitiveTopic": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
+        },
+        "optional": true
+      },
       "screenMeta": {
         "type": "objectAttribute",
         "value": {

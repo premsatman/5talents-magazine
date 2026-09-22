@@ -347,6 +347,7 @@ export const ARTICLE_QUERY = defineQuery(/* groq */ `
       subjectPhoto { ${imageFragment} }
     },
     reviewMeta { workTitle, creator, workType, rating, year },
+    sensitiveTopic,
     screenMeta {
       workTitle, workType, releaseDate, advisoryNote, trailerUrl,
       availability[]{ _key, region, platform, languages, releaseDate },

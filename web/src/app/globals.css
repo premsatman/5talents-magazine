@@ -1514,3 +1514,12 @@ nav.primary.compact { border-top: 0; }
 .watchit-frame { position: relative; aspect-ratio: 16 / 9; background: #000; }
 .watchit-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .watchit-video figcaption { font-size: 0.74rem; color: var(--ink-muted); margin-top: 0.35rem; }
+
+/* Headline-first hero (Current, Screen): headline in the text measure, then
+   the card at its own shape, never cropped and never under type. */
+.piecehero--card { padding-top: var(--s-5); }
+.piecehero--card h1 { text-wrap: balance; margin: 0 0 var(--s-5); }
+.piecehero--card .piecehero__frame {
+  background: none; max-width: 1100px; margin: 0 auto;
+}
+.piecehero--card .piecehero__frame img { height: auto; object-fit: contain; }

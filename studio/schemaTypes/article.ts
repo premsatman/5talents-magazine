@@ -427,6 +427,19 @@ export const article = defineType({
      * which is the block search and AI answers quote: where to watch, by country.
      * International first; India always gets its own row.
      */
+    /**
+     * Brand safety. A story about a suicide, abuse or a death should not sit
+     * between a hair-transplant ad and a book promotion. Ticking this removes
+     * every ad slot from the article page; nothing else changes.
+     */
+    defineField({
+      name: 'sensitiveTopic',
+      title: 'Sensitive story - hide all ads',
+      type: 'boolean',
+      group: 'meta',
+      initialValue: false,
+      description: 'Tick for stories about suicide, abuse, violence or a death. Removes every ad from this article.',
+    }),
     defineField({
       name: 'screenMeta',
       title: 'Screen - watch guide',

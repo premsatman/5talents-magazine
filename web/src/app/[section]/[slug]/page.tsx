@@ -136,6 +136,8 @@ export default async function ArticlePage(props: Props) {
    */
   const jsonLdImage = clean(article.heroExternal?.url) ?? article.hero?.asset?.url ?? undefined
 
+  const adsOff = Boolean(article.sensitiveTopic)
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': kind === 'review' ? 'Review' : 'Article',
@@ -261,11 +263,11 @@ export default async function ArticlePage(props: Props) {
 
               {section === 'screen' && <WatchIt meta={article.screenMeta} />}
 
-              <PortableBody value={article.body} seed={slug} section={section} />
+              <PortableBody value={article.body} seed={slug} section={section} adsOff={adsOff} />
 
               <ShareBar url={shareUrl} title={article.title ?? ''} deck={article.deck} />
 
-              <AdSlot slot="E" seed={slug} section={section} />
+              {!adsOff && <AdSlot slot="E" seed={slug} section={section} />}
 
               {/* Between our ad and the author card: the contributor's own
                   links read as part of the byline furniture rather than as
@@ -371,7 +373,7 @@ export default async function ArticlePage(props: Props) {
                 <NewsletterForm compact />
               </section>
 
-              <AdSlot slot="D" seed={slug} section={section} />
+              {!adsOff && <AdSlot slot="D" seed={slug} section={section} />}
             </div>
           </aside>
         </div>
