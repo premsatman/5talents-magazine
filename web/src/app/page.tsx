@@ -71,6 +71,23 @@ export const metadata: Metadata = {
  * stay ours - the density comes from them, the voice does not.
  */
 
+const HOME_SECTION_ORDER = [
+  'screen',
+  'current',
+  'faith',
+  'culture',
+  'work-money',
+  'heritage',
+  'technology',
+  'wellbeing',
+  'campus',
+]
+
+function homeRank(slug: string | null | undefined): number {
+  const i = HOME_SECTION_ORDER.indexOf(slug ?? '')
+  return i === -1 ? HOME_SECTION_ORDER.length : i
+}
+
 type SectionBlock = {
   name?: string | null
   slug?: string | null
@@ -93,12 +110,16 @@ export default async function HomePage() {
   const railCards = ((rail.data ?? []) as ArticleCardData[]).slice(0, 5)
   const tailCards = padded((tail.data ?? []) as ArticleCardData[], layoutPreview ? 6 : 0)
 
-  // Sanity's `ordering` field drives the nav, where Current sits last (99) so
-  // it never outranks the magazine sections. On the homepage it goes first,
-  // directly under The Latest. Sort here rather than touch `ordering`.
+  // Sanity's `ordering` field drives the nav. The homepage runs its own order,
+  // ranked by real readership: GA4 from 19 Sep 2026 on. Everything on 18 Sep
+  // is excluded - an AI-assistant referral burst of fake views (~200 identical
+  // hits per page, and 2,400 on the prayer-circle piece, which has had zero
+  // real views since). Screen and Current lead because that is where readers
+  // actually are. Re-rank from GA4 monthly while the sample is small.
+  // A section missing from this list falls to the end in nav order.
   const blocks = ((sections.data ?? []) as SectionBlock[])
     .filter((s) => isSectionSlug(clean(s.slug) ?? ''))
-    .sort((a, b) => Number(clean(b.slug) === 'current') - Number(clean(a.slug) === 'current'))
+    .sort((a, b) => homeRank(clean(a.slug)) - homeRank(clean(b.slug)))
 
   return (
     <>

@@ -34,6 +34,14 @@ import Script from 'next/script'
  * No `anonymize_ip` here, deliberately. That was a Universal Analytics setting;
  * GA4 ignores it and anonymises IPs automatically with no way to turn it off.
  * Passing it would imply a privacy control that does not exist.
+ *
+ * Staff opt-out. Open any page with ?internal=on once on each device the
+ * editor uses (home, office, two phones). That browser is flagged in
+ * localStorage and GA's official kill switch, window['ga-disable-<ID>'], is set
+ * before the tag runs, so nothing is sent - no page views, no events. IP rules
+ * cannot do this for phones, whose mobile-data IPs change constantly.
+ * ?internal=off removes the flag. Clearing site data removes it too, so redo
+ * it after clearing the browser or switching browsers.
  */
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
@@ -49,6 +57,12 @@ export function Analytics() {
       />
       <Script id="ga-init" strategy="afterInteractive">
         {`
+          try {
+            var q = new URLSearchParams(location.search).get('internal');
+            if (q === 'on') localStorage.setItem('5t_internal', '1');
+            if (q === 'off') localStorage.removeItem('5t_internal');
+            if (localStorage.getItem('5t_internal') === '1') window['ga-disable-${GA_ID}'] = true;
+          } catch (e) {}
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());

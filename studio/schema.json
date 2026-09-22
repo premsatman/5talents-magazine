@@ -2241,6 +2241,14 @@
         },
         "optional": true
       },
+      "heroPortrait": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "externalImage"
+        },
+        "optional": true
+      },
       "body": {
         "type": "objectAttribute",
         "value": {

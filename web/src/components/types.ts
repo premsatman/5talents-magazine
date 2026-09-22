@@ -20,6 +20,8 @@ export type ArticleCardData = {
   hero?: ImageLike
   /** Cloudinary alternative. Wins over the upload when set. */
   heroExternal?: ExternalImage
+  /** 3:4 art for the homepage hero row only. Falls back to the lead image. */
+  heroPortrait?: ExternalImage
   authors?: ({ name?: string | null; slug?: string | null } | null)[] | null
   wordCount?: number | null
   originalIssue?: { title?: string | null; slug?: string | null; issueDate?: string | null } | null

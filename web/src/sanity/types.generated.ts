@@ -376,6 +376,7 @@ export type Article = {
     _type: "image";
   };
   heroExternal?: ExternalImage;
+  heroPortrait?: ExternalImage;
   body?: BlockContent;
   endCards?: Array<
     | ({
@@ -870,7 +871,7 @@ export type NAV_SECTIONS_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: HOME_HERO_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && featured in ["hero", "featured"] && (defined(hero.asset) || defined(heroExternal.url))]  | order(select(featured == "hero" => 0, 1) asc, publishedAt desc)[0...3]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    interviewMeta { subject, country, isCoverStory }  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && featured in ["hero", "featured"] && (defined(hero.asset) || defined(heroExternal.url))]  | order(select(featured == "hero" => 0, 1) asc, publishedAt desc)[0...3]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    interviewMeta { subject, country, isCoverStory }  }
 export type HOME_HERO_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -906,6 +907,14 @@ export type HOME_HERO_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -925,7 +934,7 @@ export type HOME_HERO_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: HOME_COMPACT_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[0...5]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[0...5]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }  }
 export type HOME_COMPACT_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -961,6 +970,14 @@ export type HOME_COMPACT_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -975,7 +992,7 @@ export type HOME_COMPACT_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: HOME_TALENT_SEARCH_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "talentSearch"]  | order(publishedAt desc)[0...3]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "talentSearch"]  | order(publishedAt desc)[0...3]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
 export type HOME_TALENT_SEARCH_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -1011,6 +1028,14 @@ export type HOME_TALENT_SEARCH_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1025,7 +1050,7 @@ export type HOME_TALENT_SEARCH_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: HOME_LATEST_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && featured != "hero" && kind != "brief"] | order(publishedAt desc)[0...5]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && featured != "hero" && kind != "brief"] | order(publishedAt desc)[0...5]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
 export type HOME_LATEST_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -1061,6 +1086,14 @@ export type HOME_LATEST_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1075,7 +1108,7 @@ export type HOME_LATEST_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: HOME_BRIEFS_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "brief"] | order(publishedAt desc)[0...6]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    "franchise": tags[0]->{ name, "slug": slug.current }  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "brief"] | order(publishedAt desc)[0...6]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    "franchise": tags[0]->{ name, "slug": slug.current }  }
 export type HOME_BRIEFS_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -1111,6 +1144,14 @@ export type HOME_BRIEFS_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1129,7 +1170,7 @@ export type HOME_BRIEFS_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: HOME_SECTIONS_QUERY
-// Query: *[_type == "section"] | order(ordering asc){    name,    "slug": slug.current,    description,    "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section._ref == ^._id] | order(publishedAt desc)[0...5]{        _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }    }  }
+// Query: *[_type == "section"] | order(ordering asc){    name,    "slug": slug.current,    description,    "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section._ref == ^._id] | order(publishedAt desc)[0...5]{        _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }    }  }
 export type HOME_SECTIONS_QUERY_RESULT = Array<{
   name: string | null;
   slug: string | null;
@@ -1169,6 +1210,14 @@ export type HOME_SECTIONS_QUERY_RESULT = Array<{
       caption: string | null;
       credit: string | null;
     } | null;
+    heroPortrait: {
+      url: string | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      caption: string | null;
+      credit: string | null;
+    } | null;
     authors: Array<{
       name: string | null;
       slug: string | null;
@@ -1184,7 +1233,7 @@ export type HOME_SECTIONS_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: HOME_TAIL_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[8...28]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[8...28]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
 export type HOME_TAIL_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -1220,6 +1269,14 @@ export type HOME_TAIL_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1234,7 +1291,7 @@ export type HOME_TAIL_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: HOME_RAIL_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[0...6]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[0...6]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
 export type HOME_RAIL_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -1270,6 +1327,14 @@ export type HOME_RAIL_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1284,7 +1349,7 @@ export type HOME_RAIL_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: HOME_SECTION_FEATURE_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $section] | order(publishedAt desc)[0]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $section] | order(publishedAt desc)[0]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
 export type HOME_SECTION_FEATURE_QUERY_RESULT = {
   _id: string;
   title: string | null;
@@ -1313,6 +1378,14 @@ export type HOME_SECTION_FEATURE_QUERY_RESULT = {
     crop: SanityImageCrop | null;
   } | null;
   heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
+  heroPortrait: {
     url: string | null;
     alt: string | null;
     width: number | null;
@@ -1359,7 +1432,7 @@ export type HOME_ARCHIVE_STRIP_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: SEARCH_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && (    title match $q ||    deck match $q ||    pt::text(body) match $q ||    section->name match $q ||    tags[]->name match $q ||    authors[]->name match $q  )] | score(    boost(title match $q, 4),    boost(deck match $q, 2),    pt::text(body) match $q  ) | order(_score desc, publishedAt desc)[0...40]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    _score  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && (    title match $q ||    deck match $q ||    pt::text(body) match $q ||    section->name match $q ||    tags[]->name match $q ||    authors[]->name match $q  )] | score(    boost(title match $q, 4),    boost(deck match $q, 2),    pt::text(body) match $q  ) | order(_score desc, publishedAt desc)[0...40]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    _score  }
 export type SEARCH_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -1388,6 +1461,14 @@ export type SEARCH_QUERY_RESULT = Array<{
     crop: SanityImageCrop | null;
   } | null;
   heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
+  heroPortrait: {
     url: string | null;
     alt: string | null;
     width: number | null;
@@ -1436,7 +1517,7 @@ export type SECTION_QUERY_RESULT = {
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: SECTION_ARTICLES_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $slug] | order(publishedAt desc)[0...30]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    "franchise": tags[0]->{ name, "slug": slug.current }  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $slug] | order(publishedAt desc)[0...30]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    "franchise": tags[0]->{ name, "slug": slug.current }  }
 export type SECTION_ARTICLES_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -1465,6 +1546,14 @@ export type SECTION_ARTICLES_QUERY_RESULT = Array<{
     crop: SanityImageCrop | null;
   } | null;
   heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
+  heroPortrait: {
     url: string | null;
     alt: string | null;
     width: number | null;
@@ -1506,7 +1595,7 @@ export type TAG_QUERY_RESULT = {
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: TAG_ARTICLES_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in tags[]->slug.current] | order(publishedAt desc)[0...50]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in tags[]->slug.current] | order(publishedAt desc)[0...50]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }  }
 export type TAG_ARTICLES_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -1535,6 +1624,14 @@ export type TAG_ARTICLES_QUERY_RESULT = Array<{
     crop: SanityImageCrop | null;
   } | null;
   heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
+  heroPortrait: {
     url: string | null;
     alt: string | null;
     width: number | null;
@@ -1603,7 +1700,7 @@ export type AUTHOR_QUERY_RESULT = {
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: AUTHOR_ARTICLES_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in authors[]->slug.current] | order(publishedAt desc)[0...50]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in authors[]->slug.current] | order(publishedAt desc)[0...50]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }  }
 export type AUTHOR_ARTICLES_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -1639,6 +1736,14 @@ export type AUTHOR_ARTICLES_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -1660,7 +1765,7 @@ export type AUTHOR_SLUGS_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: ARTICLE_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && slug.current == $slug && section->slug.current == $section][0]{    _id,    title,    "slug": slug.current,    deck,    kind,    publishedAt,    sponsorTier,    "section": section->{ name, "slug": slug.current },    hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },    heroExternal {   url, alt, width, height, caption, credit },    body[]{      ...,      _type == "image" => {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },      _type == "externalImage" => {   url, alt, width, height, caption, credit },      markDefs[]{ ... }    },    "authors": authors[]->{      name, "slug": slug.current, bio, role, institution, died,      photo {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop }    },    endCards[]{      _key, _type,      _type == "spotifyCard" => { url, label, compact },      _type == "youtubeCard" => { channelName, url, blurb, cta, avatar {   url, alt, width, height, caption, credit } },      _type == "bookCard" => {        title, author, blurb,        cover {   url, alt, width, height, caption, credit },        links[]{ _key, label, url, affiliate }      },      _type == "linkCard" => { title, url, blurb, cta, affiliate, image {   url, alt, width, height, caption, credit } }    },    "sponsor": sponsor->{ name, url, logo {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop } },    interviewMeta {      subject, subjectBio, country, isCoverStory, pullQuotes,      subjectPhoto {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop }    },    reviewMeta { workTitle, creator, workType, rating, year },    sensitiveTopic,    screenMeta {      workTitle, workType, releaseDate, advisoryNote, trailerUrl,      availability[]{ _key, region, platform, languages, releaseDate },      contentAdvisory { language, violence, sexualContent, themes }    },    archiveMeta {      originalPage, republishedAt, rewrittenAt, editNote,      originalIssue->{ title, "slug": slug.current, issueDate }    },    "onlineIssue": onlineIssue->{ volume, issueNumber, issueDate, "slug": slug.current },    "tags": tags[]->{ name, "slug": slug.current },    "related": relatedArticles[]->{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } },    "wordCount": length(pt::text(body)),    seo { title, description, noIndex, ogImage {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop } }  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && slug.current == $slug && section->slug.current == $section][0]{    _id,    title,    "slug": slug.current,    deck,    kind,    publishedAt,    sponsorTier,    "section": section->{ name, "slug": slug.current },    hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },    heroExternal {   url, alt, width, height, caption, credit },    body[]{      ...,      _type == "image" => {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },      _type == "externalImage" => {   url, alt, width, height, caption, credit },      markDefs[]{ ... }    },    "authors": authors[]->{      name, "slug": slug.current, bio, role, institution, died,      photo {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop }    },    endCards[]{      _key, _type,      _type == "spotifyCard" => { url, label, compact },      _type == "youtubeCard" => { channelName, url, blurb, cta, avatar {   url, alt, width, height, caption, credit } },      _type == "bookCard" => {        title, author, blurb,        cover {   url, alt, width, height, caption, credit },        links[]{ _key, label, url, affiliate }      },      _type == "linkCard" => { title, url, blurb, cta, affiliate, image {   url, alt, width, height, caption, credit } }    },    "sponsor": sponsor->{ name, url, logo {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop } },    interviewMeta {      subject, subjectBio, country, isCoverStory, pullQuotes,      subjectPhoto {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop }    },    reviewMeta { workTitle, creator, workType, rating, year },    sensitiveTopic,    screenMeta {      workTitle, workType, releaseDate, advisoryNote, trailerUrl,      availability[]{ _key, region, platform, languages, releaseDate },      contentAdvisory { language, violence, sexualContent, themes }    },    archiveMeta {      originalPage, republishedAt, rewrittenAt, editNote,      originalIssue->{ title, "slug": slug.current, issueDate }    },    "onlineIssue": onlineIssue->{ volume, issueNumber, issueDate, "slug": slug.current },    "tags": tags[]->{ name, "slug": slug.current },    "related": relatedArticles[]->{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } },    "wordCount": length(pt::text(body)),    seo { title, description, noIndex, ogImage {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop } }  }
 export type ARTICLE_QUERY_RESULT = {
   _id: string;
   title: string | null;
@@ -2000,6 +2105,14 @@ export type ARTICLE_QUERY_RESULT = {
       caption: string | null;
       credit: string | null;
     } | null;
+    heroPortrait: {
+      url: string | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      caption: string | null;
+      credit: string | null;
+    } | null;
     authors: Array<{
       name: string | null;
       slug: string | null;
@@ -2074,7 +2187,7 @@ export type ARTICLE_PATHS_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: ARTICLE_SIDEBAR_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id != $id] | order(publishedAt desc)[0...5]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id != $id] | order(publishedAt desc)[0...5]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
 export type ARTICLE_SIDEBAR_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -2110,6 +2223,14 @@ export type ARTICLE_SIDEBAR_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -2124,7 +2245,7 @@ export type ARTICLE_SIDEBAR_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: ARTICLE_FALLBACK_RELATED_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id != $id && section->slug.current == $section]  | order(publishedAt desc)[0...3]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id != $id && section->slug.current == $section]  | order(publishedAt desc)[0...3]{   _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate } }
 export type ARTICLE_FALLBACK_RELATED_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -2160,6 +2281,14 @@ export type ARTICLE_FALLBACK_RELATED_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -2174,7 +2303,7 @@ export type ARTICLE_FALLBACK_RELATED_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: COVER_STORIES_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "cover"]  | order(publishedAt desc)[0...50]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    interviewMeta { subject, subjectBio, country }  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "cover"]  | order(publishedAt desc)[0...50]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    interviewMeta { subject, subjectBio, country }  }
 export type COVER_STORIES_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -2210,6 +2339,14 @@ export type COVER_STORIES_QUERY_RESULT = Array<{
     caption: string | null;
     credit: string | null;
   } | null;
+  heroPortrait: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
   authors: Array<{
     name: string | null;
     slug: string | null;
@@ -2229,7 +2366,7 @@ export type COVER_STORIES_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: TALENT_SEARCH_QUERY
-// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "talentSearch"]  | order(publishedAt desc)[0...50]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    interviewMeta { subject, subjectBio, country }  }
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "talentSearch"]  | order(publishedAt desc)[0...50]{      _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate },    interviewMeta { subject, subjectBio, country }  }
 export type TALENT_SEARCH_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
@@ -2258,6 +2395,14 @@ export type TALENT_SEARCH_QUERY_RESULT = Array<{
     crop: SanityImageCrop | null;
   } | null;
   heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
+  heroPortrait: {
     url: string | null;
     alt: string | null;
     width: number | null;
@@ -2382,7 +2527,7 @@ export type ONLINE_ISSUES_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: ONLINE_ISSUE_QUERY
-// Query: *[_type == "onlineIssue" && slug.current == $slug][0]{    _id, volume, issueNumber, issueDate, summary, "slug": slug.current,    coverImage {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },    "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && onlineIssue._ref == ^._id] | order(publishedAt asc){        _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }    }  }
+// Query: *[_type == "onlineIssue" && slug.current == $slug][0]{    _id, volume, issueNumber, issueDate, summary, "slug": slug.current,    coverImage {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },    "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && onlineIssue._ref == ^._id] | order(publishedAt asc){        _id,  title,  "slug": slug.current,  deck,  kind,  publishedAt,  sponsorTier,  "section": section->{ name, "slug": slug.current },  hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },  heroExternal {   url, alt, width, height, caption, credit },  heroPortrait {   url, alt, width, height, caption, credit },  "authors": authors[]->{ name, "slug": slug.current },  "wordCount": length(pt::text(body)),  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }    }  }
 export type ONLINE_ISSUE_QUERY_RESULT = {
   _id: string;
   volume: number | null;
@@ -2433,6 +2578,14 @@ export type ONLINE_ISSUE_QUERY_RESULT = {
       crop: SanityImageCrop | null;
     } | null;
     heroExternal: {
+      url: string | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      caption: string | null;
+      credit: string | null;
+    } | null;
+    heroPortrait: {
       url: string | null;
       alt: string | null;
       width: number | null;
@@ -2733,38 +2886,38 @@ declare global {
   interface SanityQueries {
     '\n  *[_id == "siteSettings"][0]{\n    title, tagline, description, scopeStatement, contactEmail,\n    adsEnabled, enabledSlots,\n    \n  publisher { name, address, city, state, pinCode, country, email, mobile },\n  particulars { startYear, frequency, subject, languages, format, issnOnline, issnPrint }\n,\n    socials[]{ platform, url }\n  }\n': SITE_SETTINGS_QUERY_RESULT;
     '\n  *[_type == "section"] | order(ordering asc){\n    name, "slug": slug.current\n  }\n': NAV_SECTIONS_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && featured in ["hero", "featured"] && (defined(hero.asset) || defined(heroExternal.url))]\n  | order(select(featured == "hero" => 0, 1) asc, publishedAt desc)[0...3]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    interviewMeta { subject, country, isCoverStory }\n  }\n': HOME_HERO_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[0...5]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n  }\n': HOME_COMPACT_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "talentSearch"]\n  | order(publishedAt desc)[0...3]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_TALENT_SEARCH_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && featured != "hero" && kind != "brief"] | order(publishedAt desc)[0...5]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_LATEST_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "brief"] | order(publishedAt desc)[0...6]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    "franchise": tags[0]->{ name, "slug": slug.current }\n  }\n': HOME_BRIEFS_QUERY_RESULT;
-    '\n  *[_type == "section"] | order(ordering asc){\n    name,\n    "slug": slug.current,\n    description,\n    "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section._ref == ^._id] | order(publishedAt desc)[0...5]{\n      \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n    }\n  }\n': HOME_SECTIONS_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[8...28]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_TAIL_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[0...6]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_RAIL_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $section] | order(publishedAt desc)[0]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_SECTION_FEATURE_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && featured in ["hero", "featured"] && (defined(hero.asset) || defined(heroExternal.url))]\n  | order(select(featured == "hero" => 0, 1) asc, publishedAt desc)[0...3]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    interviewMeta { subject, country, isCoverStory }\n  }\n': HOME_HERO_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[0...5]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n  }\n': HOME_COMPACT_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "talentSearch"]\n  | order(publishedAt desc)[0...3]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_TALENT_SEARCH_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && featured != "hero" && kind != "brief"] | order(publishedAt desc)[0...5]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_LATEST_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "brief"] | order(publishedAt desc)[0...6]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    "franchise": tags[0]->{ name, "slug": slug.current }\n  }\n': HOME_BRIEFS_QUERY_RESULT;
+    '\n  *[_type == "section"] | order(ordering asc){\n    name,\n    "slug": slug.current,\n    description,\n    "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section._ref == ^._id] | order(publishedAt desc)[0...5]{\n      \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n    }\n  }\n': HOME_SECTIONS_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[8...28]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_TAIL_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind != "brief"] | order(publishedAt desc)[0...6]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_RAIL_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $section] | order(publishedAt desc)[0]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': HOME_SECTION_FEATURE_QUERY_RESULT;
     '\n  *[_type == "archiveIssue"] | order(issueDate desc)[0...6]{\n    _id, title, "slug": slug.current, issueDate,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n  }\n': HOME_ARCHIVE_STRIP_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && (\n    title match $q ||\n    deck match $q ||\n    pt::text(body) match $q ||\n    section->name match $q ||\n    tags[]->name match $q ||\n    authors[]->name match $q\n  )] | score(\n    boost(title match $q, 4),\n    boost(deck match $q, 2),\n    pt::text(body) match $q\n  ) | order(_score desc, publishedAt desc)[0...40]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    _score\n  }\n': SEARCH_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && (\n    title match $q ||\n    deck match $q ||\n    pt::text(body) match $q ||\n    section->name match $q ||\n    tags[]->name match $q ||\n    authors[]->name match $q\n  )] | score(\n    boost(title match $q, 4),\n    boost(deck match $q, 2),\n    pt::text(body) match $q\n  ) | order(_score desc, publishedAt desc)[0...40]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    _score\n  }\n': SEARCH_QUERY_RESULT;
     '\n  count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && (\n    title match $q ||\n    deck match $q ||\n    pt::text(body) match $q ||\n    section->name match $q ||\n    tags[]->name match $q ||\n    authors[]->name match $q\n  )])\n': SEARCH_COUNT_QUERY_RESULT;
     '\n  *[_type == "section"] | order(ordering asc){\n    name,\n    "slug": slug.current,\n    "tags": array::unique(\n      *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section._ref == ^._id].tags[]->{ name, "slug": slug.current }\n    )[0...6]\n  }\n': SECTION_TAGS_QUERY_RESULT;
     '\n  *[_type == "section" && slug.current == $slug][0]{\n    name, "slug": slug.current, description\n  }\n': SECTION_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $slug] | order(publishedAt desc)[0...30]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    "franchise": tags[0]->{ name, "slug": slug.current }\n  }\n': SECTION_ARTICLES_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $slug] | order(publishedAt desc)[0...30]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    "franchise": tags[0]->{ name, "slug": slug.current }\n  }\n': SECTION_ARTICLES_QUERY_RESULT;
     '\n  *[_type == "section" && defined(slug.current)]{ "slug": slug.current }\n': SECTION_SLUGS_QUERY_RESULT;
     '\n  *[_type == "tag" && slug.current == $slug][0]{ name, "slug": slug.current, description }\n': TAG_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in tags[]->slug.current] | order(publishedAt desc)[0...50]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n  }\n': TAG_ARTICLES_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in tags[]->slug.current] | order(publishedAt desc)[0...50]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n  }\n': TAG_ARTICLES_QUERY_RESULT;
     '\n  *[_type == "tag" && defined(slug.current)]{ "slug": slug.current }\n': TAG_SLUGS_QUERY_RESULT;
     '\n  *[_type == "author" && slug.current == $slug][0]{\n    name, "slug": slug.current, bio, role, institution, country, isStaff, died,\n    photo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    socials[]{ platform, url }\n  }\n': AUTHOR_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in authors[]->slug.current] | order(publishedAt desc)[0...50]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n  }\n': AUTHOR_ARTICLES_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in authors[]->slug.current] | order(publishedAt desc)[0...50]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n  }\n': AUTHOR_ARTICLES_QUERY_RESULT;
     '\n  *[_type == "author" && defined(slug.current)]{ "slug": slug.current }\n': AUTHOR_SLUGS_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && slug.current == $slug && section->slug.current == $section][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    deck,\n    kind,\n    publishedAt,\n    sponsorTier,\n    "section": section->{ name, "slug": slug.current },\n    hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    heroExternal { \n  url, alt, width, height, caption, credit\n },\n    body[]{\n      ...,\n      _type == "image" => { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n      _type == "externalImage" => { \n  url, alt, width, height, caption, credit\n },\n      markDefs[]{ ... }\n    },\n    "authors": authors[]->{\n      name, "slug": slug.current, bio, role, institution, died,\n      photo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n    },\n    endCards[]{\n      _key, _type,\n      _type == "spotifyCard" => { url, label, compact },\n      _type == "youtubeCard" => { channelName, url, blurb, cta, avatar { \n  url, alt, width, height, caption, credit\n } },\n      _type == "bookCard" => {\n        title, author, blurb,\n        cover { \n  url, alt, width, height, caption, credit\n },\n        links[]{ _key, label, url, affiliate }\n      },\n      _type == "linkCard" => { title, url, blurb, cta, affiliate, image { \n  url, alt, width, height, caption, credit\n } }\n    },\n    "sponsor": sponsor->{ name, url, logo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } },\n    interviewMeta {\n      subject, subjectBio, country, isCoverStory, pullQuotes,\n      subjectPhoto { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n    },\n    reviewMeta { workTitle, creator, workType, rating, year },\n    sensitiveTopic,\n    screenMeta {\n      workTitle, workType, releaseDate, advisoryNote, trailerUrl,\n      availability[]{ _key, region, platform, languages, releaseDate },\n      contentAdvisory { language, violence, sexualContent, themes }\n    },\n    archiveMeta {\n      originalPage, republishedAt, rewrittenAt, editNote,\n      originalIssue->{ title, "slug": slug.current, issueDate }\n    },\n    "onlineIssue": onlineIssue->{ volume, issueNumber, issueDate, "slug": slug.current },\n    "tags": tags[]->{ name, "slug": slug.current },\n    "related": relatedArticles[]->{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n },\n    "wordCount": length(pt::text(body)),\n    seo { title, description, noIndex, ogImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } }\n  }\n': ARTICLE_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && slug.current == $slug && section->slug.current == $section][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    deck,\n    kind,\n    publishedAt,\n    sponsorTier,\n    "section": section->{ name, "slug": slug.current },\n    hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    heroExternal { \n  url, alt, width, height, caption, credit\n },\n    body[]{\n      ...,\n      _type == "image" => { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n      _type == "externalImage" => { \n  url, alt, width, height, caption, credit\n },\n      markDefs[]{ ... }\n    },\n    "authors": authors[]->{\n      name, "slug": slug.current, bio, role, institution, died,\n      photo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n    },\n    endCards[]{\n      _key, _type,\n      _type == "spotifyCard" => { url, label, compact },\n      _type == "youtubeCard" => { channelName, url, blurb, cta, avatar { \n  url, alt, width, height, caption, credit\n } },\n      _type == "bookCard" => {\n        title, author, blurb,\n        cover { \n  url, alt, width, height, caption, credit\n },\n        links[]{ _key, label, url, affiliate }\n      },\n      _type == "linkCard" => { title, url, blurb, cta, affiliate, image { \n  url, alt, width, height, caption, credit\n } }\n    },\n    "sponsor": sponsor->{ name, url, logo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } },\n    interviewMeta {\n      subject, subjectBio, country, isCoverStory, pullQuotes,\n      subjectPhoto { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n    },\n    reviewMeta { workTitle, creator, workType, rating, year },\n    sensitiveTopic,\n    screenMeta {\n      workTitle, workType, releaseDate, advisoryNote, trailerUrl,\n      availability[]{ _key, region, platform, languages, releaseDate },\n      contentAdvisory { language, violence, sexualContent, themes }\n    },\n    archiveMeta {\n      originalPage, republishedAt, rewrittenAt, editNote,\n      originalIssue->{ title, "slug": slug.current, issueDate }\n    },\n    "onlineIssue": onlineIssue->{ volume, issueNumber, issueDate, "slug": slug.current },\n    "tags": tags[]->{ name, "slug": slug.current },\n    "related": relatedArticles[]->{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n },\n    "wordCount": length(pt::text(body)),\n    seo { title, description, noIndex, ogImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } }\n  }\n': ARTICLE_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && slug.current == $slug && section->slug.current == $section][0]{\n    title, deck, publishedAt,\n    "authors": authors[]->{ name },\n    hero { asset->{ url } },\n    heroExternal { url },\n    seo { title, description, noIndex, ogImage { asset->{ url } } }\n  }\n': ARTICLE_SEO_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && defined(section->slug.current)]{\n    "slug": slug.current,\n    "section": section->slug.current\n  }\n': ARTICLE_PATHS_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id != $id] | order(publishedAt desc)[0...5]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': ARTICLE_SIDEBAR_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id != $id && section->slug.current == $section]\n  | order(publishedAt desc)[0...3]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': ARTICLE_FALLBACK_RELATED_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "cover"]\n  | order(publishedAt desc)[0...50]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    interviewMeta { subject, subjectBio, country }\n  }\n': COVER_STORIES_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "talentSearch"]\n  | order(publishedAt desc)[0...50]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    interviewMeta { subject, subjectBio, country }\n  }\n': TALENT_SEARCH_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id != $id] | order(publishedAt desc)[0...5]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': ARTICLE_SIDEBAR_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id != $id && section->slug.current == $section]\n  | order(publishedAt desc)[0...3]{ \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n }\n': ARTICLE_FALLBACK_RELATED_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "cover"]\n  | order(publishedAt desc)[0...50]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    interviewMeta { subject, subjectBio, country }\n  }\n': COVER_STORIES_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && kind == "interview" && interviewMeta.isCoverStory == "talentSearch"]\n  | order(publishedAt desc)[0...50]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    interviewMeta { subject, subjectBio, country }\n  }\n': TALENT_SEARCH_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    title,\n    \n  publisher { name, address, city, state, pinCode, country, email, mobile },\n  particulars { startYear, frequency, subject, languages, format, issnOnline, issnPrint }\n,\n    editorialBoard[]{\n      _key,\n      role,\n      "person": person->{\n        name, "slug": slug.current, designation, institution,\n        institutionAddress, institutionalEmail, profileUrl, country\n      }\n    }\n  }\n': EDITORIAL_BOARD_QUERY_RESULT;
     '\n  *[_type == "onlineIssue"] | order(volume desc, issueNumber desc){\n    _id, volume, issueNumber, issueDate, summary, "slug": slug.current,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    "articleCount": count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && onlineIssue._ref == ^._id])\n  }\n': ONLINE_ISSUES_QUERY_RESULT;
-    '\n  *[_type == "onlineIssue" && slug.current == $slug][0]{\n    _id, volume, issueNumber, issueDate, summary, "slug": slug.current,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && onlineIssue._ref == ^._id] | order(publishedAt asc){\n      \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n    }\n  }\n': ONLINE_ISSUE_QUERY_RESULT;
+    '\n  *[_type == "onlineIssue" && slug.current == $slug][0]{\n    _id, volume, issueNumber, issueDate, summary, "slug": slug.current,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && onlineIssue._ref == ^._id] | order(publishedAt asc){\n      \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n    }\n  }\n': ONLINE_ISSUE_QUERY_RESULT;
     '\n  *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current }\n': ONLINE_ISSUE_SLUGS_QUERY_RESULT;
     '\n  *[_type == "archiveIssue"] | order(issueDate desc){\n    _id, title, "slug": slug.current, issueDate, issueNumber, pageCount,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    "articleCount": count(tableOfContents[defined(article)])\n  }\n': ARCHIVE_ISSUES_QUERY_RESULT;
     '\n  *[_type == "archiveIssue" && slug.current == $slug][0]{\n    _id, title, "slug": slug.current, issueDate, issueNumber, pageCount, pdfUrl, readerUrl, embedUrl,\n    "pdfFile": pdfFile.asset->url,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    tableOfContents[]{\n      _key, title, page, byline,\n      "article": article->{\n        title, "slug": slug.current,\n        "section": section->{ name, "slug": slug.current }\n      }\n    }\n  }\n': ARCHIVE_ISSUE_QUERY_RESULT;

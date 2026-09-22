@@ -43,6 +43,7 @@ const cardFragment = /* groq */ `
   "section": section->{ name, "slug": slug.current },
   hero { ${imageFragment} },
   heroExternal { ${externalImageFragment} },
+  heroPortrait { ${externalImageFragment} },
   "authors": authors[]->{ name, "slug": slug.current },
   "wordCount": length(pt::text(body)),
   "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }

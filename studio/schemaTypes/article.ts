@@ -126,6 +126,15 @@ export const article = defineType({
         'Use this instead of uploading above. If a URL is set here it is used and the upload is ignored, so you never end up with two versions of the same picture.',
       options: { collapsible: true, collapsed: true },
     }),
+    defineField({
+      name: 'heroPortrait',
+      title: 'Homepage hero image, portrait 3:4 (optional)',
+      type: 'externalImage',
+      group: 'content',
+      description:
+        'Only used when this piece is in the three homepage hero cards. Use it when the lead image is a text card: a landscape card cropped to portrait loses its words and fights the headline laid over it. Upload a 3:4 version with no big text, just the artwork and the 5TALENTS header.',
+      options: { collapsible: true, collapsed: true },
+    }),
     defineField({ name: 'body', type: 'blockContent', group: 'content' }),
     /**
      * Contributor's own links, printed after the piece.

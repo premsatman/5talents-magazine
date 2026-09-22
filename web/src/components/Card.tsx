@@ -50,10 +50,15 @@ function OverlayCard({
 }) {
   const spec = SHAPES.portrait
   const href = articleHref(clean(article.section?.slug), clean(article.slug))
-  const media = resolveMedia(article.hero, article.heroExternal, {
-    width: spec.width,
-    height: spec.height,
-  })
+  // A portrait-specific image wins here, and only here. Text cards are drawn
+  // 16:9; cropped to 3:4 they lose their words and collide with the overlay.
+  const portrait = clean(article.heroPortrait?.url) ? article.heroPortrait : null
+  const media = portrait
+    ? resolveMedia(null, portrait, { width: spec.width, height: spec.height })
+    : resolveMedia(article.hero, article.heroExternal, {
+        width: spec.width,
+        height: spec.height,
+      })
   const sponsored = isSponsored(article.sponsorTier)
 
   return (
