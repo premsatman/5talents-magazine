@@ -31,6 +31,13 @@ const nextConfig: NextConfig = {
         destination: '/screen/the-chosen-season-6-episode-1-churches-first',
         permanent: true,
       },
+      // Published under Current on 22 Sep 2026 while /screen was undeployed.
+      // Move its section to Screen in Studio as soon as this deploy is live.
+      {
+        source: '/current/death-of-the-pastors-wife-netflix-mica-miller',
+        destination: '/screen/death-of-the-pastors-wife-netflix-mica-miller',
+        permanent: true,
+      },
     ]
   },
 }
