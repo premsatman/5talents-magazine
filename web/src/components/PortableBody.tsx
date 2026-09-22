@@ -69,6 +69,27 @@ const components: PortableTextComponents = {
     // The same picture hosted on Cloudinary rather than uploaded. Renders
     // identically - see sanity/media.ts.
     externalImage: ({ value }) => <BodyImage external={value as ExternalImage} />,
+    /**
+     * Instagram's own embed page in an iframe, rather than their embed.js.
+     * No third-party script on our page, nothing loads until it scrolls near,
+     * and the post's owner keeps control: delete it and it goes from here.
+     */
+    instagramEmbed: ({ value }) => {
+      const m = /instagram\.com\/(p|reel)\/([\w-]+)/.exec((value?.url as string) ?? '')
+      if (!m) return null
+      return (
+        <figure className="igembed">
+          <iframe
+            src={`https://www.instagram.com/${m[1]}/${m[2]}/embed/captioned/`}
+            title={(value?.caption as string) || 'Instagram post'}
+            loading="lazy"
+            scrolling="no"
+            allowTransparency
+          />
+          {value?.caption ? <figcaption>{value.caption as string}</figcaption> : null}
+        </figure>
+      )
+    },
     verse: ({ value }) => (
       <figure className="verse">
         <p>{(value?.text as string) ?? ''}</p>

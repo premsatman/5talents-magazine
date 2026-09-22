@@ -71,6 +71,40 @@ export const blockContent = defineType({
     }),
     // The same picture, hosted on Cloudinary rather than uploaded here.
     defineArrayMember({ type: 'externalImage' }),
+    /**
+     * A public Instagram post, shown through Instagram's own embed.
+     *
+     * For people and moments we have no licence to photograph: the picture
+     * stays on its owner's account with their name on it, and disappears from
+     * our page if they delete it. Never download the image instead. Only embed
+     * posts the owner has left public, and prefer family or close friends over
+     * reposts.
+     */
+    defineArrayMember({
+      type: 'object',
+      name: 'instagramEmbed',
+      title: 'Instagram post (embed)',
+      fields: [
+        defineField({
+          name: 'url',
+          type: 'url',
+          title: 'Post URL',
+          description: 'e.g. https://www.instagram.com/p/C71Ta58trWn/',
+          validation: (r) =>
+            r.required().custom((v) =>
+              typeof v === 'string' && /instagram\.com\/(p|reel)\/[\w-]+/.test(v)
+                ? true
+                : 'Must be an instagram.com/p/... or /reel/... link',
+            ),
+        }),
+        defineField({
+          name: 'caption',
+          type: 'string',
+          description: 'Optional line under the embed, e.g. "Mica Miller, in a photo shared by her friend @kshabare."',
+        }),
+      ],
+      preview: { select: { title: 'url', subtitle: 'caption' } },
+    }),
     // Poetry. Portable Text collapses single line breaks inside a paragraph,
     // which turns a poem into prose - so verse gets its own block where the
     // line endings are the author's and are preserved exactly.

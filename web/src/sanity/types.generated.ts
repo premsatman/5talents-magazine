@@ -116,6 +116,12 @@ export type BlockContent = Array<
       _key: string;
     } & ExternalImage)
   | {
+      url?: string;
+      caption?: string;
+      _type: "instagramEmbed";
+      _key: string;
+    }
+  | {
       text?: string;
       attribution?: string;
       _type: "verse";
@@ -1863,6 +1869,13 @@ export type ARTICLE_QUERY_RESULT = {
         caption: string | null;
         credit: string | null;
         _type: "image";
+        _key: string;
+        markDefs: null;
+      }
+    | {
+        url?: string;
+        caption?: string;
+        _type: "instagramEmbed";
         _key: string;
         markDefs: null;
       }
