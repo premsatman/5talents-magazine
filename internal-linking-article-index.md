@@ -96,6 +96,7 @@ Sanity project `wdzgdrz5`, dataset `production`. URL = `https://www.5talentsmag.
    - `set` on `body[_key=="BLOCK"].markDefs` = `[{"_key":"lnkXX01","_type":"link","href":"https://www.5talentsmag.com/<section>/<slug>"}]`
    - `set` on `body[_key=="BLOCK"].children` = array of spans, each `{"_key":..., "_type":"span","marks":[],"text":...}`, with the anchor span carrying `"marks":["lnkXX01"]`
    - Keep the original span `_key` on the first fragment; give new fragments new unique keys.
+   - Path filter uses the BLOCK `_key`, not the span `_key` (they differ by one character, e.g. block `kmtuo2by7tj` / span `kmtuo2by7tk`). A set on a non-matching key silently does nothing — check `count(body[count(markDefs)>0])` on the draft after patching.
    - Concatenated span text must equal the original paragraph EXACTLY — same punctuation, same em dashes (—), same curly quotes.
 5. Also `set` `relatedArticles` to 4 refs: `{"_key":"relXX1","_type":"reference","_ref":"<ID>"}`. At least 2 from a different section than the source.
 6. Verify: `*[_id=="drafts.<ID>"][0]{body[_key in [...]]{"text": array::join(children[].text, "")}}` and confirm the text is unchanged.

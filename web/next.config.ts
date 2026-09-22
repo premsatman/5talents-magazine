@@ -24,6 +24,13 @@ const nextConfig: NextConfig = {
       // mirrors). The article itself is held - see studio/seed/articles/
       // july-2013.json - so send it to the issue it ran in.
       { source: '/stephen-devassy', destination: '/archive/july-2013', permanent: true },
+      // Moved from Current to Screen on 22 Sep 2026. The old URL is in the
+      // Instagram first comment and in 99 church outreach emails - keep it working.
+      {
+        source: '/current/the-chosen-season-6-episode-1-churches-first',
+        destination: '/screen/the-chosen-season-6-episode-1-churches-first',
+        permanent: true,
+      },
     ]
   },
 }

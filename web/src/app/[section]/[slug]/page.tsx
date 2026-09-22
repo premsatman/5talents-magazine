@@ -27,6 +27,7 @@ import { SponsorLabel, isSponsored } from '@/components/SponsorLabel'
 import { AdSlot } from '@/components/AdSlot'
 import { ShareBar } from '@/components/ShareBar'
 import { EndCards } from '@/components/EndCards'
+import { WatchIt } from '@/components/WatchIt'
 import { ArticleHero, ArticleMeta } from '@/components/ArticleHero'
 import { ListRow } from '@/components/Card'
 import { NewsletterForm } from '@/components/NewsletterForm'
@@ -167,6 +168,36 @@ export default async function ArticlePage(props: Props) {
     mainEntityOfPage: absoluteUrl(articleHref(section, slug)),
     image: jsonLdImage ? [jsonLdImage] : undefined,
     isAccessibleForFree: true,
+    /**
+     * Review rich results need the thing reviewed and a rating. Screen reviews
+     * name a film or series; other reviews (books, albums) fall back to
+     * CreativeWork. Emitted only when there is a title to name.
+     */
+    ...(kind === 'review' && (article.reviewMeta?.workTitle || article.screenMeta?.workTitle)
+      ? {
+          itemReviewed: {
+            '@type': (() => {
+              const t = clean(article.screenMeta?.workType ?? article.reviewMeta?.workType)
+              if (t === 'film' || t === 'documentary') return 'Movie'
+              if (t === 'series' || t === 'docuseries') return 'TVSeries'
+              if (t === 'book') return 'Book'
+              if (t === 'album') return 'MusicAlbum'
+              return 'CreativeWork'
+            })(),
+            name: clean(article.reviewMeta?.workTitle ?? article.screenMeta?.workTitle),
+          },
+          ...(typeof article.reviewMeta?.rating === 'number'
+            ? {
+                reviewRating: {
+                  '@type': 'Rating',
+                  ratingValue: article.reviewMeta.rating,
+                  bestRating: 5,
+                  worstRating: 1,
+                },
+              }
+            : {}),
+        }
+      : {}),
   }
 
   return (
@@ -227,6 +258,8 @@ export default async function ArticlePage(props: Props) {
                     : ''}
                 </p>
               )}
+
+              {section === 'screen' && <WatchIt meta={article.screenMeta} />}
 
               <PortableBody value={article.body} seed={slug} section={section} />
 

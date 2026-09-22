@@ -11,6 +11,9 @@ import { DocumentTextIcon } from '@sanity/icons/DocumentText'
  * `readingTime` is deliberately absent: it is derived at render, because a
  * stored value goes stale on every edit.
  */
+/** Fixed _id of the Screen section document, created with this id on purpose. */
+export const SCREEN_SECTION_ID = 'section-screen'
+
 export const article = defineType({
   name: 'article',
   title: 'Article',
@@ -413,6 +416,86 @@ export const article = defineType({
           description:
             'One line for our own record: who covered it, whether the people and place are named, anything that did not check out.',
         }),
+      ],
+      options: { collapsible: true, collapsed: false },
+    }),
+    /**
+     * Screen - film, series and streaming coverage. See readme/SCREEN-SECTION-PLAN.md.
+     *
+     * Shown only for articles filed under the Screen section (fixed id
+     * `section-screen`). Feeds the "Watch it" card at the top of the article,
+     * which is the block search and AI answers quote: where to watch, by country.
+     * International first; India always gets its own row.
+     */
+    defineField({
+      name: 'screenMeta',
+      title: 'Screen - watch guide',
+      type: 'object',
+      group: 'kindMeta',
+      hidden: ({ document }) =>
+        (document as { section?: { _ref?: string } } | undefined)?.section?._ref !== SCREEN_SECTION_ID,
+      fields: [
+        defineField({ name: 'workTitle', title: 'Title of the film or series', type: 'string' }),
+        defineField({
+          name: 'workType',
+          type: 'string',
+          options: {
+            list: [
+              { title: 'Film', value: 'film' },
+              { title: 'Series', value: 'series' },
+              { title: 'Documentary', value: 'documentary' },
+              { title: 'Docuseries', value: 'docuseries' },
+            ],
+            layout: 'radio',
+          },
+        }),
+        defineField({
+          name: 'releaseDate',
+          title: 'Original release date',
+          type: 'date',
+          description: 'Worldwide or original premiere. Per-country dates go in the rows below.',
+        }),
+        defineField({
+          name: 'availability',
+          title: 'Where to watch, by country',
+          description: 'One row per country. Aim for at least US, UK and India, plus any market you can confirm.',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'object',
+              name: 'watchRow',
+              fields: [
+                defineField({
+                  name: 'region',
+                  type: 'string',
+                  options: {
+                    list: ['Global', 'US', 'UK', 'India', 'Philippines', 'Canada', 'Australia', 'Nigeria', 'Kenya', 'Other'],
+                  },
+                  validation: (r) => r.required(),
+                }),
+                defineField({ name: 'platform', type: 'string', description: 'Netflix, Prime Video, JioHotstar, cinemas, The Chosen app...', validation: (r) => r.required() }),
+                defineField({ name: 'languages', type: 'string', description: 'Audio / subtitles, e.g. "English; Hindi and Tamil audio"' }),
+                defineField({ name: 'releaseDate', type: 'date', title: 'Release date here' }),
+              ],
+              preview: { select: { title: 'region', subtitle: 'platform' } },
+            }),
+          ],
+        }),
+        defineField({
+          name: 'contentAdvisory',
+          title: 'Content advisory',
+          type: 'object',
+          options: { columns: 2 },
+          fields: ['language', 'violence', 'sexualContent', 'themes'].map((name) =>
+            defineField({
+              name,
+              type: 'string',
+              options: { list: ['none', 'mild', 'moderate', 'strong'], layout: 'dropdown' },
+            }),
+          ),
+        }),
+        defineField({ name: 'advisoryNote', type: 'string', title: 'Advisory note', description: 'One line, e.g. "Deals with suicide and domestic abuse."' }),
+        defineField({ name: 'trailerUrl', type: 'url', title: 'Official trailer (YouTube)' }),
       ],
       options: { collapsible: true, collapsed: false },
     }),

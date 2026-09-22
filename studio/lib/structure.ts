@@ -59,11 +59,19 @@ export const structure: StructureResolver = (S) =>
                 ),
               S.divider(),
               S.listItem()
+                .title('Screen - film & series')
+                .child(
+                  S.documentList()
+                    .title('Screen - film & series')
+                    .filter('_type == "article" && section._ref == "section-screen"')
+                    .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }]),
+                ),
+              S.listItem()
                 .title('Current - daily briefs')
                 .child(
                   S.documentList()
                     .title('Current - daily briefs')
-                    .filter('_type == "article" && kind == "brief"')
+                    .filter('_type == "article" && kind == "brief" && section._ref != "section-screen"')
                     .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }]),
                 ),
               S.divider(),

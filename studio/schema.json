@@ -2717,6 +2717,277 @@
         },
         "optional": true
       },
+      "screenMeta": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "workTitle": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "workType": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "union",
+                "of": [
+                  {
+                    "type": "string",
+                    "value": "film"
+                  },
+                  {
+                    "type": "string",
+                    "value": "series"
+                  },
+                  {
+                    "type": "string",
+                    "value": "documentary"
+                  },
+                  {
+                    "type": "string",
+                    "value": "docuseries"
+                  }
+                ]
+              },
+              "optional": true
+            },
+            "releaseDate": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "availability": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "object",
+                  "attributes": {
+                    "region": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "Global"
+                          },
+                          {
+                            "type": "string",
+                            "value": "US"
+                          },
+                          {
+                            "type": "string",
+                            "value": "UK"
+                          },
+                          {
+                            "type": "string",
+                            "value": "India"
+                          },
+                          {
+                            "type": "string",
+                            "value": "Philippines"
+                          },
+                          {
+                            "type": "string",
+                            "value": "Canada"
+                          },
+                          {
+                            "type": "string",
+                            "value": "Australia"
+                          },
+                          {
+                            "type": "string",
+                            "value": "Nigeria"
+                          },
+                          {
+                            "type": "string",
+                            "value": "Kenya"
+                          },
+                          {
+                            "type": "string",
+                            "value": "Other"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
+                    "platform": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      },
+                      "optional": true
+                    },
+                    "languages": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      },
+                      "optional": true
+                    },
+                    "releaseDate": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      },
+                      "optional": true
+                    },
+                    "_type": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string",
+                        "value": "watchRow"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "object",
+                    "attributes": {
+                      "_key": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "optional": true
+            },
+            "contentAdvisory": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "object",
+                "attributes": {
+                  "language": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "string",
+                          "value": "none"
+                        },
+                        {
+                          "type": "string",
+                          "value": "mild"
+                        },
+                        {
+                          "type": "string",
+                          "value": "moderate"
+                        },
+                        {
+                          "type": "string",
+                          "value": "strong"
+                        }
+                      ]
+                    },
+                    "optional": true
+                  },
+                  "violence": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "string",
+                          "value": "none"
+                        },
+                        {
+                          "type": "string",
+                          "value": "mild"
+                        },
+                        {
+                          "type": "string",
+                          "value": "moderate"
+                        },
+                        {
+                          "type": "string",
+                          "value": "strong"
+                        }
+                      ]
+                    },
+                    "optional": true
+                  },
+                  "sexualContent": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "string",
+                          "value": "none"
+                        },
+                        {
+                          "type": "string",
+                          "value": "mild"
+                        },
+                        {
+                          "type": "string",
+                          "value": "moderate"
+                        },
+                        {
+                          "type": "string",
+                          "value": "strong"
+                        }
+                      ]
+                    },
+                    "optional": true
+                  },
+                  "themes": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "string",
+                          "value": "none"
+                        },
+                        {
+                          "type": "string",
+                          "value": "mild"
+                        },
+                        {
+                          "type": "string",
+                          "value": "moderate"
+                        },
+                        {
+                          "type": "string",
+                          "value": "strong"
+                        }
+                      ]
+                    },
+                    "optional": true
+                  }
+                }
+              },
+              "optional": true
+            },
+            "advisoryNote": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "trailerUrl": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
       "archiveMeta": {
         "type": "objectAttribute",
         "value": {

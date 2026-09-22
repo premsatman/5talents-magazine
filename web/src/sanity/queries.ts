@@ -347,6 +347,11 @@ export const ARTICLE_QUERY = defineQuery(/* groq */ `
       subjectPhoto { ${imageFragment} }
     },
     reviewMeta { workTitle, creator, workType, rating, year },
+    screenMeta {
+      workTitle, workType, releaseDate, advisoryNote, trailerUrl,
+      availability[]{ _key, region, platform, languages, releaseDate },
+      contentAdvisory { language, violence, sexualContent, themes }
+    },
     archiveMeta {
       originalPage, republishedAt, rewrittenAt, editNote,
       originalIssue->{ title, "slug": slug.current, issueDate }

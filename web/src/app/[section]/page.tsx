@@ -79,7 +79,9 @@ export default async function SectionPage(props: Props) {
    * we cannot licence, or because the card is deliberately typographic. Running
    * them through HeroSync would produce three empty frames.
    */
-  const isStream = section === 'current'
+  // Screen shares the stream layout for now: most pieces lead with a text card,
+  // not a photograph. Poster grid comes once press images are available.
+  const isStream = section === 'current' || section === 'screen'
   const featured = isStream ? [] : articles.slice(0, 3)
   const rest = isStream ? articles : articles.slice(3)
 
@@ -140,7 +142,7 @@ export default async function SectionPage(props: Props) {
                         article={article}
                         showSection={false}
                         // On the stream every card would otherwise read CURRENT.
-                        label={isStream ? clean(article.franchise?.name) : undefined}
+                        label={section === 'current' ? clean(article.franchise?.name) : undefined}
                       />
                     ))}
                   </div>

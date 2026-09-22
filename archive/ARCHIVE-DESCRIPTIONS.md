@@ -1,6 +1,9 @@
 # 5Talents Archive — PDF viewer metadata
 
-Copy-paste fields for the 19 archive issues (Issue 1, July 2012 → Issue 19, May–July 2014).
+Copy-paste fields for the 20 archive issues (Issue 1, July 2012 → Issue 20, January–February 2017).
+
+The run is **2012–2017**, not 2012–2014. Issues 1–19 ran monthly to July 2014; Issue 20 came after a
+two-and-a-half-year gap as a restart, and is where the run actually ends.
 
 Wording note: nothing here says *printed* or *published* of the 2012–14 run — that language stays off
 anything a reader or an ISSN assessor can see. See `issn/PLAN.md`.
@@ -25,11 +28,12 @@ anything a reader or an ISSN assessor can see. See `issn/PLAN.md`.
 | 16 | 5Talents Magazine – Issue 16, January 2014 | 5Talents Archive: 2014 | Faith & Business | The Marketplace Revolution issue — Michael Brian of Business Seva, Swaranjit Sen of CCCI and Joseph Wilson of BMFI on what kingdom business actually means, plus Seeking Wisdom. 24 pages. |
 | 17 | 5Talents Magazine – Issue 17, February 2014 | 5Talents Archive: 2014 | Relationships | An issue on love and leadership: ACTC's 50th anniversary, George Powell on what your relationships reveal about your leadership, finding joy in trials, and the cost of unjust gain. 24 pages. |
 | 18 | 5Talents Magazine – Issue 18, March–April 2014 | 5Talents Archive: 2014 | Easter Issue | Stella Bogi's life journey, George Powell on facing the giants, Jenny Stevec on convergence, a prayer ahead of India's 2014 general election, and a review of *Grace Unplugged*. 24 pages. |
-| 19 | 5Talents Magazine – Issue 19, May–July 2014 | 5Talents Archive: 2014 | Final Issue | The last issue of the original run: Christine Lazares on the cover, part two of Facing the Giants, Mate and Help Meet, Joseph Dias on Gandhi's view of Christianity, and *Jackson's Run*. 24 pages. |
+| 19 | 5Talents Magazine – Issue 19, May–July 2014 | 5Talents Archive: 2014 | Talent Search | The last of the monthly run: Christine Lazares on the cover, part two of Facing the Giants, Mate and Help Meet, Joseph Dias on Gandhi's view of Christianity, and *Jackson's Run*. 24 pages. |
+| 20 | 5Talents Magazine – Issue 20, January–February 2017 | 5Talents Archive: 2017 | Final Issue | The restart issue, after two and a half years away. Cover story on Empty Sepulchre, a Hyderabad teen band named for Matthew 28:7, with vocalist Leonard Joshua; a report from the AWAKE 2016 mission trip; George Powell on facing the giants; William Tyndale; and a review of *God's Not Dead*. Masthead reads FIVE TALENTS. 24 pages. |
 
 ## If your viewer uses a fixed category list
 
-All 19 sit under **Religion & Spirituality** (or *Religion / Christianity*). Keep the column above as tags
+All 20 sit under **Religion & Spirituality** (or *Religion / Christianity*). Keep the column above as tags
 or keywords instead.
 
 ## Shared keyword set

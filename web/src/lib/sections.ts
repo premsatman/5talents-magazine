@@ -20,6 +20,8 @@ export const SECTION_SLUGS = [
   'heritage',
   // The daily short-post stream. See readme/CURRENT-SECTION-SPEC.md.
   'current',
+  // Film, series and streaming. See readme/SCREEN-SECTION-PLAN.md.
+  'screen',
 ] as const
 
 export type SectionSlug = (typeof SECTION_SLUGS)[number]
