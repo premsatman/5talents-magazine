@@ -124,7 +124,19 @@ export const metadata: Metadata = {
     siteName,
     locale: 'en_IN',
   },
-  robots: { index: true, follow: true },
+  // max-image-preview:large lets Google show the lead image as a thumbnail in
+  // results, and large in Discover. Without it Google may show no image at all.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
 }
 
 /**

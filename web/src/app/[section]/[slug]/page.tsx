@@ -135,6 +135,25 @@ export default async function ArticlePage(props: Props) {
    * if a URL is set on heroExternal it wins and the upload is ignored.
    */
   const jsonLdImage = clean(article.heroExternal?.url) ?? article.hero?.asset?.url ?? undefined
+  /**
+   * Google's Article guidance asks for the lead image in three shapes -
+   * 16:9, 4:3 and 1:1, each at least 1200px wide where the source allows - and
+   * picks whichever fits the result it is drawing (desktop thumbnail, mobile
+   * card, Discover). One 2:1 image often gets no thumbnail at all.
+   */
+  const jsonLdImages = (() => {
+    const shapes: [number, number][] = [[1600, 900], [1600, 1200], [1200, 1200]]
+    const ext = clean(article.heroExternal?.url)
+    if (ext) {
+      return /^https:\/\/res\.cloudinary\.com\//.test(ext)
+        ? shapes.map(([w, h]) => cloudinaryUrl(ext, w, h))
+        : [ext]
+    }
+    if (article.hero?.asset?.url) {
+      return shapes.map(([w, h]) => urlFor(article.hero).width(w).height(h).fit('crop').url())
+    }
+    return undefined
+  })()
 
   const adsOff = Boolean(article.sensitiveTopic)
 
@@ -168,7 +187,7 @@ export default async function ArticlePage(props: Props) {
     }),
     publisher: { '@type': 'Organization', name: siteName, url: absoluteUrl('/') },
     mainEntityOfPage: absoluteUrl(articleHref(section, slug)),
-    image: jsonLdImage ? [jsonLdImage] : undefined,
+    image: jsonLdImages ?? (jsonLdImage ? [jsonLdImage] : undefined),
     isAccessibleForFree: true,
     /**
      * Review rich results need the thing reviewed and a rating. Screen reviews
