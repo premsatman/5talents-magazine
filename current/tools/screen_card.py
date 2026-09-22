@@ -59,7 +59,7 @@ def make(lines,keyword,kicker,out,label="SCREEN",tag=None):
     for l in lines:
         x=M
         for i,word in enumerate(l.split(' ')):
-            col=YEL if word.strip('.,!?').upper()==keyword.upper() else CREAM
+            col=YEL if word.strip('.,!?').upper()==keyword.strip('.,!?').upper() else CREAM
             d.text((x,y),word,font=f,fill=col)
             x+=d.textlength(word+' ',font=f)
         y+=int(size*0.92)

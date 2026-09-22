@@ -6,6 +6,8 @@ import { clean } from '@/sanity/stega'
 import { readingTimeLabel } from '@/lib/reading-time'
 import { formatDate } from '@/lib/format'
 import { SponsorLabel, isSponsored } from './SponsorLabel'
+import { TrailerHero } from './TrailerHero'
+import { youtubeId } from './WatchIt'
 
 /**
  * Article hero.
@@ -66,6 +68,7 @@ type HeroArticle = {
   authors?: ({ name?: string | null; slug?: string | null } | null)[] | null
   interviewMeta?: { isCoverStory?: string | null } | null
   sponsor?: { name?: string | null } | null
+  screenMeta?: { workTitle?: string | null; trailerUrl?: string | null; trailerAsHero?: boolean | null } | null
 }
 
 export function Byline({ article }: { article: HeroArticle }) {
@@ -150,6 +153,18 @@ export function ArticleHero({ article }: { article: HeroArticle }) {
 
   /* ---- Headline first: text cards and studio stills ------------------ */
   if (HEADLINE_FIRST_SECTIONS.has(clean(article.section?.slug) ?? '')) {
+    // Opt-in: the official trailer leads instead of our card.
+    const trailerId = article.screenMeta?.trailerAsHero ? youtubeId(article.screenMeta?.trailerUrl) : null
+    if (trailerId) {
+      return (
+        <header className="piecehero piecehero--card">
+          <div className="col">
+            <h1>{article.title}</h1>
+          </div>
+          <TrailerHero id={trailerId} title={`${clean(article.screenMeta?.workTitle) ?? 'Official'} trailer`} />
+        </header>
+      )
+    }
     const card = resolveMedia(article.hero, article.heroExternal, {
       width: Math.min(Math.max(width, 1200), 2000),
     })

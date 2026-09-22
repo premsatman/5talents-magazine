@@ -518,6 +518,14 @@ export const article = defineType({
         }),
         defineField({ name: 'advisoryNote', type: 'string', title: 'Advisory note', description: 'One line, e.g. "Deals with suicide and domestic abuse."' }),
         defineField({ name: 'trailerUrl', type: 'url', title: 'Official trailer (YouTube)' }),
+        defineField({
+          name: 'trailerAsHero',
+          type: 'boolean',
+          title: 'Use the trailer as the lead',
+          initialValue: false,
+          description:
+            'Shows the trailer (its YouTube thumbnail with a play button) at the top of the article instead of our card. Only for an official trailer. Our card is still used on the homepage, in social shares and in Google Discover, because the thumbnail may only appear as part of the video.',
+        }),
       ],
       options: { collapsible: true, collapsed: false },
     }),

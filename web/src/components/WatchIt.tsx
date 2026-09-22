@@ -27,6 +27,7 @@ export type ScreenMeta = {
   releaseDate?: string | null
   advisoryNote?: string | null
   trailerUrl?: string | null
+  trailerAsHero?: boolean | null
   availability?: Row[] | null
   contentAdvisory?: Advisory | null
 } | null | undefined
@@ -54,7 +55,7 @@ function fmt(date?: string | null) {
  * watch?v=, youtu.be/, /embed/, /shorts/. Returns null for anything else,
  * so a non-YouTube link never becomes an iframe.
  */
-function youtubeId(url?: string | null): string | null {
+export function youtubeId(url?: string | null): string | null {
   const u = clean(url)
   if (!u) return null
   try {
@@ -74,7 +75,7 @@ function youtubeId(url?: string | null): string | null {
   }
 }
 
-export function WatchIt({ meta }: { meta: ScreenMeta }) {
+export function WatchIt({ meta, hideVideo = false }: { meta: ScreenMeta; hideVideo?: boolean }) {
   const rows = (meta?.availability ?? []).filter((r) => clean(r.region) && clean(r.platform))
   const adv = meta?.contentAdvisory
   const advItems = adv
@@ -85,7 +86,8 @@ export function WatchIt({ meta }: { meta: ScreenMeta }) {
         ['Themes', adv.themes],
       ] as const).filter(([, v]) => clean(v))
     : []
-  const trailerId = youtubeId(meta?.trailerUrl)
+  // When the trailer is already the article's lead, don't play it twice.
+  const trailerId = hideVideo ? null : youtubeId(meta?.trailerUrl)
   if (!rows.length && !advItems.length && !clean(meta?.advisoryNote) && !clean(meta?.trailerUrl)) return null
 
   const title = clean(meta?.workTitle)
@@ -147,7 +149,7 @@ export function WatchIt({ meta }: { meta: ScreenMeta }) {
           </div>
           <figcaption>Official trailer, embedded from YouTube</figcaption>
         </figure>
-      ) : clean(meta?.trailerUrl) ? (
+      ) : !hideVideo && clean(meta?.trailerUrl) ? (
         <p className="watchit-trailer">
           <a href={clean(meta?.trailerUrl) ?? undefined} target="_blank" rel="noopener noreferrer">
             Watch the official trailer

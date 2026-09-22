@@ -3035,6 +3035,13 @@
                 "type": "string"
               },
               "optional": true
+            },
+            "trailerAsHero": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "boolean"
+              },
+              "optional": true
             }
           }
         },

@@ -1530,3 +1530,13 @@ nav.primary.compact { border-top: 0; }
 .igembed iframe { display: block; width: 100%; height: 760px; border: 1px solid var(--rule, #e4e1d8); border-radius: 6px; background: #fff; }
 .igembed figcaption { margin-top: 0.5rem; font-size: 0.875rem; color: var(--ink-muted, #6b675c); text-align: center; }
 @media (max-width: 600px) { .igembed iframe { height: 640px; } }
+
+/* Official trailer as the article lead (TrailerHero). 16:9, click to play. */
+.trailerhero__box { position: relative; aspect-ratio: 16 / 9; background: #0b0a08; overflow: hidden; }
+.trailerhero__box iframe, .trailerhero__play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.trailerhero__play { padding: 0; cursor: pointer; background: none; display: block; }
+.trailerhero__play img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.trailerhero__icon { position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; transform: translate(-50%, -50%); border-radius: 50%; background: rgba(20, 19, 14, 0.78); box-shadow: 0 0 0 3px #FDEF0A; transition: transform 150ms ease; }
+.trailerhero__icon::after { content: ''; position: absolute; left: 31px; top: 23px; border-style: solid; border-width: 15px 0 15px 24px; border-color: transparent transparent transparent #FDEF0A; }
+.trailerhero__play:hover .trailerhero__icon, .trailerhero__play:focus-visible .trailerhero__icon { transform: translate(-50%, -50%) scale(1.08); }
+.trailerhero figcaption { margin-top: 0.5rem; font-size: 0.8125rem; color: var(--ink-muted, #6b675c); }

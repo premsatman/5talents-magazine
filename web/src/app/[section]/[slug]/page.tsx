@@ -261,7 +261,9 @@ export default async function ArticlePage(props: Props) {
                 </p>
               )}
 
-              {section === 'screen' && <WatchIt meta={article.screenMeta} />}
+              {section === 'screen' && (
+                <WatchIt meta={article.screenMeta} hideVideo={Boolean(article.screenMeta?.trailerAsHero)} />
+              )}
 
               <PortableBody value={article.body} seed={slug} section={section} adsOff={adsOff} />
 
