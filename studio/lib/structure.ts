@@ -79,7 +79,7 @@ export const structure: StructureResolver = (S) =>
                 .title('From the archive')
                 .child(
                   S.documentList()
-                    .title('Republished from 2012-14')
+                    .title('Republished from the print archive')
                     .filter('_type == "article" && defined(archiveMeta.originalIssue)'),
                 ),
               S.listItem()
@@ -103,10 +103,14 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('section').title('Sections').icon(TagIcon),
       S.documentTypeListItem('tag').title('Tags').icon(TagIcon),
       S.documentTypeListItem('onlineIssue').title('Online issues').icon(DocumentsIcon),
-      S.documentTypeListItem('archiveIssue').title('Print archive 2012-14').icon(BookIcon),
+      S.documentTypeListItem('archiveIssue').title('Print archive 2012-17').icon(BookIcon),
       S.documentTypeListItem('advertiser').title('Advertisers').icon(CaseIcon),
       S.divider(),
       S.listItem()
+        // Explicit id: the submission notification email deep-links to
+        // /structure/submissions;<docId>. An auto-derived id would change if
+        // the title ever did, and the link would quietly 404.
+        .id('submissions')
         .title('Submissions')
         .icon(InboxIcon)
         .child(

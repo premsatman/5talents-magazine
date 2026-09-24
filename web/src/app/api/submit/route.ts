@@ -3,6 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { apiVersion, dataset, projectId } from '@/sanity/env'
 import { writeToken } from '@/sanity/token'
 import { clientIp, rateLimit, verifyTurnstile } from '@/lib/rate-limit'
+import { mailSubmission } from '@/lib/submission-mail'
 import { SECTION_SLUGS } from '@/lib/sections'
 
 /**
@@ -92,19 +93,24 @@ export async function POST(req: NextRequest) {
     useCdn: false,
   })
 
+  const fields = {
+    name,
+    email,
+    country: str(payload.country, 80),
+    institution: str(payload.institution, 160),
+    proposedSection: (SECTION_SLUGS as readonly string[]).includes(proposedSection)
+      ? proposedSection
+      : '',
+    pitchTitle,
+    pitch,
+    links: str(payload.links, 1200),
+  }
+
+  let created: { _id: string }
   try {
-    await client.create({
+    created = await client.create({
       _type: 'submission',
-      name,
-      email,
-      country: str(payload.country, 80),
-      institution: str(payload.institution, 160),
-      proposedSection: (SECTION_SLUGS as readonly string[]).includes(proposedSection)
-        ? proposedSection
-        : '',
-      pitchTitle,
-      pitch,
-      links: str(payload.links, 1200),
+      ...fields,
       status: 'new',
       submittedAt: new Date().toISOString(),
     })
@@ -114,6 +120,11 @@ export async function POST(req: NextRequest) {
       { status: 502 },
     )
   }
+
+  // Notification to the desk and an acknowledgement to the contributor. The
+  // document is already saved, so neither send can fail the submission - a
+  // Resend outage must not tell a contributor their pitch was lost.
+  await mailSubmission({ ...fields, documentId: created._id })
 
   return NextResponse.json({ message: 'Pitch received.' })
 }
