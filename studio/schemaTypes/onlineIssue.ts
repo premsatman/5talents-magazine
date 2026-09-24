@@ -4,9 +4,11 @@ import { DocumentsIcon } from '@sanity/icons/Documents'
 /**
  * One issue of the online magazine.
  *
- * This is not `archiveIssue`. That type models the 18 early issues of
- * 2012-2014, which exist as PDFs with a page-numbered table of contents and
- * were circulated privately rather than published. This one models the web
+ * This is not `archiveIssue`. That type models the 20 early issues of
+ * 2012-2017: nineteen from July 2012 to the May-July 2014 issue, then a single
+ * relaunch issue in January-February 2017 after a two-and-a-half year gap.
+ * They exist as PDFs with a page-numbered table of contents and were
+ * circulated privately rather than published. This one models the web
  * magazine, where an issue is a set of article documents and nothing is a PDF.
  *
  * It exists because ISSN India requires two things a continuously-published

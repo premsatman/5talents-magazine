@@ -552,7 +552,7 @@ export const article = defineType({
       type: 'object',
       group: 'kindMeta',
       description:
-        'Fill in for anything republished from the 2012-14 issues. Display shows the original issue prominently; publishedAt carries the freshness signal.',
+        'Fill in for anything republished from the 2012-17 print issues. Display shows the original issue prominently; publishedAt carries the freshness signal.',
       fields: [
         defineField({
           name: 'originalIssue',

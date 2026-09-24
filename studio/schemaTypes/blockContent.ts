@@ -137,7 +137,7 @@ export const blockContent = defineType({
      * present-tense sentence, or the piece misleads them about something that
      * matters to the people who knew him.
      *
-     * The archive will keep needing this. Every 2012-14 interview is being
+     * The archive will keep needing this. Every print-archive interview is being
      * republished more than a decade later, and some of those subjects have
      * died, changed ministries or would tell the story differently now. The
      * note is how the magazine says so without editing what the person
