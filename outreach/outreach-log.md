@@ -37,3 +37,4 @@ Follow-up rule: one polite nudge three weeks after the first send, then stop.
 | Jun Park | IG DM | — | — | Queued (batch 3) |
 | Tori Hope Petersen | Contact form | — | — | Queued (batch 3) |
 | Stephen Devassy (via Sam) | Email | — | — | Draft ready, not sent |
+| Theja Rio (Angh) + Jungle Book Studio + Route 504 | Email | 23 Sep 2026 | — | Sent. PK Kingston off the account since 20 Sep; redirected to Angie Power + Ally La Mere-Shedden (Route 504). Follow-up drafted. IG DM to @thejario separate. |

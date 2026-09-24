@@ -135,6 +135,23 @@ export const article = defineType({
         'Only used when this piece is in the three homepage hero cards. Use it when the lead image is a text card: a landscape card cropped to portrait loses its words and fights the headline laid over it. Upload a 3:4 version with no big text, just the artwork and the 5TALENTS header.',
       options: { collapsible: true, collapsed: true },
     }),
+    defineField({
+      name: 'heroLayout',
+      title: 'Where the headline sits',
+      type: 'string',
+      group: 'content',
+      initialValue: 'auto',
+      description:
+        'Leave on Automatic unless this piece needs the other treatment. Automatic means Current and Screen put the headline above the picture (our cards and studio stills have their own words, and type over them fights), and every other section lays the headline over it. Over the picture needs a wide photograph with room for type - it is ignored on a tall one, and the piece falls back to the headline above.',
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Automatic - whatever the section usually does', value: 'auto' },
+          { title: 'Headline above the picture', value: 'headlineFirst' },
+          { title: 'Headline over the picture', value: 'overlay' },
+        ],
+      },
+    }),
     defineField({ name: 'body', type: 'blockContent', group: 'content' }),
     /**
      * Contributor's own links, printed after the piece.

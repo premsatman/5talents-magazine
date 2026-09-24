@@ -319,6 +319,7 @@ export const ARTICLE_QUERY = defineQuery(/* groq */ `
     publishedAt,
     sponsorTier,
     "section": section->{ name, "slug": slug.current },
+    heroLayout,
     hero { ${imageFragment} },
     heroExternal { ${externalImageFragment} },
     body[]{

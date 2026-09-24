@@ -59,6 +59,8 @@ type HeroArticle = {
   title?: string | null
   deck?: string | null
   kind?: string | null
+  /** Per-article override of the section's usual hero treatment. */
+  heroLayout?: string | null
   publishedAt?: string | null
   sponsorTier?: string | null
   wordCount?: number | null
@@ -151,8 +153,25 @@ export function ArticleHero({ article }: { article: HeroArticle }) {
   const landscape = height > 0 && width / height >= MIN_OVERLAY_RATIO
   const overlay = Boolean(wide) && width >= MIN_OVERLAY_WIDTH && landscape
 
+  /*
+   * The editor's choice wins over the section default.
+   *
+   * 'auto' (the default) keeps the old behaviour: Current and Screen lead with
+   * the headline because their leads are usually our own cards or studio
+   * stills. A photograph in those sections can still be given the overlay, and
+   * a card anywhere else can be kept out of it, one article at a time.
+   *
+   * A forced overlay still refuses a portrait image - type over a tall picture
+   * has nowhere to sit - but it drops the width floor, because an editor asking
+   * for the overlay has already looked at the picture.
+   */
+  const choice = clean(article.heroLayout) ?? 'auto'
+  const sectionLeadsWithHeadline = HEADLINE_FIRST_SECTIONS.has(clean(article.section?.slug) ?? '')
+  const headlineFirst = choice === 'headlineFirst' || (choice === 'auto' && sectionLeadsWithHeadline)
+  const forcedOverlay = choice === 'overlay' && Boolean(wide) && landscape
+
   /* ---- Headline first: text cards and studio stills ------------------ */
-  if (HEADLINE_FIRST_SECTIONS.has(clean(article.section?.slug) ?? '')) {
+  if (headlineFirst) {
     // Opt-in: the official trailer leads instead of our card.
     const trailerId = article.screenMeta?.trailerAsHero ? youtubeId(article.screenMeta?.trailerUrl) : null
     if (trailerId) {
@@ -192,7 +211,7 @@ export function ArticleHero({ article }: { article: HeroArticle }) {
   }
 
   /* ---- Overlay: headline over the photograph ------------------------- */
-  if (overlay && wide) {
+  if ((overlay || forcedOverlay) && wide) {
     return (
       <header className="piecehero piecehero--overlay">
         <div className="piecehero__frame">

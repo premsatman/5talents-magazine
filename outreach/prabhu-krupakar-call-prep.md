@@ -1,79 +1,90 @@
-# Prabhu Krupakar — call prep and interview questions
+# Prabhu Krupakar — The Chosen India
 
-**Who he is:** Project Director, The Chosen India (@thechosentvseries, thechosentv.in, @thechosentvin). Partner at Kraftsmen Media. Runs 316Consulting. Describes himself as a business consultant. IG @prabhukrupakar, 11.4k.
-**Status:** he liked and commented on a 5Talents post, then asked for a phone number.
-**He asked for your number, so expect a call, not a questionnaire.** Sections A to C are for the call. Section D is the written interview afterwards.
-
-> **HE IS LOCAL.** Kraftsmen Media is in Secunderabad — founded 2019, audio and video production, music recording, mixing, mastering, video. You are in Hyderabad. Offer to meet in person. A coffee beats a phone call and it is the single best thing you can do with this contact.
+**Who he is:** Project Director, The Chosen India (@thechosentvseries, thechosentv.in, @thechosentvin). Partner at Kraftsmen Media, Secunderabad. Runs 316Consulting. IG @prabhukrupakar, 11.4k.
+**Status after the call (23 Sep 2026):** WILLING TO DO THE INTERVIEW. But he must clear it with the relevant authorities first — releasing a Christian series in India is a sensitive matter and he is handling it carefully.
 
 ---
 
-## A. What you already have to say — lead with this
+## The constraint, and what it changes
 
-You are not asking him for anything yet. You have already done unpaid work for his project:
+He needs permission before he can answer. That single fact should shape every question we send.
 
-1. Published a reader piece on the Season 6 Episode 1 free church screenings, explaining what the episode covers and how churches register.
-2. Emailing **ninety-nine Indian churches** this month, pointing them to the Come and See registration pages. Nobody asked. No fee.
+**Write questions he can forward to a reviewer and get a tick on.** Anything that could complicate his clearance costs him more than it gains us — and if it stalls the approval, we lose the piece and he is left holding a problem we created.
 
-Say it once, plainly, and claim no credit. It is the most credible thing you can put on the table and it costs you nothing to state.
+**So we are not asking about:**
+- Regulatory approvals, certification, censorship, or the permission process itself
+- Politics, anti-Christian sentiment, persecution, or regional opposition
+- Money — per-language dubbing costs, platform deals, negotiations
+- Anything about Netflix or any named platform's commercial arrangements
+- Anything that invites him to criticise anyone
 
-**The screening deadline is 15 November 2026.** If he needs something said to Indian churches, it has to be said before then. That is the useful question to ask him.
+**Fewer questions, all on the series and the church screenings.** Six below, and the sixth is optional. Every one of them is something he would be glad to see printed.
 
----
-
-## B. Be ready for the honest numbers
-
-He is a business consultant. He will ask about reach, and a vague answer will cost you more than a small one.
-
-- **Do not inflate anything.** The site has little traffic yet — that is the stated reason advertising is deferred until after Q1 2027. Say so if asked. A magazine honest about its size at relaunch is more investable than one that bluffs.
-- **The 99-church campaign is your real asset.** It is actual work already in motion, aimed at his exact objective, with a measurable outcome. Talk about that rather than follower counts.
-- **Have these ready:** the archive is live and free, monthly issues resume January 2027, readership is young Indian Christians, run 2012 to 2017 (not 2014 — that line is wrong in some old templates).
-- **Do not promise advertising or paid placement.** Ads are deferred until after Q1 2027 and you have no inventory to sell him.
-- **Do not promise a publication date for his interview** until the running order is fixed.
+**Do not write about the clearance process in the published piece, and do not name any authority.** Reporting that a Christian series needs sign-off in India would create exactly the problem he is managing. It stays between us.
 
 ---
 
-## C. What to ask him on the call
+## Protecting the time-sensitive part
 
-1. What does the India rollout actually need between now and 15 November that we could help with?
-2. Which languages and which regions are behind where you want them? We can aim coverage at a specific gap rather than writing something general.
-3. Are there registered host churches who would talk to us? A church that screened it is a better story than a press release.
-4. Would you do a written interview for the January or February issue?
-5. Is there anything about the project you would rather we did not print?
+**The S6 Episode 1 free church screenings close on 15 November 2026.** His clearance may take longer than that.
 
-**Do not ask for Jonathan Roumie.** Roumie is already on our list at Email sent, Prabhu is the obvious route, and asking on a first call turns the relationship into a transaction. Let it be offered.
+So separate the two things:
+
+1. **The screenings piece runs regardless**, on public facts from Come and See — what the episode is, that churches can screen it free before 15 November, and how to register. No quotes needed, nothing to clear. 5Talents has already published on this and is emailing ninety-nine Indian churches. That work continues and does not wait for anyone.
+2. **The interview runs when he is cleared**, whenever that is. January or February 2027 is fine.
+
+Say this to him explicitly. It takes the pressure off, it shows we are not going to push him, and it means the churches still get the information in time.
 
 ---
 
-## D. The ten interview questions
+## A. The reply
 
-**1.** You are a business consultant. How does a consultant end up as Project Director of The Chosen in India? Walk me through the actual sequence, because nobody gets that job by applying for it.
+Dear Prabhu,
 
-**2.** What does the job consist of, week to week? People imagine something glamorous. I suspect it is contracts, schedules and chasing people.
+Thank you for the call, and thank you for being straight with me about the approvals. That is exactly the right way round — I would rather wait than put you in a difficult position.
 
-**3.** Season 4 was dubbed into Bengali, Tamil and Hindi. India has twenty-two official languages and hundreds more. Who decides which language comes next, on what grounds, and what does one language actually cost to do properly?
+Two things, so you are not carrying any pressure from us.
 
-**4.** How do you cast a dub? What are you listening for when you are choosing the voice that will be Jesus for a few million Telugu or Bengali speakers?
+First, the church screenings. We are already writing about those from Come and See's public information — what Episode 1 covers, that churches can screen it free before 15 November, and how to register. We have published once and we are emailing ninety-nine Indian churches this month. None of that needs a quote from you or waits on anything, so the churches will get the information in time whatever happens with your clearance.
 
-**5.** Season 5 reached Netflix India. What did getting it onto a platform people already pay for involve, and what changed once it was there?
+Second, the interview. Only six questions, below, and I have written them so that you can forward them to whoever needs to see them. There is nothing in there about approvals, regulation, politics or money. They are about the series and about the screenings, and I think you would be happy to see any of the answers in print.
 
-**6.** If it is on Netflix, why do free church screenings still matter? Make the case, because from the outside the two look like they compete.
+If any single question cannot be cleared, strike it and answer the rest. I will not ask why and I will not come back to it.
 
-**7.** What is the hardest part — money, permissions, regional resistance, or plain apathy from churches who could screen it and do not?
+No deadline. Tell me roughly when you expect to know and I will leave you alone until then. You keep copyright in your answers, we publish first, the edit is light, and you read and approve the finished piece before anything runs. No fee in either direction.
 
-**8.** Has working on this changed how you read the gospels? You have been through these scenes line by line in several languages, which almost nobody has.
+And since we are both here — Secunderabad and Hyderabad — I would much rather do this over coffee once you are cleared, and bring a camera.
 
-**9.** Most of our readers believe serving God means music or preaching. You do it with contracts and distribution plans. What would you say to a young person whose only real skills are spreadsheets and logistics, and who has quietly concluded that God cannot use those?
+Kind regards,
+Premasis Satman
+Executive Director, 5Talents Magazine
+5talentsmag.com
 
-**10.** A twenty-three-year-old in Hyderabad wants to work in Christian media in India. What is the honest path, and what would you tell them not to waste time on?
+---
+
+## B. The six questions
+
+**1.** For a reader who has never watched it: what is The Chosen, and why do you think it has reached people the way it has?
+
+**2.** Season 6 Episode 1 is being made available to churches to screen free, ahead of everyone else. What exactly is on offer, and what does a church in India need to do to take it up?
+
+**3.** What does Episode 1 cover, and what would you want a pastor to know before showing it to their congregation?
+
+**4.** The series has been dubbed into Indian languages. What changes for someone when they hear these scenes in the language they think in, rather than in English?
+
+**5.** What have you seen happen in a room where it has been screened here?
+
+**6.** *Optional, only if it is easy.* You came to this from business and consulting rather than from film or ministry. What would you say to a young person who wants to serve God with ordinary professional skills?
 
 ---
 
 ## Notes for the editor
 
-- **Question 9 is why this piece belongs in 5Talents.** Everything else is a good media story that anyone could run. A consultant saying plainly that administration is a calling is the parable of the talents in a form our readers have never been offered, and it is the reason to give him space.
-- **Question 3 is the reportable one.** Cost and language-selection criteria are concrete facts nobody has published in India. If he gives real numbers, that is news, not a profile.
-- **Question 6 must be asked without an agenda.** We are actively driving churches to register; we have an interest in his answer. Let him make the case himself and do not write the argument for him.
-- **Verify before print, all of it.** Everything here about Kraftsmen Media, the Netflix release and the dubbed languages comes from secondhand web sources, not from him. In particular confirm: his exact title and whether "Project Director" is the right rendering; whether Kraftsmen Media is involved in the dubbing or is separate work; the Season 4 dubbing languages; and what Come and See's actual language targets are.
-- **Disclose the relationship if we keep promoting the screenings.** If 5Talents is running a church-registration campaign for his project and then publishes an interview with him, one plain line noting that we promoted the screenings belongs in the piece. Same principle as the Basanti and Redwood disclosures.
-- **He is in Secunderabad, we are in Hyderabad.** Meet him. And if the interview happens face to face, we get our own photographs, which we do not get from anyone else on the list this month.
+- **Question 2 is the one that has to be right.** It is the practical instruction our readers and their churches need, and the screening window closes 15 November. If his answer is slow, take the mechanics from comeandseefoundation.org and publish without him.
+- **Question 4 is the best question in the set.** It is safe, it is on-message, and it connects straight to a thread already running through the relaunch — Amit Kumar Pani in Kui and Soura, Rakesh Roshan Ekka's Mundari and Kurukh apps, Gloryfall in Tagalog. People worship and receive in the language they think in, and nobody builds for them. His answer belongs in that conversation.
+- **Question 6 is marked optional on purpose.** It is the most valuable question for our readership and the least likely to matter to a reviewer, so it is the one to sacrifice cheerfully if anything has to go.
+- **Do not publish anything about the clearance.** No mention that approval was needed, no naming of any authority, no characterising the environment for Christian media in India. It would create the problem he is carefully avoiding, and he told us in confidence on a call.
+- **Do not ask him for Jonathan Roumie.** Roumie is on our list at Email sent and Prabhu is the obvious route. Asking now, while he is spending goodwill on our behalf to get clearance, would be a poor way to treat him. Let it be offered.
+- **Verify everything about him before print.** His exact title and whether "Project Director" is the right rendering; Kraftsmen Media's role, if any, in the dubbing; the languages the series is available in; and Come and See's own description of the screening offer. Our notes on all of this are from secondhand web sources.
+- **Disclose the promotion.** We are running a church-registration campaign for his project and then publishing an interview with him. One plain line noting that 5Talents promoted the screenings belongs in the piece — same principle as the Basanti and Redwood disclosures.
+- **He is in Secunderabad, we are in Hyderabad.** Once he is cleared, meet him. Our own photographs, and a far better conversation than email gives.

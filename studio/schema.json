@@ -2286,6 +2286,27 @@
         },
         "optional": true
       },
+      "heroLayout": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "auto"
+            },
+            {
+              "type": "string",
+              "value": "headlineFirst"
+            },
+            {
+              "type": "string",
+              "value": "overlay"
+            }
+          ]
+        },
+        "optional": true
+      },
       "body": {
         "type": "objectAttribute",
         "value": {
