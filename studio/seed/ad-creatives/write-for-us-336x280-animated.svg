@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="336" height="280" viewBox="0 0 384 320" role="img" aria-label="5Talents: Write for us. Pitches from students and first-timers welcome. Send a pitch.">
+<title>5Talents: Write for us</title>
+<defs>
+<style>
+@font-face{font-family:'PB';src:url(data:font/woff2;base64,d09GMgABAAAAAAVcAAwAAAAACcwAAAUPAAQBBgAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcMAZgAHQKikiIPwE2AiQDTAsoAAQgBYMCByAbygdRlA5OC+BHgm3LYYXwkJ7CeUlnky3IJrLV1byc/+Khfune7v0klNYVg4xQ0C2qNmUxMsP4OEETCiNzx/+mNa+kBrue1BWpChGoqJDUSFXImgireu5wovKZ63+AcNITx1I/IrkJnuxFMmsb/T3txhOYbhaVgM3p0wTT2SajSKIWjfdVb04H7NYCA5b4QfuHhZXgokD9fwDD2kXDyrVPXWNx/DqgbSo80M6les9HHMmPrAXOekXciIviju8zPbAznZzzJXBcgNHi1Tups4g5jGPmXj6tXZtz+USFKZiQyRp3f7kMplhDq1CjTTcLq9FaPPwdzAYMfU3uS9dlp51y0lFHQhhq0to7wCyIT5DtqpU4bXBt3uNTB0TJjxdFL165yOtt9XTWahdptMsWvQddHK3VKe8g6V1i09uw8BauqGo1ceRx43sSSU+8ksRQkfT+JZUq/OgT+MZHsPB6laIosPDee/h0I15fizcTdQ2n5eP3kaUUIjQ4uuTfcaOqoq9VfON7sKAQm95HLVCF3zD74on3SD5YECzzt8eiE28P0R+/wFJKgWrpHVrmLR8Bd8AxHBGZLqKDFx4BED8r4JBixMrcjoTD1feJz+s0VWloShwQjMoUsiJFqgNJ6Yz87HJtVOlRAOdRJdXk9+8TEE78MIKIA48rHiLpFf6FyPIlMB184gKcr3iZe15RAuOZO6BZECriAwQQgMPCBWJ8NVIY4bDw9vOfvIuwVufV4RFrKHJNRPhqEn5zmozNbUOmO0kfhIbd8PcKDP3VqK2KzCwztG8ZGBrZMqBpv79cDfEv9Q/616gzulVGZpZkZ2S0DaeWAGt44s7jN8XXh19/8/rju532GfujcXuXHRb7WUnkuPRaZqxEpuWStbVMuknkWVv1iSw+Lz6ez2VZPl8257H4A/DSHFdu2dyv67gjGpjkXJPpf1fGIN7RtW0RzeVzHC/VQNRFkuupvZj8jVw6fgjCHbzAOXJV/Nlods0dNbemP9ZUPs/lSDU1vETPpqJs1sjPVl4hyZtU9Il+qDrWeFw+nrU1a5kw2jO0cmGHwyDp2Aj/xA/PifxFJuVIbOyRFEb+Rka766JToFtYHR6xmiJXr978lam0TMPf8SNwkf2A+btropLhR2cbly/VVBfYVnHl5as4SlVXF9pW6xvF7DLlGI2GnNg4PW8ysnIEkGNNQS6OlWBHYW0iz6XVMmtq5RS55O+1fG5CXRq2zpeYk8+Ck70uIfk2w/7HYTItN8H7zoOx+urEC+TfwQERWg+32cclfqmG1JiE4m4qxzIhuFQdzTgR7Pef1iO84fMivzSTa2xSYXe0CUa276hpEuqFz0xbTevl9dat1i88R32gk6Llwt21ZBLblpLYm1ccMM4IW93daJCTODVxtmVpxr8uFfaDUPjbhZfg/8FbLe/9V0q1DmlJEGyGKh8EwooZxbaEjH8W+0osiEhBFLrbM8/xySY+MsC8ZJgtz5OyIhwtW3PW786KS3o5LSD20vmGUyFMis5gjbTCCU/Ybi0XMFH60QHECSM6nNSny6m03eMUc37jNAxE83pNc7GMkchq0hALgdmIAHFifu4AlVZgl7YUWW1lMWD4Sw8R9fi1HaPceqNy1kw0hNFGRNtuhNWwNAyGwNKXH9WO1kHUj7G7u4n3wgZ0GjKJmW9cpO3zDER9OuWpxCuRnqEcJ/WXJ6DFiJFn1y4FrUROhYJTVgwTVt8uDg==) format('woff2');font-weight:700}
+@font-face{font-family:'PR';src:url(data:font/woff2;base64,d09GMgABAAAAAAV8AAwAAAAACjwAAAUvAAQBBgAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcMAZgAHQKiwyIcAE2AiQDWAsuAAQgBYMaByAbHwhRVFHuEfxIqHhxdA+YXKqpZpbD7xmEmzWbpJZQdaxiGkQDfi2hVJTWqejdwbsqvIkSxu62fwAMMNRAtP4HCK/98/fzdRHlUTTgIprIWTbdra2CNnyjt1HxxIseb/sdgOkftAy+41dbatK1fUbFQhnzyb1BALDIU4CoNCYnYsEAwP8CAHDqStXo7rQ7uVGPgjdpdJhCxm6GdpCTEAVQx1ADAIzvzxAf6qMDgKh2kuDnQvqjseAhSG1uzn+XmNglapW9BaWk7gEgxQCgANAA0tAgRymDEZSERtulqlmNmuK3ZN3mPLNSVVnTcTPmBX4nF3Gby1zqEhe5wPkR/HAynL8SkA3kSoASAEQDkADAfrQJKFCOQrBXCumQcLGpSXmfZ82OTUmXMIwyLSlJUpmWHs9EHiChB7lj70fwPvbnMMtSbBR3bATh10koWebefv31a2cV4RiWXBerHPPaa+RjC74jHEYwEonAMUKiGRd7yf8Ugpecggsr3m4otA03ZX/OkoBYoUoNZSN4rYDAGT/NUizNEi4wwOGY5wDua8qZC4XeIUw8Qd0Ywb+/oISLuQWH7cjfBViRjNKxkbpb3ZyvIwQ+Mp1KMBxmX/+ZJKH5l95+nUMyjDLnTSXnzo/0vEhCL7if6MG7MawLXiE913v/002PR16W9ZcQKRjiuki/RlbG4oDb3OEszVHbSEjoXS/rGWB93KD4az4NCbFENeTkJLIV7qUoslHwNgI7RyjEuz/c2FnxXHZA29cVOu0IHIFt5dP8gQ21XufvumDCq/RO3TjbrdWva/mQ48XOOtFZ29DgqKkTu3vqvA4EGHy4W73yllqYPGQ0zT32srWtUxieHRsfnhM6LS0fj6U7Dp0YF7g8f9A9CqGhd6H9Rbn3E+/0Rf7Gjo0/sldSeQdjnfDoOoTmf8fShUPHxoQdtTrocvEHd1RWYZPv3TAOaaoMQnGtemRftNmDijdW3xTf1Bq1JV6f02/qTGguWcU5VeONrX4T72m229xanXPQXSN+IiZc7avqwOjeJvVVDChFJa78OFT5BPVUtUxrW2p1q7UOj7s6BfyXipZrPFUtan/XuX5/Tx/urdrdCgwF5JGEq71Vrfgudk+tCbqcuuB+lSDYI+sOulyG4EG1UGtxVTWK/f0NoqOyrt5uAan4WtH2T+DBPwcaen1ZZ19RLirFQbwYO17eZpL5WlUNrY33K5Q/9Se9aJI29zaV16nF0g5xSaQtYvnHTXVny3Plqm9u1BeYSVWd1lPagXvf4EuTynmz3WRUW3mtUXuMeMyJRtQrlKLtbG91a+9kY7vf1OdpstncWr1j0F2F+oDyGoXv0FteH953rWJoP+izRz47dNhzu8/hrdPMJ5oBCukfUgDaoyNPk9NBADAkOrU01zec2PlrLE1/AQBvXHb1AwDw2YeKEyD5/3f6AeofADGgAAAEqKCBaIqF+JkgtexW+QUgHECVoN0rqCwPcy9DRYdR4UnzhNEjs0GY/abbiswbzW0QVWTdd7OoyTxy8Pl00wgJVQITAiBDJQpM3btvgWgAEwACAiAGHjQIEwfgEgBpCRJwCZmi36Sl0ekBLYMCf2mjwJKs20WjIHLwlizbFuA3bcYaqXq1Fkk5M+TJsJWGa91v0SoOBo71WZPGRdRn3ddnLAlw4dIe4RpchqhdjclO85Pd68ZUGxeyC2pyaMrSdb1FEwK21Yw5rgxX7SZNv9G8UW0zPScNi465YgU32d2oWq1av8iYVs2vDOMtVaVp/Dj6f9UD) format('woff2');font-weight:400}
+.b{font-family:'PB',Poppins,Arial,sans-serif;font-weight:700}
+.r{font-family:'PR',Poppins,Arial,sans-serif;font-weight:400}
+.in{opacity:0;animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.logo{transform-box:fill-box;transform-origin:center;animation:logo .6s .1s cubic-bezier(.3,1.4,.5,1) both}
+.w1{animation-delay:.45s}.w2{animation-delay:.6s}.w3{animation-delay:.75s}
+.l1{animation-name:fade;animation-delay:1.15s}.l2{animation-name:fade;animation-delay:1.3s}
+.btn{transform-box:fill-box;transform-origin:center;opacity:0;animation:pop .55s 1.6s cubic-bezier(.3,1.5,.5,1) both,pulse 3.2s 3s ease-in-out infinite}
+.shine{animation:shine 3.2s 2.4s ease-in-out infinite}
+@keyframes logo{from{opacity:0;transform:scale(.4) rotate(-90deg)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,70%,100%{transform:scale(1)}80%{transform:scale(1.045)}90%{transform:scale(.99)}}
+@keyframes shine{0%{transform:translateX(-90px)}35%,100%{transform:translateX(300px)}}
+@media (prefers-reduced-motion:reduce){.in,.btn,.shine,.logo{animation:none!important;opacity:1}.shine{display:none}}
+</style>
+<clipPath id="bc"><rect x="23" y="206" width="200" height="44"/></clipPath>
+<linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="384" height="320" fill="#FFED0A"/>
+<g class="logo"><g transform="translate(24 44) scale(.019)"><rect width="2000" height="2000" fill="#15130F"/><g transform="translate(0 2000) scale(.1 -.1)"><path fill="#FFFFFF" d="M4160 16131 c0 -4 -81 -1650 -180 -3657 -99 -2007 -180 -3664 -180 -3681 l0 -33 945 0 945 0 0 258 c0 372 20 550 85 750 45 140 112 255 198 342 193 194 427 281 757 281 332 0 562 -90 757 -295 126 -131 196 -288 246 -544 l22 -117 0 -1695 0 -1695 -17 -95 c-79 -440 -270 -682 -628 -794 -300 -95 -677 -67 -941 70 -249 130 -380 336 -451 709 l-21 110 -4 738 -4 737 -945 0 -944 0 0 -652 c0 -359 5 -716 10 -793 33 -462 110 -827 251 -1185 297 -759 855 -1265 1644 -1491 628 -180 1490 -182 2136 -5 627 172 1120 533 1445 1058 286 463 437 1019 475 1753 15 290 7 3412 -9 3580 -55 564 -148 951 -313 1295 -123 254 -242 426 -413 595 -383 378 -895 552 -1564 532 -371 -11 -633 -72 -907 -212 -275 -139 -491 -326 -668 -578 -34 -49 -68 -96 -75 -105 l-13 -17 5 70 c3 39 40 716 82 1505 41 789 77 1441 80 1448 3 9 359 12 1739 12 l1735 0 0 905 0 905 -2640 0 c-1486 0 -2640 -4 -2640 -9z M10550 15235 l0 -905 1045 0 1045 0 0 -5460 0 -5460 1005 0 1005 0 0 5460 0 5460 1045 0 1045 0 0 905 0 905 -3095 0 -3095 0 0 -905z"/></g></g></g>
+<g class="b" font-size="47" letter-spacing="-1.9" fill="#15130F">
+<text class="in w1" x="23" y="139">Write</text>
+<text class="in w2" x="156" y="139">for</text>
+<text class="in w3" x="227" y="139">us.</text>
+</g>
+<text class="r in l1" x="24" y="171" font-size="16.4" fill="#15130F">Pitches from students and first-timers</text>
+<text class="r in l2" x="24" y="193" font-size="16.4" fill="#15130F">welcome.</text>
+<g class="btn">
+<rect x="23" y="206" width="200" height="44" fill="#15130F"/>
+<g clip-path="url(#bc)"><g transform="skewX(-20)"><rect class="shine" x="0" y="200" width="60" height="56" fill="url(#sg)"/></g></g>
+<text class="b" x="123" y="236" font-size="17.6" text-anchor="middle" fill="#FFED0A">Send a pitch</text>
+</g>
+</svg>
