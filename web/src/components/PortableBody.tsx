@@ -84,7 +84,6 @@ const components: PortableTextComponents = {
             title={(value?.caption as string) || 'Instagram post'}
             loading="lazy"
             scrolling="no"
-            allowTransparency
           />
           {value?.caption ? <figcaption>{value.caption as string}</figcaption> : null}
         </figure>
