@@ -62,6 +62,37 @@ function Disclosure() {
   )
 }
 
+/**
+ * Google's own "Get it on Google Play" badge, used where a card points at a
+ * Play Store listing.
+ *
+ * Two rules from Google's brand guidelines are load-bearing here and are the
+ * reason this is a component rather than an inline <img>. The artwork must not
+ * be redrawn, recoloured or squashed, so the file is served unmodified at its
+ * native 646x250 ratio and only scaled. And it must be large enough to read,
+ * so the rendered width is fixed rather than left to the grid.
+ *
+ * The badge already reads as a button, so it replaces the text button on those
+ * cards instead of sitting beside one.
+ */
+const PLAY_BADGE = 'https://res.cloudinary.com/dkaghqnvm/image/upload/v1790656495/google-play-badge-en.png'
+
+const isPlayStore = (raw: string) => {
+  try {
+    return new URL(raw).hostname === 'play.google.com'
+  } catch {
+    return false
+  }
+}
+
+function PlayBadge({ href }: { href: string }) {
+  return (
+    <a className="endcard-playbadge" href={href} target="_blank" rel={REL}>
+      <Image src={PLAY_BADGE} alt="Get it on Google Play" width={646} height={250} unoptimized />
+    </a>
+  )
+}
+
 function Thumb({ image, alt, width, height }: { image: ExternalImage; alt: string; width: number; height?: number }) {
   const media = resolveMedia(null, image, { width, height })
   if (!media) return null
@@ -109,7 +140,7 @@ export function EndCards({ cards }: { cards?: (EndCard | null)[] | null }) {
           const url = clean(card.url)
           if (!url) return null
           return (
-            <div className="endcard endcard-row" key={card._key}>
+            <div className={`endcard${card.avatar?.url ? ' endcard-row' : ''}`} key={card._key}>
               {card.avatar?.url && <Thumb image={card.avatar} alt="" width={88} height={88} />}
               <div>
                 <p className="endcard-kicker">YouTube</p>
@@ -127,7 +158,7 @@ export function EndCards({ cards }: { cards?: (EndCard | null)[] | null }) {
           const links = (card.links ?? []).filter((l): l is BuyLink => Boolean(l?.url))
           const paid = links.some((l) => l.affiliate)
           return (
-            <div className="endcard endcard-row" key={card._key}>
+            <div className={`endcard${card.cover?.url ? ' endcard-row' : ''}`} key={card._key}>
               {card.cover?.url && <Thumb image={card.cover} alt={`${clean(card.title) ?? ''} cover`} width={120} />}
               <div>
                 <p className="endcard-kicker">Book</p>
@@ -156,14 +187,18 @@ export function EndCards({ cards }: { cards?: (EndCard | null)[] | null }) {
         const url = clean(card.url)
         if (!url) return null
         return (
-          <div className="endcard endcard-row" key={card._key}>
+          <div className={`endcard${card.image?.url ? ' endcard-row' : ''}`} key={card._key}>
             {card.image?.url && <Thumb image={card.image} alt="" width={120} />}
             <div>
               <h3>{card.title}</h3>
               {card.blurb && <p>{card.blurb}</p>}
-              <a className="btn endcard-btn" href={url} target="_blank" rel={relFor(card.affiliate)}>
-                {card.cta || 'Open'}
-              </a>
+              {isPlayStore(url) ? (
+                <PlayBadge href={url} />
+              ) : (
+                <a className="btn endcard-btn" href={url} target="_blank" rel={relFor(card.affiliate)}>
+                  {card.cta || 'Open'}
+                </a>
+              )}
               {card.affiliate && <Disclosure />}
             </div>
           </div>

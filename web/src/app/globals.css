@@ -441,8 +441,17 @@ blockquote cite {
   text-transform: uppercase; color: var(--ink-muted); margin: 0 0 4px;
 }
 .endcard-buttons { display: flex; flex-wrap: wrap; gap: var(--s-3); margin: 0; }
-.endcard-btn { display: inline-block; text-decoration: none; font-size: 0.72rem; padding: 10px 18px; }
+/* nowrap so a multi-word label like "Get it on Google Play" stays on one line
+   rather than breaking into a vertical stack in a narrow column. */
+.endcard-btn { display: inline-block; text-decoration: none; font-size: 0.72rem; padding: 10px 18px; white-space: nowrap; }
 .endcard-disclosure { margin: var(--s-3) 0 0; font-style: italic; }
+
+/* Google Play badge. Google asks that the artwork is never redrawn or
+   distorted and stays large enough to read, so the width is fixed and the
+   height follows the native 646x250 ratio. The negative left margin pulls the
+   badge's own built-in padding back into line with the text above it. */
+.endcard-playbadge { display: inline-block; margin: var(--s-2) 0 0 -10px; line-height: 0; }
+.endcard-playbadge img { width: 180px; height: auto; }
 
 .toc { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .toc li { border-bottom: 1px solid var(--rule); padding: var(--s-3) 0; display: grid; grid-template-columns: 3rem 1fr; gap: var(--s-3); }
