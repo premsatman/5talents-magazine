@@ -326,6 +326,8 @@ export const siteSettings = defineType({
           { title: 'D - sidebar sticky, desktop', value: 'D' },
           { title: 'E - end of article', value: 'E' },
           { title: 'F - between sections, 970x90 leaderboard', value: 'F' },
+          { title: 'I - left gutter skyscraper, 160x600 (above 1500px only)', value: 'I' },
+          { title: 'J - right gutter skyscraper, 160x600 (above 1500px only)', value: 'J' },
         ],
       },
       initialValue: ['B', 'E'],

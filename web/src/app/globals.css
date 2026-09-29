@@ -299,6 +299,11 @@ blockquote cite {
 @media (min-width: 1024px) {
   .piece-layout {
     grid-template-columns: minmax(0, 1fr) 300px;
+    /* auto 1fr, not the implicit auto auto: the body spans both rows, and with
+       two auto rows the grid splits its extra height between them, stretching
+       the meta row and leaving a blank gap of several hundred px above Most
+       read. 1fr sends all of it to the rail row instead. */
+    grid-template-rows: auto 1fr;
     grid-template-areas:
       "main meta"
       "main rail";
