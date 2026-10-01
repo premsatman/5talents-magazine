@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { clean } from '@/sanity/stega'
 import { resolveMedia } from '@/sanity/media'
 import type { ExternalImage } from '@/sanity/media'
+import { PlayBadge } from '@/components/PlayBadge'
 
 /**
  * The contributor's own links, printed after the piece.
@@ -75,22 +76,12 @@ function Disclosure() {
  * The badge already reads as a button, so it replaces the text button on those
  * cards instead of sitting beside one.
  */
-const PLAY_BADGE = 'https://res.cloudinary.com/dkaghqnvm/image/upload/v1790656495/google-play-badge-en.png'
-
 const isPlayStore = (raw: string) => {
   try {
     return new URL(raw).hostname === 'play.google.com'
   } catch {
     return false
   }
-}
-
-function PlayBadge({ href }: { href: string }) {
-  return (
-    <a className="endcard-playbadge" href={href} target="_blank" rel={REL}>
-      <Image src={PLAY_BADGE} alt="Get it on Google Play" width={646} height={250} unoptimized />
-    </a>
-  )
 }
 
 function Thumb({ image, alt, width, height }: { image: ExternalImage; alt: string; width: number; height?: number }) {

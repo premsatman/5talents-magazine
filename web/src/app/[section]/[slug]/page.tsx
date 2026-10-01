@@ -27,6 +27,7 @@ import { SponsorLabel, isSponsored } from '@/components/SponsorLabel'
 import { AdSlot } from '@/components/AdSlot'
 import { ShareBar } from '@/components/ShareBar'
 import { EndCards } from '@/components/EndCards'
+import { ReadTracker } from '@/components/ReadTracker'
 import { WatchIt } from '@/components/WatchIt'
 import { ArticleHero, ArticleMeta } from '@/components/ArticleHero'
 import { ListRow } from '@/components/Card'
@@ -285,6 +286,7 @@ export default async function ArticlePage(props: Props) {
               )}
 
               <PortableBody value={article.body} seed={slug} section={section} adsOff={adsOff} />
+              <ReadTracker slug={slug} section={section} />
 
               <ShareBar url={shareUrl} title={article.title ?? ''} deck={article.deck} />
 

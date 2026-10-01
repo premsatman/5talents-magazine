@@ -45,7 +45,7 @@ export default async function PrivacyPage() {
               there.
             </p>
             <p>
-              <em>Last updated 18 September 2026.</em>
+              <em>Last updated 30 September 2026.</em>
             </p>
 
             <h2>What we collect</h2>
@@ -62,7 +62,7 @@ export default async function PrivacyPage() {
               </li>
               <li>
                 <strong>Analytics.</strong> Aggregate page views and traffic sources through Google
-                Analytics. We do not sell this, and we do not build profiles of individual readers.
+                Analytics. We do not sell this.
               </li>
               <li>
                 <strong>Server logs.</strong> Our host keeps the ordinary record of requests — IP
@@ -84,6 +84,14 @@ export default async function PrivacyPage() {
               <li>
                 <strong>Google Analytics.</strong> Cookies that count visits and tell us how people
                 arrived.
+              </li>
+              <li>
+                <strong>Meta (Facebook and Instagram).</strong> The Meta Pixel records which pages
+                you visit here and whether you read to the end of an article or tap a Google Play
+                link. We use it only to show 5Talents&rsquo; own ads on Facebook and Instagram to
+                people who have read 5Talents. Meta sets its own
+                cookies and handles this under its own policy. You can turn off ads based on
+                activity from other sites in your Facebook or Instagram ad settings.
               </li>
               <li>
                 <strong>Cloudflare Turnstile.</strong> On the Write for us form only, to stop

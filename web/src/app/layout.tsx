@@ -10,6 +10,7 @@ import {
 import { draftMode } from 'next/headers'
 import { VisualEditing } from 'next-sanity/visual-editing'
 import { Analytics } from '@/components/Analytics'
+import { MetaPixel } from '@/components/MetaPixel'
 import { TravelpayoutsDrive } from '@/components/TravelpayoutsDrive'
 import { SanityLive } from '@/sanity/live'
 import { defaultDescription, siteName, siteUrl, tagline } from '@/lib/site'
@@ -178,6 +179,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <SanityLive />
         {isDraft && <VisualEditing />}
         <Analytics />
+        <MetaPixel />
       </body>
     </html>
   )

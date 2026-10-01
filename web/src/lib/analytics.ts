@@ -24,6 +24,7 @@ declare global {
   interface Window {
     gtag?: (command: 'event' | 'config' | 'js', target: string, params?: GtagParams) => void
     dataLayer?: unknown[]
+    fbq?: (command: 'track' | 'trackCustom', event: string, params?: GtagParams) => void
   }
 }
 
@@ -31,6 +32,16 @@ declare global {
 export function track(event: string, params: GtagParams = {}) {
   if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
   window.gtag('event', event, params)
+}
+
+/**
+ * Send a custom event to the Meta Pixel. Silently does nothing if the pixel is
+ * absent (no ID, not production, staff opt-out, blocker). Keep event names and
+ * params neutral: no names, emails, form contents or anything a reader typed.
+ */
+export function metaTrack(event: string, params: GtagParams = {}) {
+  if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
+  window.fbq('trackCustom', event, params)
 }
 
 /* ------------------------------------------------------------------ *
@@ -71,6 +82,15 @@ function adParams({ advertiser, campaign, creative }: AdEvent) {
 /** A reader reached the end of an article. Pair with reading-time for depth. */
 export function articleComplete(slug: string, section: string) {
   track('article_complete', { slug, section })
+  metaTrack('ArticleRead', { section })
+}
+
+/**
+ * A reader tapped a Google Play link on an end card.
+ */
+export function playStoreClick(placement: string, url: string) {
+  track('play_store_click', { placement, url })
+  metaTrack('AppClick', { placement })
 }
 
 /** Newsletter signup, from wherever on the page it happened. */
