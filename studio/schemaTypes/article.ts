@@ -177,6 +177,61 @@ export const article = defineType({
       ],
     }),
 
+    /**
+     * Sources and "Find them". Both print after the body.
+     *
+     * Sources are the evidence for the piece and are linked exactly as given.
+     * Find them is every way to reach the organisation the piece is about. The
+     * site adds utm_source=5talentsmag to the website and ticket links only -
+     * social and app-store links ignore it. See web/src/lib/outbound.ts.
+     */
+    defineField({
+      name: 'sources',
+      title: 'Sources',
+      type: 'array',
+      group: 'content',
+      description: 'What the piece rests on: the original report, the official statement, the interview. Printed as a numbered list under the article.',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'source',
+          fields: [
+            defineField({ name: 'title', title: 'What it is', type: 'string', validation: (r) => r.required() }),
+            defineField({ name: 'publisher', title: 'Who published it', type: 'string' }),
+            defineField({ name: 'url', title: 'Link', type: 'url' }),
+          ],
+          preview: { select: { title: 'title', subtitle: 'publisher' } },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'findThem',
+      title: 'Find them',
+      type: 'object',
+      group: 'content',
+      options: { collapsible: true, collapsed: true },
+      description: 'Where a reader can reach the organisation or event this piece is about. Fill in only what exists.',
+      fields: [
+        defineField({ name: 'name', title: 'Name', type: 'string', description: 'Shown as "Find <name>".' }),
+        defineField({ name: 'note', title: 'One line', type: 'string', description: 'Optional. Date, venue, ticket price.' }),
+        defineField({ name: 'website', title: 'Website', type: 'url' }),
+        defineField({ name: 'tickets', title: 'Tickets / registration', type: 'url' }),
+        defineField({ name: 'appAndroid', title: 'Android app', type: 'url' }),
+        defineField({ name: 'appIos', title: 'iPhone app', type: 'url' }),
+        defineField({ name: 'instagram', title: 'Instagram', type: 'url' }),
+        defineField({ name: 'facebook', title: 'Facebook', type: 'url' }),
+        defineField({ name: 'x', title: 'X', type: 'url' }),
+        defineField({ name: 'youtube', title: 'YouTube', type: 'url' }),
+        defineField({ name: 'whatsapp', title: 'WhatsApp', type: 'url', description: 'A wa.me link.' }),
+        defineField({
+          name: 'paid',
+          title: 'They paid for this listing',
+          type: 'boolean',
+          description: 'Marks the links as sponsored and prints a disclosure line. Leave off for ordinary coverage.',
+        }),
+      ],
+    }),
+
     // ---- Filing ----------------------------------------------------------
     defineField({
       name: 'kind',

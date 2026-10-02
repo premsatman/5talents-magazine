@@ -42,6 +42,8 @@ export async function GET() {
     })
     .join('\n')
 
+  const newest = (articles ?? []).find((a) => a.publishedAt)?.publishedAt
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -49,6 +51,7 @@ export async function GET() {
     <link>${siteUrl}</link>
     <description>${escapeXml(defaultDescription)}</description>
     <language>en</language>
+    ${newest ? `<lastBuildDate>${new Date(newest).toUTCString()}</lastBuildDate>` : ''}
     <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml" />
 ${items}
   </channel>

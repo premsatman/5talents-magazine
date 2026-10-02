@@ -548,6 +548,35 @@ export const FEED_QUERY = defineQuery(/* groq */ `
   }
 `)
 
+/**
+ * Google News sitemap. Google only reads entries from the last two days, so
+ * the window is passed in as $since rather than listing the whole back
+ * catalogue. See src/app/news-sitemap.xml/route.ts.
+ */
+export const NEWS_SITEMAP_QUERY = defineQuery(/* groq */ `
+  *[${live} && seo.noIndex != true && publishedAt > $since && defined(section->slug.current)]
+  | order(publishedAt desc)[0...1000]{
+    title, "slug": slug.current, "section": section->slug.current, publishedAt
+  }
+`)
+
+/**
+ * Fields added to the article after ARTICLE_QUERY's type was generated:
+ * dateModified for structured data, the sources list and the Find them block.
+ * Kept as its own small query so ARTICLE_QUERY's text - and therefore its
+ * generated type - is untouched. Fold it back in whenever typegen is next run.
+ */
+export const ARTICLE_EXTRAS_QUERY = defineQuery(/* groq */ `
+  *[_id == $id][0]{
+    _updatedAt,
+    sources[]{ _key, title, publisher, url },
+    findThem {
+      name, note, paid, website, tickets, appAndroid, appIos,
+      instagram, facebook, x, youtube, whatsapp
+    }
+  }
+`)
+
 export const SITEMAP_QUERY = defineQuery(/* groq */ `{
   "articles": *[${live} && seo.noIndex != true]{
     "slug": slug.current, "section": section->slug.current, _updatedAt

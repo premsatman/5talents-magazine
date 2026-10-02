@@ -429,6 +429,13 @@ blockquote cite {
 .issue-layout { display: grid; gap: var(--s-6); }
 @media (min-width: 800px) { .issue-layout { grid-template-columns: 260px minmax(0, 1fr); } }
 /* ---------- end-of-article contributor cards ---------- */
+.sources { margin: var(--s-6) 0 0; padding-top: var(--s-4); border-top: 1px solid var(--rule); }
+.sources h2, .findthem h2 { font-family: var(--font-sans); font-weight: 600; font-size: 1rem; margin: 0 0 var(--s-3); }
+.sources ol { margin: 0; padding-left: 1.2em; font-size: 0.92rem; color: var(--ink-secondary); }
+.sources li { margin-bottom: 6px; }
+.findthem { margin: var(--s-6) 0 0; padding: var(--s-4); border: 1px solid var(--rule); }
+.findthem p { margin: 0 0 var(--s-3); }
+.findthem p:last-child { margin-bottom: 0; }
 .endcards { margin: var(--s-7) 0 0; padding-top: var(--s-5); border-top: 2px solid var(--ink); }
 .endcards-head {
   font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em;

@@ -399,6 +399,27 @@ export type Article = {
         _key: string;
       } & LinkCard)
   >;
+  sources?: Array<{
+    title?: string;
+    publisher?: string;
+    url?: string;
+    _type: "source";
+    _key: string;
+  }>;
+  findThem?: {
+    name?: string;
+    note?: string;
+    website?: string;
+    tickets?: string;
+    appAndroid?: string;
+    appIos?: string;
+    instagram?: string;
+    facebook?: string;
+    x?: string;
+    youtube?: string;
+    whatsapp?: string;
+    paid?: boolean;
+  };
   kind?: "feature" | "interview" | "review" | "essay" | "brief";
   section?: SectionReference;
   tags?: Array<
@@ -2756,6 +2777,50 @@ export type FEED_QUERY_RESULT = Array<{
 }>;
 
 // Source: ../web/src/sanity/queries.ts
+// Variable: NEWS_SITEMAP_QUERY
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true && publishedAt > $since && defined(section->slug.current)]  | order(publishedAt desc)[0...1000]{    title, "slug": slug.current, "section": section->slug.current, publishedAt  }
+export type NEWS_SITEMAP_QUERY_RESULT = Array<{
+  title: string | null;
+  slug: string | null;
+  section: string | null;
+  publishedAt: string | null;
+}>;
+
+// Source: ../web/src/sanity/queries.ts
+// Variable: ARTICLE_EXTRAS_QUERY
+// Query: *[_id == $id][0]{    _updatedAt,    sources[]{ _key, title, publisher, url },    findThem {      name, note, paid, website, tickets, appAndroid, appIos,      instagram, facebook, x, youtube, whatsapp    }  }
+export type ARTICLE_EXTRAS_QUERY_RESULT =
+  | {
+      _updatedAt: string;
+      sources: null;
+      findThem: null;
+    }
+  | {
+      _updatedAt: string;
+      sources: Array<{
+        _key: string;
+        title: string | null;
+        publisher: string | null;
+        url: string | null;
+      }> | null;
+      findThem: {
+        name: string | null;
+        note: string | null;
+        paid: boolean | null;
+        website: string | null;
+        tickets: string | null;
+        appAndroid: string | null;
+        appIos: string | null;
+        instagram: string | null;
+        facebook: string | null;
+        x: string | null;
+        youtube: string | null;
+        whatsapp: string | null;
+      } | null;
+    }
+  | null;
+
+// Source: ../web/src/sanity/queries.ts
 // Variable: SITEMAP_QUERY
 // Query: {  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{    "slug": slug.current, "section": section->slug.current, _updatedAt  },  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "tags": *[_type == "tag" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }}
 export type SITEMAP_QUERY_RESULT = {
@@ -2941,6 +3006,8 @@ declare global {
     '\n  *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current }\n': ARCHIVE_SLUGS_QUERY_RESULT;
     '\n  *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today\n    && (!defined(sections) || count(sections) == 0 || $section in sections)]\n  | order(select(tier == "house" => 1, 0) asc, activeFrom desc){\n    _id, name, url, tier, embedCode, embedHeight,\n    creative { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n  }\n': ACTIVE_ADS_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false] | order(publishedAt desc)[0...40]{\n    title, "slug": slug.current, deck, publishedAt, sponsorTier,\n    "section": section->{ name, "slug": slug.current },\n    "authors": authors[]->{ name }\n  }\n': FEED_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true && publishedAt > $since && defined(section->slug.current)]\n  | order(publishedAt desc)[0...1000]{\n    title, "slug": slug.current, "section": section->slug.current, publishedAt\n  }\n': NEWS_SITEMAP_QUERY_RESULT;
+    "\n  *[_id == $id][0]{\n    _updatedAt,\n    sources[]{ _key, title, publisher, url },\n    findThem {\n      name, note, paid, website, tickets, appAndroid, appIos,\n      instagram, facebook, x, youtube, whatsapp\n    }\n  }\n": ARTICLE_EXTRAS_QUERY_RESULT;
     '{\n  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{\n    "slug": slug.current, "section": section->slug.current, _updatedAt\n  },\n  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "tags": *[_type == "tag" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }\n}': SITEMAP_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    title, tagline, mission, scopeStatement, contactEmail,\n    doctrinalStatement,\n    \n  publisher { name, address, city, state, pinCode, country, email, mobile },\n  particulars { startYear, frequency, subject, languages, format, issnOnline, issnPrint }\n,\n    masthead[]{\n      role,\n      "person": person->{ name, "slug": slug.current, role, bio, photo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } }\n    }\n  }\n': ABOUT_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    correctionsPolicy, privacyPolicy, contactEmail, scopeStatement,\n    grievanceOfficer { name, email, address }\n  }\n': POLICY_QUERY_RESULT;

@@ -9,6 +9,9 @@ const STATIC_PAGES = [
   '/interviews',
   '/talent-search',
   '/archive',
+  '/issues',
+  '/editorial-board',
+  '/plagiarism',
   '/write-for-us',
   '/advertise',
   '/about',
@@ -48,6 +51,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
   for (const issue of data?.issues ?? []) {
     if (issue.slug) entries.push({ url: absoluteUrl(`/archive/${issue.slug}`), priority: 0.6 })
+  }
+  for (const issue of data?.onlineIssues ?? []) {
+    if (issue.slug) entries.push({ url: absoluteUrl(`/issues/${issue.slug}`), priority: 0.6 })
   }
 
   return entries

@@ -19,7 +19,43 @@ import { AdSlot } from '@/components/AdSlot'
 import { Card, CardPlaceholder, ListRow, layoutPreview, padded } from '@/components/Card'
 import { Newsletter } from '@/components/Newsletter'
 import type { ArticleCardData } from '@/components/types'
-import { defaultDescription, siteName, socialDescription, tagline } from '@/lib/site'
+import { absoluteUrl, defaultDescription, siteName, socialDescription, tagline } from '@/lib/site'
+
+/**
+ * Who publishes this site, stated once on the homepage in the form search
+ * engines and AI retrieval systems read. The article pages name the same
+ * organisation as their publisher, so the two join up.
+ */
+const siteJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'NewsMediaOrganization',
+    '@id': absoluteUrl('/#organization'),
+    name: siteName,
+    url: absoluteUrl('/'),
+    description: defaultDescription,
+    foundingDate: '2012',
+    logo: {
+      '@type': 'ImageObject',
+      url: absoluteUrl('/favicon/web-app-manifest-512x512.png'),
+      width: 512,
+      height: 512,
+    },
+    sameAs: ['https://www.instagram.com/5talentsmag/'],
+    correctionsPolicy: absoluteUrl('/corrections'),
+    masthead: absoluteUrl('/editorial-board'),
+    publishingPrinciples: absoluteUrl('/about'),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': absoluteUrl('/#website'),
+    name: siteName,
+    url: absoluteUrl('/'),
+    inLanguage: 'en',
+    publisher: { '@id': absoluteUrl('/#organization') },
+  },
+]
 
 /**
  * The homepage was inheriting the layout's title template and nothing else -
@@ -333,6 +369,10 @@ export default async function HomePage() {
       </main>
 
       <SiteFooter />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+      />
     </>
   )
 }

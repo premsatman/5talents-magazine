@@ -6,6 +6,7 @@ import { sanityFetch } from '@/sanity/live'
 import { freshClient } from '@/sanity/client'
 import {
   ARTICLE_FALLBACK_RELATED_QUERY,
+  ARTICLE_EXTRAS_QUERY,
   ARTICLE_PATHS_QUERY,
   ARTICLE_QUERY,
   ARTICLE_SEO_QUERY,
@@ -27,6 +28,7 @@ import { SponsorLabel, isSponsored } from '@/components/SponsorLabel'
 import { AdSlot } from '@/components/AdSlot'
 import { ShareBar } from '@/components/ShareBar'
 import { EndCards } from '@/components/EndCards'
+import { FindThem, Sources, type FindThemData, type Source } from '@/components/FindThem'
 import { ReadTracker } from '@/components/ReadTracker'
 import { WatchIt } from '@/components/WatchIt'
 import { ArticleHero, ArticleMeta } from '@/components/ArticleHero'
@@ -158,24 +160,40 @@ export default async function ArticlePage(props: Props) {
 
   const adsOff = Boolean(article.sensitiveTopic)
 
+  const { data: extrasData } = await sanityFetch({
+    query: ARTICLE_EXTRAS_QUERY,
+    params: { id: article._id },
+    stega: false,
+  })
+  const extras = extrasData as {
+    _updatedAt?: string | null
+    sources?: (Source | null)[] | null
+    findThem?: FindThemData
+  } | null
+  const updatedAt = extras?._updatedAt
+  const citations = (extras?.sources ?? [])
+    .map((s) => s?.url)
+    .filter((u): u is string => Boolean(u))
+  const dateModified =
+    typeof updatedAt === 'string' && article.publishedAt && updatedAt > article.publishedAt
+      ? updatedAt
+      : article.publishedAt
+
+  // The daily stream and Screen coverage are news; everything else is a
+  // magazine feature. Google treats NewsArticle as a subtype of Article, so
+  // nothing is lost where it does not apply.
+  const isNews = section === 'current' || section === 'screen'
+
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': kind === 'review' ? 'Review' : 'Article',
+    '@type': kind === 'review' ? 'Review' : isNews ? 'NewsArticle' : 'Article',
     headline: article.title,
     description: article.seo?.description ?? article.deck ?? undefined,
     datePublished: article.publishedAt,
-    /**
-     * TODO - dateModified. Google lists it as recommended and for a daily
-     * stream it is the freshness signal that matters most. It needs
-     * `_updatedAt` projected in ARTICLE_QUERY, and changing that query string
-     * invalidates its generated type until `sanity typegen generate` runs.
-     * Neither `schema extract` nor `typegen` will run in this workspace, so the
-     * two changes belong together in a dev environment:
-     *
-     *   1. add `_updatedAt,` after `_id,` in ARTICLE_QUERY
-     *   2. `dateModified: article._updatedAt ?? article.publishedAt,` here
-     *   3. schema extract, then typegen generate
-     */
+    // Never earlier than publishedAt: a piece scheduled ahead is edited
+    // before it goes live, and a modified date before the published one is
+    // a contradiction Google flags.
+    dateModified,
     author: (article.authors ?? []).map((a) => {
       const authorSlug = clean(a?.slug)
       return {
@@ -186,7 +204,20 @@ export default async function ArticlePage(props: Props) {
         url: authorSlug ? absoluteUrl(`/authors/${authorSlug}`) : undefined,
       }
     }),
-    publisher: { '@type': 'Organization', name: siteName, url: absoluteUrl('/') },
+    publisher: {
+      '@type': 'Organization',
+      name: siteName,
+      url: absoluteUrl('/'),
+      logo: {
+        '@type': 'ImageObject',
+        url: absoluteUrl('/favicon/web-app-manifest-512x512.png'),
+        width: 512,
+        height: 512,
+      },
+    },
+    articleSection: article.section?.name ?? undefined,
+    citation: citations.length > 0 ? citations : undefined,
+    inLanguage: 'en',
     mainEntityOfPage: absoluteUrl(articleHref(section, slug)),
     image: jsonLdImages ?? (jsonLdImage ? [jsonLdImage] : undefined),
     isAccessibleForFree: true,
@@ -288,6 +319,8 @@ export default async function ArticlePage(props: Props) {
               <PortableBody value={article.body} seed={slug} section={section} adsOff={adsOff} />
               <ReadTracker slug={slug} section={section} />
 
+              <Sources sources={extras?.sources} slug={slug} />
+
               <ShareBar url={shareUrl} title={article.title ?? ''} deck={article.deck} />
 
               {!adsOff && <AdSlot slot="E" seed={slug} section={section} />}
@@ -295,6 +328,8 @@ export default async function ArticlePage(props: Props) {
               {/* Between our ad and the author card: the contributor's own
                   links read as part of the byline furniture rather than as
                   more advertising. */}
+              <FindThem data={extras?.findThem} slug={slug} />
+
               <EndCards cards={article.endCards} />
 
               {(article.authors ?? []).map((author, index) => (

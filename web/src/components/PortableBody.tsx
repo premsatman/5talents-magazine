@@ -5,6 +5,7 @@ import { type ImageLike } from '@/sanity/image'
 import { resolveMedia, type ExternalImage } from '@/sanity/media'
 import { clean } from '@/sanity/stega'
 import { AdSlot } from './AdSlot'
+import { OutboundLink } from './OutboundLink'
 
 type Block = { _type?: string; style?: string; [key: string]: unknown }
 
@@ -56,9 +57,9 @@ const components: PortableTextComponents = {
       const href = clean((value as { href?: string } | undefined)?.href) ?? '#'
       const external = /^https?:\/\//.test(href)
       return external ? (
-        <a href={href} rel="noopener noreferrer" target="_blank">
+        <OutboundLink href={href} placement="body" kind="inline">
           {children}
-        </a>
+        </OutboundLink>
       ) : (
         <Link href={href}>{children}</Link>
       )

@@ -93,6 +93,19 @@ export function playStoreClick(placement: string, url: string) {
   metaTrack('AppClick', { placement })
 }
 
+/**
+ * A reader followed a link out to an organisation or a source. Register
+ * `placement`, `link_kind` and `link_host` as custom dimensions in GA4 Admin,
+ * or the values are discarded on arrival.
+ */
+export function outboundClick(e: { placement: string; kind: string; slug: string; url: string }) {
+  let host = ''
+  try {
+    host = new URL(e.url).hostname.replace(/^www\./, '')
+  } catch {}
+  track('outbound_click', { placement: e.placement, link_kind: e.kind, link_host: host, slug: e.slug })
+}
+
 /** Newsletter signup, from wherever on the page it happened. */
 export function newsletterSignup(placement: string) {
   track('newsletter_signup', { placement })
