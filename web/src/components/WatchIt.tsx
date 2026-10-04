@@ -27,6 +27,7 @@ export type ScreenMeta = {
   releaseDate?: string | null
   advisoryNote?: string | null
   trailerUrl?: string | null
+  trailerLabel?: string | null
   trailerAsHero?: boolean | null
   availability?: Row[] | null
   contentAdvisory?: Advisory | null
@@ -88,6 +89,7 @@ export function WatchIt({ meta, hideVideo = false }: { meta: ScreenMeta; hideVid
     : []
   // When the trailer is already the article's lead, don't play it twice.
   const trailerId = hideVideo ? null : youtubeId(meta?.trailerUrl)
+  const videoLabel = clean(meta?.trailerLabel) ?? 'Official trailer'
   if (!rows.length && !advItems.length && !clean(meta?.advisoryNote) && !clean(meta?.trailerUrl)) return null
 
   const title = clean(meta?.workTitle)
@@ -140,19 +142,19 @@ export function WatchIt({ meta, hideVideo = false }: { meta: ScreenMeta; hideVid
           <div className="watchit-frame">
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${trailerId}?rel=0`}
-              title={`${title ?? 'Official'} trailer`}
+              title={title ? `${title} \u2014 ${videoLabel}` : videoLabel}
               loading="lazy"
               allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
               allowFullScreen
               referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
-          <figcaption>Official trailer, embedded from YouTube</figcaption>
+          <figcaption>{videoLabel}, embedded from YouTube</figcaption>
         </figure>
       ) : !hideVideo && clean(meta?.trailerUrl) ? (
         <p className="watchit-trailer">
           <a href={clean(meta?.trailerUrl) ?? undefined} target="_blank" rel="noopener noreferrer">
-            Watch the official trailer
+            Watch: {videoLabel}
           </a>
         </p>
       ) : null}

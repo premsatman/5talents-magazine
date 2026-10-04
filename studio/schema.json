@@ -3201,6 +3201,13 @@
               },
               "optional": true
             },
+            "trailerLabel": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
             "trailerAsHero": {
               "type": "objectAttribute",
               "value": {

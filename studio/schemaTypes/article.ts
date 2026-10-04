@@ -590,6 +590,17 @@ export const article = defineType({
         }),
         defineField({ name: 'advisoryNote', type: 'string', title: 'Advisory note', description: 'One line, e.g. "Deals with suicide and domestic abuse."' }),
         defineField({ name: 'trailerUrl', type: 'url', title: 'Official trailer (YouTube)' }),
+        /**
+         * The embed is not always a trailer. A featurette, a behind-the-scenes
+         * reel or a cast farewell goes in the same slot, so the caption has to
+         * be able to say what the video actually is.
+         */
+        defineField({
+          name: 'trailerLabel',
+          type: 'string',
+          title: 'What the video is',
+          description: 'Only fill this when the video is not a trailer, e.g. "Behind the scenes" or "Featurette". Blank reads as "Official trailer".',
+        }),
         defineField({
           name: 'trailerAsHero',
           type: 'boolean',
