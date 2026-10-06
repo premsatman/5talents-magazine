@@ -7,10 +7,23 @@ import { formatMonth } from '@/lib/format'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 
-export const metadata: Metadata = {
-  title: 'Issues',
-  description: 'Every issue of the online magazine, with its full contents.',
-  alternates: { canonical: '/issues' },
+/**
+ * Not a static `metadata` export any more, because whether this page should be
+ * indexed depends on whether there is anything on it. Empty, it is a page that
+ * says "No issues published yet" - nothing for Google to hold, and it is also
+ * kept out of sitemap.xml until the first issue lands. The noindex lifts by
+ * itself the moment one is published.
+ */
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await sanityFetch({ query: ONLINE_ISSUES_QUERY, stega: false })
+
+  return {
+    title: 'Issues',
+    description: 'Every issue of the online magazine, with its full contents.',
+    alternates: { canonical: '/issues' },
+    // Overrides the root layout's index:true for this route only.
+    ...((data ?? []).length === 0 ? { robots: { index: false } } : {}),
+  }
 }
 
 /**

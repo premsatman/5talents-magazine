@@ -32,9 +32,10 @@ export default async function PrivacyPage() {
                 this is the one line not to cut. Replace this text with a policy
                 reviewed against India's DPDP Act, and against GDPR if you are
                 courting UK and EU diaspora readers, which section 3 says you are.
-                Updated 18 Sep 2026 to name Travelpayouts Drive, which rewrites
-                outbound travel links and sets its own cookies on every page, and
-                to disclose affiliate earnings. Anything added to the site that
+                Updated 6 Oct 2026: Travelpayouts Drive was removed from the site,
+                so the entries naming it have gone. Drive rewrote outbound travel
+                links and set cookies on every page; nothing replaced it, and
+                affiliate links are now editor-chosen. Anything added to the site that
                 sets a cookie or calls a third party belongs in the list below on
                 the day it ships, not afterwards. */}
             <p>
@@ -77,11 +78,6 @@ export default async function PrivacyPage() {
             </p>
             <ul>
               <li>
-                <strong>Travelpayouts.</strong> A service called Drive runs on every page. It looks
-                at links going out to travel companies and adds a code that tells them the visitor
-                came from us. It sets cookies to do that, and it can see which pages you visit here.
-              </li>
-              <li>
                 <strong>Google Analytics.</strong> Cookies that count visits and tell us how people
                 arrived.
               </li>
@@ -107,9 +103,8 @@ export default async function PrivacyPage() {
             <h2>Affiliate links, and how we earn</h2>
             <p>
               Some links on this site earn us a small commission if you go on to book or buy
-              something. It costs you nothing extra. This applies mainly to travel — flights,
-              hotels, transfers and tours — and the link may have been added automatically by
-              Travelpayouts rather than chosen by an editor.
+              something. It costs you nothing extra. Every such link is chosen by an editor: we no
+              longer run any service that converts outbound links into paid ones automatically.
             </p>
             <p>
               We say so on any article where it matters. What we will not do is let it decide what

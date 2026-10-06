@@ -7,6 +7,7 @@ import { AUTHOR_ARTICLES_QUERY, AUTHOR_QUERY, AUTHOR_SLUGS_QUERY } from '@/sanit
 import { urlFor } from '@/sanity/image'
 import { clean } from '@/sanity/stega'
 import { formatDate } from '@/lib/format'
+import { absoluteUrl } from '@/lib/site'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { ArticleCard } from '@/components/ArticleCard'
@@ -40,6 +41,39 @@ export default async function AuthorPage(props: Props) {
 
   const author = profile.data
   const articles = (list.data ?? []) as ArticleCardData[]
+
+  /**
+   * The Person every byline already points at.
+   *
+   * Each article's author node carries `url` and `@id` for this page, so
+   * without a Person here the reference dangled: a name and a link to a page
+   * that described nobody. The @id follows the convention the rest of the site
+   * uses - the page URL plus a fragment naming the thing, as with
+   * /#organization and /#website - so the article's author and this node are
+   * one entity.
+   *
+   * Only what the contributor document actually states. No credentials,
+   * knowsAbout or awards are inferred, and the institution is left out
+   * deliberately: `worksFor` is a claim about employment, and what the field
+   * records is the college or church a contributor is associated with, which
+   * is not the same thing.
+   */
+  const authorUrl = absoluteUrl(`/authors/${slug}`)
+  const sameAs = (author.socials ?? [])
+    .map((social) => clean(social?.url))
+    .filter((url): url is string => Boolean(url))
+
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${authorUrl}#person`,
+    name: clean(author.name) ?? slug,
+    url: authorUrl,
+    jobTitle: clean(author.role) ?? undefined,
+    description: clean(author.bio) ?? undefined,
+    sameAs: sameAs.length > 0 ? sameAs : undefined,
+    worksFor: { '@id': absoluteUrl('/#organization') },
+  }
 
   return (
     <>
@@ -104,6 +138,11 @@ export default async function AuthorPage(props: Props) {
         )}
       </main>
       <SiteFooter />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
     </>
   )
 }

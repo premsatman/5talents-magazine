@@ -54,6 +54,19 @@ const siteJsonLd = [
     url: absoluteUrl('/'),
     inLanguage: 'en',
     publisher: { '@id': absoluteUrl('/#organization') },
+    /**
+     * Sitelinks search box. `q` is the parameter /search actually reads - see
+     * the searchParams type in app/search/page.tsx - so a query handed to this
+     * target lands on a real results page rather than an empty one.
+     */
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: absoluteUrl('/search?q={search_term_string}'),
+      },
+      'query-input': 'required name=search_term_string',
+    },
   },
 ]
 

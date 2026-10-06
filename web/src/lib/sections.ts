@@ -40,6 +40,7 @@ export const RESERVED_SLUGS = new Set([
   'contact',
   'corrections',
   'interviews',
+  'llms.txt',
   'privacy',
   'rss.xml',
   'sitemap.xml',

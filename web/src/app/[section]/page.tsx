@@ -6,6 +6,7 @@ import { freshClient } from '@/sanity/client'
 import { NAV_SECTIONS_QUERY, SECTION_ARTICLES_QUERY, SECTION_QUERY } from '@/sanity/queries'
 import { clean } from '@/sanity/stega'
 import { SECTION_SLUGS, isSectionSlug } from '@/lib/sections'
+import { absoluteUrl } from '@/lib/site'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { Card } from '@/components/Card'
@@ -64,6 +65,31 @@ export default async function SectionPage(props: Props) {
 
   if (!sectionMeta) notFound()
   const articles = (list.data ?? []) as ArticleCardData[]
+
+  /**
+   * Home -> Section. The @id convention matches the homepage's /#organization
+   * and the article pages' /<section>/<slug>#breadcrumb: page URL plus a
+   * fragment naming the thing.
+   */
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': absoluteUrl(`/${section}#breadcrumb`),
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: absoluteUrl('/'),
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: clean(sectionMeta.name) ?? section,
+        item: absoluteUrl(`/${section}`),
+      },
+    ],
+  }
 
   // Structure adapted from relevantmagazine.com/faith-2/, measured 30 Aug 2026:
   // a centred section title with its sibling links under it, a row of large
@@ -158,6 +184,11 @@ export default async function SectionPage(props: Props) {
         </div>
       </main>
       <SiteFooter />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
     </>
   )
 }

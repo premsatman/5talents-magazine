@@ -80,7 +80,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: articleHref(section, slug) },
-    robots: data.seo?.noIndex ? { index: false, follow: true } : undefined,
+    // Spread rather than `robots: ... : undefined`. Next merges metadata by
+    // walking the keys the child object actually has, so a key present with the
+    // value undefined is not "inherit" - it resolves to null and wipes the
+    // parent's. That is why articles, alone on the site, emitted no robots meta
+    // at all and so missed max-image-preview:large, while tag pages had it.
+    // Absent the key, the root layout's value is inherited as intended.
+    ...(data.seo?.noIndex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: 'article',
       // Restated because Next replaces the layout's openGraph rather than
@@ -167,16 +173,26 @@ export default async function ArticlePage(props: Props) {
   })
   const extras = extrasData as {
     _updatedAt?: string | null
+    contentUpdatedAt?: string | null
     sources?: (Source | null)[] | null
     findThem?: FindThemData
   } | null
-  const updatedAt = extras?._updatedAt
+  /**
+   * dateModified reads the hand-set editorial revision date, never _updatedAt.
+   *
+   * _updatedAt is bumped by the automated internal-linking batch runs - at the
+   * time of writing eighteen articles share a single four-second window - so as
+   * a freshness signal it says only "a script touched this", which is worse
+   * than saying nothing. When no editor has recorded a revision we fall back to
+   * publishedAt, which is true.
+   */
+  const revisedAt = extras?.contentUpdatedAt
   const citations = (extras?.sources ?? [])
     .map((s) => s?.url)
     .filter((u): u is string => Boolean(u))
   const dateModified =
-    typeof updatedAt === 'string' && article.publishedAt && updatedAt > article.publishedAt
-      ? updatedAt
+    typeof revisedAt === 'string' && article.publishedAt && revisedAt > article.publishedAt
+      ? revisedAt
       : article.publishedAt
 
   // The daily stream and Screen coverage are news; everything else is a
@@ -198,6 +214,11 @@ export default async function ArticlePage(props: Props) {
       const authorSlug = clean(a?.slug)
       return {
         '@type': 'Person',
+        // The same node the contributor page emits, so the byline here and the
+        // Person described there are one entity rather than two that happen to
+        // share a name. Convention matches the homepage's /#organization and
+        // /#website: the page URL plus a fragment naming the thing.
+        '@id': authorSlug ? absoluteUrl(`/authors/${authorSlug}#person`) : undefined,
         name: a?.name,
         // Recommended by Google, and pointing each byline at its own page is
         // the same author-entity work that E-E-A-T rewards.
@@ -206,6 +227,8 @@ export default async function ArticlePage(props: Props) {
     }),
     publisher: {
       '@type': 'Organization',
+      // Joins the NewsMediaOrganization stated on the homepage.
+      '@id': absoluteUrl('/#organization'),
       name: siteName,
       url: absoluteUrl('/'),
       logo: {
@@ -251,6 +274,41 @@ export default async function ArticlePage(props: Props) {
             : {}),
         }
       : {}),
+  }
+
+  /**
+   * Home -> Section -> Article.
+   *
+   * The site has no visible breadcrumb trail, but the URL hierarchy is real
+   * (/screen/the-chosen-season-five) and this is what puts the section name in
+   * the search result in place of the bare domain. The section name comes from
+   * Sanity, cleaned, with the slug as the fallback so a missing name cannot
+   * produce an empty crumb.
+   */
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': absoluteUrl(`${articleHref(section, slug)}#breadcrumb`),
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: absoluteUrl('/'),
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: clean(article.section?.name) ?? section,
+        item: absoluteUrl(`/${section}`),
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: clean(article.title) ?? slug,
+        item: absoluteUrl(articleHref(section, slug)),
+      },
+    ],
   }
 
   return (
@@ -442,7 +500,7 @@ export default async function ArticlePage(props: Props) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbJsonLd]) }}
       />
     </>
   )

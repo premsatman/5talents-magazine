@@ -433,6 +433,7 @@ export type Article = {
     } & AuthorReference
   >;
   publishedAt?: string;
+  contentUpdatedAt?: string;
   onlineIssue?: OnlineIssueReference;
   featured?: "none" | "hero" | "featured";
   retracted?: boolean;
@@ -1615,12 +1616,23 @@ export type SECTION_SLUGS_QUERY_RESULT = Array<{
 }>;
 
 // Source: ../web/src/sanity/queries.ts
+// Variable: SECTION_INDEX_QUERY
+// Query: *[_type == "section" && defined(slug.current)] | order(ordering asc){    name, "slug": slug.current, description,    "articleCount": count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section._ref == ^._id])  }
+export type SECTION_INDEX_QUERY_RESULT = Array<{
+  name: string | null;
+  slug: string | null;
+  description: string | null;
+  articleCount: number;
+}>;
+
+// Source: ../web/src/sanity/queries.ts
 // Variable: TAG_QUERY
-// Query: *[_type == "tag" && slug.current == $slug][0]{ name, "slug": slug.current, description }
+// Query: *[_type == "tag" && slug.current == $slug][0]{    name, "slug": slug.current, description,    "articleCount": count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in tags[]->slug.current])  }
 export type TAG_QUERY_RESULT = {
   name: string | null;
   slug: string | null;
   description: string | null;
+  articleCount: number;
 } | null;
 
 // Source: ../web/src/sanity/queries.ts
@@ -2790,15 +2802,17 @@ export type NEWS_SITEMAP_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: ARTICLE_EXTRAS_QUERY
-// Query: *[_id == $id][0]{    _updatedAt,    sources[]{ _key, title, publisher, url },    findThem {      name, note, paid, website, tickets, appAndroid, appIos,      instagram, facebook, x, youtube, whatsapp    }  }
+// Query: *[_id == $id][0]{    _updatedAt,    contentUpdatedAt,    sources[]{ _key, title, publisher, url },    findThem {      name, note, paid, website, tickets, appAndroid, appIos,      instagram, facebook, x, youtube, whatsapp    }  }
 export type ARTICLE_EXTRAS_QUERY_RESULT =
   | {
       _updatedAt: string;
+      contentUpdatedAt: null;
       sources: null;
       findThem: null;
     }
   | {
       _updatedAt: string;
+      contentUpdatedAt: string | null;
       sources: Array<{
         _key: string;
         title: string | null;
@@ -2824,12 +2838,14 @@ export type ARTICLE_EXTRAS_QUERY_RESULT =
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: SITEMAP_QUERY
-// Query: {  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{    "slug": slug.current, "section": section->slug.current, _updatedAt  },  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "tags": *[_type == "tag" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }}
+// Query: {  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{    "slug": slug.current, "section": section->slug.current, _updatedAt,    contentUpdatedAt, publishedAt  },  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "tags": *[_type == "tag" && defined(slug.current)    && count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && references(^._id)]) >= 3]{ "slug": slug.current, _updatedAt },  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }}
 export type SITEMAP_QUERY_RESULT = {
   articles: Array<{
     slug: string | null;
     section: string | null;
     _updatedAt: string;
+    contentUpdatedAt: string | null;
+    publishedAt: string | null;
   }>;
   sections: Array<{
     slug: string | null;
@@ -2986,7 +3002,8 @@ declare global {
     '\n  *[_type == "section" && slug.current == $slug][0]{\n    name, "slug": slug.current, description\n  }\n': SECTION_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $slug] | order(publishedAt desc)[0...30]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n,\n    "franchise": tags[0]->{ name, "slug": slug.current }\n  }\n': SECTION_ARTICLES_QUERY_RESULT;
     '\n  *[_type == "section" && defined(slug.current)]{ "slug": slug.current }\n': SECTION_SLUGS_QUERY_RESULT;
-    '\n  *[_type == "tag" && slug.current == $slug][0]{ name, "slug": slug.current, description }\n': TAG_QUERY_RESULT;
+    '\n  *[_type == "section" && defined(slug.current)] | order(ordering asc){\n    name, "slug": slug.current, description,\n    "articleCount": count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section._ref == ^._id])\n  }\n': SECTION_INDEX_QUERY_RESULT;
+    '\n  *[_type == "tag" && slug.current == $slug][0]{\n    name, "slug": slug.current, description,\n    "articleCount": count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in tags[]->slug.current])\n  }\n': TAG_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && $slug in tags[]->slug.current] | order(publishedAt desc)[0...50]{\n    \n  _id,\n  title,\n  "slug": slug.current,\n  deck,\n  kind,\n  publishedAt,\n  sponsorTier,\n  "section": section->{ name, "slug": slug.current },\n  hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n  heroExternal { \n  url, alt, width, height, caption, credit\n },\n  heroPortrait { \n  url, alt, width, height, caption, credit\n },\n  "authors": authors[]->{ name, "slug": slug.current },\n  "wordCount": length(pt::text(body)),\n  "originalIssue": archiveMeta.originalIssue->{ title, "slug": slug.current, issueDate }\n\n  }\n': TAG_ARTICLES_QUERY_RESULT;
     '\n  *[_type == "tag" && defined(slug.current)]{ "slug": slug.current }\n': TAG_SLUGS_QUERY_RESULT;
     '\n  *[_type == "author" && slug.current == $slug][0]{\n    name, "slug": slug.current, bio, role, institution, country, isStaff, died,\n    photo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    socials[]{ platform, url }\n  }\n': AUTHOR_QUERY_RESULT;
@@ -3009,8 +3026,8 @@ declare global {
     '\n  *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today\n    && (!defined(sections) || count(sections) == 0 || $section in sections)]\n  | order(select(tier == "house" => 1, 0) asc, activeFrom desc){\n    _id, name, url, tier, embedCode, embedHeight,\n    creative { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n  }\n': ACTIVE_ADS_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false] | order(publishedAt desc)[0...40]{\n    title, "slug": slug.current, deck, publishedAt, sponsorTier,\n    "section": section->{ name, "slug": slug.current },\n    "authors": authors[]->{ name }\n  }\n': FEED_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true && publishedAt > $since && defined(section->slug.current)]\n  | order(publishedAt desc)[0...1000]{\n    title, "slug": slug.current, "section": section->slug.current, publishedAt\n  }\n': NEWS_SITEMAP_QUERY_RESULT;
-    "\n  *[_id == $id][0]{\n    _updatedAt,\n    sources[]{ _key, title, publisher, url },\n    findThem {\n      name, note, paid, website, tickets, appAndroid, appIos,\n      instagram, facebook, x, youtube, whatsapp\n    }\n  }\n": ARTICLE_EXTRAS_QUERY_RESULT;
-    '{\n  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{\n    "slug": slug.current, "section": section->slug.current, _updatedAt\n  },\n  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "tags": *[_type == "tag" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }\n}': SITEMAP_QUERY_RESULT;
+    "\n  *[_id == $id][0]{\n    _updatedAt,\n    contentUpdatedAt,\n    sources[]{ _key, title, publisher, url },\n    findThem {\n      name, note, paid, website, tickets, appAndroid, appIos,\n      instagram, facebook, x, youtube, whatsapp\n    }\n  }\n": ARTICLE_EXTRAS_QUERY_RESULT;
+    '{\n  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{\n    "slug": slug.current, "section": section->slug.current, _updatedAt,\n    contentUpdatedAt, publishedAt\n  },\n  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "tags": *[_type == "tag" && defined(slug.current)\n    && count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && references(^._id)]) >= 3]{ "slug": slug.current, _updatedAt },\n  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }\n}': SITEMAP_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    title, tagline, mission, scopeStatement, contactEmail,\n    doctrinalStatement,\n    \n  publisher { name, address, city, state, pinCode, country, email, mobile },\n  particulars { startYear, frequency, subject, languages, format, issnOnline, issnPrint }\n,\n    masthead[]{\n      role,\n      "person": person->{ name, "slug": slug.current, role, bio, photo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } }\n    }\n  }\n': ABOUT_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    correctionsPolicy, privacyPolicy, contactEmail, scopeStatement,\n    grievanceOfficer { name, email, address }\n  }\n': POLICY_QUERY_RESULT;
   }

@@ -11,7 +11,6 @@ import { draftMode } from 'next/headers'
 import { VisualEditing } from 'next-sanity/visual-editing'
 import { Analytics } from '@/components/Analytics'
 import { MetaPixel } from '@/components/MetaPixel'
-import { TravelpayoutsDrive } from '@/components/TravelpayoutsDrive'
 import { SanityLive } from '@/sanity/live'
 import { defaultDescription, siteName, siteUrl, tagline } from '@/lib/site'
 import './globals.css'
@@ -171,8 +170,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        {/* In <head> because Travelpayouts verifies by fetching the HTML. */}
-        <TravelpayoutsDrive />
       </head>
       <body>
         {children}

@@ -15,6 +15,21 @@ export async function generateStaticParams() {
   return (tags ?? []).filter((t) => t.slug).map((t) => ({ tag: t.slug as string }))
 }
 
+/**
+ * A tag page earns a place in the index at three articles.
+ *
+ * Below that it says nothing the section index does not already say, and the
+ * thin ones were the bulk of what Google had parked in "Discovered — currently
+ * not indexed". noindex,follow rather than a 404 or a removal: the page is
+ * still useful to a reader who clicks the tag, and follow keeps the links out
+ * of it passing to the articles. Already-crawled thin tags drop out of the
+ * index on their own once Google sees this.
+ *
+ * The same floor is applied in SITEMAP_QUERY, which keeps them out of
+ * sitemap.xml. Change both together.
+ */
+const INDEXABLE_FROM = 3
+
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { tag } = await props.params
   const { data } = await sanityFetch({ query: TAG_QUERY, params: { slug: tag }, stega: false })
@@ -23,6 +38,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     title: data.name ?? tag,
     description: data.description ?? `Everything 5Talents has published on ${data.name}.`,
     alternates: { canonical: `/tags/${tag}` },
+    // Overrides the root layout's index:true for this route only.
+    ...((data.articleCount ?? 0) < INDEXABLE_FROM
+      ? { robots: { index: false, follow: true } }
+      : {}),
   }
 }
 

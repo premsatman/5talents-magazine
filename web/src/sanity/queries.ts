@@ -273,8 +273,30 @@ export const SECTION_SLUGS_QUERY = defineQuery(/* groq */ `
   *[_type == "section" && defined(slug.current)]{ "slug": slug.current }
 `)
 
+/**
+ * Every section with its scope line and how much is in it. Feeds /llms.txt,
+ * which exists to tell a language model what this publication covers without
+ * making it crawl ten index pages to find out.
+ */
+export const SECTION_INDEX_QUERY = defineQuery(/* groq */ `
+  *[_type == "section" && defined(slug.current)] | order(ordering asc){
+    name, "slug": slug.current, description,
+    "articleCount": count(*[${live} && section._ref == ^._id])
+  }
+`)
+
+/**
+ * `articleCount` rides along here rather than in a query of its own: the tag
+ * page needs it only to decide noindex, and a second request per tag meant
+ * ~112 extra uncached round-trips during prerender, which timed the build out.
+ * Same shape as SECTIONS_INDEX_QUERY. The floor lives in the tag page and in
+ * SITEMAP_QUERY - change those together.
+ */
 export const TAG_QUERY = defineQuery(/* groq */ `
-  *[_type == "tag" && slug.current == $slug][0]{ name, "slug": slug.current, description }
+  *[_type == "tag" && slug.current == $slug][0]{
+    name, "slug": slug.current, description,
+    "articleCount": count(*[${live} && $slug in tags[]->slug.current])
+  }
 `)
 
 export const TAG_ARTICLES_QUERY = defineQuery(/* groq */ `
@@ -569,6 +591,7 @@ export const NEWS_SITEMAP_QUERY = defineQuery(/* groq */ `
 export const ARTICLE_EXTRAS_QUERY = defineQuery(/* groq */ `
   *[_id == $id][0]{
     _updatedAt,
+    contentUpdatedAt,
     sources[]{ _key, title, publisher, url },
     findThem {
       name, note, paid, website, tickets, appAndroid, appIos,
@@ -577,12 +600,26 @@ export const ARTICLE_EXTRAS_QUERY = defineQuery(/* groq */ `
   }
 `)
 
+/**
+ * Tags are filtered by how many articles point at them.
+ *
+ * A tag holding one or two pieces is a thin page: it duplicates what the
+ * section index already shows and gives Google nothing it cannot get there.
+ * 120 of the 256 URLs in this file were tag pages, most of them under three
+ * articles, and 131 pages were sitting in "Discovered — currently not indexed"
+ * behind them. Three is the floor at which a tag page is worth a crawl.
+ *
+ * The threshold is duplicated in src/app/tags/[tag]/page.tsx, which noindexes
+ * the same pages so the ones already in the index drop back out. Change both.
+ */
 export const SITEMAP_QUERY = defineQuery(/* groq */ `{
   "articles": *[${live} && seo.noIndex != true]{
-    "slug": slug.current, "section": section->slug.current, _updatedAt
+    "slug": slug.current, "section": section->slug.current, _updatedAt,
+    contentUpdatedAt, publishedAt
   },
   "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },
-  "tags": *[_type == "tag" && defined(slug.current)]{ "slug": slug.current, _updatedAt },
+  "tags": *[_type == "tag" && defined(slug.current)
+    && count(*[${live} && references(^._id)]) >= 3]{ "slug": slug.current, _updatedAt },
   "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },
   "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },
   "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }
