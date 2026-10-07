@@ -112,6 +112,7 @@ export async function SiteFooter() {
                 <li><Link href="/about">Who we are</Link></li>
                 <li><Link href="/about#scope">What we cover</Link></li>
                 <li><Link href="/editorial-board">Editorial board</Link></li>
+                <li><Link href="/contributors">Contributors</Link></li>
                 <li><Link href="/corrections">Corrections</Link></li>
                 <li><Link href="/plagiarism">Plagiarism policy</Link></li>
                 <li><Link href="/privacy">Privacy</Link></li>

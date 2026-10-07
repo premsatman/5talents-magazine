@@ -327,6 +327,23 @@ export const AUTHOR_SLUGS_QUERY = defineQuery(/* groq */ `
   *[_type == "author" && defined(slug.current)]{ "slug": slug.current }
 `)
 
+/**
+ * Everyone with a byline, for /contributors.
+ *
+ * Only people with at least one live article: a contributor document can exist
+ * before its first piece is published (or after its only piece is retracted),
+ * and a name that links to "Nothing published yet" is not a contributor yet.
+ * Ordering is done in the page, not here, because the alphabet has to ignore
+ * honorifics - GROQ would file "Dr. George Powell" under D.
+ */
+export const CONTRIBUTORS_QUERY = defineQuery(/* groq */ `
+  *[_type == "author" && defined(slug.current)]{
+    _id, name, "slug": slug.current, role, country, died,
+    photo { ${imageFragment} },
+    "articleCount": count(*[${live} && references(^._id)])
+  }[articleCount > 0]
+`)
+
 /* ------------------------------------------------------------------ *
  * Article
  * ------------------------------------------------------------------ */

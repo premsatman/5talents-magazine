@@ -21,6 +21,7 @@ const STATIC_PAGES = [
   '/talent-search',
   '/archive',
   '/editorial-board',
+  '/contributors',
   '/plagiarism',
   '/write-for-us',
   '/advertise',
