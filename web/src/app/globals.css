@@ -566,11 +566,17 @@ blockquote cite {
    B and C are 336x280 rectangles now and keep their own shape; they are only
    unfloated and centred, never flattened. */
 @media (max-width: 780px) {
-  /* The two wide units become a large mobile banner - 100px tall, not the 50
-     it used to be. A 35px band reads as a rule, not an advertisement. */
+  /* The two wide units become a 300x250 rectangle, not a banner.
+     A 970x90 stretched to phone width is a 35px sliver that reads as a rule
+     rather than an advertisement, and a 320x100 banner is only a little better:
+     it is the cheapest unit in the book and it is the first thing a reader's
+     eye skips. The medium rectangle is a real IAB unit, it is what slot D
+     already becomes on a phone, and it is worth several times the banner to
+     sell. Deliberately NOT reduced further - see the note above about empty
+     slots only; a booked creative still keeps its own dimensions. */
   .ad--a.ad--empty .ad__frame,
   .ad--f.ad--empty .ad__frame {
-    width: 100% !important; max-width: 320px; height: 100px !important;   /* 320x100 */
+    width: 100% !important; max-width: 300px; height: 250px !important;   /* 300x250 */
   }
   /* Everything else is already a rectangle and simply keeps its shape. The
      half-page is the one exception: 600px of ad on a phone is a wall. */

@@ -38,6 +38,15 @@ const nextConfig: NextConfig = {
         destination: '/screen/death-of-the-pastors-wife-netflix-mica-miller',
         permanent: true,
       },
+      // A link with "filming" mistyped as "ilming" is in circulation somewhere -
+      // GA4 recorded 125 sessions on it between 19 Sep and 7 Oct, against 11 on
+      // the real URL, every one of them landing on the 404. Find and fix the
+      // source link too; this only stops the bleeding.
+      {
+        source: '/screen/the-chosen-wraps-ilming-season-7-cast-goodbye',
+        destination: '/screen/the-chosen-wraps-filming-season-7-cast-goodbye',
+        permanent: true,
+      },
     ]
   },
 }

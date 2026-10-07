@@ -77,7 +77,12 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
         : undefined
 
   return {
-    title,
+    // `absolute` drops the root layout's " — 5Talents Magazine" suffix on
+    // articles only. The suffix costs 20 of the ~60 characters Google shows,
+    // and spends them on a brand nobody searches for yet - so a headline gets
+    // clipped before it reaches its subject. Section and standing pages keep
+    // the suffix, where the brand is the point.
+    title: title ? { absolute: title } : undefined,
     description,
     alternates: { canonical: articleHref(section, slug) },
     // Spread rather than `robots: ... : undefined`. Next merges metadata by

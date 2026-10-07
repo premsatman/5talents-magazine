@@ -282,6 +282,24 @@ export const article = defineType({
       validation: (r) => r.required(),
     }),
     /**
+     * The editorial revision date, kept by hand.
+     *
+     * `_updatedAt` cannot do this job. Automated internal-linking batch runs
+     * touch dozens of documents at once - eighteen articles currently share a
+     * single four-second window - so `_updatedAt` records when a script last
+     * ran, not when a person last changed the text. Structured data and the
+     * sitemap read this field instead, and fall back to publishedAt when it is
+     * empty rather than to the contaminated timestamp.
+     */
+    defineField({
+      name: 'contentUpdatedAt',
+      title: 'Content last revised',
+      type: 'datetime',
+      group: 'meta',
+      description:
+        'Set this only when the text itself was edited by a person - a correction, a rewrite, new reporting added. Leave it alone for automated edits such as internal-linking runs, tag changes or image swaps. This is what dateModified and the sitemap report, so a date here is a claim that the piece actually changed.',
+    }),
+    /**
      * Which online issue this piece belongs to.
      *
      * ISSN India wants the publication name, volume, issue, month and year on

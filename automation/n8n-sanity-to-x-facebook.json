@@ -1,0 +1,158 @@
+{
+  "name": "5Talents — article publish to X + Facebook",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sanity-article-published",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000001",
+      "name": "Sanity publish",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-220, 300],
+      "webhookId": "5talents-sanity-article-published"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "// ======== FILL THESE IN ========\n// From GET https://zernio.com/api/v1/accounts  (accounts[]._id)\nconst ZERNIO_X_ACCOUNT_ID  = 'PASTE_X_ACCOUNT_ID';\nconst ZERNIO_FB_ACCOUNT_ID = 'PASTE_FACEBOOK_ACCOUNT_ID';\nconst SITE = 'https://www.5talentsmag.com';\n// ===============================\n\nconst out = [];\n\nfor (const item of $input.all()) {\n  // Sanity posts the projection as the request body.\n  const b = item.json.body ?? item.json;\n\n  const title   = String(b.title   || '').trim();\n  const deck    = String(b.deck    || '').trim();\n  const slug    = String(b.slug    || '').trim();\n  const section = String(b.section || 'current').trim();\n  const id      = String(b._id || slug);\n\n  // No headline or no slug means the document is not ready to announce.\n  if (!title || !slug) continue;\n\n  const url = `${SITE}/${section}/${slug}?utm_source=social&utm_medium=organic&utm_campaign=auto-announce`;\n\n  // X counts every link as 23 characters regardless of its real length.\n  const LINK_COST = 23;\n  const room = 280 - LINK_COST - 2;\n  const xTitle = title.length > room\n    ? title.slice(0, room - 1).trimEnd() + '\\u2026'\n    : title;\n  const xText = `${xTitle}\\n\\n${url}`;\n\n  // Facebook has room for the deck as well.\n  const fbText = deck\n    ? `${title}\\n\\n${deck}\\n\\n${url}`\n    : `${title}\\n\\n${url}`;\n\n  out.push({\n    json: {\n      articleId: id,\n      title,\n      deck,\n      url,\n      xText,\n      fbText,\n      xAccountId: ZERNIO_X_ACCOUNT_ID,\n      fbAccountId: ZERNIO_FB_ACCOUNT_ID\n    }\n  });\n}\n\nreturn out;"
+      },
+      "id": "a1000000-0000-4000-8000-000000000002",
+      "name": "Build the two posts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "operation": "removeItemsSeenInPreviousExecutions",
+        "logic": "removeItemsWithAlreadySeenKeyValues",
+        "dedupeValue": "={{ $json.articleId }}",
+        "options": {
+          "scope": "workflow",
+          "historySize": 2000
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000003",
+      "name": "Announce each article once",
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://zernio.com/api/v1/posts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-request-id",
+              "value": "={{ $json.articleId }}-x"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ content: $json.xText, publishNow: true, platforms: [ { platform: 'twitter', accountId: $json.xAccountId } ] }) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true,
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000004",
+      "name": "Post to X",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 180],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://zernio.com/api/v1/posts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-request-id",
+              "value": "={{ $json.articleId }}-fb"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ content: $json.fbText, publishNow: true, platforms: [ { platform: 'facebook', accountId: $json.fbAccountId } ] }) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true,
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000005",
+      "name": "Post to Facebook",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 420],
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "connections": {
+    "Sanity publish": {
+      "main": [
+        [
+          {
+            "node": "Build the two posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build the two posts": {
+      "main": [
+        [
+          {
+            "node": "Announce each article once",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Announce each article once": {
+      "main": [
+        [
+          {
+            "node": "Post to X",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Post to Facebook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

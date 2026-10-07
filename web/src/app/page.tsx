@@ -187,6 +187,15 @@ export default async function HomePage() {
       <SiteHeader />
 
       <main>
+        {/* The wordmark in the header is an image-and-link lockup, not a
+            heading, so the homepage shipped with no h1 at all - every other
+            page has one. Visually hidden rather than displayed: the design
+            leads with the hero cards, and a visible title above them would
+            be redundant with the masthead. */}
+        <h1 className="visually-hidden">
+          5Talents Magazine &mdash; discovering talents for God&rsquo;s kingdom
+        </h1>
+
         {/* ---- Hero: three portrait cards ------------------------------- */}
         <section className="wrap hero-row" aria-label="Featured">
           <div className="grid-3">

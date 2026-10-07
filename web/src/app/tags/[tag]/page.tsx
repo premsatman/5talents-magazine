@@ -35,7 +35,11 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const { data } = await sanityFetch({ query: TAG_QUERY, params: { slug: tag }, stega: false })
   if (!data) return {}
   return {
-    title: data.name ?? tag,
+    // "Articles tagged X", not bare "X". Several tags share a name with a
+    // section or a standing page - faith, screen, talent-search - and a bare
+    // name made /tags/faith and /faith emit the identical title. The section
+    // page is the canonical holder of that name, so the tag page yields.
+    title: `Articles tagged ${data.name ?? tag}`,
     description: data.description ?? `Everything 5Talents has published on ${data.name}.`,
     alternates: { canonical: `/tags/${tag}` },
     // Overrides the root layout's index:true for this route only.
