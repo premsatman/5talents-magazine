@@ -610,6 +610,14 @@ blockquote cite {
 .body .ad--inbody .ad__frame { width: 336px !important; max-width: 100%; }
 .body .ad--inbody.ad--filled .ad__frame { height: auto !important; }
 .body .ad--inbody img { width: 100%; height: auto; }
+/* The frame is a centring grid and the link inside it shrinks to fit its
+   content, so `width: 100%` on the image resolved against the image's own
+   intrinsic size. A 2x creative (672px) looked right by luck; a 1x one
+   (336px, served as a 2x srcset) came out at 168px - half size. Making the
+   frame and link plain full-width blocks gives the image a real width to
+   fill, whatever resolution the advertiser supplied. */
+.body .ad--inbody .ad__frame { display: block; }
+.body .ad--inbody .ad__frame > a { display: block; width: 100%; }
 .body .ad--inbody .ad__label { align-self: flex-start; }
 
 /* Under about 720px there is no room for 336px of ad plus a readable column,
