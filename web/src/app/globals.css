@@ -623,6 +623,18 @@ blockquote cite {
   }
 }
 
+/* On a phone, fill the text column instead of stopping at 336px. On a 430px
+   Pro Max the column is 382px, and a 336px ad left a 23px strip either side
+   that read as a mistake rather than a margin. Capped at 480px on purpose:
+   between there and 720px the column is up to 650px wide, and an ad stretched
+   to fill it becomes a half-screen block in the middle of the text.
+   Creatives are designed at 2x (672px) or are SVG, so this never upscales
+   past their sharp size. */
+@media (max-width: 480px) {
+  .body .ad--inbody,
+  .body .ad--inbody .ad__frame { width: 100% !important; }
+}
+
 /* ---------- grids ---------- */
 .hero-row { margin-block: var(--s-5) var(--s-6); }
 .grid-3 { display: grid; gap: 4px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
