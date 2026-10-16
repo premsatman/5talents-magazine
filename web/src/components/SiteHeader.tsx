@@ -5,6 +5,7 @@ import { SECTION_SLUGS } from '@/lib/sections'
 import { clean } from '@/sanity/stega'
 import { tagline } from '@/lib/site'
 import { ThemeToggle } from './ThemeToggle'
+import { SubscribeButton } from './SubscribeButton'
 import { BrushStroke } from './Wordmark'
 import { PrimaryNav, type NavItem } from './PrimaryNav'
 
@@ -71,9 +72,7 @@ export function UtilityBar({ quiet = false }: { quiet?: boolean }) {
             Advertise
           </Link>
           <ThemeToggle />
-          <Link className="subscribebtn" href="#newsletter">
-            Subscribe
-          </Link>
+          <SubscribeButton />
         </div>
       </div>
     </div>
