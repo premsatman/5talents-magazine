@@ -1625,3 +1625,101 @@ nav.primary.compact { border-top: 0; }
 .contributor__name a:hover,
 .contributor__name a:focus-visible { text-decoration: underline; text-decoration-color: var(--accent); }
 .contributor .note { margin: 0; }
+
+/* ==========================================================================
+   Floating reel
+   The video-style player in the bottom-right corner (components/
+   FloatingReel*.tsx). One 7s cycle per story: 0-5.1s image, label and
+   headline; 5.1-5.6s out; 5.45-7s the wordmark card. The progress bar's 7s
+   animation ending is what advances the slide, so the timings below and the
+   bar's duration have to move together.
+   Above the gutter skyscrapers (45), below the drawer overlay (55). On
+   windows of 1500px+ it can sit over the lower edge of the right skyscraper.
+   ========================================================================== */
+
+.reel {
+  position: fixed; z-index: 48;
+  right: calc(20px + env(safe-area-inset-right, 0px));
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  width: 360px; max-width: calc(100vw - 20px);
+  font-family: var(--font-sans);
+  transform: translateY(24px); opacity: 0;
+  transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .35s;
+}
+.reel--in { transform: none; opacity: 1; }
+
+.reel__bar { display: flex; align-items: center; justify-content: space-between; height: 26px; background: var(--paper); color: var(--ink); }
+.reel__close { width: 22px; height: 22px; border-radius: 50%; border: 0; padding: 0; background: var(--ink); color: var(--paper); display: grid; place-items: center; cursor: pointer; }
+.reel__close svg { width: 10px; height: 10px; }
+.reel__by { font-size: 11px; color: var(--ink-secondary); display: flex; align-items: baseline; gap: 5px; padding-right: 2px; }
+.reel__by b { font-family: var(--font-wordmark); font-weight: 400; font-size: 15px; letter-spacing: .02em; color: var(--ink); }
+
+.reel__body { position: relative; color: #FDFCF7; }
+.reel__frame { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #0D0C08; color: inherit; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,.28); }
+.reel__slide { position: absolute; inset: 0; }
+
+.reel__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: reel-kb 5.6s linear both, reel-img-out .5s ease-in 5.1s both; }
+.reel__slide--alt .reel__img { animation-name: reel-kb2, reel-img-out; }
+.reel__shade {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(10,9,6,.92) 0%, rgba(10,9,6,.55) 38%, rgba(10,9,6,0) 62%),
+    linear-gradient(to bottom, rgba(10,9,6,.45), rgba(10,9,6,0) 30%);
+  animation: reel-fade-in .6s .1s both, reel-img-out .5s ease-in 5.1s both;
+}
+.reel__chip { position: absolute; left: 12px; top: 11px; background: var(--highlight); color: #14130E; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 7px 3px; animation: reel-slide-r .45s .35s cubic-bezier(.2,.8,.2,1) both, reel-fade-out .3s 5.1s both; }
+.reel__read { position: absolute; right: 10px; top: 9px; font-size: 13px; font-weight: 700; padding: 6px 12px; border: 1.5px solid rgba(253,252,247,.85); background: rgba(20,19,14,.45); backdrop-filter: blur(3px); border-radius: 3px; animation: reel-fade-in .4s .8s both, reel-fade-out .3s 5.1s both; }
+.reel__frame:hover .reel__read { background: var(--highlight); color: #14130E; border-color: var(--highlight); }
+.reel__title { position: absolute; left: 12px; right: 12px; bottom: 38px; margin: 0; font-family: var(--font-wordmark); font-weight: 400; font-size: 21px; line-height: 1.05; letter-spacing: .005em; text-wrap: balance; }
+.reel__word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .06em; margin-right: .22em; }
+.reel__word > span { display: block; animation: reel-rise .55s cubic-bezier(.2,.8,.2,1) both, reel-fade-out .3s 5.1s both; }
+
+.reel__sting { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 6px; background: #0D0C08; animation: reel-fade-in .35s 5.45s both; }
+.reel__mark { position: relative; font-family: var(--font-wordmark); font-size: 46px; line-height: 1; letter-spacing: .01em; padding: 0 6px; }
+.reel__mark::before { content: ""; position: absolute; left: 0; right: 0; bottom: -9px; height: 7px; background: var(--highlight); transform-origin: left; transform: scaleX(0); animation: reel-wipe .5s 5.65s cubic-bezier(.6,0,.2,1) both; }
+.reel__sting small { font-size: 10px; letter-spacing: .32em; text-transform: uppercase; color: #A8A498; animation: reel-fade-in .4s 5.9s both; }
+
+.reel__ctrls { position: absolute; left: 8px; bottom: 9px; z-index: 3; display: flex; gap: 2px; }
+.reel__ctrls button { border: 0; background: none; color: inherit; cursor: pointer; display: grid; place-items: center; width: 26px; height: 24px; padding: 0; opacity: .92; }
+.reel__ctrls svg { width: 15px; height: 15px; }
+.reel__sound[aria-pressed="true"] { color: var(--highlight); }
+.reel__count { font-size: 11px; font-variant-numeric: tabular-nums; color: #A8A498; align-self: center; margin-left: 4px; }
+.reel__next { position: absolute; right: 0; bottom: 8px; z-index: 3; display: flex; align-items: center; gap: 8px; border: 0; border-left: 2px solid var(--highlight); background: rgba(10,9,6,.82); color: inherit; font: 600 13px var(--font-sans); padding: 5px 10px 5px 12px; cursor: pointer; animation: reel-fade-in .4s 1.6s both; }
+.reel__next svg { width: 13px; height: 13px; }
+.reel__prog { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; z-index: 3; background: rgba(253,252,247,.18); }
+.reel__prog i { display: block; height: 100%; background: var(--highlight); transform-origin: left; transform: scaleX(0); animation: reel-prog 7s linear both; }
+.reel__hint { position: relative; align-self: center; margin-left: 7px; pointer-events: none; background: var(--highlight); color: #14130E; font: 700 11px var(--font-sans); letter-spacing: .02em; padding: 4px 7px; border-radius: 2px; white-space: nowrap; animation: reel-fade-in .4s 1.2s both, reel-nudge 1.6s 1.6s ease-in-out infinite; }
+.reel__hint::before { content: ""; position: absolute; left: -5px; top: 50%; transform: translateY(-50%); border: 5px solid transparent; border-left: 0; border-right-color: var(--highlight); }
+
+.reel--paused *:not(.reel__hint), .reel--paused *::before { animation-play-state: paused !important; }
+.reel button:focus-visible, .reel a:focus-visible { outline: 2px solid var(--highlight); outline-offset: 2px; }
+
+@keyframes reel-kb { from { transform: scale(1.02) translate(0,0); } to { transform: scale(1.16) translate(-2.5%,-1.5%); } }
+@keyframes reel-kb2 { from { transform: scale(1.16) translate(2%,1%); } to { transform: scale(1.03) translate(0,0); } }
+@keyframes reel-img-out { to { opacity: 0; filter: brightness(.4); } }
+@keyframes reel-rise { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes reel-slide-r { from { transform: translateX(-120%); } to { transform: none; } }
+@keyframes reel-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes reel-fade-out { to { opacity: 0; } }
+@keyframes reel-wipe { to { transform: scaleX(1); } }
+@keyframes reel-prog { to { transform: scaleX(1); } }
+@keyframes reel-nudge { 50% { transform: translateX(-3px); } }
+
+/* Phones: full width along the bottom. */
+@media (max-width: 520px) {
+  .reel {
+    left: calc(10px + env(safe-area-inset-left, 0px));
+    right: calc(10px + env(safe-area-inset-right, 0px));
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    width: auto; max-width: none;
+  }
+  .reel__title { font-size: 19px; }
+}
+
+/* No zoom, no rising words: a plain cross-faded slideshow. */
+@media (prefers-reduced-motion: reduce) {
+  .reel { transition: opacity .3s; }
+  .reel__img { animation: reel-img-out .5s ease-in 5.1s both; }
+  .reel__word > span, .reel__chip { animation: reel-fade-in .3s both, reel-fade-out .3s 5.1s both; }
+  .reel__hint { animation: reel-fade-in .3s both; }
+}

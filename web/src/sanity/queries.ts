@@ -174,6 +174,16 @@ export const HOME_TAIL_QUERY = defineQuery(/* groq */ `
 `)
 
 /** Rail module. Most-read is not measurable yet, so this is most-recent. */
+/**
+ * The floating reel in the corner of every page. Eleven rather than ten so that
+ * on an article page, where the story being read is dropped from the loop, the
+ * reader still gets ten. Briefs are left out: most have no picture.
+ */
+export const FLOATING_REEL_QUERY = defineQuery(/* groq */ `
+  *[${live} && kind != "brief" && (defined(hero.asset) || defined(heroExternal.url))]
+  | order(publishedAt desc)[0...11]{ ${cardFragment} }
+`)
+
 export const HOME_RAIL_QUERY = defineQuery(/* groq */ `
   *[${live} && kind != "brief"] | order(publishedAt desc)[0...6]{ ${cardFragment} }
 `)

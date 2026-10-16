@@ -11,6 +11,7 @@ import { draftMode } from 'next/headers'
 import { VisualEditing } from 'next-sanity/visual-editing'
 import { Analytics } from '@/components/Analytics'
 import { MetaPixel } from '@/components/MetaPixel'
+import { FloatingReel } from '@/components/FloatingReel'
 import { SanityLive } from '@/sanity/live'
 import { defaultDescription, siteName, siteUrl, tagline } from '@/lib/site'
 import './globals.css'
@@ -173,6 +174,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         {children}
+        <FloatingReel />
         <SanityLive />
         {isDraft && <VisualEditing />}
         <Analytics />

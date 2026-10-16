@@ -115,3 +115,47 @@ export function newsletterSignup(placement: string) {
 export function advertiseEnquiry() {
   track('advertise_enquiry')
 }
+
+/* ------------------------------------------------------------------ *
+ * Floating reel (components/FloatingReel*.tsx)
+ *
+ * Register `reel_control`, `reel_position` and `reel_seen` as custom
+ * dimensions/metrics in GA4 Admin, alongside the existing `slug` and `section`,
+ * or the values are discarded on arrival.
+ *
+ *   reel_shown   once per page view, when the player slides in
+ *   reel_click   a reader opened a story from it - the number that matters
+ *   reel_next    the Next button
+ *   reel_close   dismissed (stays closed for the rest of the visit)
+ *   reel_sound   music switched on or off
+ * ------------------------------------------------------------------ */
+
+export type ReelControl = 'frame' | 'read_story' | 'expand'
+
+export function reelShown(count: number) {
+  track('reel_shown', { reel_count: count })
+}
+
+/** `position` is 1-based within the shuffled loop; `seen` is how many stories had played. */
+export function reelClick(e: { slug: string; section: string; position: number; seen: number; control: ReelControl }) {
+  track('reel_click', {
+    slug: e.slug,
+    section: e.section,
+    reel_position: e.position,
+    reel_seen: e.seen,
+    reel_control: e.control,
+  })
+  metaTrack('ReelClick', { section: e.section })
+}
+
+export function reelNext(slug: string, position: number) {
+  track('reel_next', { slug, reel_position: position })
+}
+
+export function reelClose(seen: number) {
+  track('reel_close', { reel_seen: seen })
+}
+
+export function reelSound(on: boolean) {
+  track('reel_sound', { reel_sound: on ? 'on' : 'off' })
+}
