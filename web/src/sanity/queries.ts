@@ -589,11 +589,31 @@ export const ACTIVE_ADS_QUERY = defineQuery(/* groq */ `
  * Feeds and sitemap
  * ------------------------------------------------------------------ */
 
+/**
+ * RSS. Carries the lead picture and the full body as well as the deck:
+ * Flipboard will not list a feed that is excerpts only, and Pinterest's RSS
+ * auto-publish has nothing to pin from an item without an image. The result
+ * type is declared by hand in src/app/rss.xml/route.ts until typegen is next
+ * run.
+ *
+ * Thirty items, not forty: each one now carries its whole body, and the feed is
+ * fetched fresh on every poll. Thirty rather than twenty because Flipboard's
+ * own guidance asks for at least 30 items before it will take a feed.
+ */
 export const FEED_QUERY = defineQuery(/* groq */ `
-  *[${live}] | order(publishedAt desc)[0...40]{
+  *[${live}] | order(publishedAt desc)[0...30]{
     title, "slug": slug.current, deck, publishedAt, sponsorTier,
     "section": section->{ name, "slug": slug.current },
-    "authors": authors[]->{ name }
+    "authors": authors[]->{ name },
+    hero { ${imageFragment} },
+    heroExternal { ${externalImageFragment} },
+    seo { ogImage { ${imageFragment} } },
+    body[]{
+      ...,
+      _type == "image" => { ${imageFragment} },
+      _type == "externalImage" => { ${externalImageFragment} },
+      markDefs[]{ ... }
+    }
   }
 `)
 

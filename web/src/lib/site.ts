@@ -31,6 +31,15 @@ export const socialDescription =
 export const scopeStatement =
   '5Talents covers Christian culture, formation, news, events and conferences. We do not cover political controversy.'
 
+/**
+ * The desk address, used as managingEditor and webMaster in the RSS feed.
+ *
+ * Feed directories read those two fields when they want a human to contact
+ * about the feed, and several reject a submission without them. It is a real
+ * mailbox, not a no-reply.
+ */
+export const editorialEmail = 'editorial@5talentsmag.com'
+
 export function absoluteUrl(path: string) {
   return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`
 }
