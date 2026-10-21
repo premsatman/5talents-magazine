@@ -46,7 +46,7 @@ export default async function PrivacyPage() {
               there.
             </p>
             <p>
-              <em>Last updated 30 September 2026.</em>
+              <em>Last updated 21 October 2026.</em>
             </p>
 
             <h2>What we collect</h2>
@@ -92,6 +92,13 @@ export default async function PrivacyPage() {
               <li>
                 <strong>Cloudflare Turnstile.</strong> On the Write for us form only, to stop
                 automated submissions.
+              </li>
+              <li>
+                <strong>Google Reader Revenue Manager.</strong> On article pages only. A Google
+                script that lets Google show a prompt to follow 5Talents or to sign up for the
+                newsletter, mainly inside Google News and Discover. It sets Google&rsquo;s own
+                cookies. There is no paywall here, and nothing on this site is ever withheld from
+                you.
               </li>
               <li>
                 <strong>Advertisers.</strong> Adverts we sell directly are plain images hosted by

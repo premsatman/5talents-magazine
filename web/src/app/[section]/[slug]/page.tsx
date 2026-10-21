@@ -28,6 +28,7 @@ import { SponsorLabel, isSponsored } from '@/components/SponsorLabel'
 import { AdSlot } from '@/components/AdSlot'
 import { ShareBar } from '@/components/ShareBar'
 import { EndCards } from '@/components/EndCards'
+import { ReaderRevenue } from '@/components/ReaderRevenue'
 import { FindThem, Sources, type FindThemData, type Source } from '@/components/FindThem'
 import { ReadTracker } from '@/components/ReadTracker'
 import { WatchIt } from '@/components/WatchIt'
@@ -502,6 +503,8 @@ export default async function ArticlePage(props: Props) {
       </main>
 
       <SiteFooter />
+
+      <ReaderRevenue />
 
       <script
         type="application/ld+json"
