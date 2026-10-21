@@ -9,7 +9,8 @@ import { SocialLinks } from '@/components/SocialLinks'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'How to reach 5Talents Magazine.',
+  description:
+    'How to reach 5Talents Magazine: the editorial desk for story tips and corrections, pitches and submissions, advertising, and the publisher’s postal address.',
   alternates: { canonical: '/contact' },
 }
 

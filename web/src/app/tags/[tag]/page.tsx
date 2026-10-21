@@ -1,3 +1,4 @@
+import { metaDescription } from '@/lib/format'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { sanityFetch } from '@/sanity/live'
@@ -40,7 +41,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     // name made /tags/faith and /faith emit the identical title. The section
     // page is the canonical holder of that name, so the tag page yields.
     title: `Articles tagged ${data.name ?? tag}`,
-    description: data.description ?? `Everything 5Talents has published on ${data.name}.`,
+    // The old fallback ("Everything 5Talents has published on X.") was about
+    // 45 characters, and with 109 of 112 tags lacking their own description
+    // it was the bulk of what Bing flagged as too-short meta descriptions.
+    description: metaDescription(
+      data.description ??
+        `${data.articleCount ?? 'All'} ${data.articleCount === 1 ? 'article' : 'articles'} on ${data.name} from 5Talents Magazine: Christian culture, faith and news for young readers, edited from India for the world.`,
+    ),
     alternates: { canonical: `/tags/${tag}` },
     // Overrides the root layout's index:true for this route only.
     ...((data.articleCount ?? 0) < INDEXABLE_FROM

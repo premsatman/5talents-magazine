@@ -1,3 +1,4 @@
+import { metaDescription } from '@/lib/format'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -38,7 +39,20 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   if (!data) return {}
   return {
     title: `${data.title} issue`,
-    description: `The complete contents of the ${data.title} issue of 5Talents Magazine.`,
+    // Names the first pieces in the issue, so the result says what is in it
+    // rather than only that it exists.
+    description: metaDescription(
+      [
+        `The ${data.title} issue of 5Talents Magazine, rebuilt for the web with the original PDF alongside.`,
+        (data.tableOfContents ?? [])
+          .map((entry) => entry?.title)
+          .filter(Boolean)
+          .slice(0, 3)
+          .join(', '),
+      ]
+        .filter(Boolean)
+        .join(' Inside: '),
+    ),
     alternates: { canonical: `/archive/${issue}` },
   }
 }

@@ -8,7 +8,8 @@ import { Prose } from '@/components/PortableBody'
 
 export const metadata: Metadata = {
   title: 'Corrections',
-  description: 'How 5Talents Magazine handles errors, and how to report one.',
+  description:
+    'How 5Talents Magazine handles errors: what we correct, how a correction is marked on the article, and how to report a mistake to the editors so it can be put right.',
   alternates: { canonical: '/corrections' },
 }
 

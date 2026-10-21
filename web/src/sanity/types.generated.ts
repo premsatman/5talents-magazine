@@ -2825,6 +2825,22 @@ export type ARCHIVE_ISSUE_QUERY_RESULT = {
 } | null;
 
 // Source: ../web/src/sanity/queries.ts
+// Variable: ARCHIVE_NEIGHBOURS_QUERY
+// Query: *[_type == "archiveIssue" && slug.current == $slug][0]{    "older": *[_type == "archiveIssue" && issueDate < ^.issueDate] | order(issueDate desc)[0]{      title, "slug": slug.current, issueDate    },    "newer": *[_type == "archiveIssue" && issueDate > ^.issueDate] | order(issueDate asc)[0]{      title, "slug": slug.current, issueDate    }  }
+export type ARCHIVE_NEIGHBOURS_QUERY_RESULT = {
+  older: {
+    title: string | null;
+    slug: string | null;
+    issueDate: string | null;
+  } | null;
+  newer: {
+    title: string | null;
+    slug: string | null;
+    issueDate: string | null;
+  } | null;
+} | null;
+
+// Source: ../web/src/sanity/queries.ts
 // Variable: ARCHIVE_SLUGS_QUERY
 // Query: *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current }
 export type ARCHIVE_SLUGS_QUERY_RESULT = Array<{
@@ -2862,6 +2878,152 @@ export type ACTIVE_ADS_QUERY_RESULT = Array<{
 // Variable: FEED_QUERY
 // Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false] | order(publishedAt desc)[0...30]{    title, "slug": slug.current, deck, publishedAt, sponsorTier,    "section": section->{ name, "slug": slug.current },    "authors": authors[]->{ name },    hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },    heroExternal {   url, alt, width, height, caption, credit },    seo { ogImage {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop } },    body[]{      ...,      _type == "image" => {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },      _type == "externalImage" => {   url, alt, width, height, caption, credit },      markDefs[]{ ... }    }  }
 export type FEED_QUERY_RESULT = Array<{
+  title: string | null;
+  slug: string | null;
+  deck: string | null;
+  publishedAt: string | null;
+  sponsorTier: "none" | "sponsored" | "supplied" | null;
+  section: {
+    name: string | null;
+    slug: string | null;
+  } | null;
+  authors: Array<{
+    name: string | null;
+  }> | null;
+  hero: {
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+        dimensions: SanityImageDimensions | null;
+      } | null;
+    } | null;
+    alt: string | null;
+    caption: string | null;
+    credit: string | null;
+    hotspot: SanityImageHotspot | null;
+    crop: SanityImageCrop | null;
+  } | null;
+  heroExternal: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
+  seo: {
+    ogImage: {
+      asset: {
+        _id: string;
+        url: string | null;
+        metadata: {
+          lqip: string | null;
+          dimensions: SanityImageDimensions | null;
+        } | null;
+      } | null;
+      alt: null;
+      caption: null;
+      credit: null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+  } | null;
+  body: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "number";
+        markDefs: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }> | null;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }
+    | {
+        text?: string;
+        placement?: "foot" | "top";
+        _type: "editorsNote";
+        _key: string;
+        markDefs: null;
+      }
+    | {
+        _key: string;
+        _type: "externalImage";
+        url: string | null;
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        caption: string | null;
+        credit: string | null;
+        rightsBasis?:
+          | "cc"
+          | "free"
+          | "generated"
+          | "licensed"
+          | "owned"
+          | "permission"
+          | "publicDomain";
+        rightsNote?: string;
+        markDefs: null;
+      }
+    | {
+        asset: {
+          _id: string;
+          url: string | null;
+          metadata: {
+            lqip: string | null;
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        media?: unknown;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+        alt: string | null;
+        caption: string | null;
+        credit: string | null;
+        _type: "image";
+        _key: string;
+        markDefs: null;
+      }
+    | {
+        url?: string;
+        caption?: string;
+        _type: "instagramEmbed";
+        _key: string;
+        markDefs: null;
+      }
+    | {
+        quote?: string;
+        attribution?: string;
+        highlightPhrase?: string;
+        _type: "pullQuote";
+        _key: string;
+        markDefs: null;
+      }
+    | {
+        text?: string;
+        attribution?: string;
+        _type: "verse";
+        _key: string;
+        markDefs: null;
+      }
+  > | null;
+}>;
+
+// Source: ../web/src/sanity/queries.ts
+// Variable: SECTION_FEED_QUERY
+// Query: *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $section] | order(publishedAt desc)[0...30]{    title, "slug": slug.current, deck, publishedAt, sponsorTier,    "section": section->{ name, "slug": slug.current },    "authors": authors[]->{ name },    hero {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },    heroExternal {   url, alt, width, height, caption, credit },    seo { ogImage {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop } },    body[]{      ...,      _type == "image" => {   asset->{ _id, url, metadata { lqip, dimensions } },  alt,  caption,  credit,  hotspot,  crop },      _type == "externalImage" => {   url, alt, width, height, caption, credit },      markDefs[]{ ... }    }  }
+export type SECTION_FEED_QUERY_RESULT = Array<{
   title: string | null;
   slug: string | null;
   deck: string | null;
@@ -3238,9 +3400,11 @@ declare global {
     '\n  *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current }\n': ONLINE_ISSUE_SLUGS_QUERY_RESULT;
     '\n  *[_type == "archiveIssue"] | order(issueDate desc){\n    _id, title, "slug": slug.current, issueDate, issueNumber, pageCount,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    "articleCount": count(tableOfContents[defined(article)])\n  }\n': ARCHIVE_ISSUES_QUERY_RESULT;
     '\n  *[_type == "archiveIssue" && slug.current == $slug][0]{\n    _id, title, "slug": slug.current, issueDate, issueNumber, pageCount, pdfUrl, readerUrl, embedUrl,\n    "pdfFile": pdfFile.asset->url,\n    coverImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    tableOfContents[]{\n      _key, title, page, byline,\n      "article": article->{\n        title, "slug": slug.current,\n        "section": section->{ name, "slug": slug.current }\n      }\n    }\n  }\n': ARCHIVE_ISSUE_QUERY_RESULT;
+    '\n  *[_type == "archiveIssue" && slug.current == $slug][0]{\n    "older": *[_type == "archiveIssue" && issueDate < ^.issueDate] | order(issueDate desc)[0]{\n      title, "slug": slug.current, issueDate\n    },\n    "newer": *[_type == "archiveIssue" && issueDate > ^.issueDate] | order(issueDate asc)[0]{\n      title, "slug": slug.current, issueDate\n    }\n  }\n': ARCHIVE_NEIGHBOURS_QUERY_RESULT;
     '\n  *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current }\n': ARCHIVE_SLUGS_QUERY_RESULT;
     '\n  *[_type == "advertiser" && $slot in slots && activeFrom <= $today && activeTo >= $today\n    && (!defined(sections) || count(sections) == 0 || $section in sections)]\n  | order(select(tier == "house" => 1, 0) asc, activeFrom desc){\n    _id, name, url, tier, embedCode, embedHeight,\n    creative { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n }\n  }\n': ACTIVE_ADS_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false] | order(publishedAt desc)[0...30]{\n    title, "slug": slug.current, deck, publishedAt, sponsorTier,\n    "section": section->{ name, "slug": slug.current },\n    "authors": authors[]->{ name },\n    hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    heroExternal { \n  url, alt, width, height, caption, credit\n },\n    seo { ogImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } },\n    body[]{\n      ...,\n      _type == "image" => { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n      _type == "externalImage" => { \n  url, alt, width, height, caption, credit\n },\n      markDefs[]{ ... }\n    }\n  }\n': FEED_QUERY_RESULT;
+    '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $section] | order(publishedAt desc)[0...30]{\n    title, "slug": slug.current, deck, publishedAt, sponsorTier,\n    "section": section->{ name, "slug": slug.current },\n    "authors": authors[]->{ name },\n    hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    heroExternal { \n  url, alt, width, height, caption, credit\n },\n    seo { ogImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } },\n    body[]{\n      ...,\n      _type == "image" => { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n      _type == "externalImage" => { \n  url, alt, width, height, caption, credit\n },\n      markDefs[]{ ... }\n    }\n  }\n': SECTION_FEED_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true && publishedAt > $since && defined(section->slug.current)]\n  | order(publishedAt desc)[0...1000]{\n    title, "slug": slug.current, "section": section->slug.current, publishedAt\n  }\n': NEWS_SITEMAP_QUERY_RESULT;
     "\n  *[_id == $id][0]{\n    _updatedAt,\n    contentUpdatedAt,\n    sources[]{ _key, title, publisher, url },\n    findThem {\n      name, note, paid, website, tickets, appAndroid, appIos,\n      instagram, facebook, x, youtube, whatsapp\n    }\n  }\n": ARTICLE_EXTRAS_QUERY_RESULT;
     '{\n  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{\n    "slug": slug.current, "section": section->slug.current, _updatedAt,\n    contentUpdatedAt, publishedAt\n  },\n  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "tags": *[_type == "tag" && defined(slug.current)\n    && count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && references(^._id)]) >= 3]{ "slug": slug.current, _updatedAt },\n  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }\n}': SITEMAP_QUERY_RESULT;
