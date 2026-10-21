@@ -985,7 +985,9 @@ blockquote cite {
 }
 .listrow:has(.listrow__rank) { grid-template-columns: 2rem 90px 1fr; }
 .listrow:not(:has(.listrow__rank)) { grid-template-columns: 90px 1fr; }
-.listrow__rank { font-family: var(--font-display); font-size: 1.35rem; color: var(--rule-strong); line-height: 1; }
+/* --ink-muted, not --rule-strong: the rule colour measured 1.7:1 on paper and
+   failed PageSpeed's contrast check (21 Oct 2026). Muted passes in both themes. */
+.listrow__rank { font-family: var(--font-display); font-size: 1.35rem; color: var(--ink-muted); line-height: 1; }
 .listrow__media { display: block; text-decoration: none; }
 .listrow__frame {
   width: 90px; height: 90px; overflow: hidden;
