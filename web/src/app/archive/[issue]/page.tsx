@@ -4,7 +4,11 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { sanityFetch } from '@/sanity/live'
 import { freshClient } from '@/sanity/client'
-import { ARCHIVE_ISSUE_QUERY, ARCHIVE_SLUGS_QUERY } from '@/sanity/queries'
+import {
+  ARCHIVE_ISSUE_QUERY,
+  ARCHIVE_NEIGHBOURS_QUERY,
+  ARCHIVE_SLUGS_QUERY,
+} from '@/sanity/queries'
 import { urlFor, imgAlt, imgBlur } from '@/sanity/image'
 import { clean } from '@/sanity/stega'
 import { formatMonth } from '@/lib/format'
@@ -14,6 +18,10 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { IssueReader } from '@/components/IssueReader'
 
 type Props = { params: Promise<{ issue: string }> }
+
+/** Declared by hand until typegen is next run; see ARCHIVE_NEIGHBOURS_QUERY. */
+type IssueLink = { title: string | null; slug: string | null; issueDate: string | null } | null
+type Neighbours = { older: IssueLink; newer: IssueLink } | null
 
 export async function generateStaticParams() {
   const issues = await freshClient.fetch(ARCHIVE_SLUGS_QUERY)
@@ -37,8 +45,15 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 export default async function IssuePage(props: Props) {
   const { issue: slug } = await props.params
-  const { data: issue } = await sanityFetch({ query: ARCHIVE_ISSUE_QUERY, params: { slug } })
+  const [{ data: issue }, { data: around }] = await Promise.all([
+    sanityFetch({ query: ARCHIVE_ISSUE_QUERY, params: { slug } }),
+    sanityFetch({ query: ARCHIVE_NEIGHBOURS_QUERY, params: { slug } }),
+  ])
   if (!issue) notFound()
+
+  const neighbours = around as unknown as Neighbours
+  const older = neighbours?.older
+  const newer = neighbours?.newer
 
   const pdf = clean(issue.pdfUrl) ?? clean(issue.pdfFile)
   const embed = clean(issue.embedUrl)
@@ -136,6 +151,29 @@ export default async function IssuePage(props: Props) {
             )}
           </div>
         </div>
+
+        {/* Issue-to-issue links. A reader working through the run wants them,
+            and they give crawlers a path from any one issue to all twenty -
+            previously the only links in were /archive and six homepage
+            covers, and every issue page sat "discovered, not indexed". */}
+        {(older?.slug || newer?.slug) && (
+          <nav className="issue-nav" aria-label="Other issues">
+            {older?.slug ? (
+              <Link className="brush-link" href={`/archive/${clean(older.slug)}`}>
+                ← {older.title ?? formatMonth(older.issueDate)}
+              </Link>
+            ) : (
+              <span />
+            )}
+            {newer?.slug ? (
+              <Link className="brush-link" href={`/archive/${clean(newer.slug)}`}>
+                {newer.title ?? formatMonth(newer.issueDate)} →
+              </Link>
+            ) : (
+              <span />
+            )}
+          </nav>
+        )}
       </main>
       <SiteFooter />
     </>

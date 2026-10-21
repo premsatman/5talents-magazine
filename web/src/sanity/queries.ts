@@ -542,6 +542,26 @@ export const ARCHIVE_ISSUE_QUERY = defineQuery(/* groq */ `
   }
 `)
 
+/**
+ * The issue either side of this one, for the prev/next links at the foot of an
+ * archive issue page.
+ *
+ * Separate from ARCHIVE_ISSUE_QUERY rather than folded into it, because
+ * changing that query's text invalidates its generated type and the page stops
+ * building until typegen is run on a machine that can run it. The result type
+ * is declared by hand in the page until typegen next runs.
+ */
+export const ARCHIVE_NEIGHBOURS_QUERY = defineQuery(/* groq */ `
+  *[_type == "archiveIssue" && slug.current == $slug][0]{
+    "older": *[_type == "archiveIssue" && issueDate < ^.issueDate] | order(issueDate desc)[0]{
+      title, "slug": slug.current, issueDate
+    },
+    "newer": *[_type == "archiveIssue" && issueDate > ^.issueDate] | order(issueDate asc)[0]{
+      title, "slug": slug.current, issueDate
+    }
+  }
+`)
+
 export const ARCHIVE_SLUGS_QUERY = defineQuery(/* groq */ `
   *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current }
 `)
