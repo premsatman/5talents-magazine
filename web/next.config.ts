@@ -11,11 +11,16 @@ const nextConfig: NextConfig = {
     // Blueprint section 7: Core Web Vitals matter for both ranking and ad revenue.
     // Keep the srcset lean; one quality level is enough for editorial photography.
     qualities: [75],
-    // AVIF first, WebP for browsers without it. AVIF is typically 20-30%
-    // smaller than WebP for photographs, which goes straight to LCP on a
-    // phone. Encoding it is slower, but only on the first request for each
-    // size - after that Vercel serves the cached file.
-    formats: ['image/avif', 'image/webp'],
+    // Cloudinary and Sanity resize and pick the format (AVIF/WebP) themselves;
+    // the browser asks them directly instead of going through Vercel's
+    // optimiser. See src/lib/image-loader.ts. remotePatterns and qualities
+    // above only apply to the default loader and are kept for reference.
+    loader: 'custom',
+    loaderFile: './src/lib/image-loader.ts',
+    // Fewer widths than Next's default eight: every distinct width is a new
+    // derived image on Cloudinary (it counts against the plan's credits), and
+    // 750 and 3840 add nothing a reader would see.
+    deviceSizes: [640, 828, 1080, 1200, 1920, 2048],
   },
   // Turbopack is the default in Next 16 for both dev and build; no flags needed.
   turbopack: {},
