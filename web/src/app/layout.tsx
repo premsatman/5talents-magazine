@@ -2,9 +2,7 @@ import type { Metadata } from 'next'
 import {
   Anton,
   Archivo,
-  Bricolage_Grotesque,
   Fraunces,
-  Instrument_Serif,
   Newsreader,
 } from 'next/font/google'
 import { draftMode } from 'next/headers'
@@ -30,8 +28,11 @@ import './globals.css'
  *                     brick - condensed, uniformly heavy, and it flattens a
  *                     long headline into a wall.
  *
- * Set NEXT_PUBLIC_DISPLAY_FONT in .env.local and reload. Once you have chosen,
- * delete the other three imports below - next/font ships each face you load.
+ * Fraunces was chosen (NEXT_PUBLIC_DISPLAY_FONT="fraunces"). Instrument Serif
+ * and Bricolage Grotesque were removed on 21 Oct 2026: next/font ships and
+ * preloads every face imported here, used or not, and the two spare families
+ * were render-blocking weight on every page for no visible effect. To try one
+ * again, re-import it and add it back to DISPLAY_FONTS and the class list.
  */
 const anton = Anton({ weight: '400', subsets: ['latin'], variable: '--font-anton', display: 'swap' })
 
@@ -44,30 +45,12 @@ const newsreader = Newsreader({
   display: 'swap',
 })
 
-// High-contrast display serif. The closest freely licensed relative of Casta,
-// and the one that most resembles what you were looking at.
-const instrumentSerif = Instrument_Serif({
-  weight: '400',
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  variable: '--font-instrument',
-  display: 'swap',
-})
-
 // Variable serif with optical-size, SOFT and WONK axes. Warmer and more
 // particular than Instrument Serif, and much harder to mistake for another site.
 const fraunces = Fraunces({
   subsets: ['latin'],
   axes: ['SOFT', 'WONK', 'opsz'],
   variable: '--font-fraunces',
-  display: 'swap',
-})
-
-// If you would rather stay with a sans: characterful, editorial, and nothing
-// like the uniform weight of Anton.
-const bricolage = Bricolage_Grotesque({
-  subsets: ['latin'],
-  variable: '--font-bricolage',
   display: 'swap',
 })
 
@@ -91,9 +74,7 @@ const bricolage = Bricolage_Grotesque({
 
 const DISPLAY_FONTS = {
   anton: '--font-anton',
-  'instrument-serif': '--font-instrument',
   fraunces: '--font-fraunces',
-  bricolage: '--font-bricolage',
 } as const
 
 const choice = (process.env.NEXT_PUBLIC_DISPLAY_FONT ??
@@ -169,9 +150,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         anton.variable,
         archivo.variable,
         newsreader.variable,
-        instrumentSerif.variable,
         fraunces.variable,
-        bricolage.variable,
       ].join(' ')}
       style={{ ['--font-display-active' as string]: `var(${displayVar})` }}
       suppressHydrationWarning

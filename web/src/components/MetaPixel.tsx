@@ -32,7 +32,11 @@ export function MetaPixel() {
   if (!PIXEL_ID || process.env.VERCEL_ENV !== 'production') return null
 
   return (
-    <Script id="meta-pixel" strategy="afterInteractive">
+    // lazyOnload: the pixel builds retargeting audiences and nothing on the
+    // page depends on it, so it waits until the page has fully loaded rather
+    // than competing with the lead image. A reader who leaves within the
+    // first second or two is not added to an audience, which costs nothing.
+    <Script id="meta-pixel" strategy="lazyOnload">
       {`
         (function () {
           try {

@@ -44,13 +44,16 @@ import Script from 'next/script'
 
 const PRODUCT_ID = process.env.NEXT_PUBLIC_RRM_PRODUCT_ID
 
+// lazyOnload (21 Oct 2026): swg-basic.js is a large script and its prompt only
+// appears after the reader has started reading, so it waits for the page load
+// instead of competing with the lead image on article pages.
 export function ReaderRevenue() {
   if (!PRODUCT_ID || process.env.VERCEL_ENV !== 'production') return null
 
   return (
     <>
-      <Script src="https://news.google.com/swg/js/v1/swg-basic.js" strategy="afterInteractive" />
-      <Script id="rrm-init" strategy="afterInteractive">
+      <Script src="https://news.google.com/swg/js/v1/swg-basic.js" strategy="lazyOnload" />
+      <Script id="rrm-init" strategy="lazyOnload">
         {`
           (self.SWG_BASIC = self.SWG_BASIC || []).push(function (basicSubscriptions) {
             basicSubscriptions.init({

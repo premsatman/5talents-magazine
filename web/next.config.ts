@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
     // Blueprint section 7: Core Web Vitals matter for both ranking and ad revenue.
     // Keep the srcset lean; one quality level is enough for editorial photography.
     qualities: [75],
+    // AVIF first, WebP for browsers without it. AVIF is typically 20-30%
+    // smaller than WebP for photographs, which goes straight to LCP on a
+    // phone. Encoding it is slower, but only on the first request for each
+    // size - after that Vercel serves the cached file.
+    formats: ['image/avif', 'image/webp'],
   },
   // Turbopack is the default in Next 16 for both dev and build; no flags needed.
   turbopack: {},
