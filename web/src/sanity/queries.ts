@@ -638,6 +638,32 @@ export const FEED_QUERY = defineQuery(/* groq */ `
 `)
 
 /**
+ * One section's feed, for /[section]/rss.xml.
+ *
+ * Same shape as FEED_QUERY. Pinterest pins a feed into a single board and
+ * Flipboard pipes one into a single Magazine, so a feed per section is what
+ * lets either of them carry the magazine's sections rather than one heap.
+ * The result type is declared by hand in src/lib/rss-feed.ts until typegen
+ * is next run.
+ */
+export const SECTION_FEED_QUERY = defineQuery(/* groq */ `
+  *[${live} && section->slug.current == $section] | order(publishedAt desc)[0...30]{
+    title, "slug": slug.current, deck, publishedAt, sponsorTier,
+    "section": section->{ name, "slug": slug.current },
+    "authors": authors[]->{ name },
+    hero { ${imageFragment} },
+    heroExternal { ${externalImageFragment} },
+    seo { ogImage { ${imageFragment} } },
+    body[]{
+      ...,
+      _type == "image" => { ${imageFragment} },
+      _type == "externalImage" => { ${externalImageFragment} },
+      markDefs[]{ ... }
+    }
+  }
+`)
+
+/**
  * Google News sitemap. Google only reads entries from the last two days, so
  * the window is passed in as $since rather than listing the whole back
  * catalogue. See src/app/news-sitemap.xml/route.ts.
