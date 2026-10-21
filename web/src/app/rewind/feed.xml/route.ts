@@ -2,7 +2,6 @@ import { freshClient } from '@/sanity/client'
 import { REWIND_FEED_QUERY } from '@/sanity/queries'
 import { clean } from '@/sanity/stega'
 import { cdata, escapeXml } from '@/lib/rss-html'
-import { feedHeaders } from '@/lib/rss-feed'
 import { absoluteUrl, articleHref, siteName } from '@/lib/site'
 import {
   REWIND_FEED_PATH,
@@ -118,6 +117,8 @@ export async function GET() {
     <itunes:summary>${escapeXml(description)}</itunes:summary>
     <language>${escapeXml(clean(show?.language) ?? 'hi')}</language>
     <copyright>© ${new Date().getFullYear()} ${escapeXml(siteName)}</copyright>
+    <managingEditor>${escapeXml(`${owner} (${siteName})`)}</managingEditor>
+    <webMaster>${escapeXml(`${owner} (${siteName})`)}</webMaster>
     <itunes:author>${escapeXml(siteName)}</itunes:author>
     <itunes:owner>
       <itunes:name>${escapeXml(siteName)}</itunes:name>
@@ -138,5 +139,19 @@ ${episodes.map((ep) => item(ep, artwork)).filter(Boolean).join('\n')}
   </channel>
 </rss>`
 
-  return new Response(xml, { headers: feedHeaders })
+  return new Response(xml, {
+    headers: {
+      'content-type': 'application/rss+xml; charset=utf-8',
+      /**
+       * Five minutes at the edge, not the hour the article feeds use.
+       *
+       * On 21 Oct 2026 the first request after deploy cached an empty feed
+       * for an hour, and Spotify's submission check read that copy and
+       * reported "missing episodes". Podcast apps poll on their own schedule
+       * anyway; what matters is that a newly published episode shows up here
+       * within minutes.
+       */
+      'cache-control': 'public, max-age=0, s-maxage=300, stale-while-revalidate=600',
+    },
+  })
 }
