@@ -142,6 +142,77 @@ export type BlockContent = Array<
     }
 >;
 
+export type PodcastShowReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "podcastShow";
+};
+
+export type ArticleReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "article";
+};
+
+export type PodcastEpisode = {
+  _id: string;
+  _type: "podcastEpisode";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  show?: PodcastShowReference;
+  number?: number;
+  title?: string;
+  slug?: Slug;
+  publishedAt?: string;
+  summary?: string;
+  cover?: ExternalImage;
+  youtubeUrl?: string;
+  audio?: {
+    url?: string;
+    bytes?: number;
+    duration?: number;
+  };
+  shorts?: Array<string>;
+  chapters?: Array<{
+    start?: string;
+    title?: string;
+    article?: ArticleReference;
+    _type: "chapter";
+    _key: string;
+  }>;
+  transcript?: string;
+  credits?: string;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
+export type PodcastShow = {
+  _id: string;
+  _type: "podcastShow";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  tagline?: string;
+  description?: string;
+  cover?: ExternalImage;
+  language?: string;
+  ownerEmail?: string;
+  links?: {
+    youtube?: string;
+    spotify?: string;
+    apple?: string;
+    amazon?: string;
+  };
+};
+
 export type AuthorReference = {
   _ref: string;
   _type: "reference";
@@ -253,12 +324,6 @@ export type Tag = {
   description?: string;
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
 export type Author = {
   _id: string;
   _type: "author";
@@ -330,13 +395,6 @@ export type OnlineIssueReference = {
   _type: "reference";
   _weak?: boolean;
   [internalGroqTypeReferenceTo]?: "onlineIssue";
-};
-
-export type ArticleReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "article";
 };
 
 export type ArchiveIssueReference = {
@@ -746,18 +804,21 @@ export type AllSanitySchemaTypes =
   | ExternalImage
   | SanityImageAssetReference
   | BlockContent
+  | PodcastShowReference
+  | ArticleReference
+  | PodcastEpisode
+  | Slug
+  | PodcastShow
   | AuthorReference
   | SiteSettings
   | Submission
   | Tag
-  | Slug
   | Author
   | SanityImageCrop
   | SanityImageHotspot
   | SectionReference
   | TagReference
   | OnlineIssueReference
-  | ArticleReference
   | ArchiveIssueReference
   | AdvertiserReference
   | Article
@@ -840,6 +901,18 @@ export type SITE_SETTINGS_QUERY_RESULT =
   | {
       title: string | null;
       tagline: null;
+      description: string | null;
+      scopeStatement: null;
+      contactEmail: null;
+      adsEnabled: null;
+      enabledSlots: null;
+      publisher: null;
+      particulars: null;
+      socials: null;
+    }
+  | {
+      title: string | null;
+      tagline: string | null;
       description: string | null;
       scopeStatement: null;
       contactEmail: null;
@@ -3274,6 +3347,17 @@ export type ABOUT_QUERY_RESULT =
   | {
       title: string | null;
       tagline: string | null;
+      mission: null;
+      scopeStatement: null;
+      contactEmail: null;
+      doctrinalStatement: null;
+      publisher: null;
+      particulars: null;
+      masthead: null;
+    }
+  | {
+      title: string | null;
+      tagline: string | null;
       mission: string | null;
       scopeStatement: string | null;
       contactEmail: string | null;
@@ -3357,6 +3441,349 @@ export type POLICY_QUERY_RESULT =
     }
   | null;
 
+// Source: ../web/src/sanity/queries.ts
+// Variable: REWIND_SHOW_QUERY
+// Query: *[_id == "podcast-rewind"][0]{   title, tagline, description, language, ownerEmail,  cover {   url, alt, width, height, caption, credit },  links { youtube, spotify, apple, amazon } }
+export type REWIND_SHOW_QUERY_RESULT =
+  | {
+      title: null;
+      tagline: null;
+      description: null;
+      language: null;
+      ownerEmail: null;
+      cover: null;
+      links: null;
+    }
+  | {
+      title: string | null;
+      tagline: null;
+      description: null;
+      language: null;
+      ownerEmail: null;
+      cover: null;
+      links: null;
+    }
+  | {
+      title: null;
+      tagline: null;
+      description: string | null;
+      language: null;
+      ownerEmail: null;
+      cover: null;
+      links: null;
+    }
+  | {
+      title: string | null;
+      tagline: null;
+      description: string | null;
+      language: null;
+      ownerEmail: null;
+      cover: null;
+      links: null;
+    }
+  | {
+      title: string | null;
+      tagline: string | null;
+      description: string | null;
+      language: null;
+      ownerEmail: null;
+      cover: null;
+      links: null;
+    }
+  | {
+      title: string | null;
+      tagline: null;
+      description: null;
+      language: null;
+      ownerEmail: null;
+      cover: {
+        url: string | null;
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        caption: string | null;
+        credit: string | null;
+      } | null;
+      links: null;
+    }
+  | {
+      title: string | null;
+      tagline: string | null;
+      description: string | null;
+      language: string | null;
+      ownerEmail: string | null;
+      cover: {
+        url: string | null;
+        alt: string | null;
+        width: number | null;
+        height: number | null;
+        caption: string | null;
+        credit: string | null;
+      } | null;
+      links: {
+        youtube: string | null;
+        spotify: string | null;
+        apple: string | null;
+        amazon: string | null;
+      } | null;
+    }
+  | null;
+
+// Source: ../web/src/sanity/queries.ts
+// Variable: REWIND_EPISODES_QUERY
+// Query: *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind"] | order(number desc){   _id,  number,  title,  "slug": slug.current,  publishedAt,  summary,  youtubeUrl,  cover {   url, alt, width, height, caption, credit },  audio { url, bytes, duration } }
+export type REWIND_EPISODES_QUERY_RESULT = Array<{
+  _id: string;
+  number: number | null;
+  title: string | null;
+  slug: string | null;
+  publishedAt: string | null;
+  summary: string | null;
+  youtubeUrl: string | null;
+  cover: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
+  audio: {
+    url: string | null;
+    bytes: number | null;
+    duration: number | null;
+  } | null;
+}>;
+
+// Source: ../web/src/sanity/queries.ts
+// Variable: REWIND_LATEST_QUERY
+// Query: *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind"] | order(number desc)[0]{   _id,  number,  title,  "slug": slug.current,  publishedAt,  summary,  youtubeUrl,  cover {   url, alt, width, height, caption, credit },  audio { url, bytes, duration } }
+export type REWIND_LATEST_QUERY_RESULT = {
+  _id: string;
+  number: number | null;
+  title: string | null;
+  slug: string | null;
+  publishedAt: string | null;
+  summary: string | null;
+  youtubeUrl: string | null;
+  cover: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
+  audio: {
+    url: string | null;
+    bytes: number | null;
+    duration: number | null;
+  } | null;
+} | null;
+
+// Source: ../web/src/sanity/queries.ts
+// Variable: REWIND_EPISODE_QUERY
+// Query: *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && slug.current == $slug][0]{      _id,  number,  title,  "slug": slug.current,  publishedAt,  summary,  youtubeUrl,  cover {   url, alt, width, height, caption, credit },  audio { url, bytes, duration },    chapters[]{   _key,  start,  title,  "article": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id == ^.article._ref][0]{    title, "slug": slug.current, "section": section->slug.current, deck  } },    shorts,    transcript,    credits,    "prev": *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && number < ^.number] | order(number desc)[0]{ number, title, "slug": slug.current },    "next": *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && number > ^.number] | order(number asc)[0]{ number, title, "slug": slug.current }  }
+export type REWIND_EPISODE_QUERY_RESULT = {
+  _id: string;
+  number: number | null;
+  title: string | null;
+  slug: string | null;
+  publishedAt: string | null;
+  summary: string | null;
+  youtubeUrl: string | null;
+  cover: {
+    url: string | null;
+    alt: string | null;
+    width: number | null;
+    height: number | null;
+    caption: string | null;
+    credit: string | null;
+  } | null;
+  audio: {
+    url: string | null;
+    bytes: number | null;
+    duration: number | null;
+  } | null;
+  chapters: Array<{
+    _key: string;
+    start: string | null;
+    title: string | null;
+    article: {
+      title: string | null;
+      slug: string | null;
+      section: string | null;
+      deck: string | null;
+    } | null;
+  }> | null;
+  shorts: Array<string> | null;
+  transcript: string | null;
+  credits: string | null;
+  prev: {
+    number: number | null;
+    title: string | null;
+    slug: string | null;
+  } | null;
+  next: {
+    number: number | null;
+    title: string | null;
+    slug: string | null;
+  } | null;
+} | null;
+
+// Source: ../web/src/sanity/queries.ts
+// Variable: REWIND_EPISODE_SLUGS_QUERY
+// Query: *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind"]{ "slug": slug.current }
+export type REWIND_EPISODE_SLUGS_QUERY_RESULT = Array<{
+  slug: string | null;
+}>;
+
+// Source: ../web/src/sanity/queries.ts
+// Variable: REWIND_FEED_QUERY
+// Query: {  "show": *[_id == "podcast-rewind"][0]{   title, tagline, description, language, ownerEmail,  cover {   url, alt, width, height, caption, credit },  links { youtube, spotify, apple, amazon } },  "episodes": *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && defined(audio.url)] | order(number desc){      _id,  number,  title,  "slug": slug.current,  publishedAt,  summary,  youtubeUrl,  cover {   url, alt, width, height, caption, credit },  audio { url, bytes, duration },    chapters[]{   _key,  start,  title,  "article": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id == ^.article._ref][0]{    title, "slug": slug.current, "section": section->slug.current, deck  } }  }}
+export type REWIND_FEED_QUERY_RESULT = {
+  show:
+    | {
+        title: null;
+        tagline: null;
+        description: null;
+        language: null;
+        ownerEmail: null;
+        cover: null;
+        links: null;
+      }
+    | {
+        title: string | null;
+        tagline: null;
+        description: null;
+        language: null;
+        ownerEmail: null;
+        cover: null;
+        links: null;
+      }
+    | {
+        title: null;
+        tagline: null;
+        description: string | null;
+        language: null;
+        ownerEmail: null;
+        cover: null;
+        links: null;
+      }
+    | {
+        title: string | null;
+        tagline: null;
+        description: string | null;
+        language: null;
+        ownerEmail: null;
+        cover: null;
+        links: null;
+      }
+    | {
+        title: string | null;
+        tagline: string | null;
+        description: string | null;
+        language: null;
+        ownerEmail: null;
+        cover: null;
+        links: null;
+      }
+    | {
+        title: string | null;
+        tagline: null;
+        description: null;
+        language: null;
+        ownerEmail: null;
+        cover: {
+          url: string | null;
+          alt: string | null;
+          width: number | null;
+          height: number | null;
+          caption: string | null;
+          credit: string | null;
+        } | null;
+        links: null;
+      }
+    | {
+        title: string | null;
+        tagline: string | null;
+        description: string | null;
+        language: string | null;
+        ownerEmail: string | null;
+        cover: {
+          url: string | null;
+          alt: string | null;
+          width: number | null;
+          height: number | null;
+          caption: string | null;
+          credit: string | null;
+        } | null;
+        links: {
+          youtube: string | null;
+          spotify: string | null;
+          apple: string | null;
+          amazon: string | null;
+        } | null;
+      }
+    | null;
+  episodes: Array<{
+    _id: string;
+    number: number | null;
+    title: string | null;
+    slug: string | null;
+    publishedAt: string | null;
+    summary: string | null;
+    youtubeUrl: string | null;
+    cover: {
+      url: string | null;
+      alt: string | null;
+      width: number | null;
+      height: number | null;
+      caption: string | null;
+      credit: string | null;
+    } | null;
+    audio: {
+      url: string | null;
+      bytes: number | null;
+      duration: number | null;
+    } | null;
+    chapters: Array<{
+      _key: string;
+      start: string | null;
+      title: string | null;
+      article: {
+        title: string | null;
+        slug: string | null;
+        section: string | null;
+        deck: string | null;
+      } | null;
+    }> | null;
+  }>;
+};
+
+// Source: ../web/src/sanity/queries.ts
+// Variable: ARTICLE_REWIND_QUERY
+// Query: *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && $id in chapters[].article._ref] | order(number desc){    _id, number, title, "slug": slug.current, youtubeUrl,    "chapter": chapters[article._ref == $id][0]{ start, title }  }
+export type ARTICLE_REWIND_QUERY_RESULT = Array<{
+  _id: string;
+  number: number | null;
+  title: string | null;
+  slug: string | null;
+  youtubeUrl: string | null;
+  chapter: {
+    start: string | null;
+    title: string | null;
+  } | null;
+}>;
+
+// Source: ../web/src/sanity/queries.ts
+// Variable: REWIND_SITEMAP_QUERY
+// Query: *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind"]{ "slug": slug.current, publishedAt }
+export type REWIND_SITEMAP_QUERY_RESULT = Array<{
+  slug: string | null;
+  publishedAt: string | null;
+}>;
+
 // Query TypeMap
 declare global {
   interface SanityQueries {
@@ -3410,6 +3837,14 @@ declare global {
     '{\n  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{\n    "slug": slug.current, "section": section->slug.current, _updatedAt,\n    contentUpdatedAt, publishedAt\n  },\n  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "tags": *[_type == "tag" && defined(slug.current)\n    && count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && references(^._id)]) >= 3]{ "slug": slug.current, _updatedAt },\n  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }\n}': SITEMAP_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    title, tagline, mission, scopeStatement, contactEmail,\n    doctrinalStatement,\n    \n  publisher { name, address, city, state, pinCode, country, email, mobile },\n  particulars { startYear, frequency, subject, languages, format, issnOnline, issnPrint }\n,\n    masthead[]{\n      role,\n      "person": person->{ name, "slug": slug.current, role, bio, photo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } }\n    }\n  }\n': ABOUT_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    correctionsPolicy, privacyPolicy, contactEmail, scopeStatement,\n    grievanceOfficer { name, email, address }\n  }\n': POLICY_QUERY_RESULT;
+    '\n  *[_id == "podcast-rewind"][0]{ \n  title, tagline, description, language, ownerEmail,\n  cover { \n  url, alt, width, height, caption, credit\n },\n  links { youtube, spotify, apple, amazon }\n }\n': REWIND_SHOW_QUERY_RESULT;
+    '\n  *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind"] | order(number desc){ \n  _id,\n  number,\n  title,\n  "slug": slug.current,\n  publishedAt,\n  summary,\n  youtubeUrl,\n  cover { \n  url, alt, width, height, caption, credit\n },\n  audio { url, bytes, duration }\n }\n': REWIND_EPISODES_QUERY_RESULT;
+    '\n  *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind"] | order(number desc)[0]{ \n  _id,\n  number,\n  title,\n  "slug": slug.current,\n  publishedAt,\n  summary,\n  youtubeUrl,\n  cover { \n  url, alt, width, height, caption, credit\n },\n  audio { url, bytes, duration }\n }\n': REWIND_LATEST_QUERY_RESULT;
+    '\n  *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && slug.current == $slug][0]{\n    \n  _id,\n  number,\n  title,\n  "slug": slug.current,\n  publishedAt,\n  summary,\n  youtubeUrl,\n  cover { \n  url, alt, width, height, caption, credit\n },\n  audio { url, bytes, duration }\n,\n    chapters[]{ \n  _key,\n  start,\n  title,\n  "article": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id == ^.article._ref][0]{\n    title, "slug": slug.current, "section": section->slug.current, deck\n  }\n },\n    shorts,\n    transcript,\n    credits,\n    "prev": *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && number < ^.number] | order(number desc)[0]{ number, title, "slug": slug.current },\n    "next": *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && number > ^.number] | order(number asc)[0]{ number, title, "slug": slug.current }\n  }\n': REWIND_EPISODE_QUERY_RESULT;
+    '\n  *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind"]{ "slug": slug.current }\n': REWIND_EPISODE_SLUGS_QUERY_RESULT;
+    '{\n  "show": *[_id == "podcast-rewind"][0]{ \n  title, tagline, description, language, ownerEmail,\n  cover { \n  url, alt, width, height, caption, credit\n },\n  links { youtube, spotify, apple, amazon }\n },\n  "episodes": *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && defined(audio.url)] | order(number desc){\n    \n  _id,\n  number,\n  title,\n  "slug": slug.current,\n  publishedAt,\n  summary,\n  youtubeUrl,\n  cover { \n  url, alt, width, height, caption, credit\n },\n  audio { url, bytes, duration }\n,\n    chapters[]{ \n  _key,\n  start,\n  title,\n  "article": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && _id == ^.article._ref][0]{\n    title, "slug": slug.current, "section": section->slug.current, deck\n  }\n }\n  }\n}': REWIND_FEED_QUERY_RESULT;
+    '\n  *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind" && $id in chapters[].article._ref] | order(number desc){\n    _id, number, title, "slug": slug.current, youtubeUrl,\n    "chapter": chapters[article._ref == $id][0]{ start, title }\n  }\n': ARTICLE_REWIND_QUERY_RESULT;
+    '\n  *[_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind"]{ "slug": slug.current, publishedAt }\n': REWIND_SITEMAP_QUERY_RESULT;
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too

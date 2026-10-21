@@ -137,6 +137,11 @@ export function PrimaryNav({ items, compact = false }: { items: NavItem[]; compa
             )
           })}
           <li>
+            <Link className="brush-link" href="/rewind" aria-current={isCurrent('rewind') ? 'page' : undefined}>
+              Rewind
+            </Link>
+          </li>
+          <li>
             <Link className="brush-link" href="/archive" aria-current={isCurrent('archive') ? 'page' : undefined}>
               Archive
             </Link>
@@ -177,6 +182,7 @@ export function PrimaryNav({ items, compact = false }: { items: NavItem[]; compa
                 )}
               </li>
             ))}
+            <li><Link href="/rewind">5Talents Rewind</Link></li>
             <li><Link href="/archive">The archive</Link></li>
             <li><Link href="/interviews">Cover stories</Link></li>
             <li><Link href="/talent-search">Talent search</Link></li>

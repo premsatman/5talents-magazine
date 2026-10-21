@@ -9,6 +9,7 @@ import {
   HOME_RAIL_QUERY,
   HOME_SECTIONS_QUERY,
   HOME_TAIL_QUERY,
+  REWIND_LATEST_QUERY,
 } from '@/sanity/queries'
 import { urlFor, imgAlt, imgBlur } from '@/sanity/image'
 import { clean } from '@/sanity/stega'
@@ -18,6 +19,8 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { AdSlot } from '@/components/AdSlot'
 import { Card, CardPlaceholder, ListRow, layoutPreview, padded } from '@/components/Card'
 import { Newsletter } from '@/components/Newsletter'
+import { RewindLatest } from '@/components/Rewind'
+import type { EpisodeCardData } from '@/lib/podcast'
 import type { ArticleCardData } from '@/components/types'
 import { absoluteUrl, defaultDescription, siteName, socialDescription, tagline } from '@/lib/site'
 
@@ -145,13 +148,14 @@ type SectionBlock = {
 }
 
 export default async function HomePage() {
-  const [hero, compact, sections, rail, tail, issues] = await Promise.all([
+  const [hero, compact, sections, rail, tail, issues, rewind] = await Promise.all([
     sanityFetch({ query: HOME_HERO_QUERY }),
     sanityFetch({ query: HOME_COMPACT_QUERY }),
     sanityFetch({ query: HOME_SECTIONS_QUERY }),
     sanityFetch({ query: HOME_RAIL_QUERY }),
     sanityFetch({ query: HOME_TAIL_QUERY }),
     sanityFetch({ query: HOME_ARCHIVE_STRIP_QUERY }),
+    sanityFetch({ query: REWIND_LATEST_QUERY }),
   ])
 
   const heroCards = padded((hero.data ?? []) as ArticleCardData[], 3)
@@ -269,6 +273,13 @@ export default async function HomePage() {
             </div>
           </aside>
         </div>
+
+        {/* ---- 5Talents Rewind ------------------------------------------
+            The newest episode of the weekly show, straight after The Latest.
+            Relevant puts its podcast's latest episode high on the homepage
+            for the same reason: it is the one thing that changes every week
+            and is not an article. Renders nothing until an episode is live. */}
+        <RewindLatest episode={(rewind.data ?? null) as EpisodeCardData | null} />
 
         {/* ---- Section blocks ------------------------------------------- */}
         {blocks.map((block) => {

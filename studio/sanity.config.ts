@@ -16,7 +16,9 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
     // siteSettings is a singleton - it should never appear in the "create new" menu.
-    templates: (prev) => prev.filter((t) => t.schemaType !== 'siteSettings'),
+    // So is the Rewind show: the site renders one fixed id (podcast-rewind).
+    templates: (prev) =>
+      prev.filter((t) => t.schemaType !== 'siteSettings' && t.schemaType !== 'podcastShow'),
   },
 
   document: {

@@ -42,6 +42,8 @@ export const RESERVED_SLUGS = new Set([
   'interviews',
   'llms.txt',
   'privacy',
+  // 5Talents Rewind, the weekly show. See src/lib/podcast.ts.
+  'rewind',
   'rss.xml',
   'sitemap.xml',
   'news-sitemap.xml',

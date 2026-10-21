@@ -11,6 +11,7 @@ import {
   ARTICLE_QUERY,
   ARTICLE_SEO_QUERY,
   ARTICLE_SIDEBAR_QUERY,
+  ARTICLE_REWIND_QUERY,
 } from '@/sanity/queries'
 import { urlFor, imgAlt, imgBlur, imgCaption } from '@/sanity/image'
 import { cloudinaryUrl } from '@/sanity/media'
@@ -32,6 +33,7 @@ import { ReaderRevenue } from '@/components/ReaderRevenue'
 import { FindThem, Sources, type FindThemData, type Source } from '@/components/FindThem'
 import { ReadTracker } from '@/components/ReadTracker'
 import { WatchIt } from '@/components/WatchIt'
+import { OnRewind, type ArticleEpisode } from '@/components/Rewind'
 import { ArticleHero, ArticleMeta } from '@/components/ArticleHero'
 import { ListRow } from '@/components/Card'
 import { NewsletterForm } from '@/components/NewsletterForm'
@@ -177,6 +179,15 @@ export default async function ArticlePage(props: Props) {
     params: { id: article._id },
     stega: false,
   })
+  // Episodes of 5Talents Rewind that talked about this piece. Linked from the
+  // episode's chapters, so nothing here has to be filled in by hand.
+  const { data: rewindData } = await sanityFetch({
+    query: ARTICLE_REWIND_QUERY,
+    params: { id: article._id },
+    stega: false,
+  })
+  const rewindEpisodes = (rewindData ?? []) as ArticleEpisode[]
+
   const extras = extrasData as {
     _updatedAt?: string | null
     contentUpdatedAt?: string | null
@@ -384,6 +395,8 @@ export default async function ArticlePage(props: Props) {
               <ReadTracker slug={slug} section={section} />
 
               <Sources sources={extras?.sources} slug={slug} />
+
+              <OnRewind episodes={rewindEpisodes} />
 
               <ShareBar url={shareUrl} title={article.title ?? ''} deck={article.deck} />
 

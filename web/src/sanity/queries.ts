@@ -740,3 +740,102 @@ export const POLICY_QUERY = defineQuery(/* groq */ `
     grievanceOfficer { name, email, address }
   }
 `)
+
+/* ------------------------------------------------------------------ *
+ * 5Talents Rewind - the weekly show and its podcast feed
+ * ------------------------------------------------------------------ */
+
+/**
+ * An episode is public once its publishedAt has passed, exactly like an
+ * article. The show id is fixed - see studio/schemaTypes/podcast.ts.
+ */
+const liveEpisode = /* groq */ `_type == "podcastEpisode" && defined(slug.current) && publishedAt <= now() && show._ref == "podcast-rewind"`
+
+const episodeCardFragment = /* groq */ `
+  _id,
+  number,
+  title,
+  "slug": slug.current,
+  publishedAt,
+  summary,
+  youtubeUrl,
+  cover { ${externalImageFragment} },
+  audio { url, bytes, duration }
+`
+
+/**
+ * A chapter's article, only while it is live.
+ *
+ * A plain `article->` would still return a piece after it was retracted, and
+ * the episode page would go on linking to a page that now 404s. Filtering by
+ * id inside the live set drops it instead.
+ */
+const chapterFragment = /* groq */ `
+  _key,
+  start,
+  title,
+  "article": *[${live} && _id == ^.article._ref][0]{
+    title, "slug": slug.current, "section": section->slug.current, deck
+  }
+`
+
+const showFragment = /* groq */ `
+  title, tagline, description, language, ownerEmail,
+  cover { ${externalImageFragment} },
+  links { youtube, spotify, apple, amazon }
+`
+
+export const REWIND_SHOW_QUERY = defineQuery(/* groq */ `
+  *[_id == "podcast-rewind"][0]{ ${showFragment} }
+`)
+
+export const REWIND_EPISODES_QUERY = defineQuery(/* groq */ `
+  *[${liveEpisode}] | order(number desc){ ${episodeCardFragment} }
+`)
+
+/** The homepage block: the newest episode only. */
+export const REWIND_LATEST_QUERY = defineQuery(/* groq */ `
+  *[${liveEpisode}] | order(number desc)[0]{ ${episodeCardFragment} }
+`)
+
+export const REWIND_EPISODE_QUERY = defineQuery(/* groq */ `
+  *[${liveEpisode} && slug.current == $slug][0]{
+    ${episodeCardFragment},
+    chapters[]{ ${chapterFragment} },
+    shorts,
+    transcript,
+    credits,
+    "prev": *[${liveEpisode} && number < ^.number] | order(number desc)[0]{ number, title, "slug": slug.current },
+    "next": *[${liveEpisode} && number > ^.number] | order(number asc)[0]{ number, title, "slug": slug.current }
+  }
+`)
+
+export const REWIND_EPISODE_SLUGS_QUERY = defineQuery(/* groq */ `
+  *[${liveEpisode}]{ "slug": slug.current }
+`)
+
+/** Everything the podcast feed needs, in one request. */
+export const REWIND_FEED_QUERY = defineQuery(/* groq */ `{
+  "show": *[_id == "podcast-rewind"][0]{ ${showFragment} },
+  "episodes": *[${liveEpisode} && defined(audio.url)] | order(number desc){
+    ${episodeCardFragment},
+    chapters[]{ ${chapterFragment} }
+  }
+}`)
+
+/**
+ * Episodes that covered this article, for the card at the foot of the piece.
+ * The matching chapter comes with it, so the card can say where in the
+ * episode the story starts.
+ */
+export const ARTICLE_REWIND_QUERY = defineQuery(/* groq */ `
+  *[${liveEpisode} && $id in chapters[].article._ref] | order(number desc){
+    _id, number, title, "slug": slug.current, youtubeUrl,
+    "chapter": chapters[article._ref == $id][0]{ start, title }
+  }
+`)
+
+/** Kept apart from SITEMAP_QUERY so the article sitemap's types are untouched. */
+export const REWIND_SITEMAP_QUERY = defineQuery(/* groq */ `
+  *[${liveEpisode}]{ "slug": slug.current, publishedAt }
+`)

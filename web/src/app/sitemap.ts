@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { freshClient } from '@/sanity/client'
-import { SITEMAP_QUERY } from '@/sanity/queries'
+import { REWIND_SITEMAP_QUERY, SITEMAP_QUERY } from '@/sanity/queries'
 import { SECTION_SLUGS, isSectionSlug } from '@/lib/sections'
 import { absoluteUrl, siteUrl } from '@/lib/site'
 
@@ -32,7 +32,10 @@ const STATIC_PAGES = [
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const data = await freshClient.fetch(SITEMAP_QUERY)
+  const [data, episodes] = await Promise.all([
+    freshClient.fetch(SITEMAP_QUERY),
+    freshClient.fetch(REWIND_SITEMAP_QUERY) as Promise<{ slug?: string | null; publishedAt?: string | null }[] | null>,
+  ])
 
   // The homepage canonical is the bare origin with no trailing slash, and
   // absoluteUrl('/') would emit one. A <loc> that differs from the canonical it
@@ -79,6 +82,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
   for (const issue of onlineIssues) {
     if (issue.slug) entries.push({ url: absoluteUrl(`/issues/${issue.slug}`) })
+  }
+
+  // 5Talents Rewind. The show page only once there is an episode on it, for
+  // the same reason /issues waits for an issue.
+  if ((episodes ?? []).length > 0) entries.push({ url: absoluteUrl('/rewind') })
+  for (const ep of episodes ?? []) {
+    if (ep.slug) {
+      entries.push({
+        url: absoluteUrl(`/rewind/${ep.slug}`),
+        lastModified: ep.publishedAt ? new Date(ep.publishedAt) : undefined,
+      })
+    }
   }
 
   return entries

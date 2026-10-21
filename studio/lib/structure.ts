@@ -7,6 +7,8 @@ import { BookIcon } from '@sanity/icons/Book'
 import { DocumentsIcon } from '@sanity/icons/Documents'
 import { CaseIcon } from '@sanity/icons/Case'
 import { InboxIcon } from '@sanity/icons/Inbox'
+import { MicrophoneIcon } from '@sanity/icons/Microphone'
+import { PlayIcon } from '@sanity/icons/Play'
 
 /**
  * Studio navigation.
@@ -105,6 +107,21 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('onlineIssue').title('Online issues').icon(DocumentsIcon),
       S.documentTypeListItem('archiveIssue').title('Print archive 2012-17').icon(BookIcon),
       S.documentTypeListItem('advertiser').title('Advertisers').icon(CaseIcon),
+      S.divider(),
+      // 5Talents Rewind. Episodes newest first; the show itself is one
+      // document with a fixed id, opened directly like Site settings.
+      S.listItem()
+        .title('Rewind episodes')
+        .icon(PlayIcon)
+        .child(
+          S.documentTypeList('podcastEpisode')
+            .title('5Talents Rewind episodes')
+            .defaultOrdering([{ field: 'number', direction: 'desc' }]),
+        ),
+      S.listItem()
+        .title('Rewind show settings')
+        .icon(MicrophoneIcon)
+        .child(S.document().schemaType('podcastShow').documentId('podcast-rewind')),
       S.divider(),
       S.listItem()
         // Explicit id: the submission notification email deep-links to

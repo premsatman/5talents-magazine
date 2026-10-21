@@ -10,6 +10,7 @@ import { siteSettings } from './siteSettings'
 import { blockContent } from './blockContent'
 import { externalImage } from './externalImage'
 import { spotifyCard, youtubeCard, bookCard, linkCard } from './endCards'
+import { podcastShow, podcastEpisode } from './podcast'
 
 export const schemaTypes = [
   // Documents
@@ -22,6 +23,9 @@ export const schemaTypes = [
   advertiser,
   submission,
   siteSettings,
+  // 5Talents Rewind, the weekly show, as a podcast
+  podcastShow,
+  podcastEpisode,
   // Objects
   blockContent,
   externalImage,
