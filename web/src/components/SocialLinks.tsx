@@ -4,8 +4,19 @@ import { clean } from '@/sanity/stega'
  * Magazine social links from Site settings.
  *
  * Platform is free text in Sanity ("Facebook", "Instagram"), so we match on
- * the name or the host. Unknown platforms fall back to the label as text —
- * better than inventing an icon for something we do not recognise.
+ * the name or the host.
+ *
+ * Unknown platforms get a monogram - the initial in a ring - not an invented
+ * icon and not the bare label, which overflowed the 40px button. To give one a
+ * real icon, take the official SVG from that company's own brand or press kit,
+ * copy its path data into PATHS, and add a match in resolve(). Do not redraw a
+ * logo from memory or trace it by eye: a mark that is almost right is worse
+ * than a monogram, and these are trademarks whose owners publish the correct
+ * file precisely so nobody has to guess.
+ *
+ * The path must be a single path on a 24x24 viewBox, filled with currentColor,
+ * so it inherits the footer's colour and the hover state like the others. If
+ * the official file is multi-path or multi-colour, keep its monochrome variant.
  */
 
 type Social = { platform?: string | null; url?: string | null }
@@ -74,7 +85,12 @@ export function SocialLinks({
                 <span className="visually-hidden">{item.platform}</span>
               </>
             ) : (
-              item.platform
+              <>
+                <span className="social-links__mono" aria-hidden="true">
+                  {item.platform.trim().charAt(0).toUpperCase()}
+                </span>
+                <span className="visually-hidden">{item.platform}</span>
+              </>
             )}
           </a>
         </li>

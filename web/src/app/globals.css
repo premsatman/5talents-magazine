@@ -1058,6 +1058,15 @@ footer.site :focus-visible { outline-color: var(--highlight); }
 .social-links__btn:hover {
   color: var(--accent);
 }
+/* Monogram for a platform with no icon yet (see SocialLinks.tsx). Sized to
+   match the 18px icons so a row of mixed icons and monograms stays even. */
+.social-links__mono {
+  display: grid; place-items: center;
+  width: 18px; height: 18px;
+  border: 1px solid currentColor; border-radius: 50%;
+  font-family: var(--font-sans); font-size: 0.6rem; font-weight: 600;
+  line-height: 1; letter-spacing: 0;
+}
 footer.site .social-links { margin: var(--s-5) 0 0; }
 footer.site .social-links__btn {
   color: var(--inverse-ink); opacity: 0.9;
