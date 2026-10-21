@@ -13,3 +13,7 @@ next-env.d.ts
 
 # Source archive PDFs — 119MB, kept in iCloud, not in git
 *.pdf
+
+# Full episode masters — over GitHub's 100MB limit, kept locally.
+# Shorts live in youtube/ep*/shorts/ and stay in git.
+youtube/ep*/*.mp4
