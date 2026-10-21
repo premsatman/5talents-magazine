@@ -116,6 +116,7 @@ export async function SiteFooter() {
                 <li><Link href="/corrections">Corrections</Link></li>
                 <li><Link href="/plagiarism">Plagiarism policy</Link></li>
                 <li><Link href="/privacy">Privacy</Link></li>
+                <li><Link href="/terms">Terms of use</Link></li>
               </ul>
             </div>
           </div>

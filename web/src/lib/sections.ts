@@ -49,6 +49,7 @@ export const RESERVED_SLUGS = new Set([
   'studio',
   'tags',
   'talent-search',
+  'terms',
   'write-for-us',
 ])
 
