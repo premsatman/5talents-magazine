@@ -111,6 +111,13 @@ export const metadata: Metadata = {
     canonical: '/',
     types: { 'application/rss+xml': `${siteUrl}/rss.xml` },
   },
+  /* Pinterest domain claim. Claiming puts the magazine's name and logo on
+     every Pin that links here, whoever pinned it, and is what the RSS
+     auto-publish connection checks against. Site-wide because Pinterest
+     verifies the homepage. */
+  verification: {
+    other: { 'p:domain_verify': '88eb99e7919bc43ec990d9dd5557e554' },
+  },
   icons: {
     icon: [
       { url: '/favicon/favicon.ico', sizes: 'any' },
