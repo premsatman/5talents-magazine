@@ -14,6 +14,27 @@ next-env.d.ts
 # Source archive PDFs — 119MB, kept in iCloud, not in git
 *.pdf
 
-# Full episode masters — over GitHub's 100MB limit, kept locally.
-# Shorts live in youtube/ep*/shorts/ and stay in git.
-youtube/ep*/*.mp4
+# PDF extraction leftovers. The kept stills live in studio/seed/article-images and covers.
+*.ppm
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Local video production: masters, frame dumps, renders, sample clips.
+youtube/
+
+# YouTube export images. Not used by the site.
+/5TalentsMag-YouTube-Banner.png
+/5TalentsRewind-Ep01-IG.jpg
+/5TalentsRewind-Ep01-Thumbnail.jpg
+
+# HyperFrames review stills, caches, and render output.
+video-studio/**/.review/
+video-studio/**/.thumbnails/
+video-studio/**/.waveform-cache/
+video-studio/**/.transcribe.*
+video-studio/**/.hyperframes/
+video-studio/**/renders/
+video-studio/**/output/
+video-studio/**/node_modules/
