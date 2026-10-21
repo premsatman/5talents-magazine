@@ -15,6 +15,10 @@ import { siteName, siteUrl } from '@/lib/site'
  * Validated against the allowlist for the same reason /[section] is: an
  * unknown slug here would otherwise generate an empty feed at any URL anyone
  * cared to type.
+ *
+ * Lead pictures are the 2:3 pin crop rather than the share card. Pinterest is
+ * what reads these feeds - one board per section - and its grid pays for
+ * height. /rss.xml keeps the landscape crop for Flipboard and feed readers.
  */
 
 type Props = { params: Promise<{ section: string }> }
@@ -39,6 +43,7 @@ export async function GET(_request: Request, props: Props) {
       description: `${name} from ${siteName}.`,
       path: `/${section}/rss.xml`,
       link: `${siteUrl}/${section}`,
+      shape: 'pin',
     }),
     { headers: feedHeaders },
   )

@@ -30,21 +30,44 @@ export type FeedArticle = {
   body: unknown
 }
 
-function leadImage(a: FeedArticle) {
-  if (a.seo?.ogImage?.asset?.url) return feedImageUrl(a.seo.ogImage, null, 1200, 630)
-  return feedImageUrl(a.hero, a.heroExternal, 1200, 630)
+/**
+ * Lead picture shapes.
+ *
+ * `card` is the share-card crop, the same 1200x630 the og:image uses: what
+ * Flipboard, feed readers and anything else expecting a web lead image want.
+ *
+ * `pin` is 2:3 portrait, because Pinterest's grid is built for it - a tall pin
+ * takes roughly three times the screen area of a landscape one, and area is
+ * most of what earns a save there. Section feeds use it, since Pinterest reads
+ * those; /rss.xml stays on the card crop.
+ *
+ * A 2:3 crop of a landscape photograph cuts hard, which is the trade: the
+ * hotspot in Sanity decides what survives.
+ */
+const SHAPES = {
+  card: { width: 1200, height: 630 },
+  pin: { width: 1000, height: 1500 },
+} as const
+
+export type FeedImageShape = keyof typeof SHAPES
+
+function leadImage(a: FeedArticle, shape: FeedImageShape) {
+  const { width, height } = SHAPES[shape]
+  if (a.seo?.ogImage?.asset?.url) return feedImageUrl(a.seo.ogImage, null, width, height)
+  return feedImageUrl(a.hero, a.heroExternal, width, height)
 }
 
 function leadAlt(a: FeedArticle) {
   return stegaClean(a.heroExternal?.url ? a.heroExternal?.alt : a.hero?.alt) || a.title || ''
 }
 
-function item(a: FeedArticle): string {
+function item(a: FeedArticle, shape: FeedImageShape): string {
   const url = absoluteUrl(`/${a.section?.slug}/${a.slug}`)
   const authors = (a.authors ?? []).map((x) => x?.name).filter(Boolean).join(', ')
   const sponsored = a.sponsorTier && a.sponsorTier !== 'none'
   const description = [sponsored ? '[Sponsored] ' : '', a.deck ?? ''].join('')
-  const image = leadImage(a)
+  const image = leadImage(a, shape)
+  const { width, height } = SHAPES[shape]
   const imageType = image ? feedImageType(image) : ''
 
   // The deck leads the full text, as it does on the page, and the lead picture
@@ -71,8 +94,8 @@ function item(a: FeedArticle): string {
       ${a.section?.name ? `<category>${escapeXml(a.section.name)}</category>` : ''}
       <description>${escapeXml(description)}</description>
       ${image ? `<enclosure url="${escapeXml(image)}" length="0" type="${imageType}" />` : ''}
-      ${image ? `<media:content url="${escapeXml(image)}" medium="image" type="${imageType}" width="1200" height="630" />` : ''}
-      ${image ? `<media:thumbnail url="${escapeXml(image)}" width="1200" height="630" />` : ''}
+      ${image ? `<media:content url="${escapeXml(image)}" medium="image" type="${imageType}" width="${width}" height="${height}" />` : ''}
+      ${image ? `<media:thumbnail url="${escapeXml(image)}" width="${width}" height="${height}" />` : ''}
       <content:encoded>${cdata(body)}</content:encoded>
     </item>`
 }
@@ -83,6 +106,7 @@ export function buildFeed({
   description = defaultDescription,
   path = '/rss.xml',
   link = siteUrl,
+  shape = 'card',
 }: {
   articles: FeedArticle[]
   title?: string
@@ -91,9 +115,11 @@ export function buildFeed({
   path?: string
   /** The page this feed is the feed of. */
   link?: string
+  /** Lead picture shape. See SHAPES. */
+  shape?: FeedImageShape
 }): string {
   const live = articles.filter((a) => a.slug && a.section?.slug && isSectionSlug(a.section.slug))
-  const items = live.map(item).join('\n')
+  const items = live.map((a) => item(a, shape)).join('\n')
   const newest = live.find((a) => a.publishedAt)?.publishedAt
   // RSS 2.0 caps the channel image at 144x400, so the 512px app icon is out:
   // strict validators reject it and some directories refuse the feed on that
