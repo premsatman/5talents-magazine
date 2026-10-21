@@ -202,7 +202,8 @@ export function ArticleHero({ article }: { article: HeroArticle }) {
               sizes="(max-width: 1100px) 100vw, 1100px"
               placeholder={card.blur ? 'blur' : 'empty'}
               blurDataURL={card.blur}
-              priority
+              preload
+              fetchPriority="high"
             />
           </figure>
         )}
@@ -223,7 +224,8 @@ export function ArticleHero({ article }: { article: HeroArticle }) {
             sizes="100vw"
             placeholder={wide.blur ? 'blur' : 'empty'}
             blurDataURL={wide.blur}
-            priority
+            preload
+            fetchPriority="high"
           />
           <span className="piecehero__scrim" aria-hidden="true" />
           {/* The headline and nothing else. Section, deck and byline sit below
@@ -261,7 +263,8 @@ export function ArticleHero({ article }: { article: HeroArticle }) {
             sizes={cap ? `(max-width: ${cap}px) 100vw, ${cap}px` : '100vw'}
             placeholder={natural.blur ? 'blur' : 'empty'}
             blurDataURL={natural.blur}
-            priority
+            preload
+            fetchPriority="high"
           />
         </figure>
       )}

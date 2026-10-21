@@ -60,7 +60,8 @@ export function HeroSync({
                         sizes="(max-width: 800px) 92vw, 1200px"
                         placeholder={media.blur ? 'blur' : 'empty'}
                         blurDataURL={media.blur}
-                        priority={index === 0 && photoIndex === 0}
+                        preload={index === 0 && photoIndex === 0}
+                        fetchPriority={index === 0 && photoIndex === 0 ? 'high' : undefined}
                       />
                     ) : null,
                   )}

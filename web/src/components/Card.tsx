@@ -45,6 +45,11 @@ function OverlayCard({
    * So the first card gets `priority` and the other two get `eager`: fetched
    * during document parse rather than waiting on the intersection observer,
    * but without three preloads racing each other on a slow connection.
+   *
+   * Next 16 renamed `priority` to `preload` and dropped the fetchpriority="high"
+   * it used to add, which PageSpeed flagged as "LCP request discovery" (21 Oct
+   * 2026). The prop here keeps its name; the <Image> gets both `preload` and
+   * `fetchPriority` set explicitly.
    */
   eager?: boolean
 }) {
@@ -74,7 +79,8 @@ function OverlayCard({
               sizes={spec.sizes}
               placeholder={media.blur ? 'blur' : 'empty'}
               blurDataURL={media.blur}
-              priority={priority}
+              preload={priority}
+              fetchPriority={priority ? 'high' : undefined}
               loading={!priority && eager ? 'eager' : undefined}
             />
           )}
@@ -173,7 +179,8 @@ export function Card({
               sizes={spec.sizes}
               placeholder={media.blur ? 'blur' : 'empty'}
               blurDataURL={media.blur}
-              priority={priority}
+              preload={priority}
+              fetchPriority={priority ? 'high' : undefined}
               loading={!priority && eager ? 'eager' : undefined}
             />
           ) : (

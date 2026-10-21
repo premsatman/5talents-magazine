@@ -252,6 +252,9 @@ export async function AdSlot({
               width={size.w}
               height={size.h}
               loading={slot === 'A' ? 'eager' : 'lazy'}
+              // Slot A sits above the hero. Eager so it does not pop in, but low
+              // priority so it never takes the phone's first bytes from the lead image.
+              fetchPriority={slot === 'A' ? 'low' : undefined}
             />
           </a>
         </div>
