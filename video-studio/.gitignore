@@ -1,0 +1,15 @@
+# Keep large media and build output out of the website repo
+*/assets/**
+*/references/**
+!*/assets/**/
+!*/references/**/
+!**/.gitkeep
+*/.hyperframes/
+*/renders/
+*/output/
+node_modules/
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Bebas Neue"; src: url("assets/fonts/BebasNeue-Regular.ttf") format("truetype"); font-weight: 400; }
+      :root { --ink: #0f0d0c; --paper: #f5f2e8; --yellow: #fde50b; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--ink); }
+      #root { width: 100%; height: 100%; position: relative; background: var(--ink); font-family: Montserrat, sans-serif; color: var(--paper); }
+      #glow { position: absolute; left: -200px; right: -200px; top: 260px; height: 1300px; background: radial-gradient(closest-side, rgba(253,229,11,0.07), rgba(253,229,11,0) 70%); }
+      #pill { position: absolute; top: 92px; left: 0; right: 0; display: flex; justify-content: center; }
+      #pill span { font-weight: 700; font-size: 26px; letter-spacing: 0.32em; color: var(--yellow); }
+      #headline { position: absolute; top: 140px; left: 40px; right: 40px; text-align: center; font-family: "Bebas Neue"; font-size: 132px; line-height: 0.93; letter-spacing: 0.005em; }
+      #headline .l1 { display: block; color: var(--paper); }
+      #headline .l2 { display: block; color: var(--yellow); }
+      #box { position: absolute; left: 36px; top: 420px; width: 1008px; height: 980px; overflow: hidden; border-radius: 30px; background: #1b1714; }
+      #facepane { position: absolute; top: 0; left: 0; width: 1008px; height: 980px; overflow: hidden; border-radius: 22px; }
+      #faceblur, #facezoom { position: absolute; inset: 0; }
+      #facezoom { transform-origin: 50% 39%; }
+      #facecam { position: absolute; width: 2208px; height: 1242px; left: calc(50% - 989px); top: -51.75px; }
+      #facecam video.cam, #phonecam video.cam { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: fill; }
+      #phonepane { position: absolute; top: 0; left: 0; width: 495.7px; height: 980px; opacity: 0; background: #1b1714; }
+      #phoneblur { position: absolute; top: 0; left: 12px; width: 471.7px; height: 980px; overflow: hidden; border-radius: 22px; background: #111; }
+      #phonezoom { position: absolute; inset: 0; }
+      #phonezoom { transform-origin: 471.7px 81.33px; }
+      #phonecam { position: absolute; left: 0; top: 0; width: 471.7px; height: 980px; }
+      #ring399 { position: absolute; left: 258.38px; top: 66.2px; width: 202.99px; height: 30.27px; border: 4px solid var(--yellow); border-radius: 10px; box-shadow: 0 0 0 3px rgba(0,0,0,0.55); opacity: 0; }
+      #stillpane { position: absolute; inset: 0; background: #14110f; overflow: hidden; }
+      #stillbg { position: absolute; inset: -60px; width: calc(100% + 120px); height: calc(100% + 120px); object-fit: cover; }
+      #stillblur { position: absolute; inset: 0; }
+      #stillzoom { position: absolute; top: 0; left: 268.15px; width: 471.7px; height: 980px; transform-origin: 142.32px 833.61px; }
+      #stillzoom img { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 18px; }
+      .hl { position: absolute; transform-origin: left center; }
+      .hl.inv { background: #fff; mix-blend-mode: difference; }
+      .hl.mul { background: var(--yellow); mix-blend-mode: multiply; }
+      .chipwrap { position: absolute; left: 28px; width: 640px; height: 80px; }
+      .chip { display: inline-flex; align-items: center; gap: 14px; background: var(--yellow); color: var(--ink); font-family: "Bebas Neue"; font-size: 58px; line-height: 1; padding: 12px 22px 8px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.45); }
+      .chip svg.arr { width: 46px; height: 28px; margin-top: -4px; }
+      .chip svg.tick { width: 40px; height: 40px; margin-top: -6px; }
+      .cap { position: absolute; left: 90px; right: 90px; top: 1430px; height: 150px; display: flex; justify-content: center; align-items: flex-start; text-align: center; }
+      .capin { display: block; font-family: "Bebas Neue"; font-size: 80px; line-height: 0.98; color: var(--paper); text-shadow: 0 4px 0 rgba(0,0,0,0.6); }
+      .capin .kw { color: var(--yellow); }
+      #endcard { position: absolute; inset: 0; }
+      #endin { position: absolute; inset: 0; }
+      #endin img { width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-5xt5" id="root" data-composition-id="main" data-start="0" data-duration="42.49" data-width="1080" data-height="1920">
+      <div data-hf-id="hf-27c6" id="glow"></div>
+      <div data-hf-id="hf-6cks" id="pill"><span data-hf-id="hf-qs3n">5TALENTS REWIND · HYDERABAD</span></div>
+      <h1 data-hf-id="hf-1vgv" id="headline"><span data-hf-id="hf-8zf8" class="l1">PEHLE HR,</span><span data-hf-id="hf-qxht" class="l2">PHIR WORSHIP!</span></h1>
+      <div data-hf-id="hf-2l2g" id="box">
+        <div data-hf-id="hf-9jod" id="facepane" data-layout-allow-overflow>
+          <div data-hf-id="hf-zjat" id="faceblur"><div data-hf-id="hf-j22v" id="facezoom"><div data-hf-id="hf-ermn" id="facecam">
+          <video data-hf-id="hf-yw5f" id="c1" class="cam" src="assets/footage/ep01_360-420_norm.mp4" data-start="0" data-duration="4.28" data-media-start="28.62" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.03,"v":1},{"t":4.25,"v":1},{"t":4.28,"v":0}]}]}'></video>
+          <video data-hf-id="hf-epb1" id="c2" class="cam" src="assets/footage/ep01_360-420_norm.mp4" data-start="4.28" data-duration="5" data-media-start="10.3" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.03,"v":1},{"t":4.97,"v":1},{"t":5,"v":0}]}]}'></video>
+          <video data-hf-id="hf-khvj" id="c3" class="cam" src="assets/footage/ep01_360-420_norm.mp4" data-start="9.28" data-duration="5.87" data-media-start="15.45" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.03,"v":1},{"t":5.84,"v":1},{"t":5.87,"v":0}]}]}'></video>
+          <video data-hf-id="hf-gpnr" id="c4" class="cam" src="assets/footage/ep01_360-420_norm.mp4" data-start="15.15" data-duration="5.86" data-media-start="22.15" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.03,"v":1},{"t":5.83,"v":1},{"t":5.86,"v":0}]}]}'></video>
+          <video data-hf-id="hf-34e4" id="c5" class="cam" src="assets/footage/ep01_360-420_norm.mp4" data-start="21.01" data-duration="2.75" data-media-start="33.7" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.03,"v":1},{"t":2.72,"v":1},{"t":2.75,"v":0}]}]}'></video>
+          <video data-hf-id="hf-fkxl" id="c6" class="cam" src="assets/footage/ep01_360-420_norm.mp4" data-start="23.76" data-duration="3.7" data-media-start="37.15" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.03,"v":1},{"t":3.67,"v":1},{"t":3.7,"v":0}]}]}'></video>
+          <video data-hf-id="hf-vzyg" id="c7" class="cam" src="assets/footage/ep01_360-420_norm.mp4" data-start="27.46" data-duration="9.28" data-media-start="41.06" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.03,"v":1},{"t":9.25,"v":1},{"t":9.28,"v":0}]}]}'></video>
+          <video data-hf-id="hf-j9zl" id="c8" class="cam" src="assets/footage/ep01_360-420_norm.mp4" data-start="36.74" data-duration="3.75" data-media-start="51.2" data-track-index="0" playsinline data-has-audio="true" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.03,"v":1},{"t":3.72,"v":1},{"t":3.75,"v":0}]}]}'></video>
+          </div></div></div>
+        </div>
+        <div data-hf-id="hf-nw4x" id="phonepane">
+          <div data-hf-id="hf-jhns" id="phoneblur"><div data-hf-id="hf-vne6" id="phonezoom"><div data-hf-id="hf-xcjg" id="phonecam">
+          <video data-hf-id="hf-2ivu" id="c3p" class="cam" src="assets/footage/ep01_360-420_phone.mp4" data-start="10.48" data-duration="4.67" data-media-start="16.65" data-track-index="1" playsinline muted></video>
+          <video data-hf-id="hf-0bvh" id="c5p" class="cam" src="assets/footage/ep01_360-420_phone.mp4" data-start="21.01" data-duration="2.75" data-media-start="33.7" data-track-index="1" playsinline muted></video>
+          <video data-hf-id="hf-9jrk" id="c8p" class="cam" src="assets/footage/ep01_360-420_phone.mp4" data-start="36.74" data-duration="3.75" data-media-start="51.2" data-track-index="1" playsinline muted></video>
+            <div data-hf-id="hf-pjrg" id="ring399"></div>
+          </div></div></div>
+        </div>
+        <div data-hf-id="hf-z9oc" id="stillpane" class="clip" data-start="4.28" data-duration="5" data-track-index="3">
+          <img data-hf-id="hf-itu4" id="stillbg" src="assets/images/phone_discover_bg.jpg" alt="" data-layout-allow-overflow />
+          <div data-hf-id="hf-q0xe" id="stillblur">
+            <div data-hf-id="hf-il2s" id="stillzoom">
+              <img data-hf-id="hf-4e4c" src="assets/images/phone_discover_date.png" alt="tmdconference.com page: 31st October 2026, Gachibowli Indoor Stadium, Hyderabad" />
+              <div data-hf-id="hf-ajyl" class="hl hl1 inv" style="left:48.8px;top:804.13px;width:184px;height:20.33px"></div><div data-hf-id="hf-52he" class="hl hl1 mul" style="left:48.8px;top:804.13px;width:184px;height:20.33px"></div>
+              <div data-hf-id="hf-w9ya" class="hl hl2 inv" style="left:48.8px;top:824.46px;width:194.17px;height:19.32px"></div><div data-hf-id="hf-lvjf" class="hl hl2 mul" style="left:48.8px;top:824.46px;width:194.17px;height:19.32px"></div>
+              <div data-hf-id="hf-igqy" class="hl hl3 inv" style="left:48.8px;top:843.78px;width:82.34px;height:19.32px"></div><div data-hf-id="hf-lbgx" class="hl hl3 mul" style="left:48.8px;top:843.78px;width:82.34px;height:19.32px"></div>
+            </div>
+          </div>
+        </div>
+      <div data-hf-id="hf-oq2j" id="chipjob" class="clip chipwrap" data-start="18.33" data-duration="2.68" data-track-index="4" style="bottom:40px"><div data-hf-id="hf-ugzh" class="chip">JOB FAIR <svg data-hf-id="hf-x2ch" class="arr" viewBox="0 0 40 24"><path data-hf-id="hf-q371" d="M2 12h30M24 4l10 8-10 8" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg> WORSHIP</div></div>
+      <div data-hf-id="hf-fugc" id="chipres" class="clip chipwrap" data-start="33.24" data-duration="3.5" data-track-index="4" style="bottom:128px"><div data-hf-id="hf-gcsp" class="chip"><svg data-hf-id="hf-q6pn" class="tick" viewBox="0 0 24 24"><path data-hf-id="hf-60g9" d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>RESUME</div></div>
+      <div data-hf-id="hf-tw61" id="chipq" class="clip chipwrap" data-start="35.57" data-duration="1.17" data-track-index="4" style="bottom:40px"><div data-hf-id="hf-5tcn" class="chip"><svg data-hf-id="hf-xliz" class="tick" viewBox="0 0 24 24"><path data-hf-id="hf-gsl9" d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>SAWAAL</div></div>
+      </div>
+    <div data-hf-id="hf-q3xn" id="cap0" class="clip cap" data-start="0.08" data-duration="1.56" data-track-index="5"><span data-hf-id="hf-r2dp" class="capin">PEHLI BAAR KISI CHURCH EVENT</span></div>
+    <div data-hf-id="hf-thox" id="cap1" class="clip cap" data-start="1.64" data-duration="1.16" data-track-index="5"><span data-hf-id="hf-p2c8" class="capin">SE PEHLE AAPKO</span></div>
+    <div data-hf-id="hf-inze" id="cap2" class="clip cap" data-start="2.8" data-duration="1.48" data-track-index="5"><span data-hf-id="hf-36dh" class="capin"><span data-hf-id="hf-8569" class="kw">HR</span> SE MILNA HOGA!</span></div>
+    <div data-hf-id="hf-n8h8" id="cap3" class="clip cap" data-start="4.28" data-duration="1.98" data-track-index="5"><span data-hf-id="hf-eyir" class="capin">AB AAPKO PLAN BANANA PADEGA:</span></div>
+    <div data-hf-id="hf-n30x" id="cap4" class="clip cap" data-start="6.26" data-duration="0.99" data-track-index="5"><span data-hf-id="hf-0m1e" class="capin"><span data-hf-id="hf-pxjv" class="kw">31 OCTOBER</span>,</span></div>
+    <div data-hf-id="hf-fz7h" id="cap5" class="clip cap" data-start="7.25" data-duration="2.03" data-track-index="5"><span data-hf-id="hf-bdnp" class="capin">GACHIBOWLI INDOOR STADIUM</span></div>
+    <div data-hf-id="hf-yjjb" id="cap6" class="clip cap" data-start="9.28" data-duration="1.4" data-track-index="5"><span data-hf-id="hf-0d2x" class="capin">THE MIGHTY DREAMS KA</span></div>
+    <div data-hf-id="hf-tij0" id="cap7" class="clip cap" data-start="10.68" data-duration="2.09" data-track-index="5"><span data-hf-id="hf-n2qk" class="capin"><span data-hf-id="hf-xkol" class="kw">SOUND BARRIER</span> CONFERENCE</span></div>
+    <div data-hf-id="hf-4fwt" id="cap8" class="clip cap" data-start="12.77" data-duration="0.94" data-track-index="5"><span data-hf-id="hf-ngpr" class="capin">HONE WALA HAI.</span></div>
+    <div data-hf-id="hf-00vz" id="cap9" class="clip cap" data-start="13.71" data-duration="1.44" data-track-index="5"><span data-hf-id="hf-3q50" class="capin">TICKET HAI <span data-hf-id="hf-q48x" class="kw">RS. 399</span></span></div>
+    <div data-hf-id="hf-rw4i" id="cap10" class="clip cap" data-start="15.15" data-duration="1.01" data-track-index="5"><span data-hf-id="hf-php7" class="capin">TWIST YEH HAI KI</span></div>
+    <div data-hf-id="hf-vos0" id="cap11" class="clip cap" data-start="16.16" data-duration="1.64" data-track-index="5"><span data-hf-id="hf-j8et" class="capin">WORSHIP TAK PAHUNCHNE KE LIYE</span></div>
+    <div data-hf-id="hf-im6z" id="cap12" class="clip cap" data-start="17.8" data-duration="1.59" data-track-index="5"><span data-hf-id="hf-f6oq" class="capin">AAPKO <span data-hf-id="hf-oiac" class="kw">JOB FAIR</span></span></div>
+    <div data-hf-id="hf-1evs" id="cap13" class="clip cap" data-start="19.39" data-duration="1.62" data-track-index="5"><span data-hf-id="hf-z610" class="capin">SE HOKE GUZARNA PADEGA!</span></div>
+    <div data-hf-id="hf-7dpk" id="cap14" class="clip cap" data-start="21.01" data-duration="1.5" data-track-index="5"><span data-hf-id="hf-krrr" class="capin">LUNCH MEIN INDUSTRY KE LEADERS</span></div>
+    <div data-hf-id="hf-o89n" id="cap15" class="clip cap" data-start="22.51" data-duration="1.25" data-track-index="5"><span data-hf-id="hf-2kyh" class="capin">TABLE PE BAITHE HONGE</span></div>
+    <div data-hf-id="hf-2w8x" id="cap16" class="clip cap" data-start="23.76" data-duration="1.59" data-track-index="5"><span data-hf-id="hf-xpby" class="capin">AUR JAAKE AAP SEEDHA</span></div>
+    <div data-hf-id="hf-4voi" id="cap17" class="clip cap" data-start="25.35" data-duration="2.11" data-track-index="5"><span data-hf-id="hf-dpkn" class="capin"><span data-hf-id="hf-rknm" class="kw">SAWAAL</span> POOCH SAKTE HAIN</span></div>
+    <div data-hf-id="hf-z32x" id="cap18" class="clip cap" data-start="27.5" data-duration="1.4" data-track-index="5"><span data-hf-id="hf-b9x1" class="capin">PICHHLE SAAL EK SOCIAL MEDIA</span></div>
+    <div data-hf-id="hf-0vm0" id="cap19" class="clip cap" data-start="28.9" data-duration="1.41" data-track-index="5"><span data-hf-id="hf-xzvi" class="capin"><span data-hf-id="hf-d97v" class="kw">VOLUNTEER</span> KO WAHIN PE</span></div>
+    <div data-hf-id="hf-jtd1" id="cap20" class="clip cap" data-start="30.31" data-duration="1.42" data-track-index="5"><span data-hf-id="hf-nzix" class="capin"><span data-hf-id="hf-7340" class="kw">JOB OFFER</span> MIL GAYA!</span></div>
+    <div data-hf-id="hf-gpwo" id="cap21" class="clip cap" data-start="31.73" data-duration="1.27" data-track-index="5"><span data-hf-id="hf-86r3" class="capin"><span data-hf-id="hf-ici3" class="kw">VOLUNTEER</span> KO!</span></div>
+    <div data-hf-id="hf-k9ku" id="cap22" class="clip cap" data-start="33" data-duration="1.82" data-track-index="5"><span data-hf-id="hf-bkm1" class="capin">TOH <span data-hf-id="hf-352o" class="kw">RESUME</span> LEKE JAANA,</span></div>
+    <div data-hf-id="hf-2xmt" id="cap23" class="clip cap" data-start="34.82" data-duration="1.92" data-track-index="5"><span data-hf-id="hf-19eu" class="capin">LEKIN <span data-hf-id="hf-w13q" class="kw">SAWAAL</span> POOCHNA!</span></div>
+    <div data-hf-id="hf-6ted" id="cap24" class="clip cap" data-start="36.74" data-duration="1.36" data-track-index="5"><span data-hf-id="hf-p8qt" class="capin">REGISTER KARNE KE LIYE</span></div>
+    <div data-hf-id="hf-pv56" id="cap25" class="clip cap" data-start="38.1" data-duration="2.39" data-track-index="5"><span data-hf-id="hf-jepk" class="capin">COMMENT PE <span data-hf-id="hf-zgi7" class="kw">LINK</span> DEKH SAKTE HAIN</span></div>
+      <div data-hf-id="hf-j534" id="endcard" class="clip" data-start="40.49" data-duration="2" data-track-index="8"><div data-hf-id="hf-3bhl" id="endin"><img data-hf-id="hf-8yk7" src="assets/brand/endcard.png" alt="5Talents Rewind #1 full episode" /></div></div>
+    <audio data-hf-id="hf-1q5s" id="hit" src="assets/audio/hit.mp3" data-start="0" data-duration="2.15" data-track-index="6" data-volume="0.35"></audio>
+    <audio data-hf-id="hf-kaw2" id="rewind" src="assets/audio/rewind.mp3" data-start="40.49" data-duration="1.6" data-track-index="6" data-volume="0.6"></audio>
+    <audio data-hf-id="hf-5xqs" id="wh0" src="assets/audio/whoosh.wav" data-start="4.1" data-duration="0.42" data-track-index="7" data-volume="0.3"></audio>
+    <audio data-hf-id="hf-k85c" id="wh1" src="assets/audio/whoosh.wav" data-start="9.1" data-duration="0.42" data-track-index="7" data-volume="0.3"></audio>
+    <audio data-hf-id="hf-2lnv" id="wh2" src="assets/audio/whoosh.wav" data-start="10.3" data-duration="0.42" data-track-index="7" data-volume="0.3"></audio>
+    <audio data-hf-id="hf-vjgv" id="wh3" src="assets/audio/whoosh.wav" data-start="14.97" data-duration="0.42" data-track-index="7" data-volume="0.3"></audio>
+    <audio data-hf-id="hf-hqtk" id="wh4" src="assets/audio/whoosh.wav" data-start="20.83" data-duration="0.42" data-track-index="7" data-volume="0.3"></audio>
+    <audio data-hf-id="hf-azk8" id="wh5" src="assets/audio/whoosh.wav" data-start="23.58" data-duration="0.42" data-track-index="7" data-volume="0.3"></audio>
+    <audio data-hf-id="hf-b3az" id="wh6" src="assets/audio/whoosh.wav" data-start="36.56" data-duration="0.42" data-track-index="7" data-volume="0.3"></audio>
+    <audio data-hf-id="hf-4wo6" id="wh7" src="assets/audio/whoosh.wav" data-start="40.31" data-duration="0.42" data-track-index="7" data-volume="0.3"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#facezoom", { scale: 1.08 }, 0);
+      tl.set("#facepane", { x: 0 }, 0); tl.set("#phonepane", { opacity: 0 }, 0);
+      tl.set("#facezoom", { scale: 1 }, 4.28);
+      tl.set("#facepane", { x: 0 }, 4.28); tl.set("#phonepane", { opacity: 0 }, 4.28);
+      tl.set("#facezoom", { scale: 1 }, 9.28);
+      tl.set("#facepane", { x: 0 }, 9.28); tl.set("#phonepane", { opacity: 0 }, 9.28);
+      tl.set("#facezoom", { scale: 1.05 }, 15.15);
+      tl.set("#facepane", { x: 0 }, 15.15); tl.set("#phonepane", { opacity: 0 }, 15.15);
+      tl.set("#facezoom", { scale: 1 }, 21.01);
+      tl.set("#facepane", { x: 241.9 }, 21.01);
+      tl.set("#phonepane", { opacity: 1 }, 21.01);
+      tl.fromTo("#phoneblur", { filter: "blur(14px)", x: -90, skewX: -6, opacity: 0 }, { filter: "blur(0px)", x: 0, skewX: 0, opacity: 1, duration: 0.34, ease: "power3.out", immediateRender: false }, 21.01);
+      tl.set("#facezoom", { scale: 1.12 }, 23.76);
+      tl.set("#facepane", { x: 0 }, 23.76); tl.set("#phonepane", { opacity: 0 }, 23.76);
+      tl.set("#facezoom", { scale: 1 }, 27.46);
+      tl.set("#facepane", { x: 0 }, 27.46); tl.set("#phonepane", { opacity: 0 }, 27.46);
+      tl.set("#facezoom", { scale: 1 }, 36.74);
+      tl.set("#facepane", { x: 241.9 }, 36.74);
+      tl.set("#phonepane", { opacity: 1 }, 36.74);
+      tl.fromTo("#phoneblur", { filter: "blur(14px)", x: -90, skewX: -6, opacity: 0 }, { filter: "blur(0px)", x: 0, skewX: 0, opacity: 1, duration: 0.34, ease: "power3.out", immediateRender: false }, 36.74);
+      tl.fromTo("#faceblur", { filter: "blur(12px)", x: 60, skewX: 4 }, { filter: "blur(0px)", x: 0, skewX: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, 9.28);
+      tl.fromTo("#faceblur", { filter: "blur(12px)", x: 60, skewX: 4 }, { filter: "blur(0px)", x: 0, skewX: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, 15.15);
+      tl.fromTo("#faceblur", { filter: "blur(12px)", x: 60, skewX: 4 }, { filter: "blur(0px)", x: 0, skewX: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, 23.76);
+      tl.fromTo("#facepane", { x: 0 }, { x: 241.9, duration: 0.38, ease: "power3.inOut", immediateRender: false }, 10.48);
+      tl.set("#phonepane", { opacity: 1 }, 10.48);
+      tl.fromTo("#phoneblur", { filter: "blur(14px)", x: -90, skewX: -6, opacity: 0 }, { filter: "blur(0px)", x: 0, skewX: 0, opacity: 1, duration: 0.34, ease: "power3.out", immediateRender: false }, 10.48);
+      tl.set("#facezoom", { scale: 1.15 }, 31.73); tl.set("#facezoom", { scale: 1.0 }, 33);
+      tl.fromTo("#stillblur", { filter: "blur(16px)", x: 90, skewX: 5 }, { filter: "blur(0px)", x: 0, skewX: 0, duration: 0.3, ease: "power3.out" }, 4.28);
+      tl.fromTo("#stillzoom", { scale: 1, x: 0, y: 0 }, { scale: 2.15, x: 93.53, y: -330, duration: 0.7, ease: "power2.inOut" }, 5.91);
+      tl.fromTo(".hl1", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 6.56);
+      tl.fromTo(".hl2", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 7.28);
+      tl.fromTo(".hl3", { scaleX: 0 }, { scaleX: 1, duration: 0.22, ease: "power2.out" }, 7.53);
+      tl.fromTo("#phonezoom", { scale: 1 }, { scale: 1.75, duration: 0.35, ease: "power2.out" }, 13.63);
+      tl.fromTo("#ring399", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, 13.93);
+      tl.to("#phonezoom", { scale: 1, duration: 0.3, ease: "power2.inOut" }, 14.83);
+      tl.set("#ring399", { opacity: 0 }, 15.15);
+      tl.fromTo("#cap0 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 0.08);
+      tl.fromTo("#cap1 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 1.64);
+      tl.fromTo("#cap2 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 2.8);
+      tl.fromTo("#cap3 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 4.28);
+      tl.fromTo("#cap4 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 6.26);
+      tl.fromTo("#cap5 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 7.25);
+      tl.fromTo("#cap6 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 9.28);
+      tl.fromTo("#cap7 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 10.68);
+      tl.fromTo("#cap8 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 12.77);
+      tl.fromTo("#cap9 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 13.71);
+      tl.fromTo("#cap10 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 15.15);
+      tl.fromTo("#cap11 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 16.16);
+      tl.fromTo("#cap12 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 17.8);
+      tl.fromTo("#cap13 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 19.39);
+      tl.fromTo("#cap14 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 21.01);
+      tl.fromTo("#cap15 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 22.51);
+      tl.fromTo("#cap16 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 23.76);
+      tl.fromTo("#cap17 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 25.35);
+      tl.fromTo("#cap18 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 27.5);
+      tl.fromTo("#cap19 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 28.9);
+      tl.fromTo("#cap20 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 30.31);
+      tl.fromTo("#cap21 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 31.73);
+      tl.fromTo("#cap22 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 33);
+      tl.fromTo("#cap23 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 34.82);
+      tl.fromTo("#cap24 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 36.74);
+      tl.fromTo("#cap25 .capin", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(2)" }, 38.1);
+      tl.fromTo("#chipjob .chip", { x: -60, opacity: 0, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 18.33);
+      tl.fromTo("#chipres .chip", { x: -60, opacity: 0, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 33.24);
+      tl.fromTo("#chipq .chip", { x: -60, opacity: 0, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 35.57);
+      tl.fromTo("#endin", { filter: "blur(18px)", scale: 1.06, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 40.49);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
