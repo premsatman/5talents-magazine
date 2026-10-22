@@ -98,6 +98,11 @@ export function EpisodeRow({ episode }: { episode: EpisodeCardData }) {
 /**
  * The homepage block: the newest episode, large, with a way in to all of them.
  * Renders nothing until an episode is public.
+ *
+ * Sits in a full-bleed coloured band (.rewind-band) rather than on paper like
+ * the article sections, so the one weekly non-article thing on the homepage
+ * reads as a different kind of object at a glance. The band's colours are
+ * fixed in both themes, like the footer and the utility bar - see globals.css.
  */
 export function RewindLatest({ episode }: { episode: EpisodeCardData | null }) {
   if (!episode?._id) return null
@@ -105,42 +110,44 @@ export function RewindLatest({ episode }: { episode: EpisodeCardData | null }) {
   const yt = youtubeId(episode.youtubeUrl)
 
   return (
-    <section className="wrap section-block rewind-home" aria-labelledby="rewind-head">
-      <div className="sechead">
-        <h2 className="brush-rule" id="rewind-head">
-          5Talents Rewind
-        </h2>
-        <Link href={REWIND_PATH}>
-          All episodes <span aria-hidden="true">→</span>
-        </Link>
-      </div>
-      <div className="rewind-latest">
-        <Link className="rewind-latest__media" href={href} tabIndex={-1} aria-hidden="true">
-          <EpisodeThumb episode={episode} />
-          <span className="rewind-play" aria-hidden="true">▶</span>
-        </Link>
-        <div>
-          <p className="rewind-kicker">{kicker(episode)}</p>
-          <h3 className="rewind-latest__title">
-            <Link className="brush-link" href={href}>
-              {episode.title}
-            </Link>
-          </h3>
-          {episode.summary && <p>{episode.summary}</p>}
-          <p className="listenon">
-            <Link className="btn endcard-btn" href={href}>
-              Watch or listen
-            </Link>
-            {yt && (
-              <a className="listenon__rss" href={youtubeAt(yt, 0)} target="_blank" rel={OUT}>
-                Open on YouTube
-              </a>
-            )}
-          </p>
-          <p className="note">Har hafte 5Talents ki khabrein, Hinglish mein, bina boring hue.</p>
+    <div className="rewind-band">
+      <section className="wrap section-block rewind-home" aria-labelledby="rewind-head">
+        <div className="sechead">
+          <h2 className="brush-rule" id="rewind-head">
+            5Talents Rewind
+          </h2>
+          <Link href={REWIND_PATH}>
+            All episodes <span aria-hidden="true">→</span>
+          </Link>
         </div>
-      </div>
-    </section>
+        <div className="rewind-latest">
+          <Link className="rewind-latest__media" href={href} tabIndex={-1} aria-hidden="true">
+            <EpisodeThumb episode={episode} />
+            <span className="rewind-play" aria-hidden="true">▶</span>
+          </Link>
+          <div>
+            <p className="rewind-kicker">{kicker(episode)}</p>
+            <h3 className="rewind-latest__title">
+              <Link className="brush-link" href={href}>
+                {episode.title}
+              </Link>
+            </h3>
+            {episode.summary && <p>{episode.summary}</p>}
+            <p className="listenon">
+              <Link className="btn endcard-btn" href={href}>
+                Watch or listen
+              </Link>
+              {yt && (
+                <a className="listenon__rss" href={youtubeAt(yt, 0)} target="_blank" rel={OUT}>
+                  Open on YouTube
+                </a>
+              )}
+            </p>
+            <p className="note">Har hafte 5Talents ki khabrein, Hinglish mein, bina boring hue.</p>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
 

@@ -1788,6 +1788,68 @@ nav.primary.compact { border-top: 0; }
 .rewind-latest__title { font-family: var(--font-display); font-size: var(--step-3); line-height: 1; margin: 0 0 var(--s-3); }
 .rewind-latest__title a { text-decoration: none; }
 
+/* ---- The homepage band -----------------------------------------------
+   Relevant runs its podcast strip as a full-bleed colour block, and the
+   reason is sound: the newest episode is the one thing on the homepage that
+   is not an article, and on paper-coloured ground it reads as just another
+   section. The colour does the work no headline can.
+
+   Palette: magenta into violet into midnight plum, on the diagonal, with a
+   bloom of the brand yellow in the top corner so the band belongs to this
+   magazine and not to a template. The dark end is deliberately on the right,
+   where the text column sits on desktop and below the artwork on mobile -
+   cream on #190B33 is about 15:1, where cream on the magenta end is 5.3:1
+   and the 0.74rem note would have been scraping AA.
+
+   These six values do NOT follow the theme, exactly like --inverse-* and for
+   the same reason: a band that flipped would put cream text on a pale wash in
+   dark mode. Everything inside it is repainted against the band below, so
+   changing the three stops is all it takes to recolour the whole block.
+   Alternative that was tested and works as a drop-in: deep teal #0F3D3E,
+   cobalt #1D4ED8, ink-navy #0B1026 (cooler, reads more tech than magazine). */
+.rewind-band {
+  --band-1: #C2185B;
+  --band-2: #5B21B6;
+  --band-3: #190B33;
+  --band-ink: #FDFCF7;
+  --band-ink-soft: #CFC3E4;
+
+  background-color: var(--band-3);
+  background-image:
+    radial-gradient(70% 110% at 8% 0%, rgba(253, 239, 10, 0.18), transparent 58%),
+    linear-gradient(100deg, var(--band-1) 0%, var(--band-2) 46%, var(--band-3) 100%);
+  color: var(--band-ink);
+  margin-block: var(--s-7);
+  padding-block: var(--s-6);
+}
+.rewind-band .section-block { margin-block: 0; }
+.rewind-band .sechead a { color: var(--band-ink-soft); }
+.rewind-band .sechead a:hover { color: var(--band-ink); }
+.rewind-band .rewind-kicker { color: var(--highlight); }
+.rewind-band .note,
+.rewind-band .listenon__rss { color: var(--band-ink-soft); }
+.rewind-band :focus-visible { outline-color: var(--highlight); }
+
+/* The yellow call to action, as on .onrewind - ink on yellow is ~17:1 and it
+   is the one element here that has to be found without being looked for. */
+.rewind-band .btn { background: var(--highlight); border-color: var(--highlight); color: var(--ink); }
+.rewind-band .btn:hover { background: transparent; color: var(--highlight); }
+
+/* The brush underline cannot stay an underline here. On paper the ink is dark
+   and the yellow sits beneath it; on the band the type is cream, so a yellow
+   stripe through its lower third reads as damage. Same fix as dark mode: fill
+   the line and flip the text to ink. */
+.rewind-band .brush-link {
+  background-size: 0% 100%;
+  background-position: 0 0;
+  padding: 0 0.08em;
+  margin: 0 -0.08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.rewind-band .brush-link:hover,
+.rewind-band .brush-link:focus-visible { background-size: 100% 100%; color: #14130E; }
+
 /* Episode page */
 .episode { padding-top: var(--s-6); padding-bottom: var(--s-7); }
 .episode__title { font-family: var(--font-display); font-size: var(--step-4); line-height: var(--display-leading); margin: 0 0 var(--s-3); text-wrap: balance; }
