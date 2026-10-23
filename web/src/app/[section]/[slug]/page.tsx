@@ -159,16 +159,47 @@ export default async function ArticlePage(props: Props) {
    * card, Discover). One 2:1 image often gets no thumbnail at all.
    */
   const jsonLdImages = (() => {
+    /**
+     * Only the shapes the source can actually produce.
+     *
+     * c_lfill never upscales, so asking Cloudinary for 1200x1200 from a
+     * 2048x1152 source returns 1200x1152 - not square, and the markup is left
+     * claiming a shape the file does not have. Sanity's crop would upscale
+     * instead, which is worse: a soft image that passes. Either way the claim
+     * is false. A 16:9 original only reaches 1200 tall at 2133 wide, which is
+     * why most of the recent stream can honestly offer 16:9 alone.
+     */
     const shapes: [number, number][] = [[1600, 900], [1600, 1200], [1200, 1200]]
+    const fitting = (sw?: number | null, sh?: number | null) =>
+      typeof sw === 'number' && typeof sh === 'number' && sw > 0 && sh > 0
+        ? shapes.filter(([w, h]) => w <= sw && h <= sh)
+        : []
+
     const ext = clean(article.heroExternal?.url)
     if (ext) {
-      return /^https:\/\/res\.cloudinary\.com\//.test(ext)
-        ? shapes.map(([w, h]) => cloudinaryUrl(ext, w, h))
-        : [ext]
+      if (!/^https:\/\/res\.cloudinary\.com\//.test(ext)) return [ext]
+      const sw = article.heroExternal?.width
+      const usable = fitting(sw, article.heroExternal?.height)
+      // Nothing fits: serve the original at its own size rather than declare a
+      // crop it cannot fill. Still eligible while it clears Google's 1200 wide.
+      return usable.length
+        ? usable.map(([w, h]) => cloudinaryUrl(ext, w, h))
+        : [typeof sw === 'number' ? cloudinaryUrl(ext, sw) : ext]
     }
-    if (article.hero?.asset?.url) {
-      return shapes.map(([w, h]) => urlFor(article.hero).width(w).height(h).fit('crop').url())
+
+    const heroUrl = article.hero?.asset?.url
+    if (heroUrl) {
+      const d = article.hero?.asset?.metadata?.dimensions
+      const usable = fitting(d?.width, d?.height)
+      return usable.length
+        ? usable.map(([w, h]) => urlFor(article.hero).width(w).height(h).fit('crop').url())
+        : [
+            typeof d?.width === 'number'
+              ? urlFor(article.hero).width(d.width).url()
+              : heroUrl,
+          ]
     }
+
     return undefined
   })()
 
