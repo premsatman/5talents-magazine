@@ -94,6 +94,7 @@ export const externalImage = defineType({
           { title: 'Free licence - Unsplash, Pexels', value: 'free' },
           { title: 'Creative Commons - credit is required by the licence', value: 'cc' },
           { title: 'Written permission from the rights holder', value: 'permission' },
+          { title: 'Fair dealing - news reporting, s.52(1)(a)(ii)', value: 'fairDealing' },
           { title: 'Public domain', value: 'publicDomain' },
           { title: 'AI generated', value: 'generated' },
         ],
@@ -104,15 +105,15 @@ export const externalImage = defineType({
       title: 'Where the permission lives',
       type: 'string',
       description:
-        'For CC: the licence and the attribution string. For permission: where the reply is saved, e.g. "DM from @handle, 12 Sep 2026". For stock: the licence or order number.',
+        'For CC: the licence and the attribution string. For permission: where the reply is saved, e.g. "DM from @handle, 12 Sep 2026". For stock: the licence or order number. For fair dealing: the source, the date permission was asked for, and that it comes down on request.',
       hidden: ({ parent }) =>
-        !['cc', 'permission', 'licensed'].includes(
+        !['cc', 'permission', 'licensed', 'fairDealing'].includes(
           (parent as { rightsBasis?: string } | undefined)?.rightsBasis ?? '',
         ),
       validation: (r) =>
         r.custom((value, ctx) => {
           const basis = (ctx.parent as { rightsBasis?: string } | undefined)?.rightsBasis
-          if (['cc', 'permission', 'licensed'].includes(basis ?? '') && !value) {
+          if (['cc', 'permission', 'licensed', 'fairDealing'].includes(basis ?? '') && !value) {
             return 'Say where the permission is recorded. In six months nobody will remember.'
           }
           return true
