@@ -5,12 +5,14 @@ import { EDITORIAL_BOARD_QUERY } from '@/sanity/queries'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { imprint } from '@/lib/publisher'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Editorial board',
   description:
     'The editorial board of 5Talents Magazine, with each member’s designation, institution and contact details.',
   alternates: { canonical: '/editorial-board' },
+  openGraph: pageOg('/editorial-board'),
 }
 
 /**

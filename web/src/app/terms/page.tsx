@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
-import { editorialEmail } from '@/lib/site'
+import { editorialEmail, pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Terms of use',
   description:
     'The terms on which 5Talents Magazine publishes: what you may do with our work, who owns what, and what sending us a submission means.',
   alternates: { canonical: '/terms' },
+  openGraph: pageOg('/terms'),
 }
 
 /**

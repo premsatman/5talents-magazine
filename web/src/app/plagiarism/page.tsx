@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Plagiarism policy',
   description:
     'How 5Talents Magazine checks submitted and republished work for plagiarism, and what happens when something is found.',
   alternates: { canonical: '/plagiarism' },
+  openGraph: pageOg('/plagiarism'),
 }
 
 /**

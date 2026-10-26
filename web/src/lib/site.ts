@@ -40,6 +40,27 @@ export const scopeStatement =
  */
 export const editorialEmail = 'editorial@5talentsmag.com'
 
+/**
+ * The openGraph block for a page that has nothing special to say.
+ *
+ * It exists because Next REPLACES a parent's openGraph with the child's rather
+ * than merging the two, key by key (the note in [section]/[slug]/page.tsx is
+ * the scar from learning that). So a page that set `openGraph: { url }` just to
+ * emit og:url would silently drop the layout's og:type, og:site_name and
+ * og:locale and end up worse off than before.
+ *
+ * og:url itself matters because it is what Facebook, LinkedIn, Slack and the
+ * rest treat as the canonical address of a shared page. Without it they key the
+ * share off whatever URL it arrived on - utm tags, trackers and all - and the
+ * same article accumulates engagement counts under several identities.
+ *
+ * og:title, og:description and og:image are not here on purpose: Next fills
+ * those from the page's own title and description and from opengraph-image.tsx.
+ */
+export function pageOg(url: string) {
+  return { type: 'website' as const, siteName, locale: 'en_IN', url }
+}
+
 export function absoluteUrl(path: string) {
   return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`
 }

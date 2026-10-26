@@ -29,7 +29,24 @@ const STATIC_PAGES = [
   '/contact',
   '/privacy',
   '/corrections',
+  '/terms',
 ]
+
+/**
+ * Rebuild hourly.
+ *
+ * Without this the file is generated once at build time and served from the
+ * edge cache for as long as nothing is deployed - it was two days stale when
+ * the 26 Oct audit ran, and the two newest articles were missing from it.
+ * Worse than stale: SITEMAP_QUERY filters on `publishedAt <= now()`, and at
+ * build time `now()` is the build. An article scheduled for Thursday was being
+ * excluded by a clock frozen on Tuesday, and stayed excluded until the next
+ * deploy happened to fall after its publish time.
+ *
+ * An hour is short enough that a new piece is listed before Google next asks
+ * for the file, and long enough that the query runs ~24 times a day.
+ */
+export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [data, episodes] = await Promise.all([

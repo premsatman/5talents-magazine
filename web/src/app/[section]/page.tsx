@@ -6,7 +6,7 @@ import { freshClient } from '@/sanity/client'
 import { NAV_SECTIONS_QUERY, SECTION_ARTICLES_QUERY, SECTION_QUERY } from '@/sanity/queries'
 import { clean } from '@/sanity/stega'
 import { SECTION_SLUGS, isSectionSlug } from '@/lib/sections'
-import { absoluteUrl, siteUrl } from '@/lib/site'
+import { absoluteUrl, siteUrl, pageOg } from '@/lib/site'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { Card } from '@/components/Card'
@@ -49,6 +49,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       // subscribes to this section rather than the whole magazine.
       types: { 'application/rss+xml': `${siteUrl}/${section}/rss.xml` },
     },
+    openGraph: pageOg(`/${section}`),
   }
 }
 

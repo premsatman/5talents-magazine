@@ -109,6 +109,7 @@ export const metadata: Metadata = {
   },
   manifest: '/favicon/site.webmanifest',
   openGraph: {
+    url: '/',
     type: 'website',
     siteName,
     locale: 'en_IN',

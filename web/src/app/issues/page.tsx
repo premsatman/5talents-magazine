@@ -6,6 +6,7 @@ import { clean } from '@/sanity/stega'
 import { formatMonth } from '@/lib/format'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
+import { pageOg } from '@/lib/site'
 
 /**
  * Not a static `metadata` export any more, because whether this page should be
@@ -21,6 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: 'Issues',
     description: 'Every issue of the online magazine, with its full contents.',
     alternates: { canonical: '/issues' },
+    openGraph: pageOg('/issues'),
     // Overrides the root layout's index:true for this route only.
     ...((data ?? []).length === 0 ? { robots: { index: false } } : {}),
   }

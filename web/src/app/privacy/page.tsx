@@ -5,11 +5,13 @@ import { POLICY_QUERY } from '@/sanity/queries'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { Prose } from '@/components/PortableBody'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Privacy',
   description: 'What data 5Talents Magazine collects, why, and what you can ask us to do with it.',
   alternates: { canonical: '/privacy' },
+  openGraph: pageOg('/privacy'),
 }
 
 export default async function PrivacyPage() {

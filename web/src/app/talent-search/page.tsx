@@ -6,12 +6,14 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { ArticleCard } from '@/components/ArticleCard'
 import { AdSlot } from '@/components/AdSlot'
 import type { ArticleCardData } from '@/components/types'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Talent search',
   description:
     'Short profiles of working Christian artists, musicians and makers. The original 5Talents franchise, revived.',
   alternates: { canonical: '/talent-search' },
+  openGraph: pageOg('/talent-search'),
 }
 
 export default async function TalentSearchPage() {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { sanityFetch } from '@/sanity/live'
 import { ABOUT_QUERY } from '@/sanity/queries'
-import { scopeStatement as fallbackScope, tagline } from '@/lib/site'
+import { scopeStatement as fallbackScope, tagline, pageOg } from '@/lib/site'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { Prose } from '@/components/PortableBody'
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description:
     '5Talents is a magazine for young Christians, edited from India, written for the world. Founded in Hyderabad in 2012, published as a website since 2026.',
   alternates: { canonical: '/about' },
+  openGraph: pageOg('/about'),
 }
 
 export default async function AboutPage() {

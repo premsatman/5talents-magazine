@@ -4,12 +4,14 @@ import { sanityFetch } from '@/sanity/live'
 import { SITE_SETTINGS_QUERY } from '@/sanity/queries'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Advertise',
   description:
     'Advertising, sponsorship and paid features in 5Talents Magazine — formats, placements and how our editorial firewall works.',
   alternates: { canonical: '/advertise' },
+  openGraph: pageOg('/advertise'),
 }
 
 /**

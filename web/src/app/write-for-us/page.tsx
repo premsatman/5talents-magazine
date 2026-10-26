@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SubmissionForm } from '@/components/SubmissionForm'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Write for us',
   description:
     'Submission guidelines and pitch form for 5Talents Magazine. We commission from Bible college students, working writers and first-timers.',
   alternates: { canonical: '/write-for-us' },
+  openGraph: pageOg('/write-for-us'),
 }
 
 export default function WriteForUsPage() {

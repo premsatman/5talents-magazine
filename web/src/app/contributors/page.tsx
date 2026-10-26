@@ -7,12 +7,14 @@ import { urlFor } from '@/sanity/image'
 import { clean } from '@/sanity/stega'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Contributors',
   description:
     'Everyone who has written for 5Talents Magazine, in alphabetical order, with a link to each writer’s articles.',
   alternates: { canonical: '/contributors' },
+  openGraph: pageOg('/contributors'),
 }
 
 /**

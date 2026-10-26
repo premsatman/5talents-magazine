@@ -59,6 +59,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     alternates: { canonical: episodeHref(slug) },
     openGraph: {
       type: 'video.episode',
+      url: episodeHref(slug),
       siteName,
       locale: 'en_IN',
       title,

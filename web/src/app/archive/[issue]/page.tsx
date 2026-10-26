@@ -13,7 +13,7 @@ import {
 import { urlFor, imgAlt, imgBlur } from '@/sanity/image'
 import { clean } from '@/sanity/stega'
 import { formatMonth } from '@/lib/format'
-import { articleHref } from '@/lib/site'
+import { articleHref, pageOg } from '@/lib/site'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { IssueReader } from '@/components/IssueReader'
@@ -54,6 +54,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
         .join(' Inside: '),
     ),
     alternates: { canonical: `/archive/${issue}` },
+    openGraph: pageOg(`/archive/${issue}`),
   }
 }
 

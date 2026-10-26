@@ -8,6 +8,7 @@ import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { ArticleCard } from '@/components/ArticleCard'
 import type { ArticleCardData } from '@/components/types'
+import { pageOg } from '@/lib/site'
 
 type Props = { params: Promise<{ tag: string }> }
 
@@ -49,6 +50,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
         `${data.articleCount ?? 'All'} ${data.articleCount === 1 ? 'article' : 'articles'} on ${data.name} from 5Talents Magazine: Christian culture, faith and news for young readers, edited from India for the world.`,
     ),
     alternates: { canonical: `/tags/${tag}` },
+    openGraph: pageOg(`/tags/${tag}`),
     // Overrides the root layout's index:true for this route only.
     ...((data.articleCount ?? 0) < INDEXABLE_FROM
       ? { robots: { index: false, follow: true } }

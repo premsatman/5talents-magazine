@@ -6,12 +6,14 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { ArticleCard } from '@/components/ArticleCard'
 import { AdSlot } from '@/components/AdSlot'
 import type { ArticleCardData } from '@/components/types'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Cover stories',
   description:
     'The long-form interview, alternating India and international. Every cover story 5Talents has published.',
   alternates: { canonical: '/interviews' },
+  openGraph: pageOg('/interviews'),
 }
 
 export default async function InterviewsPage() {

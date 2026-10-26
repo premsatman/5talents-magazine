@@ -6,12 +6,14 @@ import { SITE_SETTINGS_QUERY } from '@/sanity/queries'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SocialLinks } from '@/components/SocialLinks'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Contact',
   description:
     'How to reach 5Talents Magazine: the editorial desk for story tips and corrections, pitches and submissions, advertising, and the publisher’s postal address.',
   alternates: { canonical: '/contact' },
+  openGraph: pageOg('/contact'),
 }
 
 export default async function ContactPage() {

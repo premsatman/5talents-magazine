@@ -8,12 +8,14 @@ import { clean } from '@/sanity/stega'
 import { formatMonth } from '@/lib/format'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'The archive',
   description:
     'The origins of 5Talents Magazine, 2012 to 2017 — twenty PDF issues circulated privately, now rebuilt as readable web articles with the original files alongside.',
   alternates: { canonical: '/archive' },
+  openGraph: pageOg('/archive'),
 }
 
 export default async function ArchivePage() {

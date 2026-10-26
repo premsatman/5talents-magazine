@@ -6,7 +6,7 @@ import { ONLINE_ISSUE_QUERY, ONLINE_ISSUE_SLUGS_QUERY } from '@/sanity/queries'
 import { freshClient } from '@/sanity/client'
 import { clean } from '@/sanity/stega'
 import { formatMonth, joinNames } from '@/lib/format'
-import { articleHref } from '@/lib/site'
+import { articleHref, pageOg } from '@/lib/site'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 
@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: label,
     description: issue.summary ?? `${label} of 5Talents Magazine.`,
     alternates: { canonical: `/issues/${slug}` },
+    openGraph: pageOg(`/issues/${slug}`),
   }
 }
 

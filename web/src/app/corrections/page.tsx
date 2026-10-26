@@ -5,12 +5,14 @@ import { POLICY_QUERY } from '@/sanity/queries'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { Prose } from '@/components/PortableBody'
+import { pageOg } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Corrections',
   description:
     'How 5Talents Magazine handles errors: what we correct, how a correction is marked on the article, and how to report a mistake to the editors so it can be put right.',
   alternates: { canonical: '/corrections' },
+  openGraph: pageOg('/corrections'),
 }
 
 export default async function CorrectionsPage() {

@@ -7,7 +7,7 @@ import { AUTHOR_ARTICLES_QUERY, AUTHOR_QUERY, AUTHOR_SLUGS_QUERY } from '@/sanit
 import { urlFor } from '@/sanity/image'
 import { clean } from '@/sanity/stega'
 import { formatDate } from '@/lib/format'
-import { absoluteUrl } from '@/lib/site'
+import { absoluteUrl, pageOg } from '@/lib/site'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { ArticleCard } from '@/components/ArticleCard'
@@ -28,6 +28,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     title: data.name ?? slug,
     description: data.bio ?? `Articles by ${data.name} in 5Talents Magazine.`,
     alternates: { canonical: `/authors/${slug}` },
+    openGraph: pageOg(`/authors/${slug}`),
   }
 }
 
