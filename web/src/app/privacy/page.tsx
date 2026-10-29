@@ -48,15 +48,17 @@ export default async function PrivacyPage() {
               there.
             </p>
             <p>
-              <em>Last updated 21 October 2026.</em>
+              <em>Last updated 29 October 2026.</em>
             </p>
 
             <h2>What we collect</h2>
             <ul>
               <li>
-                <strong>Newsletter subscribers.</strong> Your email address, and whether you opened
-                or clicked an email. Held by our email provider. Unsubscribe from any email and it
-                is deleted.
+                <strong>Newsletter subscribers.</strong> Your email address, when you confirmed it,
+                and whether an email bounced. It is kept in the subscriber database we share with
+                our sister ministry PS.Today, and emails are delivered by Resend. Signing up here
+                adds you to 5Talents Weekly only. Unsubscribe and we stop sending it; write to us
+                and we delete your address entirely.
               </li>
               <li>
                 <strong>Pitches.</strong> Whatever you type into the Write for us form, including

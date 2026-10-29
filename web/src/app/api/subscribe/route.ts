@@ -1,39 +1,25 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { clientIp, rateLimit } from '@/lib/rate-limit'
+import { siteUrl } from '@/lib/site'
+import { sendConfirmation, subscribe, SubscribersUnavailable } from '@/lib/subscribers'
 
 /**
- * Newsletter signup, via Resend Contacts.
+ * Newsletter signup -> Supabase "5Talents Mag" group, double opt-in.
  *
- * Blueprint trigger 3, worth repeating here because it is the one free-tier
- * limit most likely to bite: Resend's free plan caps at roughly 3,000 emails a
- * month AND about 100 a day. The monthly cap is not the problem — the daily one
- * is. A single broadcast to more than ~100 subscribers may exceed it, which
- * would mean you cannot send a real newsletter on the free plan at all,
- * regardless of list size.
+ * This used to create a Resend contact in the "5Talents Magazine" segment. The
+ * list now lives in Supabase with PS.Today's, and 5Talents Weekly is sent from
+ * the PS.Today admin. Resend is only used here to deliver the confirmation.
  *
- * Test a broadcast to 150 dummy addresses before building anything around this.
- *
- * AUDIENCES ARE GONE
- *
- * This used to POST to /audiences/<id>/contacts. Resend has since deprecated
- * Audiences in favour of a global Contacts model, and renamed Audiences to
- * Segments. The old endpoint still answers, but it is on its way out and the
- * new one is better for us anyway:
- *
- *   Contact  one global record per email address, counted once no matter how
- *            many lists it appears on
- *   Segment  internal organisation only. Optional, and we do not need one
- *   Topic    what the reader sees on the preference page when they unsubscribe
- *
- * The practical consequence is that RESEND_SEGMENT_ID is optional. A contact
- * with no segment is a perfectly good subscriber. Set one only when there is
- * more than one kind of email being sent and it matters which list is which.
- *
- * Set RESEND_TOPIC_ID once there is more than one kind of email, so a reader
- * can drop the weekly letter without losing everything else. With no topic,
- * unsubscribing is all-or-nothing — which is honest and fine for one newsletter.
+ *   new address        row created, confirmation emailed, nothing sent until confirmed
+ *   confirmed already  5Talents Weekly switched on, no email (they already proved the address)
+ *   recently asked     no second email within 5 minutes
+ *   bounced before     told plainly, so they can use another address
  */
 export const runtime = 'nodejs'
+
+function baseUrl(req: NextRequest): string {
+  return siteUrl.includes('localhost') ? new URL(req.url).origin : siteUrl
+}
 
 export async function POST(req: NextRequest) {
   const ip = clientIp(req.headers)
@@ -52,62 +38,54 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Could not read that.' }, { status: 400 })
   }
 
-  // Honeypot.
-  if (payload.company) return NextResponse.json({ message: 'You are on the list.' })
+  // Honeypot: look successful, do nothing.
+  if (payload.company) return NextResponse.json({ message: 'Check your inbox to confirm.' })
 
-  const email = (payload.email ?? '').trim().slice(0, 200)
+  const email = (payload.email ?? '').trim().toLowerCase().slice(0, 200)
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
     return NextResponse.json({ message: 'That email address does not look right.' }, { status: 400 })
   }
 
-  const apiKey = process.env.RESEND_API_KEY
-  // Both optional. RESEND_AUDIENCE_ID is read as a fallback because an audience
-  // keeps its id when it becomes a segment, so an older .env still works.
-  const segmentId = process.env.RESEND_SEGMENT_ID || process.env.RESEND_AUDIENCE_ID
-  const topicId = process.env.RESEND_TOPIC_ID
-
-  if (!apiKey) {
-    return NextResponse.json(
-      { message: 'The newsletter is not connected yet. Check back in a few days.' },
-      { status: 503 },
-    )
-  }
-
-  let res: Response
   try {
-    res = await fetch('https://api.resend.com/contacts', {
-      method: 'POST',
-      headers: {
-        authorization: `Bearer ${apiKey}`,
-        'content-type': 'application/json',
+    const result = await subscribe(email)
+
+    switch (result.status) {
+      case 'subscribed':
+        return NextResponse.json({
+          message: 'You are on the list. 5Talents Weekly arrives on Saturday evening.',
+        })
+      case 'pending':
+        return NextResponse.json({
+          message: 'We have just sent you a confirmation email. Click the link in it to finish.',
+        })
+      case 'undeliverable':
+        return NextResponse.json(
+          { message: 'Emails to that address have bounced before. Please try a different one.' },
+          { status: 422 },
+        )
+      case 'invalid':
+        return NextResponse.json({ message: 'That email address does not look right.' }, { status: 400 })
+      case 'confirm': {
+        if (!result.token) throw new SubscribersUnavailable('No token returned')
+        const confirmUrl = `${baseUrl(req)}/api/subscribe/confirm?token=${encodeURIComponent(result.token)}`
+        await sendConfirmation(email, confirmUrl)
+        return NextResponse.json({
+          message: 'Almost done. Check your inbox and click the link to confirm.',
+        })
+      }
+    }
+  } catch (error) {
+    // Say so rather than claim a signup that did not happen - a reader told they
+    // are on the list will not try again.
+    console.error('Subscribe failed', error)
+    const notReady = error instanceof SubscribersUnavailable && /not configured/.test(error.message)
+    return NextResponse.json(
+      {
+        message: notReady
+          ? 'The newsletter is not connected yet. Check back in a few days.'
+          : 'We could not add you just now. Please try again in a minute.',
       },
-      body: JSON.stringify({
-        email,
-        unsubscribed: false,
-        ...(segmentId ? { segments: [{ id: segmentId }] } : {}),
-        ...(topicId ? { topics: [{ id: topicId, subscription: 'opt_in' }] } : {}),
-      }),
-    })
-  } catch {
-    // Resend unreachable. Say so rather than claiming a signup that did not
-    // happen — a reader who is told they are on the list will not try again.
-    return NextResponse.json(
-      { message: 'We could not add you just now. Please try again in a minute.' },
-      { status: 502 },
+      { status: notReady ? 503 : 502 },
     )
   }
-
-  // 409 is an address already on the list. That is a success from where the
-  // reader is standing, and telling them otherwise invites a second attempt.
-  if (!res.ok && res.status !== 409) {
-    console.error(`Resend subscribe failed: ${res.status} ${await res.text()}`)
-    return NextResponse.json(
-      { message: 'We could not add you just now. Please try again in a minute.' },
-      { status: 502 },
-    )
-  }
-
-  return NextResponse.json({
-    message: 'You are on the list. The first email lands on a Saturday.',
-  })
 }

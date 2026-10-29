@@ -4,11 +4,9 @@ import { useState } from 'react'
 
 /**
  * Blueprint s6 makes email the highest-leverage channel, and s5 sells inline
- * newsletter placements (slot G). Posts to /api/subscribe, which talks to Resend.
- *
- * Before building anything around this: test a broadcast to ~150 dummy addresses.
- * Resend's free tier caps at roughly 100 sends/day, and a single broadcast to a
- * real list may exceed it. See blueprint trigger 3.
+ * newsletter placements (slot G). Posts to /api/subscribe, which adds the reader
+ * to the Supabase "5Talents Mag" list and emails a confirmation link.
+ * 5Talents Weekly itself is sent from the PS.Today admin.
  */
 export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
@@ -32,7 +30,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
       const body = (await res.json()) as { message?: string }
       if (!res.ok) throw new Error(body.message ?? 'Something went wrong.')
       setState('done')
-      setMessage(body.message ?? 'You are on the list. Look for the first Saturday email.')
+      setMessage(body.message ?? 'Almost done. Check your inbox and click the link to confirm.')
       form.reset()
     } catch (error) {
       setState('error')
