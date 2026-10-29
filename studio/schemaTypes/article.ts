@@ -273,6 +273,38 @@ export const article = defineType({
       of: [defineArrayMember({ type: 'reference', to: [{ type: 'author' }] })],
       validation: (r) => r.required().min(1).unique(),
     }),
+    /**
+     * Who may republish this piece, and on what terms.
+     *
+     * Default "author" on purpose, and never bulk-migrated. A CC licence
+     * cannot be withdrawn once someone has republished under it, so the
+     * failure that costs something is licensing a contributor's work by
+     * accident - not forgetting to license our own. Unset reads as "author"
+     * on the site, which is why the 2012-2017 archive needs no migration:
+     * those contributors own their pieces (see issn/RIGHTS.md) and nothing
+     * here may say otherwise.
+     *
+     * Note that `republishConsent` on the author document is NOT this field
+     * and is not a substitute for it: it records the contributor's answer
+     * about the archive and is read by nothing. This one is read, by
+     * web/src/components/ArticleLicence.tsx.
+     */
+    defineField({
+      name: 'licence',
+      title: 'Licence',
+      type: 'string',
+      group: 'meta',
+      description:
+        'Choose CC BY-ND only for articles by Premasis or 5Talents staff who have agreed to it. Contributors keep their copyright.',
+      options: {
+        list: [
+          { title: "Author's copyright (contributors)", value: 'author' },
+          { title: 'CC BY-ND 4.0 (5Talents in-house / staff)', value: 'cc-by-nd' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'author',
+    }),
     defineField({
       name: 'publishedAt',
       type: 'datetime',

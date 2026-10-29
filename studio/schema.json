@@ -325,6 +325,10 @@
               },
               {
                 "type": "string",
+                "value": "fairDealing"
+              },
+              {
+                "type": "string",
                 "value": "publicDomain"
               },
               {
@@ -2958,6 +2962,23 @@
               "name": "author.reference"
             }
           }
+        },
+        "optional": true
+      },
+      "licence": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "author"
+            },
+            {
+              "type": "string",
+              "value": "cc-by-nd"
+            }
+          ]
         },
         "optional": true
       },

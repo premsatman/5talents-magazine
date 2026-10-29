@@ -70,6 +70,7 @@ export type ExternalImage = {
     | "free"
     | "cc"
     | "permission"
+    | "fairDealing"
     | "publicDomain"
     | "generated";
   rightsNote?: string;
@@ -490,6 +491,7 @@ export type Article = {
       _key: string;
     } & AuthorReference
   >;
+  licence?: "author" | "cc-by-nd";
   publishedAt?: string;
   contentUpdatedAt?: string;
   onlineIssue?: OnlineIssueReference;
@@ -2040,6 +2042,7 @@ export type ARTICLE_QUERY_RESULT = {
         credit: string | null;
         rightsBasis?:
           | "cc"
+          | "fairDealing"
           | "free"
           | "generated"
           | "licensed"
@@ -3040,6 +3043,7 @@ export type FEED_QUERY_RESULT = Array<{
         credit: string | null;
         rightsBasis?:
           | "cc"
+          | "fairDealing"
           | "free"
           | "generated"
           | "licensed"
@@ -3186,6 +3190,7 @@ export type SECTION_FEED_QUERY_RESULT = Array<{
         credit: string | null;
         rightsBasis?:
           | "cc"
+          | "fairDealing"
           | "free"
           | "generated"
           | "licensed"
@@ -3251,17 +3256,19 @@ export type NEWS_SITEMAP_QUERY_RESULT = Array<{
 
 // Source: ../web/src/sanity/queries.ts
 // Variable: ARTICLE_EXTRAS_QUERY
-// Query: *[_id == $id][0]{    _updatedAt,    contentUpdatedAt,    sources[]{ _key, title, publisher, url },    findThem {      name, note, paid, website, tickets, appAndroid, appIos,      instagram, facebook, x, youtube, whatsapp    }  }
+// Query: *[_id == $id][0]{    _updatedAt,    contentUpdatedAt,    licence,    sources[]{ _key, title, publisher, url },    findThem {      name, note, paid, website, tickets, appAndroid, appIos,      instagram, facebook, x, youtube, whatsapp    }  }
 export type ARTICLE_EXTRAS_QUERY_RESULT =
   | {
       _updatedAt: string;
       contentUpdatedAt: null;
+      licence: null;
       sources: null;
       findThem: null;
     }
   | {
       _updatedAt: string;
       contentUpdatedAt: string | null;
+      licence: "author" | "cc-by-nd" | null;
       sources: Array<{
         _key: string;
         title: string | null;
@@ -3833,7 +3840,7 @@ declare global {
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false] | order(publishedAt desc)[0...30]{\n    title, "slug": slug.current, deck, publishedAt, sponsorTier,\n    "section": section->{ name, "slug": slug.current },\n    "authors": authors[]->{ name },\n    hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    heroExternal { \n  url, alt, width, height, caption, credit\n },\n    seo { ogImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } },\n    body[]{\n      ...,\n      _type == "image" => { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n      _type == "externalImage" => { \n  url, alt, width, height, caption, credit\n },\n      markDefs[]{ ... }\n    }\n  }\n': FEED_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && section->slug.current == $section] | order(publishedAt desc)[0...30]{\n    title, "slug": slug.current, deck, publishedAt, sponsorTier,\n    "section": section->{ name, "slug": slug.current },\n    "authors": authors[]->{ name },\n    hero { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n    heroExternal { \n  url, alt, width, height, caption, credit\n },\n    seo { ogImage { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } },\n    body[]{\n      ...,\n      _type == "image" => { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n },\n      _type == "externalImage" => { \n  url, alt, width, height, caption, credit\n },\n      markDefs[]{ ... }\n    }\n  }\n': SECTION_FEED_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true && publishedAt > $since && defined(section->slug.current)]\n  | order(publishedAt desc)[0...1000]{\n    title, "slug": slug.current, "section": section->slug.current, publishedAt\n  }\n': NEWS_SITEMAP_QUERY_RESULT;
-    "\n  *[_id == $id][0]{\n    _updatedAt,\n    contentUpdatedAt,\n    sources[]{ _key, title, publisher, url },\n    findThem {\n      name, note, paid, website, tickets, appAndroid, appIos,\n      instagram, facebook, x, youtube, whatsapp\n    }\n  }\n": ARTICLE_EXTRAS_QUERY_RESULT;
+    "\n  *[_id == $id][0]{\n    _updatedAt,\n    contentUpdatedAt,\n    licence,\n    sources[]{ _key, title, publisher, url },\n    findThem {\n      name, note, paid, website, tickets, appAndroid, appIos,\n      instagram, facebook, x, youtube, whatsapp\n    }\n  }\n": ARTICLE_EXTRAS_QUERY_RESULT;
     '{\n  "articles": *[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && seo.noIndex != true]{\n    "slug": slug.current, "section": section->slug.current, _updatedAt,\n    contentUpdatedAt, publishedAt\n  },\n  "sections": *[_type == "section" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "tags": *[_type == "tag" && defined(slug.current)\n    && count(*[_type == "article" && defined(slug.current) && publishedAt <= now() && coalesce(retracted, false) == false && references(^._id)]) >= 3]{ "slug": slug.current, _updatedAt },\n  "authors": *[_type == "author" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "issues": *[_type == "archiveIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt },\n  "onlineIssues": *[_type == "onlineIssue" && defined(slug.current)]{ "slug": slug.current, _updatedAt }\n}': SITEMAP_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    title, tagline, mission, scopeStatement, contactEmail,\n    doctrinalStatement,\n    \n  publisher { name, address, city, state, pinCode, country, email, mobile },\n  particulars { startYear, frequency, subject, languages, format, issnOnline, issnPrint }\n,\n    masthead[]{\n      role,\n      "person": person->{ name, "slug": slug.current, role, bio, photo { \n  asset->{ _id, url, metadata { lqip, dimensions } },\n  alt,\n  caption,\n  credit,\n  hotspot,\n  crop\n } }\n    }\n  }\n': ABOUT_QUERY_RESULT;
     '\n  *[_id == "siteSettings"][0]{\n    correctionsPolicy, privacyPolicy, contactEmail, scopeStatement,\n    grievanceOfficer { name, email, address }\n  }\n': POLICY_QUERY_RESULT;

@@ -29,6 +29,7 @@ import { SponsorLabel, isSponsored } from '@/components/SponsorLabel'
 import { AdSlot } from '@/components/AdSlot'
 import { ShareBar } from '@/components/ShareBar'
 import { EndCards } from '@/components/EndCards'
+import { ArticleLicence, CC_BY_ND, isOpenLicensed } from '@/components/ArticleLicence'
 import { ReaderRevenue } from '@/components/ReaderRevenue'
 import { FindThem, Sources, type FindThemData, type Source } from '@/components/FindThem'
 import { ReadTracker } from '@/components/ReadTracker'
@@ -223,6 +224,7 @@ export default async function ArticlePage(props: Props) {
   const extras = extrasData as {
     _updatedAt?: string | null
     contentUpdatedAt?: string | null
+    licence?: string | null
     sources?: (Source | null)[] | null
     findThem?: FindThemData
   } | null
@@ -293,6 +295,12 @@ export default async function ArticlePage(props: Props) {
     mainEntityOfPage: absoluteUrl(articleHref(section, slug)),
     image: jsonLdImages ?? (jsonLdImage ? [jsonLdImage] : undefined),
     isAccessibleForFree: true,
+    /**
+     * Only on CC pieces, and nothing else in this object changes. Declaring a
+     * licence Google can read is what lets the grant travel with the article
+     * instead of living only in the line at the foot of the page.
+     */
+    ...(isOpenLicensed(extras?.licence) ? { license: CC_BY_ND } : {}),
     /**
      * Review rich results need the thing reviewed and a rating. Screen reviews
      * name a film or series; other reviews (books, albums) fall back to
@@ -438,6 +446,12 @@ export default async function ArticlePage(props: Props) {
                   links read as part of the byline furniture rather than as
                   more advertising. */}
               <FindThem data={extras?.findThem} slug={slug} />
+
+              <ArticleLicence
+                licence={extras?.licence}
+                authors={(article.authors ?? []).map((a) => clean(a?.name))}
+                publishedAt={article.publishedAt}
+              />
 
               <EndCards cards={article.endCards} />
 

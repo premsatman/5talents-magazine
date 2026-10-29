@@ -685,6 +685,7 @@ export const ARTICLE_EXTRAS_QUERY = defineQuery(/* groq */ `
   *[_id == $id][0]{
     _updatedAt,
     contentUpdatedAt,
+    licence,
     sources[]{ _key, title, publisher, url },
     findThem {
       name, note, paid, website, tickets, appAndroid, appIos,

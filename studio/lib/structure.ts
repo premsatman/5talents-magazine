@@ -92,6 +92,14 @@ export const structure: StructureResolver = (S) =>
                     .filter('_type == "article" && !defined(onlineIssue) && kind != "brief"'),
                 ),
               S.listItem()
+                .title('CC BY-ND articles')
+                .child(
+                  S.documentList()
+                    .title('Licensed CC BY-ND 4.0 - anyone may republish these')
+                    .filter('_type == "article" && licence == "cc-by-nd"')
+                    .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }]),
+                ),
+              S.listItem()
                 .title('Sponsored & supplied')
                 .child(
                   S.documentList()
