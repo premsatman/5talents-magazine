@@ -69,28 +69,28 @@ const FROM = process.env.NEWSLETTER_FROM || '5Talents Weekly <editorial@5talents
 const REPLY_TO = process.env.NEWSLETTER_REPLY_TO || 'prem@5talentsmag.com'
 
 /**
- * The double opt-in email. Table layout and inline styles, same house style as
- * the weekly letter: black masthead, yellow tag, one button.
+ * The double opt-in email. Table layout and inline styles, same palette as the
+ * weekly letter: Charcoal #171717, Lemon #FFF21A, Electric Lavender #A66BFF.
  */
 export async function sendConfirmation(email: string, confirmUrl: string): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) throw new SubscribersUnavailable('Resend is not configured')
 
-  const html = `<!doctype html><html><body style="margin:0;padding:0;background:#F4F4F1;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F4F4F1;">
+  const html = `<!doctype html><html><body style="margin:0;padding:0;background:#EFE6FF;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EFE6FF;">
 <tr><td align="center" style="padding:24px 12px;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#FFFFFF;font-family:Arial,Helvetica,sans-serif;color:#0B0B0A;">
-  <tr><td style="background:#0B0B0A;padding:20px 24px;">
-    <div style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:38px;line-height:36px;color:#FFFFFF;letter-spacing:0.02em;">5TALENTS <span style="background:#FFDE59;color:#0B0B0A;padding:0 8px;">WEEKLY</span></div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#FFFFFF;font-family:Arial,Helvetica,sans-serif;color:#171717;">
+  <tr><td style="background:#171717;padding:20px 24px;">
+    <div style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-size:38px;line-height:36px;color:#FFFFFF;letter-spacing:0.02em;">5TALENTS <span style="background:#FFF21A;color:#171717;padding:0 8px;">WEEKLY</span></div>
   </td></tr>
   <tr><td style="padding:26px 24px 8px 24px;">
     <div style="font-family:Georgia,'Times New Roman',serif;font-weight:bold;font-size:24px;line-height:30px;">One click and you are in</div>
     <div style="font-size:15px;line-height:23px;color:#333333;padding-top:12px;">Confirm this address and every Saturday evening you will get everything 5Talents Magazine published that week.</div>
   </td></tr>
   <tr><td style="padding:18px 24px 6px 24px;">
-    <a href="${confirmUrl}" style="display:inline-block;background:#FFDE59;color:#0B0B0A;font-weight:bold;font-size:15px;text-decoration:none;padding:13px 22px;">Confirm my subscription</a>
+    <a href="${confirmUrl}" style="display:inline-block;background:#FFF21A;color:#171717;font-weight:bold;font-size:15px;text-decoration:none;padding:13px 22px;">Confirm my subscription</a>
   </td></tr>
-  <tr><td style="padding:14px 24px 26px 24px;font-size:12px;line-height:18px;color:#6B6B6B;">
+  <tr><td style="padding:14px 24px 26px 24px;font-size:12px;line-height:18px;color:#6B6B6B;border-top:3px solid #A66BFF;">
     The link works for seven days. If you did not ask for this, ignore this email and nothing will happen.
     <br><br>5Talents Magazine, Hyderabad, Telangana, India &middot; <a href="https://5talentsmag.com" style="color:#6B6B6B;">5talentsmag.com</a>
   </td></tr>
