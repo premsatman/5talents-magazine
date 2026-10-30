@@ -16,7 +16,7 @@ import { useState } from 'react'
  * screenMeta.trailerAsHero. Our own card still carries the homepage, social
  * shares and Discover, where a thumbnail would stand alone as a photo.
  */
-export function TrailerHero({ id, title }: { id: string; title: string }) {
+export function TrailerHero({ id, title, label = 'Official trailer' }: { id: string; title: string; label?: string }) {
   const [playing, setPlaying] = useState(false)
 
   return (
@@ -25,13 +25,13 @@ export function TrailerHero({ id, title }: { id: string; title: string }) {
         {playing ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
-            title={title}
+            title={`${label}: ${title}`}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
             allowFullScreen
             referrerPolicy="strict-origin-when-cross-origin"
           />
         ) : (
-          <button type="button" className="trailerhero__play" onClick={() => setPlaying(true)} aria-label={`Play: ${title}`}>
+          <button type="button" className="trailerhero__play" onClick={() => setPlaying(true)} aria-label={`Play ${label}: ${title}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
@@ -47,7 +47,7 @@ export function TrailerHero({ id, title }: { id: string; title: string }) {
           </button>
         )}
       </div>
-      <figcaption>{title}. Official trailer, from YouTube.</figcaption>
+      <figcaption>{label}, from YouTube.</figcaption>
     </figure>
   )
 }

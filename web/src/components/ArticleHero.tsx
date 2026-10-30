@@ -70,7 +70,7 @@ type HeroArticle = {
   authors?: ({ name?: string | null; slug?: string | null } | null)[] | null
   interviewMeta?: { isCoverStory?: string | null } | null
   sponsor?: { name?: string | null } | null
-  screenMeta?: { workTitle?: string | null; trailerUrl?: string | null; trailerAsHero?: boolean | null } | null
+  screenMeta?: { workTitle?: string | null; trailerUrl?: string | null; trailerLabel?: string | null; trailerAsHero?: boolean | null } | null
 }
 
 export function Byline({ article }: { article: HeroArticle }) {
@@ -180,7 +180,11 @@ export function ArticleHero({ article }: { article: HeroArticle }) {
           <div className="col">
             <h1>{article.title}</h1>
           </div>
-          <TrailerHero id={trailerId} title={`${clean(article.screenMeta?.workTitle) ?? 'Official'} trailer`} />
+          <TrailerHero
+            id={trailerId}
+            title={clean(article.screenMeta?.workTitle) ?? clean(article.title) ?? 'Video'}
+            label={clean(article.screenMeta?.trailerLabel) ?? 'Official trailer'}
+          />
         </header>
       )
     }

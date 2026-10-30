@@ -427,9 +427,10 @@ export default async function ArticlePage(props: Props) {
                 </p>
               )}
 
-              {section === 'screen' && (
-                <WatchIt meta={article.screenMeta} hideVideo={Boolean(article.screenMeta?.trailerAsHero)} />
-              )}
+              {/* Not gated to Screen: any section may carry a video. WatchIt
+                  returns null when there is no availability row, advisory or
+                  trailer URL, so pieces without screenMeta render nothing. */}
+              <WatchIt meta={article.screenMeta} hideVideo={Boolean(article.screenMeta?.trailerAsHero)} />
 
               <PortableBody value={article.body} seed={slug} section={section} adsOff={adsOff} />
               <ReadTracker slug={slug} section={section} />
