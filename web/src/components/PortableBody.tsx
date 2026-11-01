@@ -23,7 +23,7 @@ type Block = { _type?: string; style?: string; [key: string]: unknown }
  * connections least able to afford them.
  */
 function BodyImage({ sanity, external }: { sanity?: ImageLike; external?: ExternalImage }) {
-  const media = resolveMedia(sanity, external, { width: 800 })
+  const media = resolveMedia(sanity, external, { width: 1400 })
   if (!media) return null
   return (
     <figure className="bodyfig">
@@ -32,7 +32,7 @@ function BodyImage({ sanity, external }: { sanity?: ImageLike; external?: Extern
         alt={media.alt}
         width={media.width}
         height={media.height}
-        sizes="(max-width: 700px) 78vw, 320px"
+        sizes="(max-width: 760px) 100vw, 700px"
         placeholder={media.blur ? 'blur' : 'empty'}
         blurDataURL={media.blur}
       />

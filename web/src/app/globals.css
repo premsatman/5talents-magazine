@@ -203,12 +203,12 @@ figcaption { font-family: var(--font-sans); font-size: 0.76rem; color: var(--ink
 .body a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .body figure { margin: var(--s-5) 0; }
 
-/* Pictures inside the article run at just under half the measure, centred.
-   The hero is the full-width photograph; anything below it at the same size
-   competes with it and flattens the page. On a phone a third of 375px is a
-   thumbnail, so the share goes up as the column narrows. */
+/* Pictures inside the article run the full width of the text column. They were
+   previously held at 46% of the measure so they would not compete with the
+   hero, but at that size a photograph of a room full of people reads as a
+   thumbnail and carries nothing. Full width, centred, same column as the text. */
 .body figure.bodyfig {
-  max-width: 46%;
+  max-width: 100%;
   margin-inline: auto;
   clear: both;
 }
@@ -221,7 +221,7 @@ figcaption { font-family: var(--font-sans); font-size: 0.76rem; color: var(--ink
 .body::after { content: ''; display: table; clear: both; }
 .body h2, .body h3 { clear: both; }
 @media (max-width: 700px) {
-  .body figure.bodyfig { max-width: 78%; }
+  .body figure.bodyfig { max-width: 100%; }
 }
 
 blockquote { margin: var(--s-6) 0; padding: 0; border: 0; }
