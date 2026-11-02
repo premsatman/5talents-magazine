@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { freshClient } from '@/sanity/client'
 import { submitToIndexNow, urlsFor, type IndexableArticle } from '@/lib/indexnow'
+import { sendArticlePush, type PushArticle } from '@/lib/push'
 
 /**
  * Daily sweep: ping every article that went live in the last 26 hours.
@@ -10,6 +11,15 @@ import { submitToIndexNow, urlsFor, type IndexableArticle } from '@/lib/indexnow
  * skips it, because the URL would still 404. Nothing fires again when the
  * time arrives. This catches them. Articles the webhook already sent get sent
  * a second time, which IndexNow accepts without complaint.
+ *
+ * It is also the push path for scheduled pieces, for the same reason: nothing
+ * fires when a future publishedAt arrives. A piece scheduled overnight is
+ * therefore pushed at 18:00 IST, not at the moment it appeared - the one
+ * compromise in using the existing cron rather than a second webhook.
+ *
+ * Articles the webhook already pushed are not pushed again: sendArticlePush
+ * claims a row in fivetalents_push_log keyed on the article id, and the claim
+ * is what fails the second time. Re-pinging IndexNow is harmless and stays.
  *
  * Runs from vercel.json. Vercel sends `Authorization: Bearer <CRON_SECRET>`
  * when CRON_SECRET is set in the project, and anything else is refused.
@@ -26,17 +36,44 @@ export async function GET(req: NextRequest) {
 
   const since = new Date(Date.now() - WINDOW_MS).toISOString()
   const rows = ((await freshClient.fetch(
-    `*[_type == "article" && defined(slug.current) && publishedAt > $since && publishedAt <= now()]{
+    `*[_type == "article" && defined(slug.current) && publishedAt > $since && publishedAt <= now()]
+     | order(publishedAt asc){
+      _id,
       "slug": slug.current,
       "section": section->slug.current,
+      title,
+      deck,
       publishedAt,
       "noIndex": seo.noIndex,
-      retracted
+      retracted,
+      "image": coalesce(heroExternal.url, hero.asset->url)
     }`,
     { since },
-  )) ?? []) as IndexableArticle[]
+  )) ?? []) as PushArticle[]
 
-  const urls = rows.flatMap((a) => urlsFor(a))
+  const urls = rows.flatMap((a) => urlsFor(a as IndexableArticle))
   const result = await submitToIndexNow(urls)
-  return NextResponse.json({ articles: rows.length, ...result })
+
+  /**
+   * Oldest first, and sequentially.
+   *
+   * The daily cap means at most one of these actually sends, and ordering by
+   * publishedAt ascending makes it the earliest unpushed piece rather than
+   * whichever the dataset happened to return first. Sequential because each
+   * call reads the log the previous one writes; in parallel they would all
+   * see an empty day and the cap would not hold.
+   */
+  const pushes: { slug?: string | null; result: Awaited<ReturnType<typeof sendArticlePush>> }[] = []
+  for (const article of rows) {
+    try {
+      pushes.push({ slug: article.slug, result: await sendArticlePush(article) })
+    } catch (error) {
+      pushes.push({
+        slug: article.slug,
+        result: { sent: false, reason: error instanceof Error ? error.message : 'push failed' },
+      })
+    }
+  }
+
+  return NextResponse.json({ articles: rows.length, ...result, pushes })
 }

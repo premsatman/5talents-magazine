@@ -66,6 +66,14 @@ export default async function PrivacyPage() {
                 which checks that you are not a bot.
               </li>
               <li>
+                <strong>Push notifications.</strong> If you switch these on, your browser hands us
+                an address for itself and two keys that let us send to it. That is the whole
+                record: no name, no email, nothing that identifies you. It sits in the same
+                database as the newsletter list. We send at most one a day, when the new story
+                goes up. Turn it off with the bell in the footer, or in your browser&rsquo;s site
+                settings for this site; if your browser tells us an address is dead, we delete it.
+              </li>
+              <li>
                 <strong>Analytics.</strong> Aggregate page views and traffic sources through Google
                 Analytics. We do not sell this.
               </li>

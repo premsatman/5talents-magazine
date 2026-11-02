@@ -6,6 +6,7 @@ import { scopeStatement as fallbackScope, tagline } from '@/lib/site'
 import { imprint } from '@/lib/publisher'
 import { NewsletterForm } from './NewsletterForm'
 import { SocialLinks } from './SocialLinks'
+import { PushBell } from './PushSubscribe'
 import { BrushStroke } from './Wordmark'
 
 /**
@@ -123,6 +124,10 @@ export async function SiteFooter() {
         </div>
 
         <SocialLinks socials={socials} className="footer-socials social-links" />
+
+        {/* Renders nothing where push cannot work: no PushManager, permission
+            already refused, or an iPhone outside an installed home-screen app. */}
+        <PushBell />
 
         {/* Blueprint sections 4 and 8: the published scope statement. */}
         <p className="scope">{scope}</p>

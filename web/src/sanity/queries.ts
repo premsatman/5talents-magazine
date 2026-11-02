@@ -706,6 +706,31 @@ export const ARTICLE_EXTRAS_QUERY = defineQuery(/* groq */ `
  * The threshold is duplicated in src/app/tags/[tag]/page.tsx, which noindexes
  * the same pages so the ones already in the index drop back out. Change both.
  */
+/**
+ * What a push notification needs about an article, by slug.
+ *
+ * Read back by /api/indexnow after the Sanity webhook fires, because that
+ * webhook's projection carries only the fields IndexNow needs and changing it
+ * means editing the webhook by hand in sanity.io/manage.
+ *
+ * Not a defineQuery: its result is cast to PushArticle at the call site, and
+ * leaving it out of the generated types keeps this file's other query types
+ * from going stale the next time someone edits it without running typegen.
+ */
+export const PUSH_ARTICLE_QUERY = /* groq */ `
+  *[_type == "article" && slug.current == $slug && section->slug.current == $section][0]{
+    _id,
+    "slug": slug.current,
+    "section": section->slug.current,
+    title,
+    deck,
+    publishedAt,
+    "noIndex": seo.noIndex,
+    retracted,
+    "image": coalesce(heroExternal.url, hero.asset->url)
+  }
+`
+
 export const SITEMAP_QUERY = defineQuery(/* groq */ `{
   "articles": *[${live} && seo.noIndex != true]{
     "slug": slug.current, "section": section->slug.current, _updatedAt,

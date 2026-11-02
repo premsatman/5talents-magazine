@@ -30,6 +30,7 @@ import { AdSlot } from '@/components/AdSlot'
 import { ShareBar } from '@/components/ShareBar'
 import { EndCards } from '@/components/EndCards'
 import { ArticleLicence, CC_BY_ND, isOpenLicensed } from '@/components/ArticleLicence'
+import { PushSlideIn } from '@/components/PushSubscribe'
 import { ReaderRevenue } from '@/components/ReaderRevenue'
 import { FindThem, Sources, type FindThemData, type Source } from '@/components/FindThem'
 import { ReadTracker } from '@/components/ReadTracker'
@@ -434,6 +435,7 @@ export default async function ArticlePage(props: Props) {
 
               <PortableBody value={article.body} seed={slug} section={section} adsOff={adsOff} />
               <ReadTracker slug={slug} section={section} />
+              <PushSlideIn slug={slug} />
 
               <Sources sources={extras?.sources} slug={slug} />
 

@@ -159,3 +159,27 @@ export function reelClose(seen: number) {
 export function reelSound(on: boolean) {
   track('reel_sound', { reel_sound: on ? 'on' : 'off' })
 }
+
+/* ------------------------------------------------------------------ *
+ * Web push
+ *
+ * `push_prompt_shown` fires for our own slide-in, never for the browser's
+ * permission dialog - that one is not ours to observe, and a reader who never
+ * saw our card did not decline anything.
+ * ------------------------------------------------------------------ */
+
+export type PushSource = 'article-slidein' | 'footer-bell'
+
+export function pushPromptShown(source: PushSource, slug?: string) {
+  track('push_prompt_shown', { push_source: source, slug })
+}
+
+/** `outcome` separates readers who agreed from those the browser then blocked. */
+export function pushSubscribed(source: PushSource, outcome: 'granted' | 'denied' | 'failed') {
+  track('push_subscribed', { push_source: source, push_outcome: outcome })
+  if (outcome === 'granted') metaTrack('PushSubscribed', { push_source: source })
+}
+
+export function pushDismissed(source: PushSource) {
+  track('push_dismissed', { push_source: source })
+}

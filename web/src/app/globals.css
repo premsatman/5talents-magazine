@@ -1905,3 +1905,56 @@ nav.primary.compact { border-top: 0; }
 .onrewind .btn { background: var(--highlight); color: var(--inverse-bg); border-color: var(--highlight); }
 .onrewind .btn:hover { background: transparent; color: var(--highlight); }
 .onrewind .listenon__rss { color: var(--inverse-muted); }
+
+/* ==========================================================================
+   Web push: the article slide-in and the footer bell.
+   Added 2 Nov 2026. Both render nothing unless the browser can actually
+   subscribe, so neither has an empty state.
+   ========================================================================== */
+.pushcard {
+  position: fixed; z-index: 60;
+  right: var(--s-4); bottom: var(--s-4); width: min(340px, calc(100vw - 2 * var(--s-4)));
+  background: var(--inverse-bg); color: var(--inverse-ink);
+  border: 1px solid var(--inverse-rule); border-radius: var(--radius);
+  padding: var(--s-4); box-shadow: 0 10px 30px rgb(0 0 0 / 0.22);
+  animation: pushcard-in 260ms ease-out both;
+}
+/* On a phone it spans the width and sits above the thumb, not under it. */
+@media (max-width: 520px) {
+  .pushcard { left: var(--s-3); right: var(--s-3); bottom: var(--s-3); width: auto; }
+}
+@keyframes pushcard-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pushcard { animation: none; }
+}
+.pushcard__title {
+  font-family: var(--font-display); font-size: var(--step-1); line-height: 1.1; margin: 0 0 var(--s-2);
+}
+.pushcard__line {
+  font-family: var(--font-sans); font-size: 0.82rem; line-height: 1.5;
+  color: var(--inverse-muted); margin: 0 0 var(--s-4);
+}
+.pushcard__actions { display: flex; align-items: center; gap: var(--s-3); margin: 0; }
+.pushcard .btn { background: var(--highlight); border-color: var(--highlight); color: var(--ink); }
+.pushcard .btn:hover:not(:disabled) { background: transparent; color: var(--highlight); }
+.pushcard__no {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font-family: var(--font-sans); font-size: 0.78rem; color: var(--inverse-muted);
+  text-decoration: underline;
+}
+.pushcard__no:hover { color: var(--inverse-ink); }
+.pushcard :focus-visible { outline-color: var(--highlight); }
+
+.pushbell {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  margin-top: var(--s-4); padding: 8px 14px;
+  background: transparent; border: 1px solid var(--inverse-rule); border-radius: var(--radius);
+  font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.04em;
+  color: var(--inverse-ink); cursor: pointer;
+}
+.pushbell:hover:not(:disabled) { border-color: var(--highlight); color: var(--highlight); }
+.pushbell:disabled { opacity: 0.6; cursor: progress; }
+.pushbell[aria-pressed='true'] { border-color: var(--highlight); color: var(--highlight); }
