@@ -1,0 +1,451 @@
+[
+ {
+  "key": "01-mozhda-tv",
+  "section": "TECHNOLOGY",
+  "path": "5talentsmag.com/technology",
+  "src": "/tmp/claude-0/car/src/mozhda.jpg",
+  "crop": [
+   300,
+   0,
+   2100,
+   1350
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "credit": "Photo: Gio L / Unsplash",
+  "short": "Afghanistan's first Christian channel chose satellite over the internet.",
+  "slides": [
+   {
+    "kind": "cover",
+    "headline": "Afghanistan's first Christian channel chose satellite over the internet. Only one of those has an off switch in Kabul."
+   },
+   {
+    "kind": "stat",
+    "theme": "dark",
+    "big": "24 OCT",
+    "text": "Mozhda TV went on air in Dari and Pashto.",
+    "small": "Its founders call it the first Afghan Christian television channel. Hazaragi, Uzbek, Turkmen and Baluchi are planned."
+   },
+   {
+    "kind": "quote",
+    "theme": "lemon",
+    "quote": "Almost everyone has a television and a satellite dish at home.",
+    "who": "Masoud Ghorbani",
+    "role": "Executive director, Mozhda"
+   },
+   {
+    "kind": "statement",
+    "theme": "lav",
+    "head": "Afghanistan's internet has a switch, and the switch is in Kabul.",
+    "text": "In September 2025 the country spent roughly two days unable to call out. A satellite signal comes down over the whole country at once. No ministry on the ground can turn it off."
+   },
+   {
+    "kind": "stat",
+    "theme": "dark",
+    "big": "2.4 MILLION",
+    "text": "girls shut out of secondary school since 2021, by UNESCO's count.",
+    "small": "Mozhda says it will broadcast content to help women continue their studies. Begum TV, broadcasting from Paris, got there first."
+   }
+  ]
+ },
+ {
+  "key": "02-psalm-91",
+  "section": "FAITH",
+  "path": "5talentsmag.com/faith",
+  "src": "/tmp/claude-0/car/src/psalm.jpg",
+  "crop": [
+   250,
+   0,
+   1750,
+   1140
+  ],
+  "focus": [
+   0.5,
+   0.35
+  ],
+  "credit": "Illustration: 5Talents",
+  "short": "18.5 million people open the Bible App every day. The thing they look up most is a psalm about hiding.",
+  "slides": [
+   {
+    "kind": "cover",
+    "headline": "18.5 million people open the Bible App every day. The thing they look up most is a psalm about hiding."
+   },
+   {
+    "kind": "stat",
+    "theme": "dark",
+    "big": "PSALM 91",
+    "text": "The single most-searched term in YouVersion's Bible App this year.",
+    "small": "Anxiety, hope and healing were up there too."
+   },
+   {
+    "kind": "quote",
+    "theme": "lemon",
+    "quote": "He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty.",
+    "who": "Psalm 91:1",
+    "role": "King James Version"
+   },
+   {
+    "kind": "statement",
+    "theme": "lav",
+    "head": "Nobody types a word into an app to look good.",
+    "text": "Anxiety, hope and healing are not topics. They are what people are carrying when they pick up the phone."
+   },
+   {
+    "kind": "statement",
+    "theme": "white",
+    "head": "Global Bible Month runs 1–30 November.",
+    "text": "Thirty days in Scripture, in 59 languages, including Hindi, Tamil, Telugu, Malayalam and Nepali. Bengali, Marathi, Gujarati and Kannada are missing. A print Bible counts. Sign up at globalbiblemonth.com."
+   }
+  ]
+ },
+ {
+  "key": "03-klaus-krogh",
+  "section": "CULTURE",
+  "path": "5talentsmag.com/culture",
+  "src": "/tmp/claude-0/car/src/krogh.jpg",
+  "crop": [
+   0,
+   0,
+   1730,
+   1350
+  ],
+  "focus": [
+   0.0,
+   0.3
+  ],
+  "credit": "Images: 2K/DENMARK, used with permission",
+  "short": "You have read his work for years. You have never once seen his name.",
+  "slides": [
+   {
+    "kind": "cover",
+    "headline": "You have read his work for years. You have never once seen his name."
+   },
+   {
+    "kind": "statement",
+    "theme": "lemon",
+    "head": "Bible Serif. Bible Sans. Bible Slab.",
+    "text": "Three typefaces Klaus E. Krogh designed for one problem: fitting about 780,000 words onto paper thin enough to carry."
+   },
+   {
+    "kind": "quote",
+    "theme": "dark",
+    "quote": "When people see a Bible that they recognize as readable, it's all these choices that made it readable: the typeface, the size, the kerning.",
+    "who": "Klaus E. Krogh",
+    "role": "1952–2026"
+   },
+   {
+    "kind": "statement",
+    "theme": "lav",
+    "head": "Then a stranger asked him for a Bible people with dyslexia could read.",
+    "text": "The result was Grace, built with researchers at Cambridge University. The letters carry extra weight at the bottom, so b and d stop collapsing into each other."
+   },
+   {
+    "kind": "statement",
+    "theme": "white",
+    "head": "He gave it away.",
+    "text": "His firm normally sold each typeface to a single publisher. Grace he made free to individuals for personal use. Klaus E. Krogh died on 6 October, aged 74."
+   }
+  ]
+ },
+ {
+  "key": "04-forrest-frank",
+  "section": "CULTURE",
+  "path": "5talentsmag.com/culture",
+  "src": "/tmp/claude-0/car/src/forrest.jpg",
+  "crop": [
+   450,
+   0,
+   2000,
+   1350
+  ],
+  "focus": [
+   0.5,
+   0.4
+  ],
+  "credit": "Photo: Lukas Bato / Unsplash",
+  "short": "The biggest tour in Christian music history stopped every night so a Baptist pastor could preach.",
+  "slides": [
+   {
+    "kind": "cover",
+    "headline": "The biggest tour in Christian music history stopped every night so a Baptist pastor could preach"
+   },
+   {
+    "kind": "stat",
+    "theme": "dark",
+    "big": "470,000",
+    "text": "tickets sold within ten days.",
+    "small": "Forrest Frank's Jesus Generation Tour: a sold-out run across 29 stadiums and arenas."
+   },
+   {
+    "kind": "statement",
+    "theme": "lemon",
+    "head": "Every night, the music stopped and a pastor walked out.",
+    "text": "JP Pokluda preached the gospel at each date and invited the crowd to put their faith in Jesus. Inside the biggest commercial event Christian music has ever staged."
+   },
+   {
+    "kind": "stat",
+    "theme": "lav",
+    "big": "30,000",
+    "text": "followers lost, by his own account, after one video about the return of Jesus.",
+    "small": "It also drew more than a million likes."
+   },
+   {
+    "kind": "statement",
+    "theme": "dark",
+    "head": "The tools are evenly distributed. The attention is not.",
+    "text": "His songs reached India through Reels, with no tour and no label. Indian worship music has the same upload button, and nothing like the same chance of coming back out."
+   }
+  ]
+ },
+ {
+  "key": "05-korean-churches",
+  "section": "FAITH",
+  "path": "5talentsmag.com/faith",
+  "src": "/tmp/claude-0/car/src/korea.jpg",
+  "focus": [
+   0.5,
+   0.45
+  ],
+  "credit": "Photo: Stéphan Valentin / Unsplash",
+  "short": "Korean churches are meeting Gen Z in basements and cafés. The thing that works is much plainer.",
+  "slides": [
+   {
+    "kind": "cover",
+    "headline": "Korean churches are meeting Gen Z in basements and cafés. The thing that works is much plainer."
+   },
+   {
+    "kind": "stat",
+    "theme": "dark",
+    "big": "3 IN 4",
+    "text": "Koreans in their twenties now have no religion at all.",
+    "small": "Gallup Korea: in 2004, 45 per cent of twentysomethings had one. By 2025, 24 per cent."
+   },
+   {
+    "kind": "stat",
+    "theme": "lemon",
+    "big": "74%",
+    "text": "of those who left church said they had nobody there to share their struggles with.",
+    "small": "Pastoral Data Research Institute, Seoul, 2026."
+   },
+   {
+    "kind": "quote",
+    "theme": "lav",
+    "quote": "It's not about form, but essence; not structure, but relationship; not rules, but the gospel.",
+    "who": "Nam Bin",
+    "role": "Newsong Church, Seoul"
+   },
+   {
+    "kind": "statement",
+    "theme": "dark",
+    "head": "Her old church was too big, so it divided people by age.",
+    "text": "Park Jiwon, 30, never got to sit next to somebody twenty years ahead of her. The efficiency was the problem. Most Indian churches are small enough not to have it yet."
+   }
+  ]
+ },
+ {
+  "key": "06-greg-allgood",
+  "section": "WORK & MONEY",
+  "path": "5talentsmag.com/work-money",
+  "src": "/tmp/claude-0/car/src/allgood.jpg",
+  "crop": [
+   550,
+   0,
+   2050,
+   1140
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "credit": "Photo: Nathan Dumlao / Unsplash",
+  "short": "He went to Kenya with a sachet of powder and came back with a different job.",
+  "slides": [
+   {
+    "kind": "cover",
+    "headline": "He went to Kenya with a sachet of powder and came back with a different job"
+   },
+   {
+    "kind": "statement",
+    "theme": "dark",
+    "head": "A pond in Kenya. A packet of powder. Twenty minutes.",
+    "text": "Greg Allgood tipped the sachet into water the colour of the ground, stirred, and filtered it through cloth. Brown water became clear water."
+   },
+   {
+    "kind": "quote",
+    "theme": "lemon",
+    "quote": "God called me out of the pew.",
+    "who": "Greg Allgood",
+    "role": "World Vision"
+   },
+   {
+    "kind": "stat",
+    "theme": "lav",
+    "big": "26 BILLION",
+    "text": "litres of clean water, from a product P&G nearly shut down.",
+    "small": "PUR worked. It just didn't make money. He proposed running it as a not-for-profit, something the company had never done."
+   },
+   {
+    "kind": "quote",
+    "theme": "dark",
+    "quote": "Find your pond.",
+    "who": "Greg Allgood",
+    "role": "On finding your calling"
+   }
+  ]
+ },
+ {
+  "key": "07-leo-altman-ai",
+  "section": "TECHNOLOGY",
+  "path": "5talentsmag.com/technology",
+  "src": "/tmp/claude-0/car/src/leo.jpg",
+  "crop": [
+   300,
+   90,
+   2150,
+   1060
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "credit": "Pope Leo XIV, via Wikipedia",
+  "short": "Pope Leo and Sam Altman agreed the judgment stays human. Churchgoers are less sure.",
+  "slides": [
+   {
+    "kind": "cover",
+    "headline": "Pope Leo and Sam Altman agreed the judgment stays human. Churchgoers are less sure."
+   },
+   {
+    "kind": "quote",
+    "theme": "dark",
+    "quote": "Algorithms lack the spark of the human.",
+    "who": "Pope Leo XIV",
+    "role": "To artists at the Vatican, 2 October"
+   },
+   {
+    "kind": "quote",
+    "theme": "lemon",
+    "quote": "very uncomfortable about people trying to ascribe religious force or a surrender of human judgment to AI models",
+    "who": "Sam Altman",
+    "role": "On X, the next day"
+   },
+   {
+    "kind": "stat",
+    "theme": "lav",
+    "big": "7 IN 10",
+    "text": "pastors say a spiritual crisis is the moment a chatbot should hand you to a person.",
+    "small": "Barely 3 in 10 practising Christians agree. Barna, October 2026."
+   },
+   {
+    "kind": "quote",
+    "theme": "dark",
+    "quote": "The human handoff only works if there's someone to hand off to.",
+    "who": "Daniel Copeland",
+    "role": "Vice president of research, Barna"
+   }
+  ]
+ },
+ {
+  "key": "08-mizoram-bible",
+  "section": "FAITH",
+  "path": "5talentsmag.com/faith",
+  "src": "/tmp/claude-0/car/src/mizoram.jpg",
+  "crop": [
+   0,
+   0,
+   1750,
+   1350
+  ],
+  "focus": [
+   0.5,
+   0.2
+  ],
+  "credit": "Photo circulated by Samson Panmei, 2019",
+  "short": "She has written out the whole Bible thirteen times, and she timed every one.",
+  "slides": [
+   {
+    "kind": "cover",
+    "headline": "She has written out the whole Bible thirteen times, and she timed every one"
+   },
+   {
+    "kind": "stat",
+    "theme": "dark",
+    "big": "13",
+    "text": "times, the whole Bible in Mizo, copied out by hand.",
+    "small": "Mrs Lalthianghlimi, Ramhlun North, Aizawl."
+   },
+   {
+    "kind": "stat",
+    "theme": "lemon",
+    "big": "422 DAYS",
+    "text": "for the first one. She had the number stamped in gold on the cover.",
+    "small": "The recent ones take under two hundred."
+   },
+   {
+    "kind": "quote",
+    "theme": "lav",
+    "quote": "Before I write, I asked God to strengthen my eyesight as well as my arm and hand so that I may write perfectly.",
+    "who": "Mrs Lalthianghlimi",
+    "role": "Quoted by the Bible Society of India, 2021"
+   },
+   {
+    "kind": "statement",
+    "theme": "dark",
+    "head": "No world record claimed.",
+    "text": "The Bible Society of India says no verified records exist to compare her work with, so it didn't reach for the bigger headline. That restraint is why the rest is worth trusting."
+   }
+  ]
+ },
+ {
+  "key": "09-hallelujah-challenge",
+  "section": "CULTURE",
+  "path": "5talentsmag.com/culture",
+  "src": "/tmp/claude-0/car/src/hallelujah.jpg",
+  "crop": [
+   700,
+   0,
+   2300,
+   1140
+  ],
+  "focus": [
+   0.5,
+   0.3
+  ],
+  "credit": "Radu Mihai / Unsplash",
+  "short": "Kenyans set alarms for 1:59am to join a livestream from Lagos. Now it is coming to them.",
+  "slides": [
+   {
+    "kind": "cover",
+    "headline": "Kenyans set alarms for 1:59am to join a livestream from Lagos. Now it is coming to them."
+   },
+   {
+    "kind": "stat",
+    "theme": "dark",
+    "big": "1:59AM",
+    "text": "in Nairobi. 11:59pm in Lagos. 4:29am in India.",
+    "small": "The Hallelujah Challenge: an hour of worship on a livestream, led by Nathaniel Bassey since 2017."
+   },
+   {
+    "kind": "statement",
+    "theme": "lemon",
+    "head": "Ghana. Tanzania. Kenya. Maybe London.",
+    "text": "Bassey says the Hallelujah Challenge is going on the road as a live event. Kenya is set for February. No venue or date yet."
+   },
+   {
+    "kind": "quote",
+    "theme": "lav",
+    "quote": "It has helped me build spiritual discipline.",
+    "who": "Zibora Simiyu, 26",
+    "role": "Nairobi, to Nation Africa"
+   },
+   {
+    "kind": "statement",
+    "theme": "dark",
+    "head": "A tour reaches four places. The livestream reached Kenya without anyone planning it.",
+    "text": "For everyone the tour misses, the alarm stays set."
+   }
+  ]
+ }
+]
