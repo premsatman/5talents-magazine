@@ -29,6 +29,15 @@ youtube/
 /5TalentsRewind-Ep01-IG.jpg
 /5TalentsRewind-Ep01-Thumbnail.jpg
 
+# Instagram carousel exports. Scripts and data.json stay in git.
+social/instagram/carousels-*.zip
+social/instagram/carousels-*/**/*.jpg
+social/instagram/carousels-*/**/*.jpeg
+social/instagram/carousels-*/**/*.png
+social/instagram/carousels-*/**/*.webp
+social/instagram/carousels-*/**/*.mp4
+social/instagram/carousels-*/**/*.mov
+
 # HyperFrames review stills, caches, and render output.
 video-studio/**/.review/
 video-studio/**/.thumbnails/

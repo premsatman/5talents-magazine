@@ -97,8 +97,29 @@ export function listSubscriptions() {
   return rest<StoredSubscription[]>(`${SUBS}?select=id,endpoint,p256dh,auth,fail_count`)
 }
 
-export function countSubscriptions() {
-  return rest<{ count: number }[]>(`${SUBS}?select=count`).then((r) => r?.[0]?.count ?? 0)
+/**
+ * How many subscriptions exist.
+ *
+ * Done with a HEAD and Prefer: count=exact, reading the total out of the
+ * content-range header, rather than select=count - the aggregate spelling has
+ * changed between PostgREST versions and a silently empty result here would
+ * report zero subscribers rather than an error.
+ */
+export async function countSubscriptions(): Promise<number> {
+  const { url, key } = config()
+  const res = await fetch(`${url}/rest/v1/${SUBS}?select=id`, {
+    method: 'HEAD',
+    headers: {
+      apikey: key,
+      authorization: `Bearer ${key}`,
+      prefer: 'count=exact',
+      range: '0-0',
+    },
+    cache: 'no-store',
+  })
+  if (!res.ok) throw new PushStoreUnavailable(`Supabase count failed: ${res.status}`)
+  const total = res.headers.get('content-range')?.split('/')[1]
+  return Number(total) || 0
 }
 
 export function deleteSubscriptionsById(ids: string[]) {

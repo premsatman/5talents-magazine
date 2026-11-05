@@ -2,6 +2,7 @@ import 'server-only'
 import webpush, { WebPushError } from 'web-push'
 import { absoluteUrl } from '@/lib/site'
 import { urlsFor, type IndexableArticle } from '@/lib/indexnow'
+import { recordSendInSanity, recordSubscriberCount } from '@/lib/push-sanity'
 import {
   bumpFailure,
   claimArticle,
@@ -182,5 +183,18 @@ export async function sendArticlePush(
     removed: dead.length,
   }
   await recordCounts(claim.id, counts).catch(() => {})
+
+  // The Studio's copy. Supabase above is the record that matters; these two
+  // are what someone can actually look at, and neither may throw.
+  await Promise.allSettled([
+    recordSendInSanity({
+      articleId,
+      slug: payload.slug,
+      headline: payload.title,
+      ...counts,
+    }),
+    recordSubscriberCount(counts.attempted - counts.removed),
+  ])
+
   return { sent: true, ...counts }
 }

@@ -2,6 +2,8 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { freshClient } from '@/sanity/client'
 import { submitToIndexNow, urlsFor, type IndexableArticle } from '@/lib/indexnow'
 import { sendArticlePush, type PushArticle } from '@/lib/push'
+import { countSubscriptions } from '@/lib/push-store'
+import { recordSubscriberCount } from '@/lib/push-sanity'
 
 /**
  * Daily sweep: ping every article that went live in the last 26 hours.
@@ -75,5 +77,15 @@ export async function GET(req: NextRequest) {
     }
   }
 
-  return NextResponse.json({ articles: rows.length, ...result, pushes })
+  // Refresh the subscriber count in the Studio whether or not anything went
+  // out, so a quiet week does not leave a stale number on the page.
+  let subscribers: number | null = null
+  try {
+    subscribers = await countSubscriptions()
+    await recordSubscriberCount(subscribers)
+  } catch {
+    /* the sweep's job is IndexNow; a count is not worth failing it */
+  }
+
+  return NextResponse.json({ articles: rows.length, ...result, pushes, subscribers })
 }

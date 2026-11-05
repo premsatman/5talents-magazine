@@ -6,6 +6,8 @@ import { TagIcon } from '@sanity/icons/Tag'
 import { BookIcon } from '@sanity/icons/Book'
 import { DocumentsIcon } from '@sanity/icons/Documents'
 import { CaseIcon } from '@sanity/icons/Case'
+import { BellIcon } from '@sanity/icons/Bell'
+import { BarChartIcon } from '@sanity/icons/BarChart'
 import { InboxIcon } from '@sanity/icons/Inbox'
 import { MicrophoneIcon } from '@sanity/icons/Microphone'
 import { PlayIcon } from '@sanity/icons/Play'
@@ -130,6 +132,30 @@ export const structure: StructureResolver = (S) =>
         .title('Rewind show settings')
         .icon(MicrophoneIcon)
         .child(S.document().schemaType('podcastShow').documentId('podcast-rewind')),
+      S.divider(),
+      // Push notifications. Read-only: the site writes these after a send, and
+      // the authoritative log is in Supabase. Here to be looked at.
+      S.listItem()
+        .title('Push notifications')
+        .icon(BellIcon)
+        .child(
+          S.list()
+            .title('Push notifications')
+            .items([
+              S.listItem()
+                .title('Subscribers')
+                .icon(BarChartIcon)
+                .child(S.document().schemaType('pushStats').documentId('push-stats')),
+              S.listItem()
+                .title('Sent')
+                .icon(BellIcon)
+                .child(
+                  S.documentTypeList('pushSend')
+                    .title('Notifications sent')
+                    .defaultOrdering([{ field: 'sentAt', direction: 'desc' }]),
+                ),
+            ]),
+        ),
       S.divider(),
       S.listItem()
         // Explicit id: the submission notification email deep-links to

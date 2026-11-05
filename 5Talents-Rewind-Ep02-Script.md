@@ -1,32 +1,37 @@
 # 5Talents Rewind — Episode 2
 
-**Covers:** 20–25 October 2026 · **Runtime:** ~5 min · The Chosen S6 skipped (covered in Ep01) · **Hinglish**
+**Covers:** 20–25 October 2026 · **Runtime:** ~5–6 min · **Hinglish** · The Chosen S6 skipped (covered in Ep01)
 
 > **Editor cue:** rewind sound + "Rewind karo…" before every story. Keep the intro under 10 seconds.
+> **Style:** speak it like you're explaining to a friend over chai. Full sentences, no rush.
 
 ---
 
 ## [COLD OPEN]
 
-Ek aunty ne poori Bible haath se likhi. Ek baar nahi, terah baar. Aur har cover pe sone ke akshar mein likha hai ki kitne din lage. Chalo, rewind karte hain.
+Socho, ek aunty hain jinhone poori Bible, Genesis se Revelation tak, apne haath se likhi hai. Aur ek baar nahi, terah baar likhi hai. Aaj ki shuruaat unhi ki kahani se karte hain.
 
 ## [INTRO]
 
-Hi, hello, kaise hain aap? Main hoon Prem, aur yeh hai 5Talents Rewind. Khabrein, bina boring hue.
+Hi, hello, kaise hain aap? Main hoon Prem, aur aap dekh rahe hain 5Talents Rewind, jahan hum hafte bhar ki Christian khabrein aapko simple tareeke se batate hain.
 
 ---
 
-## [1. MIZORAM — 13 haath se likhi Bibles]
+## [1. MIZORAM — 13 baar haath se likhi Bible]
 
 *Rewind karo…*
 
-Aizawl, Mizoram. Mrs Lalthianghlimi ne poori Bible, Mizo mein, haath se copy ki hai. Terah baar.
+Pehli khabar apne hi desh se hai, Mizoram se. Aizawl mein Mrs Lalthianghlimi naam ki ek mahila rehti hain. Unhone poori Bible ko Mizo bhasha mein, pen se, apne haath se copy kiya hai. Aur yeh kaam unhone ek baar nahi, terah baar kiya hai.
 
-Pehli Bible mein 422 din lage. Aur yeh number unhone cover pe gold mein chhapwa diya. Kisi ne nahi bola tha. Ab nayi wali 200 din se kam mein ho jaati hai.
+Ab sabse interesting baat suniye. Pehli baar Bible likhne mein unhe poore 422 din lage, yaani lagbhag chaudah mahine. Aur unhone yeh number, 422 din, us Bible ke cover pe sone ke akshar mein chhapwa diya. Kisi ne unse yeh karne ko nahi kaha tha, unhone khud apna hisaab rakha.
 
-Unke pairon ke paas khaali pens ka dher hai. Sainkdon. Mera ek pen toh form bharte bharte kho jaata hai.
+Aur dheere dheere unki speed badhti gayi. Jis Bible ko likhne mein pehli baar 422 din lage the, ab wahi Bible woh 200 din se bhi kam mein likh leti hain.
 
-Unhone sirf ek prayer share ki: "God, meri aankhein, mera haath aur meri baazu strong rakhna, taaki main sahi likh sakoon." Shortcut nahi maanga. Bas chalte rehne ki taakat.
+Unki ek photo hai jismein woh ek chhoti si table pe baith ke likh rahi hain, aur unke pairon ke paas khaali pens ka ek bada sa dher pada hai. Sainkdon pens. Aur yahan main hoon, jiska ek pen bank ka form bharte bharte hi kho jaata hai.
+
+Bible Society of India ne unki sirf ek baat share ki hai. Likhna shuru karne se pehle unhone prayer ki thi: "God, meri aankhon ko, mere haath ko aur meri baazu ko taakat dena, taaki main bina galti ke likh sakoon."
+
+Dhyan dijiye, unhone yeh nahi maanga ki kaam jaldi ho jaaye. Unhone sirf itna maanga ki woh chalti rahein aur sahi likhti rahein.
 
 ---
 
@@ -34,23 +39,27 @@ Unhone sirf ek prayer share ki: "God, meri aankhein, mera haath aur meri baazu s
 
 *Rewind karo…*
 
-Nigeria ke ek worship leader hain, Nathaniel Bassey. Gospel singer, trumpet bajaate hain, aur Lagos mein youth church ke pastor hain.
+Doosri khabar Africa se hai, aur yeh kahani thodi peeche se shuru karni padegi.
 
-1 June 2017 ko unhone ek idea try kiya: raat 11:59 baje, online live, ek ghanta sirf worship. Tees din ke liye. Naam rakha "Hallelujah Challenge".
+Nigeria mein ek worship leader hain, unka naam hai Nathaniel Bassey. Woh gospel singer hain, trumpet bajaate hain, aur Lagos shehar mein youth church ke pastor bhi hain.
 
-Midnight hi kyun? Acts 16. Paul aur Silas jail mein the, aadhi raat ko gaa rahe the, aur jail ke darwaze khul gaye. Bassey kehte hain, timing magic nahi hai. Point yeh hai ki woh kuch hone se pehle hi gaa rahe the.
+Saal 2017 mein, 1 June ko, unhone ek chhota sa idea try kiya. Unhone kaha ki main raat ko theek 11 baj ke 59 minute pe online live aaunga, aur ek ghanta sirf worship karenge. Na koi sermon, na koi announcement, sirf gaane aur prayer. Aur yeh sirf tees din ke liye tha. Is idea ka naam rakha gaya "Hallelujah Challenge".
 
-Woh tees din khatam hi nahi hue. Tab se har saal naye editions aate hain. Abhi wala 5 October se 30 October tak chal raha hai, YouTube, Instagram aur Facebook pe.
+Ab aap sochenge, raat ke barah baje hi kyun? Iska jawab Bible mein hai, Acts chapter 16 mein. Wahan Paul aur Silas jail mein band the, aur aadhi raat ko woh God ki stuti gaa rahe the. Tabhi bhookamp aaya aur jail ke darwaze khul gaye. Lekin Nathaniel Bassey saaf kehte hain ki raat ke barah baje mein koi jaadu nahi hai. Asli baat yeh hai ki Paul aur Silas tab gaa rahe the jab abhi kuch bhi nahi badla tha.
 
-Aur yeh Nigeria se bahar nikal gaya. Kenya mein us waqt raat ke 1:59 hote hain, aur hazaron log alarm laga ke uthte hain. Ek doosre ko jagaate hain, comments mein prayer requests likhte hain. Aadhe toh lete lete hi join karte hain.
+Woh tees din khatam hue, lekin log rukna nahi chahte the. Isliye tab se yeh challenge har saal naye editions mein wapas aata hai. Abhi wala edition 5 October se shuru hua hai aur 30 October tak chalega, YouTube, Instagram aur Facebook pe.
 
-Ek teacher ne kaha: isne yaad dilaya ki worship sirf Sunday ke liye nahi hai.
+Aur sabse mazedaar baat yeh hai ki yeh sirf Nigeria tak nahi raha. Jab Lagos mein raat ke 11:59 hote hain, tab Kenya mein raat ke 1:59 baj rahe hote hain. Phir bhi hazaaron Kenyans alarm laga ke uthte hain. Woh ek doosre ko phone karke jagaate hain, comments mein apni prayer requests likhte hain, aur sach kahoon toh aadhe log bistar mein lete lete hi join kar lete hain.
 
-Ab news: Bassey ne bola woh tour pe aa rahe hain. Ghana, Tanzania, February mein Kenya, aur shayad London.
+Kenya ke ek school teacher ne kaha ki is challenge ne unhe yaad dilaya ki worship sirf Sunday ke liye nahi hai.
 
-India mein yeh session subah 4:29 pe shuru hota hai. Hamare yahan tour nahi aa raha, lekin link aa raha hai. Aur 26 October ke session ka theme hai: "Dress like your miracle." Jo maang rahe ho, waise kapde pehen ke aao. Subah 4:29 baje. Costume mein.
+Aur ab is hafte ki nayi khabar. Nathaniel Bassey ne bataya hai ki ab woh khud logon ke paas aane wale hain. Yeh challenge live event ke roop mein tour karega: pehle Ghana, phir Tanzania, February mein Kenya, aur shayad London bhi.
 
-October edition 30 tak hai. Alarm 4:25 ka lagao.
+Ab India ka hisaab samajhiye. Hamare yahan yeh session subah 4 baj ke 29 minute pe shuru hota hai. Tour toh India nahi aa raha, lekin link sab tak pahunch raha hai, aur online ka yahi fayda hai.
+
+Aur ek fun baat. 26 October ke session ke liye Bassey ne kaha hai: "Dress like your miracle." Matlab aap God se jo maang rahe ho, us hisaab se kapde pehen ke aao. Subah saadhe chaar baje, costume mein, worship. Kaafi alag hai na?
+
+October wala edition 30 tarikh tak hai. Agar aap join karna chahte ho, toh 4:25 ka alarm laga lo.
 
 ---
 
@@ -58,47 +67,53 @@ October edition 30 tak hai. Alarm 4:25 ka lagao.
 
 *Rewind karo…*
 
-Pehle do log ko jaan lo. Pope Leo, Catholic Church ke naye Pope. Aur Sam Altman, OpenAI ke boss, jinki company ChatGPT banati hai.
+Teesri khabar technology ki hai, aur ismein do bilkul alag duniya ke log hain. Pehle unhe jaan lete hain.
 
-Yeh dono kisi baat pe agree nahi karte. Lekin October ke shuru mein, do din ke andar, dono ne ek jaisi baat boli.
+Ek hain Pope Leo, jo Catholic Church ke naye Pope hain. Aur doosre hain Sam Altman, jo OpenAI company ke boss hain. Wahi company jo ChatGPT banati hai, jo aaj kal aap mein se bahut log use karte honge.
 
-Pope Leo Vatican mein artists se mil rahe the. Topic tha AI se bani paintings aur art. Unhone kaha: machine jo banati hai, woh doosron ki laakhon tasveeron ka hisaab-kitaab hai. Art insaan banata hai. Unki line thi: "Algorithms lack the spark of the human." Matlab machine mein woh chingaari nahi hai jo insaan mein hai.
+Ab yeh dono log kisi bhi baat pe agree nahi karte. Lekin October ke shuru mein, sirf do din ke andar, dono ne lagbhag ek hi baat boli.
 
-Agle din Sam Altman ne X pe post kiya. Unhe bura lagta hai jab log AI ko bhagwan jaisa maan lete hain, ya apne life ke faisle AI ko saunp dete hain. Unhone ise "a real safety issue" kaha. Jo AI bana raha hai, wahi bol raha hai: mujhpe itna bharosa mat karo.
+Pehle Pope Leo. Woh Vatican mein artists se mil rahe the, aur baat ho rahi thi AI se banne wali paintings aur art ki. Unhone samjhaya ki jab machine koi tasveer banati hai, toh woh asal mein doosre logon ki banayi hui laakhon tasveeron ko dekh ke ek hisaab-kitaab karti hai. Lekin jab ek insaan kuch banata hai, toh usmein uski apni zindagi aur dil hota hai. Unki ek line bahut viral hui: "Algorithms lack the spark of the human." Matlab machine mein woh chingaari nahi hai jo ek insaan ke andar hoti hai.
 
-Ek bole machine mein spark nahi hai. Doosre bole machine ko faisla mat do. Baat ek hi hai: decision aapka hai.
+Agle hi din Sam Altman ne X pe, jo pehle Twitter tha, ek post kiya. Unhone likha ki unhe bahut uncomfortable lagta hai jab log AI ko God jaisa maanne lagte hain, ya apni zindagi ke faisle AI ke haath mein de dete hain. Aur unhone ise ek asli safety issue bataya. Socho, jo insaan khud AI bana raha hai, wahi keh raha hai ki mujh pe itna bharosa mat karo.
 
-Phir America ki ek Christian research company, Barna, ne survey kiya. Sawaal simple tha: agar koi chatbot se baat kar raha hai, toh kis point pe chatbot ko bolna chahiye, "ab kisi asli insaan se baat karo"?
+Toh ek ne kaha ki machine mein insaan wali chingaari nahi hai. Doosre ne kaha ki machine ko apna faisla mat do. Dono alag raste se aaye, lekin pahunche ek hi jagah: aakhri faisla insaan ka hona chahiye.
 
-Ek situation thi spiritual crisis. Matlab: shak ho raha hai, guilt hai, ya lag raha hai ki yeh sab sach hai bhi ya nahi. Das mein se saat pastors bole: aise time pe turant insaan ke paas bhejo. Church jaane wale log? Sirf teen.
+Phir is hafte America ki ek Christian research company, jiska naam Barna hai, ek survey lekar aayi. Unhone ek simple sa sawaal poocha: agar koi insaan chatbot se baat kar raha hai, toh kis point pe chatbot ko bolna chahiye ki "ab aap kisi asli insaan se baat kijiye"?
 
-Kyun? Kyunki aisa crisis raat ke ek baje aata hai. Chatbot jaag raha hota hai, pastor so raha hota hai.
+Ek situation thi spiritual crisis ki. Spiritual crisis matlab jab kisi ko God ke baare mein shak hone lage, ya andar se bahut guilt ho, ya woh soche ki yeh sab sach hai bhi ya nahi. Is situation ke liye das mein se saat pastors ne kaha ki chatbot ko turant rukna chahiye aur insaan ke paas bhejna chahiye. Lekin church jaane wale aam logon mein se das mein se sirf teen log yeh maante hain.
 
-Toh AI use karo, koi problem nahi. Lekin faisla aap karoge, machine nahi. Aur ek aisa insaan zaroor rakho jise raat ko bhi call kar sako.
+Ab aisa kyun? Ek seedhi si wajah hai. Aisa crisis aksar din mein nahi aata, raat ko ek baje aata hai. Us waqt chatbot jaag raha hota hai, aur pastor so rahe hote hain.
+
+Toh is khabar se seekh yeh hai: AI use karna galat nahi hai, aap zaroor use kijiye. Lekin apni zindagi ke faisle aap khud lijiye, machine nahi. Aur apni life mein ek aisa insaan zaroor rakhiye jise aap raat ko bhi call kar sakein.
 
 ---
 
-## [4. KAAM KI BAAT — Greg Allgood, saaf paani]
+## [4. KAAM KI BAAT — Greg Allgood aur saaf paani]
 
 *Rewind karo…*
 
-Greg Allgood Procter & Gamble mein scientist the. Unke paas ek powder tha jo gande paani ko saaf kar deta tha. Problem? Company usse paisa nahi kama pa rahi thi. Band karne wale the.
+Aur aakhri khabar ek aise insaan ki hai jinki kahani humein apne kaam ke baare mein sochne pe majboor karti hai.
 
-Greg ne bola: isse non-profit bana do. Boss ne kaha: likho, paanch saal mein success kaisa dikhega. Pehla draft reject hua, bahut chhota sapna tha.
+Greg Allgood America ki ek badi company, Procter & Gamble mein scientist the. Unki team ne ek chhota sa packet banaya tha, jismein ek powder hota hai. Us powder ko gande, bhoore paani mein daal ke hilao, kapde se chhaan lo, aur bees minute mein woh paani peene layak saaf ho jaata hai.
 
-Doosre draft mein likha: ek billion litre saaf paani. Us waqt sirf 3 crore litre hua tha.
+Product kaam karta tha, lekin ek problem thi. Company usse paisa nahi kama pa rahi thi. Aur badi companies mein agar kisi cheez se paisa nahi aata, toh use band kar diya jaata hai. Yahi hone wala tha.
 
-Aaj? 26 billion litre se zyada.
+Tab Greg ne ek naya idea diya. Unhone kaha ki ise business ki tarah nahi, non-profit ki tarah chalao, taaki yeh un logon tak pahunche jinhe iski sabse zyada zaroorat hai. Unke boss maan gaye, lekin ek shart rakhi. Unhone kaha, likh ke do ki agle paanch saal mein success kaisi dikhegi.
 
-Unki advice teen shabd mein: "Find your pond." Apna talaab dhoondo. Jahan aapka skill aur kisi aur ki zaroorat milte hain.
+Greg ne apna plan likha, aur boss ne use reject kar diya. Wajah yeh thi ki sapna bahut chhota tha. Toh Greg ne doosra plan likha, aur is baar target rakha ek billion litre saaf paani ka. Us waqt tak sirf teen crore litre paani saaf hua tha.
 
-Yahi toh 5 Talents ki kahani hai. Jo talent mila hai, use dafnao mat.
+Aur aaj, us programme se 26 billion litre se bhi zyada paani saaf ho chuka hai.
+
+Greg ki ek advice hai jo mujhe bahut achhi lagi, sirf teen shabdon mein: "Find your pond." Matlab apna talaab dhoondo. Woh jagah dhoondo jahan aapka hunar aur kisi doosre ki zaroorat ek saath milte hain. Wahi aapka kaam hai.
+
+Aur sach kahoon toh yahi 5 Talents ki bhi kahani hai. Bible mein us aadmi ki kahani hai jisne apna talent zameen mein gaad diya tha, aur uski sabse zyada daant padi. Greg ke paas bas ek powder ka packet tha jise sab band karne wale the, lekin unhone use dafnaya nahi.
 
 ---
 
 ## [OUTRO]
 
-Toh yeh tha 5Talents Rewind. Saari stories 5talentsmag.com pe, link description mein. Comment mein batao: aapka "pond" kya hai? Aur haan, 4:25 ka alarm. Costume optional. Agle hafte phir rewind karenge. Bye!
+Toh yeh thi is hafte ki 5Talents Rewind. In sabhi khabron ki poori story aap 5talentsmag.com pe padh sakte hain, link description mein hai. Aur comment mein mujhe zaroor batana ki aapka "pond" kya hai, aapka woh kaam jahan aapka talent kisi ke kaam aa sakta hai. Agle hafte phir milte hain, phir se rewind karenge. Tab tak ke liye, bye bye!
 
 ---
 

@@ -11,6 +11,7 @@ import { blockContent } from './blockContent'
 import { externalImage } from './externalImage'
 import { spotifyCard, youtubeCard, bookCard, linkCard } from './endCards'
 import { podcastShow, podcastEpisode } from './podcast'
+import { pushSend, pushStats } from './pushNotification'
 
 export const schemaTypes = [
   // Documents
@@ -26,6 +27,9 @@ export const schemaTypes = [
   // 5Talents Rewind, the weekly show, as a podcast
   podcastShow,
   podcastEpisode,
+  // Written by the site after a push goes out; read-only here.
+  pushSend,
+  pushStats,
   // Objects
   blockContent,
   externalImage,
