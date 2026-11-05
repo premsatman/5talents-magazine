@@ -16,8 +16,9 @@ import { pushDismissed, pushPromptShown, pushSubscribed, type PushSource } from 
  *   - The service worker is registered at that same moment, not before. A
  *     reader who never subscribes never pays for the registration, which is
  *     the whole reason this is not OneSignal.
- *   - Not now hides the card for fourteen days. It is not a No, and asking
- *     again tomorrow would make it one.
+ *   - The card is shown at most once every fourteen days, counted from the
+ *     moment it appears. Not now is not a No. Asking again on the next
+ *     article, or tomorrow, would make it one.
  *
  * iOS: Safari delivers web push only to a site installed on the home screen.
  * In a normal iPhone tab PushManager exists but subscribing fails, so the UI
@@ -169,8 +170,12 @@ function usePush(source: PushSource) {
 /* ------------------------------------------------------------- slide-in -- */
 
 /**
- * Shown once the reader is about 60% of the way down an article - someone who
- * is still reading is the only person worth asking.
+ * Shown once the reader has scrolled about 60% of the way down an article.
+ * Someone who is still reading is the only person worth asking, and a short
+ * article that already fits on screen is not that person.
+ *
+ * Opening the card starts the fourteen-day pause. Waiting for Not now meant
+ * the next article asked again, which is the same as asking all the time.
  */
 export function PushSlideIn({ slug }: { slug: string }) {
   const { status, subscribe } = usePush('article-slidein')
@@ -181,22 +186,24 @@ export function PushSlideIn({ slug }: { slug: string }) {
     if (status !== 'idle') return
     if (Date.now() - readDismissed() < DISMISS_DAYS * 24 * 60 * 60 * 1000) return
 
-    const onScroll = () => {
+    const handleScroll = () => {
+      if (window.scrollY < 1) return
       const scrolled = window.scrollY + window.innerHeight
       const total = document.documentElement.scrollHeight
       if (total > 0 && scrolled / total >= SCROLL_TRIGGER) {
         setOpen(true)
-        window.removeEventListener('scroll', onScroll)
+        window.removeEventListener('scroll', handleScroll)
       }
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [status])
 
   useEffect(() => {
     if (open && !shown.current) {
       shown.current = true
+      writeDismissed()
       pushPromptShown('article-slidein', slug)
     }
   }, [open, slug])
