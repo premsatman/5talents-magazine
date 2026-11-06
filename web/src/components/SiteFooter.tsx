@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { sanityFetch } from '@/sanity/live'
 import { freshClient } from '@/sanity/client'
 import { SITE_SETTINGS_QUERY } from '@/sanity/queries'
-import { scopeStatement as fallbackScope, tagline } from '@/lib/site'
+import { preferredSourceUrl, scopeStatement as fallbackScope, tagline } from '@/lib/site'
 import { imprint } from '@/lib/publisher'
 import { NewsletterForm } from './NewsletterForm'
 import { SocialLinks } from './SocialLinks'
@@ -125,9 +125,24 @@ export async function SiteFooter() {
 
         <SocialLinks socials={socials} className="footer-socials social-links" />
 
-        {/* Renders nothing where push cannot work: no PushManager, permission
-            already refused, or an iPhone outside an installed home-screen app. */}
-        <PushBell />
+        {/* Two asks, not two policies. The bell renders nothing where push
+            cannot work: no PushManager, permission already refused, or an
+            iPhone outside an installed home-screen app - in which case this
+            row is just the Google link. */}
+        <div className="footer-asks">
+          <PushBell />
+          <a
+            className="pushbell"
+            href={preferredSourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="currentColor">
+              <path d="M12 2.6l2.6 5.76 6.28.68-4.68 4.22 1.3 6.18L12 16.3l-5.5 3.14 1.3-6.18L3.12 9.04l6.28-.68L12 2.6Z" />
+            </svg>
+            Make us a preferred source in Google
+          </a>
+        </div>
 
         {/* Blueprint sections 4 and 8: the published scope statement. */}
         <p className="scope">{scope}</p>

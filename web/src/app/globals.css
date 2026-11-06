@@ -1948,9 +1948,15 @@ nav.primary.compact { border-top: 0; }
 .pushcard__no:hover { color: var(--inverse-ink); }
 .pushcard :focus-visible { outline-color: var(--highlight); }
 
+/* The two asks sit on one row and wrap together on a phone. The margin lives
+   here rather than on .pushbell, which may not render at all. */
+.footer-asks {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3);
+  margin-top: var(--s-4);
+}
 .pushbell {
   display: inline-flex; align-items: center; gap: var(--s-2);
-  margin-top: var(--s-4); padding: 8px 14px;
+  padding: 8px 14px; text-decoration: none;
   background: transparent; border: 1px solid var(--inverse-rule); border-radius: var(--radius);
   font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.04em;
   color: var(--inverse-ink); cursor: pointer;

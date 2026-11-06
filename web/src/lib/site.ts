@@ -61,6 +61,26 @@ export function pageOg(url: string) {
   return { type: 'website' as const, siteName, locale: 'en_IN', url }
 }
 
+/**
+ * "Add 5Talents as a preferred source in Google."
+ *
+ * A reader who does this is more likely to be shown our pieces in Top
+ * Stories, with a badge. It changes nothing for anyone else: it is not a
+ * ranking signal and has no effect until an individual chooses us in their
+ * own Google account, which is why the ask belongs beside the notification
+ * bell rather than in the policy list.
+ *
+ * The plain link deliberately, not Google's two-line JavaScript button: the
+ * button pulls news.google.com/swg/js/v1/publisher.js onto the page, and the
+ * reach this can earn at current audience size does not pay for a script.
+ * Revisit if the magazine ever has the readership to make it worth the weight.
+ *
+ * The domain is written out rather than derived from siteUrl because the tool
+ * matches on the public domain, and a localhost or preview host would make a
+ * dead link out of a working one.
+ */
+export const preferredSourceUrl = 'https://www.google.com/preferences/source?q=5talentsmag.com'
+
 export function absoluteUrl(path: string) {
   return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`
 }
