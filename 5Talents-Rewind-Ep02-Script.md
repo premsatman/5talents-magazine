@@ -1,131 +1,192 @@
-# 5Talents Rewind — Episode 2
+# 5Talents Rewind — Episode 2 (final shoot)
 
-**Covers:** 20–25 October 2026 · **Runtime:** ~5–6 min · **Hinglish** · The Chosen S6 skipped (covered in Ep01)
+**Covers:** 19 October – 7 November 2026 · **8 stories** · **Runtime:** ~9–10 min · **Hinglish, mostly English**
+
+**New tagline:** **"Achhi khabar, bina boring hue."**
+(Gospel ka matlab hi "good news" hai. The show is now only positive Christian news, said in a fun way.)
 
 > **Editor cue:** rewind sound + "Rewind karo…" before every story. Keep the intro under 10 seconds.
-> **Style:** speak it like you're explaining to a friend over chai. Full sentences, no rush.
+> **Style:** talk like you're telling friends over chai. Smile on the jokes, pause one beat after each punchline.
 
 ---
 
 ## [COLD OPEN]
 
-Socho, ek aunty hain jinhone poori Bible, Genesis se Revelation tak, apne haath se likhi hai. Aur ek baar nahi, terah baar likhi hai. Aaj ki shuruaat unhi ki kahani se karte hain.
+The Chosen ab 42 Indian languages mein aa raha hai. Hindi, Tamil, Telugu, Mizo, Santali… aur haan, Haryanvi bhi. Socho, Peter ki line Haryanvi subtitles mein: "Re bhai, paani pe chalna hai? Pehle bata dete!" Stay with me, aaj sirf achhi khabrein hain.
 
 ## [INTRO]
 
-Hi, hello, kaise hain aap? Main hoon Prem, aur aap dekh rahe hain 5Talents Rewind, jahan hum hafte bhar ki Christian khabrein aapko simple tareeke se batate hain.
+Hi, hello, kaise hain aap? I'm Prem, and this is 5Talents Rewind. Achhi khabar, bina boring hue. Duniya mein bahut negative news hai, toh yahan hum sirf positive Christian news laate hain. Let's go!
 
 ---
 
-## [1. MIZORAM — 13 baar haath se likhi Bible]
+## [1. THE CHOSEN — 42 Indian languages]
 
 *Rewind karo…*
 
-Pehli khabar apne hi desh se hai, Mizoram se. Aizawl mein Mrs Lalthianghlimi naam ki ek mahila rehti hain. Unhone poori Bible ko Mizo bhasha mein, pen se, apne haath se copy kiya hai. Aur yeh kaam unhone ek baar nahi, terah baar kiya hai.
+First, good news for The Chosen fans. The final season, Season 7, is now fully funded. That's 78 million dollars, and it came from more than 86,000 normal people in 175 countries. Not one big company. Normal people like you and me.
 
-Ab sabse interesting baat suniye. Pehli baar Bible likhne mein unhe poore 422 din lage, yaani lagbhag chaudah mahine. Aur unhone yeh number, 422 din, us Bible ke cover pe sone ke akshar mein chhapwa diya. Kisi ne unse yeh karne ko nahi kaha tha, unhone khud apna hisaab rakha.
+So now that the money is done, what's next? Translation. They want The Chosen in 600 languages. Abhi tak 175 ho chuki hain.
 
-Aur dheere dheere unki speed badhti gayi. Jis Bible ko likhne mein pehli baar 422 din lage the, ab wahi Bible woh 200 din se bhi kam mein likh leti hain.
+And here's the best part. We at 5Talents actually sat down and counted the list. 42 of those languages are from India. Hindi, Tamil, Telugu, Bengali, Gujarati, Punjabi are already fully dubbed. And then there are languages like Sora, Varli, Zeme Naga, Mising, Mizo, Tulu, Bodo. Honestly, kuch naam toh maine pehli baar padhe.
 
-Unki ek photo hai jismein woh ek chhoti si table pe baith ke likh rahi hain, aur unke pairon ke paas khaali pens ka ek bada sa dher pada hai. Sainkdon pens. Aur yahan main hoon, jiska ek pen bank ka form bharte bharte hi kho jaata hai.
+No company makes money by translating a TV show into Sora. They are doing it anyway, so that someone in a small village can watch Jesus' story in their own mother tongue.
 
-Bible Society of India ne unki sirf ek baat share ki hai. Likhna shuru karne se pehle unhone prayer ki thi: "God, meri aankhon ko, mere haath ko aur meri baazu ko taakat dena, taaki main bina galti ke likh sakoon."
+Aur ek fun fact: last month The Chosen app had more users outside America than inside America. And India is one of the biggest reasons. Matlab, hum log chupke chupke binge-watch kar rahe hain.
 
-Dhyan dijiye, unhone yeh nahi maanga ki kaam jaldi ho jaaye. Unhone sirf itna maanga ki woh chalti rahein aur sahi likhti rahein.
+India mein Season 1 se 5 Netflix pe hai, aur The Chosen app pe free. Season 6 app pe free aayega spring 2027 mein.
 
 ---
 
-## [2. KENYA — Hallelujah Challenge]
+## [2. BIBLE APP — Psalm 91]
 
 *Rewind karo…*
 
-Doosri khabar Africa se hai, aur yeh kahani thodi peeche se shuru karni padegi.
+Next. Do you have the Bible App on your phone? Every single day, about 1 crore 85 lakh people open it. That's more than the population of some countries.
 
-Nigeria mein ek worship leader hain, unka naam hai Nathaniel Bassey. Woh gospel singer hain, trumpet bajaate hain, aur Lagos shehar mein youth church ke pastor bhi hain.
+And guess what was searched the most this year? Psalm 91. The psalm about God being our shelter, our safe place. Along with that, people searched words like anxiety, hope and healing.
 
-Saal 2017 mein, 1 June ko, unhone ek chhota sa idea try kiya. Unhone kaha ki main raat ko theek 11 baj ke 59 minute pe online live aaunga, aur ek ghanta sirf worship karenge. Na koi sermon, na koi announcement, sirf gaane aur prayer. Aur yeh sirf tees din ke liye tha. Is idea ka naam rakha gaya "Hallelujah Challenge".
+Think about it. Nobody types something in a search box to show off. Hum wahi search karte hain jiski humein sach mein zaroorat hoti hai. Aur duniya ko abhi peace chahiye.
 
-Ab aap sochenge, raat ke barah baje hi kyun? Iska jawab Bible mein hai, Acts chapter 16 mein. Wahan Paul aur Silas jail mein band the, aur aadhi raat ko woh God ki stuti gaa rahe the. Tabhi bhookamp aaya aur jail ke darwaze khul gaye. Lekin Nathaniel Bassey saaf kehte hain ki raat ke barah baje mein koi jaadu nahi hai. Asli baat yeh hai ki Paul aur Silas tab gaa rahe the jab abhi kuch bhi nahi badla tha.
+Main honestly bataun? My most searched thing is "chai near me". Lekin theek hai, hum improve kar rahe hain.
 
-Woh tees din khatam hue, lekin log rukna nahi chahte the. Isliye tab se yeh challenge har saal naye editions mein wapas aata hai. Abhi wala edition 5 October se shuru hua hai aur 30 October tak chalega, YouTube, Instagram aur Facebook pe.
-
-Aur sabse mazedaar baat yeh hai ki yeh sirf Nigeria tak nahi raha. Jab Lagos mein raat ke 11:59 hote hain, tab Kenya mein raat ke 1:59 baj rahe hote hain. Phir bhi hazaaron Kenyans alarm laga ke uthte hain. Woh ek doosre ko phone karke jagaate hain, comments mein apni prayer requests likhte hain, aur sach kahoon toh aadhe log bistar mein lete lete hi join kar lete hain.
-
-Kenya ke ek school teacher ne kaha ki is challenge ne unhe yaad dilaya ki worship sirf Sunday ke liye nahi hai.
-
-Aur ab is hafte ki nayi khabar. Nathaniel Bassey ne bataya hai ki ab woh khud logon ke paas aane wale hain. Yeh challenge live event ke roop mein tour karega: pehle Ghana, phir Tanzania, February mein Kenya, aur shayad London bhi.
-
-Ab India ka hisaab samajhiye. Hamare yahan yeh session subah 4 baj ke 29 minute pe shuru hota hai. Tour toh India nahi aa raha, lekin link sab tak pahunch raha hai, aur online ka yahi fayda hai.
-
-Aur ek fun baat. 26 October ke session ke liye Bassey ne kaha hai: "Dress like your miracle." Matlab aap God se jo maang rahe ho, us hisaab se kapde pehen ke aao. Subah saadhe chaar baje, costume mein, worship. Kaafi alag hai na?
-
-October wala edition 30 tarikh tak hai. Agar aap join karna chahte ho, toh 4:25 ka alarm laga lo.
+And here's your challenge: November is Global Bible Month. Thirty days, open your Bible every day. App se ho ya ghar wali Bible se, dono chalega. Thirty days of gym is hard. Thirty days of Bible? No protein shake needed.
 
 ---
 
-## [3. TECH — Pope Leo, Sam Altman aur AI]
+## [3. MIZORAM — 13 handwritten Bibles]
 
 *Rewind karo…*
 
-Teesri khabar technology ki hai, aur ismein do bilkul alag duniya ke log hain. Pehle unhe jaan lete hain.
+Now a story from our own Northeast. In Aizawl, Mizoram, there's a lady called Mrs Lalthianghlimi. She has copied the entire Bible, Genesis to Revelation, by hand, in the Mizo language. Not once. Thirteen times.
 
-Ek hain Pope Leo, jo Catholic Church ke naye Pope hain. Aur doosre hain Sam Altman, jo OpenAI company ke boss hain. Wahi company jo ChatGPT banati hai, jo aaj kal aap mein se bahut log use karte honge.
+Her first Bible took 422 days, more than a year. And she got that number printed in gold on the cover. Nobody asked her to. She just kept her own score.
 
-Ab yeh dono log kisi bhi baat pe agree nahi karte. Lekin October ke shuru mein, sirf do din ke andar, dono ne lagbhag ek hi baat boli.
+Now she finishes one in under 200 days.
 
-Pehle Pope Leo. Woh Vatican mein artists se mil rahe the, aur baat ho rahi thi AI se banne wali paintings aur art ki. Unhone samjhaya ki jab machine koi tasveer banati hai, toh woh asal mein doosre logon ki banayi hui laakhon tasveeron ko dekh ke ek hisaab-kitaab karti hai. Lekin jab ek insaan kuch banata hai, toh usmein uski apni zindagi aur dil hota hai. Unki ek line bahut viral hui: "Algorithms lack the spark of the human." Matlab machine mein woh chingaari nahi hai jo ek insaan ke andar hoti hai.
+There's a photo of her desk, and next to her feet is a big pile of empty pens. Hundreds of them. Mujhe toh WhatsApp pe "Good morning" type karne mein thakaan ho jaati hai.
 
-Agle hi din Sam Altman ne X pe, jo pehle Twitter tha, ek post kiya. Unhone likha ki unhe bahut uncomfortable lagta hai jab log AI ko God jaisa maanne lagte hain, ya apni zindagi ke faisle AI ke haath mein de dete hain. Aur unhone ise ek asli safety issue bataya. Socho, jo insaan khud AI bana raha hai, wahi keh raha hai ki mujh pe itna bharosa mat karo.
-
-Toh ek ne kaha ki machine mein insaan wali chingaari nahi hai. Doosre ne kaha ki machine ko apna faisla mat do. Dono alag raste se aaye, lekin pahunche ek hi jagah: aakhri faisla insaan ka hona chahiye.
-
-Phir is hafte America ki ek Christian research company, jiska naam Barna hai, ek survey lekar aayi. Unhone ek simple sa sawaal poocha: agar koi insaan chatbot se baat kar raha hai, toh kis point pe chatbot ko bolna chahiye ki "ab aap kisi asli insaan se baat kijiye"?
-
-Ek situation thi spiritual crisis ki. Spiritual crisis matlab jab kisi ko God ke baare mein shak hone lage, ya andar se bahut guilt ho, ya woh soche ki yeh sab sach hai bhi ya nahi. Is situation ke liye das mein se saat pastors ne kaha ki chatbot ko turant rukna chahiye aur insaan ke paas bhejna chahiye. Lekin church jaane wale aam logon mein se das mein se sirf teen log yeh maante hain.
-
-Ab aisa kyun? Ek seedhi si wajah hai. Aisa crisis aksar din mein nahi aata, raat ko ek baje aata hai. Us waqt chatbot jaag raha hota hai, aur pastor so rahe hote hain.
-
-Toh is khabar se seekh yeh hai: AI use karna galat nahi hai, aap zaroor use kijiye. Lekin apni zindagi ke faisle aap khud lijiye, machine nahi. Aur apni life mein ek aisa insaan zaroor rakhiye jise aap raat ko bhi call kar sakein.
+Before she started, she prayed one simple prayer: "God, give strength to my eyes, my arm and my hand, so I can write without mistakes." She didn't ask for a shortcut. She asked for strength to keep going.
 
 ---
 
-## [4. KAAM KI BAAT — Greg Allgood aur saaf paani]
+## [4. KLAUS KROGH — the man behind your Bible's letters]
 
 *Rewind karo…*
 
-Aur aakhri khabar ek aise insaan ki hai jinki kahani humein apne kaam ke baare mein sochne pe majboor karti hai.
+Okay, quick test. Take out your Bible and open any page. *(Hold up your Bible.)*
 
-Greg Allgood America ki ek badi company, Procter & Gamble mein scientist the. Unki team ne ek chhota sa packet banaya tha, jismein ek powder hota hai. Us powder ko gande, bhoore paani mein daal ke hilao, kapde se chhaan lo, aur bees minute mein woh paani peene layak saaf ho jaata hai.
+The shape of every letter, the space between the lines, all of that was designed by someone. And for a huge number of Bibles around the world, that someone was Klaus Krogh, a designer from Denmark. You've read his work for years, but you've never seen his name. He passed away last month at 74.
 
-Product kaam karta tha, lekin ek problem thi. Company usse paisa nahi kama pa rahi thi. Aur badi companies mein agar kisi cheez se paisa nahi aata, toh use band kar diya jaata hai. Yahi hone wala tha.
+His job was actually very tricky. A Bible is a very long book, about eight lakh words. If the letters are big, the Bible becomes as heavy as a brick. If they're small, you can't read it. He spent forty years solving that one problem.
 
-Tab Greg ne ek naya idea diya. Unhone kaha ki ise business ki tarah nahi, non-profit ki tarah chalao, taaki yeh un logon tak pahunche jinhe iski sabse zyada zaroorat hai. Unke boss maan gaye, lekin ek shart rakhi. Unhone kaha, likh ke do ki agle paanch saal mein success kaisi dikhegi.
+Then one day a lady asked him: can you make a Bible for people with dyslexia? Matlab jinhe padhne mein dikkat hoti hai, jinhe "b" aur "d" same lagte hain. He worked with Cambridge University researchers for years and made a new font called "Grace".
 
-Greg ne apna plan likha, aur boss ne use reject kar diya. Wajah yeh thi ki sapna bahut chhota tha. Toh Greg ne doosra plan likha, aur is baar target rakha ek billion litre saaf paani ka. Us waqt tak sirf teen crore litre paani saaf hua tha.
+And here's the beautiful part. Normally his company sold each font to one publisher, and that's where the money was. But Grace? He made it free for people to use personally. He said helping people read was more important than making the last dollar.
 
-Aur aaj, us programme se 26 billion litre se bhi zyada paani saaf ho chuka hai.
+So next time you read your Bible, say thank you to the font. Seriously.
 
-Greg ki ek advice hai jo mujhe bahut achhi lagi, sirf teen shabdon mein: "Find your pond." Matlab apna talaab dhoondo. Woh jagah dhoondo jahan aapka hunar aur kisi doosre ki zaroorat ek saath milte hain. Wahi aapka kaam hai.
+---
 
-Aur sach kahoon toh yahi 5 Talents ki bhi kahani hai. Bible mein us aadmi ki kahani hai jisne apna talent zameen mein gaad diya tha, aur uski sabse zyada daant padi. Greg ke paas bas ek powder ka packet tha jise sab band karne wale the, lekin unhone use dafnaya nahi.
+## [5. MAVERICK CITY MUSIC — Shillong]
+
+*Rewind karo…*
+
+Music lovers, this one's for you. Maverick City Music, the Grammy-winning gospel group behind songs like "Jireh" and "Promises", is coming to India! 12 December, Shillong.
+
+Shillong is already called the Rock Capital of India. Ab woh Rock of Ages capital bhi ban jayega.
+
+The concert is being organised by the Khasi Jaintia Presbyterian Assembly, a church that has been in those hills since 1841. And here's the best part. The money from the tickets will go to their schools, clinics and relief work. Normally a church spends money to bring a big band. Yeh church band bula ke schools aur hospitals chala rahi hai.
+
+Tickets start around ₹1,000, online only. Prices are slightly different in different reports, so check the ticket page before you pay. And they haven't announced yet which singers are coming, so wait for that too.
+
+Hyderabad wale, flight book karo. Ya kam se kam wishlist mein daal do.
+
+---
+
+## [6. FORREST FRANK — a sermon in the middle of a concert]
+
+*Rewind karo…*
+
+If you watch Instagram Reels, you've definitely heard a Forrest Frank song. He's one of the biggest Christian singers in the world right now. He used to be in a normal pop band, left it to make only Christian music, and his career became even bigger.
+
+This year his tour sold more than four and a half lakh tickets in just ten days. Stadiums full in 29 cities.
+
+But here's the surprising part. Every night, in the middle of the concert, the music stopped, and a pastor came on stage and preached the gospel to the whole stadium. Every single night. Concert ke beech mein sermon. Aur log ruk ke sunte the.
+
+And one more thing. Last year he posted a video about Jesus coming back. It got more than ten lakh likes, but he says he lost around 30,000 followers. He didn't delete it, he didn't change his message.
+
+Hum log 30 followers kam ho jaayein toh raat bhar neend nahi aati.
+
+---
+
+## [7. SOUND BARRIER — Hyderabad]
+
+*Rewind karo…*
+
+Back home to Hyderabad. In Episode 1, I told you about the Sound Barrier conference by The Mighty Dream. It happened on 31 October at Gachibowli Indoor Stadium, and I was there.
+
+More than 3,000 people came. But my favourite part was outside the stadium: a free job fair. More than 60 companies, like Tech Mahindra, Concentrix and IDBI Bank. Walk-in interviews, and the job seekers didn't pay a single rupee.
+
+And by 10 in the morning, around 50 people already had offer letters in their hands. Before the conference even started!
+
+Pehli baar log church event se offer letter le ke ghar gaye. Usually main church se sirf samosa le ke aata hoon.
+
+One line from the stage stayed with me: what you hear, you start to believe. What you believe, you say. What you say, you do again and again. And what you do again and again, you become.
+
+---
+
+## [8. GREG ALLGOOD — Find your pond]
+
+*Rewind karo…*
+
+And our last story. Greg Allgood was a scientist at Procter & Gamble, the big company that makes soaps and shampoos. His team made a small packet of powder. Put it in dirty, brown water, stir it, filter it with a cloth, and in twenty minutes the water is clean enough to drink.
+
+The product worked. But the company couldn't make money from it, so they were planning to shut it down.
+
+Greg said: don't shut it down, run it as a non-profit. His boss said okay, but write down what success looks like in five years. Greg wrote his plan, and the boss rejected it. Reason? The dream was too small!
+
+So Greg wrote a bigger one: one billion litres of clean water. At that time they had done only three crore litres.
+
+Today? More than 26 billion litres of clean water.
+
+His advice is just three words: "Find your pond." Find the place where your skill meets someone else's need.
+
+And that's actually the whole idea behind 5Talents. In the Bible, the man who buried his talent got the biggest scolding. Greg had a small packet of powder that everyone wanted to throw away. He didn't bury it.
 
 ---
 
 ## [OUTRO]
 
-Toh yeh thi is hafte ki 5Talents Rewind. In sabhi khabron ki poori story aap 5talentsmag.com pe padh sakte hain, link description mein hai. Aur comment mein mujhe zaroor batana ki aapka "pond" kya hai, aapka woh kaam jahan aapka talent kisi ke kaam aa sakta hai. Agle hafte phir milte hain, phir se rewind karenge. Tab tak ke liye, bye bye!
+So that's this week's 5Talents Rewind. Achhi khabar, bina boring hue. All these stories are on 5talentsmag.com, link in the description. Comment and tell me which story you liked the most, and what's your "pond". And this November, open your Bible every day, okay? See you next week. Bye bye!
 
 ---
 
-### YouTube title options
-1. **Ek Aunty Ne 13 Baar Poori Bible Haath Se Likhi?! | 5Talents Rewind #2**
-2. Subah 4:29 Ka Worship Alarm | 5Talents Rewind #2
+### Tagline options (pick one)
+1. **Achhi khabar, bina boring hue.** (recommended: keeps the old rhythm, and "good news" is literally the gospel)
+2. Good news ka weekly dose.
+3. Sirf achhi khabrein. Promise.
 
-### Chapters (fill in after the edit)
-0:00 Intro · Mizoram: 13 Bibles · Kenya: Hallelujah Challenge · Pope Leo, Sam Altman & AI · Greg Allgood: Find your pond · Outro
+### YouTube title options
+1. **The Chosen Ab 42 Indian Languages Mein?! | 5Talents Rewind #2**
+2. Concert Ke Beech Mein Sermon?! | 5Talents Rewind #2
+
+### Chapters (fill times after the edit)
+0:00 Intro · The Chosen: 42 Indian languages · Bible App: Psalm 91 · Mizoram: 13 handwritten Bibles · Klaus Krogh: Grace font · Maverick City Music in Shillong · Forrest Frank · Sound Barrier recap · Greg Allgood: Find your pond · Outro
 
 ### Articles
+- screen/the-chosen-season-7-fully-funded-600-languages-india
+- faith/bible-app-psalm-91-searches-global-bible-month
 - faith/mizoram-lalthianghlimi-handwritten-bible-thirteen-times
-- culture/hallelujah-challenge-kenya-february-2027-nathaniel-bassey
-- technology/pope-leo-altman-barna-ai-human-judgment
+- culture/klaus-krogh-bible-typeface-design-grace-dyslexia
+- culture/maverick-city-music-shillong-kjp-assembly
+- culture/forrest-frank-jesus-generation-album-tour-movie
+- current/sound-barrier-hyderabad-mighty-dream-job-fair
 - work-money/greg-allgood-clean-water-calling-world-vision
+
+### Left out, and why
+- Worship Conference at LB Stadium: ends Sunday 8 November, before the episode goes out.
+- Kenya Hallelujah Challenge: the October edition is over.
+- Pope Leo & Sam Altman, Korea and Gen Z: good stories, but not "positive news" in tone.
+- Mozhda TV (Afghanistan): too close to politics.
+- Chris Tomlin in the Philippines: no India angle.
