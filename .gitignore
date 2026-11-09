@@ -24,6 +24,9 @@ __pycache__/
 # Local video production: masters, frame dumps, renders, sample clips.
 youtube/
 
+# Local November issue working files.
+November/
+
 # YouTube export images. Not used by the site.
 /5TalentsMag-YouTube-Banner.png
 /5TalentsRewind-Ep01-IG.jpg
