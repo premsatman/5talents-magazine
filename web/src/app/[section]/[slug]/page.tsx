@@ -43,6 +43,17 @@ import type { ArticleCardData } from '@/components/types'
 
 type Props = { params: Promise<{ section: string; slug: string }> }
 
+/**
+ * Time-based revalidation is the safety net, not the primary path.
+ *
+ * Articles are statically generated at build. The Sanity webhook at
+ * /api/revalidate clears cache *tags*, but nothing here tags these pages, so
+ * before this existed a published edit stayed invisible until the cache entry
+ * aged out on its own - and a scheduled publishedAt could leave a 404 cached
+ * for hours after the piece went live. Five minutes bounds that worst case.
+ */
+export const revalidate = 300
+
 export async function generateStaticParams() {
   // useCdn: false - never build the route list from a stale edge cache.
   const paths = await freshClient.fetch(ARTICLE_PATHS_QUERY)

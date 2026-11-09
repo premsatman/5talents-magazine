@@ -22,6 +22,9 @@ import type { ArticleCardData } from '@/components/types'
  */
 export const dynamicParams = false
 
+// Bounds how long a section index can omit a just-published article.
+export const revalidate = 300
+
 export function generateStaticParams() {
   return SECTION_SLUGS.map((section) => ({ section }))
 }
