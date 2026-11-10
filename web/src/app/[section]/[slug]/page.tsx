@@ -54,6 +54,18 @@ type Props = { params: Promise<{ section: string; slug: string }> }
  */
 export const revalidate = 300
 
+/**
+ * Be explicit: an article published after the last deploy must render on
+ * demand. The sibling route app/[section]/page.tsx sets dynamicParams = false
+ * to stop typo'd section URLs generating soft-404s, and that restriction was
+ * reaching this route too - on 10 Nov 2026 a newly published article returned
+ * a hard 404 with no function invocation at all, while the section index
+ * (which revalidates on the timer above) had already picked it up and was
+ * linking to it. Declaring it here keeps the section allowlist strict without
+ * freezing the article list to whatever existed at build time.
+ */
+export const dynamicParams = true
+
 export async function generateStaticParams() {
   // useCdn: false - never build the route list from a stale edge cache.
   const paths = await freshClient.fetch(ARTICLE_PATHS_QUERY)
