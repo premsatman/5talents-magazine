@@ -18,6 +18,17 @@
   --highlight-soft:   #FFF7A8;
   --highlight-deep:   #E0D200;
 
+  /* Text that sits ON the yellow. Near-black, and it does NOT follow the
+     theme - that is the whole point of it existing.
+
+     The trap it closes: --ink flips to cream in dark mode, so every
+     `background: var(--highlight); color: var(--ink)` rule quietly became
+     cream-on-yellow, about 1.2:1, the night dark mode shipped. The yellow
+     does not flip, so nothing drawn on top of it may either. Same reasoning
+     as the --inverse-* family above. Use this for any text, glyph or icon
+     drawn on --highlight, and never --ink. */
+  --on-highlight:     #14130E;
+
   /* Secondary, sampled from the Aug 2013 cover. Darkened from the original
      #D2232A so it passes AA as link text on paper (6.4:1).               */
   --accent:           #B01A20;

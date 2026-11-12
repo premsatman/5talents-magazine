@@ -441,7 +441,7 @@ blockquote cite {
   padding: 10px 16px; border: 1px solid var(--ink); border-radius: var(--radius);
   color: var(--ink); white-space: nowrap;
 }
-.prefsource__btn:hover { background: var(--highlight); border-color: var(--highlight); }
+.prefsource__btn:hover { background: var(--highlight); border-color: var(--highlight); color: var(--on-highlight); }
 @media (max-width: 520px) {
   .prefsource { flex-direction: column; align-items: stretch; }
   .prefsource__btn { text-align: center; }
@@ -527,8 +527,35 @@ blockquote cite {
 }
 .btn:hover:not(:disabled) { background: transparent; color: var(--ink); }
 .btn:disabled { opacity: 0.6; cursor: progress; }
+
+/* The filled button inverts in dark mode, and has to be told not to.
+   On paper it is an ink block with yellow lettering, which is the magazine's
+   own look and about 17:1. In dark mode --ink becomes cream while --highlight
+   stays yellow, so the same rule drew a white button with pale yellow text on
+   it - roughly 1.1:1, which is how the Tickets button on an article's Find
+   block became unreadable. Filled yellow with near-black lettering is the
+   same pairing the footer, the Rewind band and the push card already use on
+   dark ground, so the button simply joins them. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .btn,
+  :root:not([data-theme="light"]) .searchform button {
+    background: var(--highlight); border-color: var(--highlight); color: var(--on-highlight);
+  }
+  :root:not([data-theme="light"]) .btn:hover:not(:disabled),
+  :root:not([data-theme="light"]) .searchform button:hover {
+    background: transparent; color: var(--highlight);
+  }
+}
+:root[data-theme="dark"] .btn,
+:root[data-theme="dark"] .searchform button {
+  background: var(--highlight); border-color: var(--highlight); color: var(--on-highlight);
+}
+:root[data-theme="dark"] .btn:hover:not(:disabled),
+:root[data-theme="dark"] .searchform button:hover {
+  background: transparent; color: var(--highlight);
+}
 .formnote { font-family: var(--font-sans); font-size: 0.9rem; margin-top: var(--s-3); }
-.formnote.ok { color: var(--ink); background: var(--highlight); display: inline-block; padding: 8px 12px; }
+.formnote.ok { color: var(--on-highlight); background: var(--highlight); display: inline-block; padding: 8px 12px; }
 .formnote.err { color: var(--accent); }
 /* Honeypot. Must not be display:none - some bots skip hidden fields. */
 .hp { position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden; }
@@ -1812,7 +1839,7 @@ nav.primary.compact { border-top: 0; }
 .rewind-latest__media { position: relative; display: block; }
 .rewind-play {
   position: absolute; left: var(--s-3); bottom: var(--s-3); width: 52px; height: 52px;
-  display: grid; place-items: center; background: var(--highlight); color: var(--ink);
+  display: grid; place-items: center; background: var(--highlight); color: var(--on-highlight);
   font-size: 1.1rem; border-radius: 50%;
 }
 .rewind-latest__title { font-family: var(--font-display); font-size: var(--step-3); line-height: 1; margin: 0 0 var(--s-3); }
@@ -1862,7 +1889,7 @@ nav.primary.compact { border-top: 0; }
 
 /* The yellow call to action, as on .onrewind - ink on yellow is ~17:1 and it
    is the one element here that has to be found without being looked for. */
-.rewind-band .btn { background: var(--highlight); border-color: var(--highlight); color: var(--ink); }
+.rewind-band .btn { background: var(--highlight); border-color: var(--highlight); color: var(--on-highlight); }
 .rewind-band .btn:hover { background: transparent; color: var(--highlight); }
 
 /* The brush underline cannot stay an underline here. On paper the ink is dark
@@ -1892,7 +1919,7 @@ nav.primary.compact { border-top: 0; }
 .episode-chapters li { display: grid; grid-template-columns: 4.2rem 1fr; gap: var(--s-3); padding: var(--s-3) 0; border-bottom: 1px solid var(--rule); }
 .episode-chapters__time {
   font-family: var(--font-sans); font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.85rem;
-  background: var(--highlight); color: var(--ink); text-decoration: none; padding: 2px 8px; height: fit-content; justify-self: start;
+  background: var(--highlight); color: var(--on-highlight); text-decoration: none; padding: 2px 8px; height: fit-content; justify-self: start;
 }
 .episode-chapters__title { margin: 0; font-weight: 600; }
 .episode-chapters__read { margin: 4px 0 0; font-size: 0.92rem; color: var(--ink-secondary); }
@@ -1921,7 +1948,7 @@ nav.primary.compact { border-top: 0; }
 .onrewind__kicker { font-family: var(--font-sans); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--highlight); margin: 0 0 var(--s-2); }
 .onrewind__title { font-family: var(--font-serif); font-size: var(--step-1); margin: 0; }
 .onrewind__title a { color: var(--inverse-ink); text-decoration: none; }
-.onrewind .btn { background: var(--highlight); color: var(--inverse-bg); border-color: var(--highlight); }
+.onrewind .btn { background: var(--highlight); color: var(--on-highlight); border-color: var(--highlight); }
 .onrewind .btn:hover { background: transparent; color: var(--highlight); }
 .onrewind .listenon__rss { color: var(--inverse-muted); }
 
@@ -1957,7 +1984,7 @@ nav.primary.compact { border-top: 0; }
   color: var(--inverse-muted); margin: 0 0 var(--s-4);
 }
 .pushcard__actions { display: flex; align-items: center; gap: var(--s-3); margin: 0; }
-.pushcard .btn { background: var(--highlight); border-color: var(--highlight); color: var(--ink); }
+.pushcard .btn { background: var(--highlight); border-color: var(--highlight); color: var(--on-highlight); }
 .pushcard .btn:hover:not(:disabled) { background: transparent; color: var(--highlight); }
 .pushcard__no {
   background: none; border: 0; padding: 0; cursor: pointer;
