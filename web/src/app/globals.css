@@ -433,6 +433,32 @@ blockquote cite {
 .sources h2, .findthem h2 { font-family: var(--font-sans); font-weight: 600; font-size: 1rem; margin: 0 0 var(--s-3); }
 .sources ol { margin: 0; padding-left: 1.2em; font-size: 0.92rem; color: var(--ink-secondary); }
 .sources li { margin-bottom: 6px; }
+/* The preferred-source ask under an article. One line and a button on a row,
+   stacking on a phone. Quieter than .findthem - it is a favour to ask, not
+   part of the piece - so a hairline box rather than a filled one. */
+.prefsource {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--s-3);
+  margin: var(--s-5) 0 0; padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  background: var(--paper-sunk);
+}
+.prefsource__line {
+  margin: 0; font-family: var(--font-sans); font-size: 0.86rem; line-height: 1.45;
+  color: var(--ink-secondary); max-width: 46ch;
+}
+.prefsource__btn {
+  flex: none;
+  font-family: var(--font-sans); font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  padding: 10px 16px; border: 1px solid var(--ink); border-radius: var(--radius);
+  color: var(--ink); white-space: nowrap;
+}
+.prefsource__btn:hover { background: var(--highlight); border-color: var(--highlight); }
+@media (max-width: 520px) {
+  .prefsource { flex-direction: column; align-items: stretch; }
+  .prefsource__btn { text-align: center; }
+}
 .findthem { margin: var(--s-6) 0 0; padding: var(--s-4); border: 1px solid var(--rule); }
 .findthem p { margin: 0 0 var(--s-3); }
 .findthem p:last-child { margin-bottom: 0; }
@@ -621,14 +647,20 @@ blockquote cite {
    sets `width: auto` on its frame and would otherwise size itself to the 2x
    creative and swallow the whole measure - leaving nothing for text to wrap
    into, which looks exactly like the float having failed. */
+/* 300px, not 336, and a 1.5rem gutter rather than 2rem.
+   The arithmetic: .body is capped at 68ch, which is about 680px at the body
+   size. 680 - 336 - 32 leaves roughly 310px to wrap in, or some 31 characters
+   a line in a serif at 20px - short enough that the rag becomes the thing you
+   notice. 680 - 300 - 24 gives about 356px and 35 characters, which reads.
+   Creatives are supplied at 2x or as SVG, so this scales down, never up. */
 .body .ad--inbody {
   float: left;
   align-items: flex-start;
-  width: 336px;
+  width: 300px;
   max-width: 100%;
-  margin: var(--s-2) var(--s-5) var(--s-4) 0;
+  margin: var(--s-2) var(--s-4) var(--s-4) 0;
 }
-.body .ad--inbody .ad__frame { width: 336px !important; max-width: 100%; }
+.body .ad--inbody .ad__frame { width: 300px !important; max-width: 100%; }
 .body .ad--inbody.ad--filled .ad__frame { height: auto !important; }
 .body .ad--inbody img { width: 100%; height: auto; }
 /* The frame is a centring grid and the link inside it shrinks to fit its
@@ -647,7 +679,7 @@ blockquote cite {
   .body .ad--inbody {
     float: none;
     align-items: center;
-    width: 336px;
+    width: 300px;
     margin: var(--s-5) auto;
   }
 }

@@ -194,13 +194,39 @@ export function PortableBody({
   const slotB = adsOff ? 0 : 3
   const slotC = adsOff || totalParagraphs < 14 ? 0 : 9
 
+  /*
+   * The count says WHEN the ad is due; this says WHERE it may land.
+   *
+   * `.body h2, .body h3 { clear: both }` in globals.css, which is right - a
+   * subhead squeezed beside a 336px float reads as broken. But the two rules
+   * fought each other: the chunk flushed the instant the paragraph count was
+   * reached, so when the next block happened to be a subhead, the ad opened a
+   * chunk that began by clearing the ad. The float was cancelled on the line
+   * below it and the unit became a full-width band with dead space to its
+   * right - the exact layout floating was introduced to avoid.
+   *
+   * So the ad now waits for a paragraph. When it is due, `want` is set, and
+   * the chunk is only broken once a real paragraph turns up to open it. A
+   * subhead in between simply stays with the text above, and the ad lands
+   * under it with the whole run of prose beneath to wrap around.
+   *
+   * If no paragraph ever follows - the piece ends on a subhead, a list or an
+   * image - the ad is dropped rather than placed where nothing can wrap. A
+   * floated ad with no text beside it is worth less than the space it takes.
+   */
+  let want: 'B' | 'C' | undefined
+
   for (const block of blocks) {
+    if (want && isPara(block)) {
+      flush(want)
+      want = undefined
+    }
     current.push(block)
     if (!isPara(block)) continue
 
     paragraphs += 1
-    if (paragraphs === slotB) flush('B')
-    else if (paragraphs === slotC) flush('C')
+    if (paragraphs === slotB) want = 'B'
+    else if (paragraphs === slotC) want = 'C'
   }
   if (current.length || pending) flush()
 

@@ -79,20 +79,28 @@ export async function SiteFooter() {
 
           <div className="cols">
             <div>
+              {/* Ordered by real readership, same order as the homepage.
+                  Screen and Current were missing until Nov 2026, which left the
+                  two best-read sections on the site out of the one set of links
+                  that appears on every page. */}
               <h4>Sections</h4>
               <ul>
+                <li><Link href="/screen">Screen</Link></li>
+                <li><Link href="/current">Current</Link></li>
                 <li><Link href="/faith">Faith</Link></li>
                 <li><Link href="/culture">Culture</Link></li>
                 <li><Link href="/work-money">Work &amp; money</Link></li>
+                <li><Link href="/heritage">Heritage</Link></li>
+                <li><Link href="/technology">Technology</Link></li>
                 <li><Link href="/wellbeing">Wellbeing</Link></li>
                 <li><Link href="/campus">Campus</Link></li>
-                <li><Link href="/heritage">Heritage</Link></li>
               </ul>
             </div>
             <div>
               <h4>Read</h4>
               <ul>
                 <li><Link href="/interviews">Cover stories</Link></li>
+                <li><Link href="/rewind">5Talents Rewind</Link></li>
                 <li><Link href="/talent-search">Talent search</Link></li>
                 <li><Link href="/issues">Issues</Link></li>
                 <li><Link href="/archive">The archive</Link></li>
@@ -120,10 +128,12 @@ export async function SiteFooter() {
                 <li><Link href="/terms">Terms of use</Link></li>
               </ul>
             </div>
+            <div>
+              <h4>Follow us</h4>
+              <SocialLinks socials={socials} className="footer-follow" text />
+            </div>
           </div>
         </div>
-
-        <SocialLinks socials={socials} className="footer-socials social-links" />
 
         {/* Two asks, not two policies. The bell renders nothing where push
             cannot work: no PushManager, permission already refused, or an
@@ -133,7 +143,7 @@ export async function SiteFooter() {
           <PushBell />
           <a
             className="pushbell"
-            href={preferredSourceUrl}
+            href={`${preferredSourceUrl}#footer`}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -31,6 +31,7 @@ import { ShareBar } from '@/components/ShareBar'
 import { EndCards } from '@/components/EndCards'
 import { ArticleLicence, CC_BY_ND, isOpenLicensed } from '@/components/ArticleLicence'
 import { PushSlideIn } from '@/components/PushSubscribe'
+import { PreferredSource } from '@/components/PreferredSource'
 import { ReaderRevenue } from '@/components/ReaderRevenue'
 import { FindThem, Sources, type FindThemData, type Source } from '@/components/FindThem'
 import { ReadTracker } from '@/components/ReadTracker'
@@ -465,6 +466,13 @@ export default async function ArticlePage(props: Props) {
               <OnRewind episodes={rewindEpisodes} />
 
               <ShareBar url={shareUrl} title={article.title ?? ''} deck={article.deck} />
+
+              {/* With the share buttons, not after the ad: the two asks that
+                  cost a reader nothing belong together, at the moment they
+                  have just finished and are best disposed towards us. The
+                  copy in the rail's ShareBar higher up is the same component;
+                  this ask deliberately appears once, at the end. */}
+              <PreferredSource />
 
               {!adsOff && <AdSlot slot="E" seed={slug} section={section} />}
 
