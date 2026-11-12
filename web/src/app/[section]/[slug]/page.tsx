@@ -38,7 +38,7 @@ import { ReadTracker } from '@/components/ReadTracker'
 import { WatchIt } from '@/components/WatchIt'
 import { OnRewind, type ArticleEpisode } from '@/components/Rewind'
 import { ArticleHero, ArticleMeta } from '@/components/ArticleHero'
-import { ListRow } from '@/components/Card'
+import { Card, ListRow } from '@/components/Card'
 import { NewsletterForm } from '@/components/NewsletterForm'
 import type { ArticleCardData } from '@/components/types'
 
@@ -152,12 +152,23 @@ export default async function ArticlePage(props: Props) {
   const sidebarCards = (sidebar ?? []) as ArticleCardData[]
 
   let related = (article.related ?? []) as ArticleCardData[]
+  /**
+   * Whether these are "more of this section" or an editor's own picks.
+   *
+   * It decides what the block is allowed to call itself. The fallback query is
+   * literally the latest three in this section, so "More in Culture" with a
+   * link to the section index is an accurate promise. An editor's picks can
+   * come from anywhere, and heading them with one section's name - or sending
+   * the reader to that index - would be a claim about them that is not true.
+   */
+  let relatedIsSection = false
   if (related.length === 0) {
     const { data } = await sanityFetch({
       query: ARTICLE_FALLBACK_RELATED_QUERY,
       params: { id: article._id, section },
     })
     related = (data ?? []) as ArticleCardData[]
+    relatedIsSection = related.length > 0
   }
 
   // Every one of these controls logic, so every one is cleaned first.
@@ -543,25 +554,47 @@ export default async function ArticlePage(props: Props) {
               )}
 
               {related.length > 0 && (
-                <section className="related">
-                  <h2>Read next</h2>
-                  <ol>
-                    {related.map((item) => (
-                      <li key={item._id}>
-                        <h3>
-                          <Link
-                            className="brush-link"
-                            href={articleHref(clean(item.section?.slug), clean(item.slug))}
-                          >
-                            {item.title}
-                          </Link>
-                        </h3>
-                        <p className="note">
-                          {[item.section?.name, joinNames(item.authors)].filter(Boolean).join(' · ')}
-                        </p>
-                      </li>
+                /*
+                 * Cards, not a list of headlines.
+                 *
+                 * The text list was the cheapest thing that could work and it
+                 * read like a footnote: three underlined lines at the point
+                 * where a reader has just finished and is deciding whether to
+                 * stay. Pictures are what make a next piece look worth
+                 * opening, which is why every other magazine ends this way.
+                 *
+                 * .sechead, .grid-compact and the compact Card are the same
+                 * three parts the homepage builds its section rows from, so
+                 * this introduces no new design language - the end of an
+                 * article now just looks like the rest of the magazine.
+                 */
+                <section className="related" aria-labelledby="read-next">
+                  <div className="sechead">
+                    <h2 className="brush-rule" id="read-next">
+                      {relatedIsSection && article.section?.name
+                        ? `More in ${clean(article.section.name)}`
+                        : 'Read next'}
+                    </h2>
+                    {relatedIsSection && article.section?.name && (
+                      <Link href={`/${section}`}>
+                        All {clean(article.section.name)} <span aria-hidden="true">→</span>
+                      </Link>
+                    )}
+                  </div>
+                  <div className="grid-compact">
+                    {related.slice(0, 3).map((item) => (
+                      <Card
+                        key={item._id}
+                        article={item}
+                        shape="compact"
+                        showDeck={false}
+                        /* The kicker repeats this article's own section on
+                           every card in the section case, which is noise -
+                           the heading above already said it. */
+                        showSection={!relatedIsSection}
+                      />
                     ))}
-                  </ol>
+                  </div>
                 </section>
               )}
             </div>

@@ -1,5 +1,5 @@
 {
-  "name": "5Talents — article publish to X + Facebook",
+  "name": "5Talents — article publish to X + Facebook + Telegram",
   "settings": {
     "executionOrder": "v1"
   },
@@ -22,10 +22,10 @@
       "parameters": {
         "mode": "runOnceForAllItems",
         "language": "javaScript",
-        "jsCode": "// ======== FILL THESE IN ========\n// From GET https://zernio.com/api/v1/accounts  (accounts[]._id)\nconst ZERNIO_X_ACCOUNT_ID  = 'PASTE_X_ACCOUNT_ID';\nconst ZERNIO_FB_ACCOUNT_ID = 'PASTE_FACEBOOK_ACCOUNT_ID';\nconst SITE = 'https://www.5talentsmag.com';\n// ===============================\n\nconst out = [];\n\nfor (const item of $input.all()) {\n  // Sanity posts the projection as the request body.\n  const b = item.json.body ?? item.json;\n\n  const title   = String(b.title   || '').trim();\n  const deck    = String(b.deck    || '').trim();\n  const slug    = String(b.slug    || '').trim();\n  const section = String(b.section || 'current').trim();\n  const id      = String(b._id || slug);\n\n  // No headline or no slug means the document is not ready to announce.\n  if (!title || !slug) continue;\n\n  const url = `${SITE}/${section}/${slug}?utm_source=social&utm_medium=organic&utm_campaign=auto-announce`;\n\n  // X counts every link as 23 characters regardless of its real length.\n  const LINK_COST = 23;\n  const room = 280 - LINK_COST - 2;\n  const xTitle = title.length > room\n    ? title.slice(0, room - 1).trimEnd() + '\\u2026'\n    : title;\n  const xText = `${xTitle}\\n\\n${url}`;\n\n  // Facebook has room for the deck as well.\n  const fbText = deck\n    ? `${title}\\n\\n${deck}\\n\\n${url}`\n    : `${title}\\n\\n${url}`;\n\n  out.push({\n    json: {\n      articleId: id,\n      title,\n      deck,\n      url,\n      xText,\n      fbText,\n      xAccountId: ZERNIO_X_ACCOUNT_ID,\n      fbAccountId: ZERNIO_FB_ACCOUNT_ID\n    }\n  });\n}\n\nreturn out;"
+        "jsCode": "// ======== FILL THESE IN ========\n// From GET https://zernio.com/api/v1/accounts  (accounts[]._id)\nconst ZERNIO_X_ACCOUNT_ID  = 'PASTE_X_ACCOUNT_ID';\nconst ZERNIO_FB_ACCOUNT_ID = 'PASTE_FACEBOOK_ACCOUNT_ID';\nconst SITE = 'https://www.5talentsmag.com';\n// ===============================\n\nconst out = [];\n\nfor (const item of $input.all()) {\n  // Sanity posts the projection as the request body.\n  const b = item.json.body ?? item.json;\n\n  const title   = String(b.title   || '').trim();\n  const deck    = String(b.deck    || '').trim();\n  const slug    = String(b.slug    || '').trim();\n  const section = String(b.section || 'current').trim();\n  const id      = String(b._id || slug);\n\n  // No headline or no slug means the document is not ready to announce.\n  if (!title || !slug) continue;\n\n  const url = `${SITE}/${section}/${slug}?utm_source=social&utm_medium=organic&utm_campaign=auto-announce`;\n\n  // X counts every link as 23 characters regardless of its real length.\n  const LINK_COST = 23;\n  const room = 280 - LINK_COST - 2;\n  const xTitle = title.length > room\n    ? title.slice(0, room - 1).trimEnd() + '\\u2026'\n    : title;\n  const xText = `${xTitle}\\n\\n${url}`;\n\n  // Facebook has room for the deck as well.\n  const fbText = deck\n    ? `${title}\\n\\n${deck}\\n\\n${url}`\n    : `${title}\\n\\n${url}`;\n\n  // Telegram, sent with parse_mode HTML. The three characters that can open a\n  // tag have to be escaped or Telegram rejects the whole message - a headline\n  // with an ampersand in it would silently never post.\n  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\n  const tgText = deck\n    ? `<b>${esc(title)}</b>\\n\\n${esc(deck)}\\n\\n${url}`\n    : `<b>${esc(title)}</b>\\n\\n${url}`;\n\n  out.push({\n    json: {\n      articleId: id,\n      title,\n      deck,\n      url,\n      xText,\n      fbText,\n      tgText,\n      xAccountId: ZERNIO_X_ACCOUNT_ID,\n      fbAccountId: ZERNIO_FB_ACCOUNT_ID\n    }\n  });\n}\n\nreturn out;"
       },
       "id": "a1000000-0000-4000-8000-000000000002",
-      "name": "Build the two posts",
+      "name": "Build the posts",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [0, 300]
@@ -113,6 +113,22 @@
       "typeVersion": 4.2,
       "position": [460, 420],
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "chatId": "@5talentsmag",
+        "text": "={{ $json.tgText }}",
+        "additionalFields": {
+          "parse_mode": "HTML",
+          "disable_web_page_preview": false
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000006",
+      "name": "Post to Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [460, 640],
+      "onError": "continueRegularOutput"
     }
   ],
   "connections": {
@@ -120,14 +136,14 @@
       "main": [
         [
           {
-            "node": "Build the two posts",
+            "node": "Build the posts",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Build the two posts": {
+    "Build the posts": {
       "main": [
         [
           {
@@ -148,6 +164,11 @@
           },
           {
             "node": "Post to Facebook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Post to Telegram",
             "type": "main",
             "index": 0
           }

@@ -133,7 +133,11 @@ export default async function SectionPage(props: Props) {
       <main>
         <div className="wrap sectionhead">
           <h1>{sectionMeta.name}</h1>
-          {sectionMeta.description && <p className="sectionhead__deck">{sectionMeta.description}</p>}
+          {/* The section description is deliberately not shown. One word in
+              Anton at display size says what the section is; a sentence of
+              italic underneath it explained the obvious and pushed the first
+              story further down. It is still fetched and still used - as the
+              page's meta description, where it does real work. */}
 
           {siblings.length > 0 && (
             <nav className="sectionhead__siblings" aria-label="Other sections">
@@ -176,6 +180,13 @@ export default async function SectionPage(props: Props) {
                         key={article._id}
                         article={article}
                         showSection={false}
+                        // Headline only. Four columns of deck turned the grid
+                        // into four columns of prose, and the standfirsts ran
+                        // to different lengths, so the cards lost their
+                        // baseline and the row read as ragged rather than as a
+                        // set. The headlines here are long enough to carry the
+                        // story on their own.
+                        showDeck={false}
                         // On the stream every card would otherwise read CURRENT.
                         label={section === 'current' ? clean(article.franchise?.name) : undefined}
                       />

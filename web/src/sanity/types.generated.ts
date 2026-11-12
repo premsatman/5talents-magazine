@@ -143,11 +143,14 @@ export type BlockContent = Array<
     }
 >;
 
-export type PodcastShowReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "podcastShow";
+export type PushStats = {
+  _id: string;
+  _type: "pushStats";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  subscribers?: number;
+  checkedAt?: string;
 };
 
 export type ArticleReference = {
@@ -155,6 +158,28 @@ export type ArticleReference = {
   _type: "reference";
   _weak?: boolean;
   [internalGroqTypeReferenceTo]?: "article";
+};
+
+export type PushSend = {
+  _id: string;
+  _type: "pushSend";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  article?: ArticleReference;
+  headline?: string;
+  slug?: string;
+  sentAt?: string;
+  attempted?: number;
+  delivered?: number;
+  removed?: number;
+};
+
+export type PodcastShowReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "podcastShow";
 };
 
 export type PodcastEpisode = {
@@ -806,8 +831,10 @@ export type AllSanitySchemaTypes =
   | ExternalImage
   | SanityImageAssetReference
   | BlockContent
-  | PodcastShowReference
+  | PushStats
   | ArticleReference
+  | PushSend
+  | PodcastShowReference
   | PodcastEpisode
   | Slug
   | PodcastShow

@@ -245,19 +245,11 @@ blockquote cite {
 .authorcard h3 a { text-decoration: none; }
 .authorcard p { font-size: 0.92rem; color: var(--ink-secondary); margin: 0; }
 
+/* "More in <section>" under an article. The block is now .sechead plus
+   .grid-compact plus compact Cards - the same parts as a homepage section row
+   - so the only thing left to say here is how far it sits from the piece
+   above it. The old rules for an <ol> of headlines went with the list. */
 .related { margin-top: var(--s-7); }
-.related h2 {
-  font-family: var(--font-sans); font-weight: 600; font-size: 0.88rem;
-  letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 var(--s-4);
-}
-.related ol { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
-.related li { border-bottom: 1px solid var(--rule); padding: var(--s-3) 0; }
-.related h3 {
-  font-family: var(--font-serif); font-weight: 500; font-size: var(--step-1);
-  line-height: 1.25; margin: 0 0 4px;
-}
-.related h3 a { text-decoration: none; }
-.related .note { font-family: var(--font-sans); font-size: 0.76rem; color: var(--ink-muted); margin: 0; }
 
 /* Provenance banner on republished archive pieces. */
 .provenance {
@@ -356,11 +348,6 @@ blockquote cite {
   font-family: var(--font-display);
   font-size: var(--step-4); line-height: 0.95; letter-spacing: -0.015em;
   margin: 0;
-}
-.sectionhead__deck {
-  max-width: 46ch; margin: var(--s-3) auto 0;
-  color: var(--ink-secondary); font-size: var(--step-1); font-style: italic;
-  text-wrap: balance;
 }
 .sectionhead__siblings {
   display: flex; flex-wrap: wrap; justify-content: center;
