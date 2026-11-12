@@ -57,9 +57,21 @@ const resolve = (platform: string | null | undefined, url: string | null | undef
 export function SocialLinks({
   socials,
   className = 'social-links',
+  text = false,
 }: {
   socials: (Social | null | undefined)[]
   className?: string
+  /**
+   * Render the platform names as words instead of icon buttons.
+   *
+   * The footer uses this. Words solve three things a 40px icon row cannot: a
+   * crawler and an AI summariser read "YouTube" rather than a path element or a
+   * monogram; a platform with no official single-path SVG (Flipboard, Pinterest,
+   * Threads, Google News) costs nothing to add, so the list is no longer capped
+   * by how many marks we have traced; and we never have to redraw a trademark,
+   * which the note at the top of this file rightly warns against.
+   */
+  text?: boolean
 }) {
   const items = socials
     .map((social) => {
@@ -71,6 +83,22 @@ export function SocialLinks({
     .filter(Boolean) as { url: string; platform: string; icon: Known | null }[]
 
   if (items.length === 0) return null
+
+  // Words. Inherits footer.site ul/li/a, so it needs no CSS of its own and sits
+  // in the .cols grid as one more column.
+  if (text) {
+    return (
+      <ul className={className} aria-label="Social media">
+        {items.map((item) => (
+          <li key={item.url}>
+            <a href={item.url} rel="noopener noreferrer" target="_blank">
+              {item.platform}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
 
   return (
     <ul className={className} aria-label="Social media">
