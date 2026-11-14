@@ -6,7 +6,7 @@ import { clean } from '@/sanity/stega'
 import { tagline } from '@/lib/site'
 import { ThemeToggle } from './ThemeToggle'
 import { SubscribeButton } from './SubscribeButton'
-import { BrushStroke } from './Wordmark'
+import { Wordmark } from './Wordmark'
 import { PrimaryNav, type NavItem } from './PrimaryNav'
 
 const FALLBACK_NAV: NavItem[] = [
@@ -87,14 +87,11 @@ export async function SiteHeader() {
       <UtilityBar />
       <header className="masthead">
         <div className="wrap">
-          {/* Shrink-wrapped to the lettering so the brush below can be
-              width:100% and still stop at the last letter. */}
-          <div className="masthead__mark">
-            <p className="logo">
-              <Link href="/">5TALENTS</Link>
-            </p>
-            <BrushStroke />
-          </div>
+          <p className="logo">
+            <Link href="/">
+              <Wordmark />
+            </Link>
+          </p>
           <p className="tagline">{tagline}</p>
         </div>
       </header>

@@ -7,7 +7,7 @@ import { imprint } from '@/lib/publisher'
 import { NewsletterForm } from './NewsletterForm'
 import { SocialLinks } from './SocialLinks'
 import { PushBell } from './PushSubscribe'
-import { BrushStroke } from './Wordmark'
+import { Wordmark } from './Wordmark'
 
 /**
  * Footer.
@@ -72,10 +72,9 @@ export async function SiteFooter() {
       <div className="wrap">
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="footer-mark">
-              <p className="footer-logo">5TALENTS</p>
-              <BrushStroke className="footer-stroke" />
-            </div>
+            <p className="footer-logo">
+              <Wordmark />
+            </p>
             <p className="footer-tagline">{tagline}</p>
           </div>
 

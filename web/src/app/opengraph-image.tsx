@@ -1,11 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { siteName, tagline } from '@/lib/site'
-import {
-  BRUSH_DATA_URI,
-  BRUSH_RATIO,
-  WORDMARK_PAPER_DATA_URI,
-  WORDMARK_RATIO,
-} from '@/lib/wordmark-art'
+import { WORDMARK_PAPER_DATA_URI, WORDMARK_RATIO } from '@/lib/wordmark-art'
 
 /**
  * Default share card.
@@ -56,22 +51,9 @@ export default async function Image() {
             alt=""
           />
 
-          {/* The same brush sweep the site draws, running the full width of
-              the lettering. It used to be a plain yellow rectangle at 72%
-              width, because Satori's transform support is patchy - but the
-              rise and the ragged ends are in the path geometry here, not a
-              transform, so Satori renders them. */}
-          <img
-            src={BRUSH_DATA_URI}
-            width={WORDMARK_WIDTH}
-            height={Math.round(WORDMARK_WIDTH / BRUSH_RATIO)}
-            style={{ marginTop: 14 }}
-            alt=""
-          />
-
           <div
             style={{
-              marginTop: 42,
+              marginTop: 36,
               fontSize: 34,
               color: '#C3BFB2',
               display: 'flex',

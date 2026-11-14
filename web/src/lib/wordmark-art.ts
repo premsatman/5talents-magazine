@@ -1,37 +1,26 @@
 /**
  * The logotype as outlines, for places that cannot run a webfont.
  *
- * public/wordmark.svg is the lettering in `currentColor`, for anything outside
- * the app - press kit, email, partner decks. This module holds the share-card
- * copies, base64'd, because Satori resolves an <img> data URI synchronously
- * and a relative /wordmark.svg would have to be fetched from a deployment that
- * is not live yet at build time.
+ * public/wordmark.svg is the same artwork in `currentColor`, for anything
+ * outside the app - press kit, email, partner decks. This module holds the
+ * share-card copy, recoloured to PAPER and base64'd, because Satori resolves
+ * an <img> data URI synchronously and a relative /wordmark.svg would have to
+ * be fetched from a deployment that is not live yet at build time.
  *
- * Generated - do not hand-edit the strings. Re-run the snippet at the foot of
- * this file after changing public/wordmark.svg or the brush paths in
- * components/Wordmark.tsx, which is where the brush actually lives.
+ * Generated - do not hand-edit the string. Re-run the snippet at the foot of
+ * this file if public/wordmark.svg changes.
  */
 
-/** Intrinsic ratio of the lettering: 744.57 x 179.2. */
+/** Intrinsic ratio of the artwork: 744.57 x 179.2. */
 export const WORDMARK_RATIO = 4.1549
-
-/** Intrinsic ratio of the brush sweep: 800 x 29. */
-export const BRUSH_RATIO = 27.586
 
 export const WORDMARK_PAPER_DATA_URI =
   'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9Ijc5LjIgMi43MSA3NDQuNTcgMTc5LjIiPjxwYXRoIGZpbGw9IiNGREZDRjciIGQ9Ik0xMDUuMjMgMTIzLjM1djE2LjI2cTAgOS41MiAzLjg4IDEzLjI3dDEwLjM5IDMuNzVxNi41IDAgMTAuMzctMy43NSAzLjktMy43NSAzLjktMTMuMjd2LTM4LjU0cTAtOS41MS0zLjktMTMuMzgtMy44Ny0zLjktMTAuMzctMy44OXQtMTAuNCAzLjlxLTMuODcgMy44Ni0zLjg3IDEzLjM3djUuMjZINzkuMmw1LTEwMS42Mmg3Mi41OHYyNS4wM2gtNDcuOGwtMi4yNSA0MS44cTcuNzYtMTIuNzcgMjQuMDItMTIuNzcgMTUuMjcgMCAyMi45IDEwLjI3IDcuNjUgMTAuMjYgNy42NSAyOS43OHYzOS4wNHEwIDIxLjI5LTEwLjQgMzIuNjgtMTAuMzggMTEuMzctMzAuNjUgMTEuMzctMjAuMjggMC0zMC42Ny0xMS4zNy0xMC4zOC0xMS40LTEwLjM4LTMyLjY4di0xNC41MVpNMTcyLjA1IDQuN2g4NS4wOXYyNS4wNGgtMjguNzhWMTc5LjloLTI3LjUzVjI5Ljc0aC0yOC43OFptMTg2LjcxIDE3NS4yMWgtMjcuNzlsLTQuNzUtMzEuNzhoLTMzLjhsLTQuNzQgMzEuNzhIMjYyLjRsMjguMDMtMTc1LjJoNDAuM1ptLTYyLjgyLTU1LjU2aDI2LjUzbC0xMy4yNi04OC42Wk0zNzEuNTMgNC43aDI3LjUzdjE1MC4xOGg0NS4zdjI1LjAzaC03Mi44M1pNNDg0LjQgNzguNTVoMzcuNzh2MjUuMDNINDg0LjR2NTEuM2g0Ny41NXYyNS4wM2gtNzUuMDhWNC43MWg3NS4wOHYyNS4wM0g0ODQuNFptODkuMDktMjUuNTN2MTI2Ljg5aC0yNC43N1Y0LjcxaDM0LjUzbDI4LjI4IDEwNC44N1Y0LjcxaDI0LjU0djE3NS4yaC0yOC4yOVpNNjQ4LjMyIDQuN2g4NS4xdjI1LjA0aC0yOC43OFYxNzkuOUg2NzcuMVYyOS43NGgtMjguNzlabTk0LjEgNDIuMDVxMC0yMS4yNiAxMC4xNC0zMi42NVE3NjIuNyAyLjcgNzgyLjk3IDIuN3EyMC4yOCAwIDMwLjQgMTEuNCAxMC4xNSAxMS40IDEwLjE1IDMyLjY1djYuNzdoLTI2LjAzVjQ1cTAtOS40OS0zLjYzLTEzLjM3LTMuNjMtMy45LTEwLjE0LTMuOS02LjUgMC0xMC4xNCAzLjktMy42MiAzLjg4LTMuNjIgMTMuMzcgMCA5LjAzIDQgMTUuOTFhNjcgNjcgMCAwIDAgMTAuMDEgMTMuMDJxNiA2LjEyIDEyLjkgMTIuMjYgNi44OCA2LjEzIDEyLjg4IDEzLjRhNjggNjggMCAwIDEgMTAuMDIgMTYuNXE0IDkuMjcgNCAyMS43NyAwIDIxLjI5LTEwLjQgMzIuNjhRODAzIDE4MS45IDc4Mi43MyAxODEuOXEtMjAuMjYgMC0zMC42Ni0xMS4zNy0xMC4zOC0xMS40LTEwLjM5LTMyLjY4di0xMi4wMWgyNi4wNHYxMy43NnEwIDkuNTIgMy44NyAxMy4yNyAzLjkgMy43NSAxMC40IDMuNzV0MTAuMzgtMy43NSAzLjg4LTEzLjI3cTAtOS00LTE1Ljg5dC0xMC4wMi0xMy4wMXEtNi02LjEyLTEyLjg5LTEyLjI1LTYuODgtNi4xNS0xMi44OS0xMy40YTY5IDY5IDAgMCAxLTEwLjAyLTE2LjUycS00LTkuMjctNC0yMS43OW0wIDAiLz48L3N2Zz4='
 
-export const BRUSH_DATA_URI =
-  'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgMjkiIGZpbGw9IiNGREVGMEEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGQ9Im0zOTkgMTktMSAyaC0xbC0zIDFoLTJsLTUgMWgtMzNsLTExIDFoLTU0bC0xNi0xaC00MWwtOS0xLTIyIDFoLTI1IDMxbC0zIDFoLTExbC0xOCAxSDcxbC0xNiAxSDM0bC00IDFIMTZsLTMgMUg1bC00IDFxLTIgMCAwLTFsMS0xaDNsMy0xaDF2LTJoNnYtMWgxLTFsLTEtMWgxdi0xaDRsMS0xaDV2LTFoMnYtMWgtM2wtMS0xaDVsMS0xaDJsLTEtMWgtOXYtMmg1bDctMWg1bDMtMWg2bDUtMWgxNWwxNS0xIDI3LTFoNTZsMTAtMWgxN3YxaC0xMiAzbDEgMWgxbDEtMWgxNHYxaDlxMSAwIDAgMGgtMTRsMiAxaDYtMSAyM2wzIDFoNTFsNy0xaDJ2MWgxbDEtMWgxLTFsLTgtMWgtMjdsLTYtMWgyM2wxLTFoLTE1IDFsNy0xLTEgMWgybDQtMWg0MFY1aDI3bDMgMWg0NGw0IDFoM2wyIDEgMSAxdjRsLTEgMWgtMmwtMSAxaDJsMiAxIDIgMWgxdjFoMXptLTI2MyA1cS0xIDAgMCAwbTY5LTZoLTFabTUzLTZoMXptLTMgMGgydi0xem0tMyAwaC02bC0xLTFoLTVsLTUgMWgtMTUgMjF6bTEwIDBoLTEzIDEyem00IDBoLTN6bTQ3LTYtNCAxaDF6bTgzIDE1Ii8+PHBhdGggZD0ibTM3MSAxMCAxLTEgMS0xIDMtMWg4bDMtMWgxNDJsOCAxaDQ3bDExLTFoNGw1IDFoMWw1LTFoMS0zM2wyLTFoMzNsOS0xaDExN2wxMC0xaDEzbDUtMSA0IDEgMTEtMSAzLTFoNmwyLTFoNXYxbC0xIDFoLTRsLTMgMS0xIDF2MWgtM2wtMyAxaC0xdjFoMmwtMSAxaC01cTAgMi0xIDFsLTEgMWgtNHYxaC0ybDEgMWgzbC0zIDFoLTN2MWgtMnEtMSAwIDAgMGgtMWwxIDFoMTBsMSAyaC02bC04IDEtNSAxaC02bC0xIDFoLThsLTE2IDFoLTE2bC0zMCAxaC00NWwtMTQgMWgtMjlxLTIgMCAwIDBoMmwyLTFoOS0zMWwtMS0xIDIgMSA1LTFoOC00bC0zLTFoLTQzbC01LTFoLTIwbC02IDFoLTE5di0xIDFoLTMgMWw4IDFoMzBsNiAxLTEyIDFoLTVsLTEtMS0xIDFoLTYgMTZsLTIgMWgtNyAxLTZsLTggMWgtODNsLTE0LTFoLTIzbC0yLTFoLTFsLTEtMS0yLTF2LTNoMXYtMWwxLTFoMWwxLTFoMS0xbC0yLTFoLTJsLTItMS0xLTFoLTF6bTE1MSA5aC0xem0zIDBoLTJ6bTQtMWgtMWwtMSAxaDE0bDUtMWg5bDEgMSAzLTFoMy0yMnptLTExIDBoMTQtMTN6bS00IDBoM3ptLTMxIDJoMXptLTIwIDRoNHpNMzc0IDgiLz48L3N2Zz4='
-
 /*
   cd web && python3 - <<'EOF'
-  import base64, pathlib, re
+  import base64, pathlib
   w = pathlib.Path('public/wordmark.svg').read_text().strip()
-  ds = re.findall(r'<path d="([^"]+)" />', pathlib.Path('src/components/Wordmark.tsx').read_text())
-  b = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 29" fill="#FDEF0A" '
-       'preserveAspectRatio="none">' + ''.join(f'<path d="{d}"/>' for d in ds) + '</svg>')
   print(base64.b64encode(w.replace('currentColor', '#FDFCF7').encode()).decode())
-  print(base64.b64encode(b.encode()).decode())
   EOF
 */

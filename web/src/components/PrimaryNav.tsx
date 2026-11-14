@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useId, useRef, useState } from 'react'
 import { SearchForm } from './SearchForm'
+import { Wordmark } from './Wordmark'
 
 export type NavItem = {
   name: string
@@ -84,7 +85,7 @@ export function PrimaryNav({ items, compact = false }: { items: NavItem[]; compa
 
         {compact && (
           <Link className="minilogo" href="/">
-            5TALENTS
+            <Wordmark />
           </Link>
         )}
 
