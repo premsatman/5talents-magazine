@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { sanityFetch } from '@/sanity/live'
 import {
+  CARDS_BY_IDS_QUERY,
   HOME_ARCHIVE_STRIP_QUERY,
   HOME_COMPACT_QUERY,
   HOME_HERO_QUERY,
@@ -14,6 +15,7 @@ import {
 import { urlFor, imgAlt, imgBlur } from '@/sanity/image'
 import { clean } from '@/sanity/stega'
 import { isSectionSlug } from '@/lib/sections'
+import { readMostRead } from '@/lib/most-read'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { AdSlot } from '@/components/AdSlot'
@@ -160,7 +162,29 @@ export default async function HomePage() {
 
   const heroCards = padded((hero.data ?? []) as ArticleCardData[], 3)
   const compactCards = padded((compact.data ?? []) as ArticleCardData[], 5)
-  const railCards = ((rail.data ?? []) as ArticleCardData[]).slice(0, 5)
+  /**
+   * The rail: GA4 ranking when we have one, recency when we do not.
+   *
+   * `mostRead` is five article ids with completion counts, refreshed daily by
+   * the cron. Cards are resolved from Sanity afterwards so headlines and images
+   * are never stale, and a piece retracted since the ranking was computed drops
+   * out - the query only returns live articles.
+   *
+   * When the table is empty - before the first cron run, or if GA4 is
+   * unreachable - this falls back to the recency query. The heading and the
+   * rank numbers follow: see `railRanked` below. A list that cannot prove it is
+   * most-read does not get to call itself that.
+   */
+  const mostRead = await readMostRead()
+  let railCards: ArticleCardData[] = []
+  if (mostRead.length > 0) {
+    const ids = mostRead.map((row) => row.article_id)
+    const { data } = await sanityFetch({ query: CARDS_BY_IDS_QUERY, params: { ids } })
+    const byId = new Map(((data ?? []) as ArticleCardData[]).map((a) => [a._id, a]))
+    railCards = ids.map((id: string) => byId.get(id)).filter(Boolean) as ArticleCardData[]
+  }
+  const railRanked = railCards.length > 0
+  if (!railRanked) railCards = ((rail.data ?? []) as ArticleCardData[]).slice(0, 5)
   const tailCards = padded((tail.data ?? []) as ArticleCardData[], layoutPreview ? 6 : 0)
 
   // Sanity's `ordering` field drives the nav. The homepage runs its own order,
@@ -253,12 +277,15 @@ export default async function HomePage() {
           <aside className="rail" aria-label="More from 5Talents">
             <div className="rail__sticky">
               <div className="sechead">
-                <h2 className="brush-rule">Most read</h2>
+                <h2 className="brush-rule">{railRanked ? 'Most read this month' : 'More stories'}</h2>
               </div>
               {railCards.length > 0 ? (
                 <ol className="listrows">
                   {railCards.map((article, i) => (
-                    <ListRow key={article._id} article={article} rank={i + 1} />
+                    /* The number is a rank only when it ranks something. On
+                       the recency fallback it is just a position, so it is not
+                       shown at all. */
+                    <ListRow key={article._id} article={article} rank={railRanked ? i + 1 : undefined} />
                   ))}
                 </ol>
               ) : (

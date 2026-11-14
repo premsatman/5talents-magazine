@@ -731,6 +731,19 @@ export const PUSH_ARTICLE_QUERY = /* groq */ `
   }
 `
 
+/**
+ * Cards for a list of article ids, used by the GA4-ranked "Most read" rail.
+ *
+ * Returns them in whatever order Sanity likes; the caller re-sorts to the
+ * ranking it asked for. Not a defineQuery for the same reason as
+ * PUSH_ARTICLE_QUERY: its result is cast at the call site, so leaving it out
+ * of typegen keeps the other queries' generated types from going stale when
+ * someone edits this one without re-running it.
+ */
+export const CARDS_BY_IDS_QUERY = /* groq */ `
+  *[${live} && _id in $ids]{ ${cardFragment} }
+`
+
 export const SITEMAP_QUERY = defineQuery(/* groq */ `{
   "articles": *[${live} && seo.noIndex != true]{
     "slug": slug.current, "section": section->slug.current, _updatedAt,

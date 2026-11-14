@@ -4,6 +4,7 @@ import { submitToIndexNow, urlsFor, type IndexableArticle } from '@/lib/indexnow
 import { sendArticlePush, type PushArticle } from '@/lib/push'
 import { countSubscriptions } from '@/lib/push-store'
 import { recordSubscriberCount } from '@/lib/push-sanity'
+import { refreshMostRead } from '@/lib/most-read'
 
 /**
  * Daily sweep: ping every article that went live in the last 26 hours.
@@ -87,5 +88,20 @@ export async function GET(req: NextRequest) {
     /* the sweep's job is IndexNow; a count is not worth failing it */
   }
 
-  return NextResponse.json({ articles: rows.length, ...result, pushes, subscribers })
+  /**
+   * Re-rank the homepage's "Most read" rail from GA4.
+   *
+   * Here rather than in its own cron because Vercel's hobby-tier cron budget
+   * is small and this needs to run exactly as often as the sweep does - once a
+   * day is ample for a 30-day window. Failures are reported, never thrown: the
+   * rail falls back to recency on its own, and IndexNow is this route's job.
+   */
+  let mostRead: Awaited<ReturnType<typeof refreshMostRead>>
+  try {
+    mostRead = await refreshMostRead()
+  } catch (error) {
+    mostRead = { ok: false, reason: error instanceof Error ? error.message : 'unknown' }
+  }
+
+  return NextResponse.json({ articles: rows.length, ...result, pushes, subscribers, mostRead })
 }
