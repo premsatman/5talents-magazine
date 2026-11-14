@@ -1,5 +1,11 @@
 import { ImageResponse } from 'next/og'
 import { siteName, tagline } from '@/lib/site'
+import {
+  BRUSH_DATA_URI,
+  BRUSH_RATIO,
+  WORDMARK_PAPER_DATA_URI,
+  WORDMARK_RATIO,
+} from '@/lib/wordmark-art'
 
 /**
  * Default share card.
@@ -20,35 +26,10 @@ export const contentType = 'image/png'
 
 const INK = '#14130E'
 const PAPER = '#FDFCF7'
-const HIGHLIGHT = '#FDEF0A'
 
-/**
- * Satori cannot read woff2, and fonts.googleapis.com only serves ttf to an
- * older User-Agent. If anything here fails the card still renders in the
- * default sans - a slightly off wordmark beats a broken build.
- */
-async function antonFont(): Promise<ArrayBuffer | null> {
-  try {
-    const css = await fetch('https://fonts.googleapis.com/css2?family=Anton', {
-      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1)' },
-      next: { revalidate: 86400 },
-    }).then((r) => r.text())
-
-    const url = css.match(/src:\s*url\(([^)]+)\)/)?.[1]
-    if (!url) return null
-
-    const res = await fetch(url)
-    if (!res.ok) return null
-    return await res.arrayBuffer()
-  } catch {
-    return null
-  }
-}
+const WORDMARK_WIDTH = 720
 
 export default async function Image() {
-  const anton = await antonFont()
-  const display = anton ? 'Anton' : 'sans-serif'
-
   return new ImageResponse(
     (
       <div
@@ -64,29 +45,28 @@ export default async function Image() {
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div
-            style={{
-              fontFamily: display,
-              fontSize: 172,
-              lineHeight: 1,
-              letterSpacing: -4,
-              display: 'flex',
-            }}
-          >
-            5TALENTS
-          </div>
+          {/* The real logotype, as outlines. Drawn text here used to be Anton
+              pulled from fonts.googleapis.com on every render: the wrong face
+              (the wordmark is Bebas Neue), and a network call that silently
+              fell back to system sans whenever it failed. */}
+          <img
+            src={WORDMARK_PAPER_DATA_URI}
+            width={WORDMARK_WIDTH}
+            height={Math.round(WORDMARK_WIDTH / WORDMARK_RATIO)}
+            alt=""
+          />
 
-          {/* The brush stroke, as a plain block. Satori's transform support is
-              patchy, so this is a rectangle rather than the skewed sweep used
-              on the site itself. */}
-          <div
-            style={{
-              width: 560,
-              height: 26,
-              background: HIGHLIGHT,
-              marginTop: 18,
-              display: 'flex',
-            }}
+          {/* The same brush sweep the site draws, running the full width of
+              the lettering. It used to be a plain yellow rectangle at 72%
+              width, because Satori's transform support is patchy - but the
+              rise and the ragged ends are in the path geometry here, not a
+              transform, so Satori renders them. */}
+          <img
+            src={BRUSH_DATA_URI}
+            width={WORDMARK_WIDTH}
+            height={Math.round(WORDMARK_WIDTH / BRUSH_RATIO)}
+            style={{ marginTop: 14 }}
+            alt=""
           />
 
           <div
@@ -119,11 +99,6 @@ export default async function Image() {
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: anton
-        ? [{ name: 'Anton', data: anton, style: 'normal', weight: 400 }]
-        : undefined,
-    },
+    size,
   )
 }

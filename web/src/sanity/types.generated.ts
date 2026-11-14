@@ -130,6 +130,7 @@ export type BlockContent = Array<
     }
   | {
       text?: string;
+      kind?: "note" | "correction";
       placement?: "top" | "foot";
       _type: "editorsNote";
       _key: string;
@@ -2054,6 +2055,7 @@ export type ARTICLE_QUERY_RESULT = {
       }
     | {
         text?: string;
+        kind?: "correction" | "note";
         placement?: "foot" | "top";
         _type: "editorsNote";
         _key: string;
@@ -3055,6 +3057,7 @@ export type FEED_QUERY_RESULT = Array<{
       }
     | {
         text?: string;
+        kind?: "correction" | "note";
         placement?: "foot" | "top";
         _type: "editorsNote";
         _key: string;
@@ -3202,6 +3205,7 @@ export type SECTION_FEED_QUERY_RESULT = Array<{
       }
     | {
         text?: string;
+        kind?: "correction" | "note";
         placement?: "foot" | "top";
         _type: "editorsNote";
         _key: string;

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import {
   Anton,
   Archivo,
+  Bebas_Neue,
   Fraunces,
   Newsreader,
   Space_Grotesk,
@@ -21,10 +22,19 @@ import './globals.css'
  *
  * Two roles, deliberately separated:
  *
- *   --font-wordmark   Anton, always. It is the closest living relative to the
- *                     masthead that ran across all eighteen early issues, and it
- *                     is the one piece of the identity worth keeping fixed
- *                     while the rest is still moving.
+ *   --font-wordmark   Bebas Neue - the face the logo is actually set in.
+ *                     Anton stood in for it on the reasoning that it was the
+ *                     closest living relative to the masthead that ran across
+ *                     all eighteen early issues; the real thing turned out to
+ *                     be available. Still the one piece of the identity kept
+ *                     fixed while the rest of the type moves, with Anton left
+ *                     behind it in the stack as the fallback it always was in
+ *                     spirit.
+ *
+ *                     Google serves Bebas Neue for Latin. The Cyrillic release
+ *                     is a separate file with the same Latin letterforms - if
+ *                     the wordmark ever needs Cyrillic glyphs, that one has to
+ *                     be self-hosted, like Clash below.
  *
  *   --font-display    Headlines. Switchable, because Anton at 5.5rem is a
  *                     brick - condensed, uniformly heavy, and it flattens a
@@ -58,6 +68,14 @@ const anton = Anton({
   display: 'swap',
   // Also the wordmark, which is on every page - but the wordmark is small and
   // above the fold, so it is the one display face still worth preloading.
+})
+
+// The wordmark, on every page and above the fold, so this one preloads.
+const bebas = Bebas_Neue({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-bebas',
+  display: 'swap',
 })
 
 const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo', display: 'swap' })
@@ -210,6 +228,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       lang="en"
       data-display={choice}
       className={[
+        bebas.variable,
         anton.variable,
         archivo.variable,
         newsreader.variable,

@@ -64,7 +64,7 @@
   /* The wordmark stays Anton - it is the closest living relative of the
      printed masthead and the one fixed point in the identity. Headlines use
      --font-display, which layout.tsx sets from NEXT_PUBLIC_DISPLAY_FONT.     */
-  --font-wordmark:    var(--font-anton), 'Anton', 'Arial Narrow', Impact, sans-serif;
+  --font-wordmark:    var(--font-bebas), 'Bebas Neue', var(--font-anton), 'Anton', 'Arial Narrow', Impact, sans-serif;
   --font-display:     var(--font-display-active, var(--font-anton)), Georgia, serif;
   --font-sans:        var(--font-archivo), 'Archivo', system-ui, -apple-system, sans-serif;
   --font-serif:       var(--font-newsreader), 'Newsreader', Georgia, 'Times New Roman', serif;

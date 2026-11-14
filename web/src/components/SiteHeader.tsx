@@ -87,10 +87,14 @@ export async function SiteHeader() {
       <UtilityBar />
       <header className="masthead">
         <div className="wrap">
-          <p className="logo">
-            <Link href="/">5TALENTS</Link>
-          </p>
-          <BrushStroke />
+          {/* Shrink-wrapped to the lettering so the brush below can be
+              width:100% and still stop at the last letter. */}
+          <div className="masthead__mark">
+            <p className="logo">
+              <Link href="/">5TALENTS</Link>
+            </p>
+            <BrushStroke />
+          </div>
           <p className="tagline">{tagline}</p>
         </div>
       </header>

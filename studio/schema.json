@@ -717,6 +717,23 @@
                 },
                 "optional": true
               },
+              "kind": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "note"
+                    },
+                    {
+                      "type": "string",
+                      "value": "correction"
+                    }
+                  ]
+                },
+                "optional": true
+              },
               "placement": {
                 "type": "objectAttribute",
                 "value": {

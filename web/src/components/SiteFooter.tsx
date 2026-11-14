@@ -72,8 +72,10 @@ export async function SiteFooter() {
       <div className="wrap">
         <div className="footer-top">
           <div className="footer-brand">
-            <p className="footer-logo">5TALENTS</p>
-            <BrushStroke className="footer-stroke" />
+            <div className="footer-mark">
+              <p className="footer-logo">5TALENTS</p>
+              <BrushStroke className="footer-stroke" />
+            </div>
             <p className="footer-tagline">{tagline}</p>
           </div>
 
