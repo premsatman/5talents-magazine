@@ -19,6 +19,31 @@ export const siteSettings = defineType({
       group: 'identity',
       initialValue: '5Talents Magazine',
     }),
+    /**
+     * Which face sets the headlines. Read by web/src/app/layout.tsx.
+     *
+     * Only faces actually built into the site are listed. Clash Grotesk is
+     * deliberately absent until its file is installed: an option that silently
+     * falls through to Georgia would be a setting that does not do what it
+     * says, which is the failure republishConsent already represents here.
+     */
+    defineField({
+      name: 'displayFont',
+      title: 'Headline font',
+      type: 'string',
+      group: 'identity',
+      description:
+        'Sets the face used for headlines across the site. The wordmark stays Anton whatever this says. Changes appear on the next page rebuild, not instantly.',
+      options: {
+        list: [
+          { title: 'Fraunces - warm high-contrast serif (current)', value: 'fraunces' },
+          { title: 'Space Grotesk - grotesque sans', value: 'space-grotesk' },
+          { title: 'Anton - condensed, matches the masthead', value: 'anton' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'fraunces',
+    }),
     defineField({
       name: 'tagline',
       type: 'string',

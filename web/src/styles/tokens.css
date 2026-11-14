@@ -280,6 +280,27 @@
   font-variation-settings: 'SOFT' 20, 'WONK' 1;
 }
 
+/* Space Grotesk. A grotesque whose proportions are deliberately slightly off.
+   It sets wider than Fraunces at the same size, so it is pulled in a little
+   and tracked tighter to stop a long headline running to an extra line. */
+:root[data-display='space-grotesk'] {
+  --display-weight: 600;
+  --display-tracking: -0.03em;
+  --display-leading: 0.98;
+  --display-scale: 0.97;
+}
+
+/* Clash Grotesk. Same family of idea as Space Grotesk but tighter and more
+   closed, so it takes a touch less negative tracking. Has no effect until the
+   .woff2 is in src/fonts/ and the face is wired in layout.tsx - see the note
+   there. Kept here so the two land together when it is. */
+:root[data-display='clash-grotesk'] {
+  --display-weight: 600;
+  --display-tracking: -0.022em;
+  --display-leading: 0.96;
+  --display-scale: 0.98;
+}
+
 /* Bricolage Grotesque. Stays a sans, but with far more character than Anton. */
 :root[data-display='bricolage'] {
   --display-weight: 600;
@@ -298,4 +319,11 @@ h1, h2, h3,
   letter-spacing: var(--display-tracking);
 }
 .piecehero h1, .card__otitle { line-height: var(--display-leading); }
-.piecehero h1 { font-size: calc(var(--step-4) * var(--display-scale) * 0.86); }
+/* The article headline's size is NOT set here. This rule used to read
+   `font-size: calc(var(--step-4) * var(--display-scale) * 0.86)` and had no
+   effect for as long as it existed: globals.css imports this file at its first
+   line and then sets .piecehero h1 again at the same specificity, so the later
+   rule won every time. The per-face --display-scale tuning therefore never
+   reached the hero headline. Removed rather than fixed, because the size is
+   now a flat value in globals.css - but worth knowing if the fluid scale ever
+   comes back, in which case set it in globals.css, not here. */

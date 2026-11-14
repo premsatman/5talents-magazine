@@ -4,13 +4,15 @@ import {
   Archivo,
   Fraunces,
   Newsreader,
+  Space_Grotesk,
 } from 'next/font/google'
 import { draftMode } from 'next/headers'
 import { VisualEditing } from 'next-sanity/visual-editing'
 import { Analytics } from '@/components/Analytics'
 import { MetaPixel } from '@/components/MetaPixel'
 import { FloatingReel } from '@/components/FloatingReel'
-import { SanityLive } from '@/sanity/live'
+import { SanityLive, sanityFetch } from '@/sanity/live'
+import { DISPLAY_FONT_QUERY } from '@/sanity/queries'
 import { defaultDescription, siteName, siteUrl, tagline } from '@/lib/site'
 import './globals.css'
 
@@ -28,13 +30,35 @@ import './globals.css'
  *                     brick - condensed, uniformly heavy, and it flattens a
  *                     long headline into a wall.
  *
- * Fraunces was chosen (NEXT_PUBLIC_DISPLAY_FONT="fraunces"). Instrument Serif
- * and Bricolage Grotesque were removed on 21 Oct 2026: next/font ships and
- * preloads every face imported here, used or not, and the two spare families
- * were render-blocking weight on every page for no visible effect. To try one
- * again, re-import it and add it back to DISPLAY_FONTS and the class list.
+ * The face is now chosen in Sanity (Site settings -> Headline font) rather
+ * than by NEXT_PUBLIC_DISPLAY_FONT, which stays as the fallback for local work
+ * and for the moment before anyone has picked one.
+ *
+ * That has a cost worth stating plainly, because it partly undoes the 21 Oct
+ * 2026 decision. Instrument Serif and Bricolage were removed that day on the
+ * grounds that next/font ships and PRELOADS every face imported here, used or
+ * not, so spare families were render-blocking weight on every page. A font
+ * switchable from the dashboard has to be built, so every candidate must ship.
+ *
+ * The mitigation is `preload: false` on the display faces. Without a preload
+ * link the browser fetches a family only when something on the page actually
+ * renders in it - so the three it is not set to cost a few hundred bytes of
+ * CSS each and nothing more. The price is paid by the one that IS set: its
+ * file is discovered a beat later, so a headline can flash in the fallback
+ * serif first. Body text is unaffected; Newsreader and Archivo still preload.
+ *
+ * If that flash ever looks worse than the convenience is worth, the way back
+ * is to delete this field's use, pin the choice to the env var again, and set
+ * preload: true on the one face that remains.
  */
-const anton = Anton({ weight: '400', subsets: ['latin'], variable: '--font-anton', display: 'swap' })
+const anton = Anton({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-anton',
+  display: 'swap',
+  // Also the wordmark, which is on every page - but the wordmark is small and
+  // above the fold, so it is the one display face still worth preloading.
+})
 
 const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo', display: 'swap' })
 
@@ -52,34 +76,60 @@ const fraunces = Fraunces({
   axes: ['SOFT', 'WONK', 'opsz'],
   variable: '--font-fraunces',
   display: 'swap',
+  preload: false,
 })
 
 /**
- * Fontshare faces — Gambarino, Boska and the rest — are free for commercial use
- * under the ITF Free Font License but are not on Google Fonts, so they need the
- * file. Download it, drop the .woff2 into src/fonts/, then uncomment this and
- * add `gambarino: '--font-gambarino'` to DISPLAY_FONTS below.
+ * Space Grotesk. A grotesque with the proportions slightly off on purpose -
+ * the same family of idea as Clash, and the one of the two that Google serves,
+ * so it needs no download and self-hosts like the rest.
+ */
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
+  preload: false,
+})
+
+/**
+ * Clash Grotesk, from Fontshare. Free for commercial use under the ITF Free
+ * Font Licence, but not on Google Fonts, so it needs the file.
  *
- * See src/fonts/README.md for the full note, including why the free Casta is
- * not usable here.
+ * To switch it on, two edits and a download:
+ *   1. Get the variable .woff2 from fontshare.com/fonts/clash-grotesk and put
+ *      it in src/fonts/ClashGrotesk-Variable.woff2
+ *   2. Uncomment the block below, add `'clash-grotesk': '--font-clash-grotesk'`
+ *      to DISPLAY_FONTS, and add clashGrotesk.variable to the class list
+ *
+ * It is deliberately NOT listed as an option in Sanity until then. A dropdown
+ * entry that silently falls through to Georgia is worse than one that is not
+ * offered - see the note on republishConsent in issn/RIGHTS.md for what a
+ * field nothing honours costs.
  *
  * import localFont from 'next/font/local'
  *
- * const gambarino = localFont({
- *   src: '../fonts/Gambarino-Regular.woff2',
- *   variable: '--font-gambarino',
+ * const clashGrotesk = localFont({
+ *   src: '../fonts/ClashGrotesk-Variable.woff2',
+ *   variable: '--font-clash-grotesk',
  *   display: 'swap',
+ *   preload: false,
  * })
  */
-
 const DISPLAY_FONTS = {
   anton: '--font-anton',
   fraunces: '--font-fraunces',
+  'space-grotesk': '--font-space-grotesk',
 } as const
 
-const choice = (process.env.NEXT_PUBLIC_DISPLAY_FONT ??
-  'fraunces') as keyof typeof DISPLAY_FONTS
-const displayVar = DISPLAY_FONTS[choice] ?? DISPLAY_FONTS.fraunces
+type DisplayFont = keyof typeof DISPLAY_FONTS
+
+const FALLBACK = (process.env.NEXT_PUBLIC_DISPLAY_FONT ?? 'fraunces') as DisplayFont
+
+function resolveFont(chosen?: string | null): DisplayFont {
+  const key = (chosen ?? '') as DisplayFont
+  if (DISPLAY_FONTS[key]) return key
+  return DISPLAY_FONTS[FALLBACK] ? FALLBACK : 'fraunces'
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -139,6 +189,18 @@ const themeScript = `try{var t=localStorage.getItem('5t-theme');if(t==='dark'||t
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled: isDraft } = await draftMode()
 
+  // Cached and tag-revalidated like every other Sanity read, so this is not a
+  // round trip per page. If it fails the fallback stands and the site renders.
+  let chosen: string | null = null
+  try {
+    const { data } = await sanityFetch({ query: DISPLAY_FONT_QUERY, stega: false })
+    chosen = (data ?? null) as string | null
+  } catch {
+    /* fall through to the env default */
+  }
+  const choice = resolveFont(chosen)
+  const displayVar = DISPLAY_FONTS[choice]
+
   return (
     // suppressHydrationWarning is correct here and only here: the inline script
     // below sets data-theme on this element before React hydrates, so the
@@ -152,6 +214,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         archivo.variable,
         newsreader.variable,
         fraunces.variable,
+        spaceGrotesk.variable,
       ].join(' ')}
       style={{ ['--font-display-active' as string]: `var(${displayVar})` }}
       suppressHydrationWarning

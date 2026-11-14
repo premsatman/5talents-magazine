@@ -156,6 +156,29 @@ export const blockContent = defineType({
             'The magazine in its own voice. Keep it factual and short. Use it to frame a piece, never to argue with it.',
           validation: (r) => r.required(),
         }),
+        /**
+         * What the box is called. A correction is not an editor's note.
+         *
+         * Added 14 Nov 2026, after a correction on the Chosen Season 6 piece
+         * was written as a pull quote - the only other block that visually
+         * sets text apart - and came out in display face at up to 36px, which
+         * shouted the mistake louder than the article. Corrections should be
+         * findable and plain, not dramatic. The corrections policy at
+         * /corrections is the promise this keeps.
+         */
+        defineField({
+          name: 'kind',
+          title: 'What is this?',
+          type: 'string',
+          options: {
+            list: [
+              { title: "Editor's note - framing, context", value: 'note' },
+              { title: 'Correction - we got something wrong', value: 'correction' },
+            ],
+            layout: 'radio',
+          },
+          initialValue: 'note',
+        }),
         defineField({
           name: 'placement',
           type: 'string',

@@ -253,6 +253,7 @@ export type SiteSettings = {
   _updatedAt: string;
   _rev: string;
   title?: string;
+  displayFont?: "fraunces" | "space-grotesk" | "anton";
   tagline?: string;
   description?: string;
   mission?: string;
@@ -1677,7 +1678,7 @@ export type SEARCH_QUERY_RESULT = Array<{
     slug: string | null;
     issueDate: string | null;
   } | null;
-  _score: null;
+  _score: number;
 }>;
 
 // Source: ../web/src/sanity/queries.ts

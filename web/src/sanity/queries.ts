@@ -744,6 +744,15 @@ export const CARDS_BY_IDS_QUERY = /* groq */ `
   *[${live} && _id in $ids]{ ${cardFragment} }
 `
 
+/**
+ * Which headline face the Studio has chosen. Read by the root layout.
+ *
+ * Its own tiny query so the layout does not pull the whole settings document
+ * on every page for one string. Not a defineQuery: the result is a plain
+ * string, cast at the call site.
+ */
+export const DISPLAY_FONT_QUERY = /* groq */ `*[_id == "siteSettings"][0].displayFont`
+
 export const SITEMAP_QUERY = defineQuery(/* groq */ `{
   "articles": *[${live} && seo.noIndex != true]{
     "slug": slug.current, "section": section->slug.current, _updatedAt,

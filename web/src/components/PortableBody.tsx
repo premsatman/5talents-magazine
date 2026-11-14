@@ -102,15 +102,24 @@ const components: PortableTextComponents = {
      * `role="note"` so that distinction survives for a screen reader, which
      * would otherwise hear it as another paragraph of the article.
      */
-    editorsNote: ({ value }) => (
-      <aside
-        className={`ednote${value?.placement === 'foot' ? ' ednote--foot' : ''}`}
-        role="note"
-      >
-        <p className="ednote__label">Editor’s note</p>
-        <p>{(value?.text as string) ?? ''}</p>
-      </aside>
-    ),
+    editorsNote: ({ value }) => {
+      const correction = clean(value?.kind as string | undefined) === 'correction'
+      return (
+        <aside
+          className={[
+            'ednote',
+            value?.placement === 'foot' ? 'ednote--foot' : '',
+            correction ? 'ednote--correction' : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          role="note"
+        >
+          <p className="ednote__label">{correction ? 'Correction' : 'Editor’s note'}</p>
+          <p>{(value?.text as string) ?? ''}</p>
+        </aside>
+      )
+    },
     pullQuote: ({ value }) => {
       const quote = (value?.quote as string | undefined) ?? ''
       const phrase = (value?.highlightPhrase as string | undefined) || undefined

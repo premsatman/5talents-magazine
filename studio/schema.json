@@ -1421,6 +1421,27 @@
         },
         "optional": true
       },
+      "displayFont": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "fraunces"
+            },
+            {
+              "type": "string",
+              "value": "space-grotesk"
+            },
+            {
+              "type": "string",
+              "value": "anton"
+            }
+          ]
+        },
+        "optional": true
+      },
       "tagline": {
         "type": "objectAttribute",
         "value": {

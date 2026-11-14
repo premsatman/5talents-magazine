@@ -157,8 +157,17 @@ a { color: inherit; }
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
 }
 .crumb a { text-decoration: none; }
+/* 60px flat. Was var(--step-4) - 44.8px on a phone rising to 88px on a wide
+   desktop. A fixed size is what was asked for; the thing to watch is the
+   bottom end, because 60px is a third larger than the old phone size and a
+   long headline now takes more lines on a 360px screen than it used to.
+   overflow-wrap stays for the same reason: a long unbroken word at this size
+   would otherwise push the page sideways.
+
+   Note this is the only rule that sets it. tokens.css also had a .piecehero h1
+   font-size, which never applied - see the note there. */
 .piecehero h1 {
-  font-family: var(--font-display); font-size: var(--step-4); line-height: 0.95;
+  font-family: var(--font-display); font-size: 3.75rem; line-height: 0.95;
   letter-spacing: -0.015em; margin: var(--s-3) 0;
   overflow-wrap: break-word;
 }
@@ -845,9 +854,20 @@ blockquote cite {
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
   margin-bottom: 4px;
 }
+/* 20px flat, bold. Was clamp(1.25rem, ..., 1.5rem) - 20px on a phone rising
+   to 24px on a desktop. Pinned at the lower end so a four-across row reads as
+   one set rather than growing into the lead card's territory, and because the
+   fluid top end was only ever reached on screens where these cards are
+   narrowest relative to the page.
+
+   700, not var(--display-weight): these are deliberately heavier than the
+   per-face tuning. Worth knowing that Anton ships one weight only, so if the
+   headline font is set to Anton in Studio the browser synthesises the bold
+   rather than loading a real one - it thickens, slightly clumsily. Fraunces
+   and Space Grotesk are variable and have a true 700. */
 .card__title {
   font-family: var(--font-display); line-height: 1.06; letter-spacing: -0.005em;
-  margin: 0 0 6px; font-size: var(--step-1); font-weight: 400;
+  margin: 0 0 6px; font-size: 1.25rem; font-weight: 700;
 }
 .card__title a { text-decoration: none; }
 .card__deck { font-size: 0.94rem; color: var(--ink-secondary); margin: 0 0 6px; }
@@ -902,9 +922,13 @@ blockquote cite {
   letter-spacing: 0.2em; text-transform: uppercase;
   color: #FDFCF7; margin-bottom: var(--s-2);
 }
+/* 30px flat, bold. Was clamp(1.35rem, ..., 1.85rem) - 21.6px to 29.6px - so
+   this holds the size it already reached on a desktop and brings the phone up
+   to meet it. These sit over a photograph with the brush highlight behind
+   them, where the old mobile size read as a caption rather than a headline. */
 .card__otitle {
-  font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.85rem);
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.875rem;
   /* 1.08 was tighter than the face. Anton's descenders sat below the line box,
      so the highlight band missed them and the clip cut them off. */
   line-height: 1.16; letter-spacing: -0.005em;
@@ -1051,8 +1075,13 @@ blockquote cite {
   background: var(--paper-sunk); border: 1px solid var(--rule);
 }
 .listrow__frame img { width: 100%; height: 100%; object-fit: cover; }
+/* The display face, bold, to match the card titles. Was Newsreader at 500 -
+   the serif read as body copy next to the picture, so a row looked like a
+   caption rather than a headline. Size left alone: these sit in a 300px rail
+   and in the two-column long tail, where the card titles' 20px would wrap
+   every row onto a third line. */
 .listrow__title {
-  font-family: var(--font-serif); font-weight: 500; font-size: 1.02rem;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.02rem;
   line-height: 1.28; margin: 0 0 4px;
 }
 .listrow__title a { text-decoration: none; }
@@ -1404,6 +1433,33 @@ nav.primary.compact { border-top: 0; }
    ========================================================================== */
 
 .piecehero { margin-bottom: var(--s-5); }
+
+/* A centred headline across the full page width, on the heroes that are not
+   overlays. The overlay variant already centres its own type over the picture.
+
+   The headline sits in .col, which is capped at 720px, so it could not simply
+   be widened - a child cannot outgrow its parent. The column is opened to the
+   full wrap width and everything EXCEPT the h1 is put back to 720 and centred,
+   which leaves the deck, byline and meta exactly where they were: same block,
+   same left-aligned text. Only the headline uses the new room.
+
+   text-wrap: balance stops a three-line headline ending on one orphaned word,
+   which is far more visible once the lines are centred. */
+.piecehero--card .col,
+.piecehero--stacked .col {
+  max-width: var(--wrap);
+}
+.piecehero--card .col > *:not(h1),
+.piecehero--stacked .col > *:not(h1) {
+  max-width: var(--wrap-narrow);
+  margin-inline: auto;
+}
+.piecehero--card .col > h1,
+.piecehero--stacked .col > h1 {
+  text-align: center;
+  text-wrap: balance;
+  max-width: 100%;
+}
 .piecehero__frame { position: relative; overflow: hidden; margin: 0; background: var(--inverse-bg); }
 .piecehero__frame img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -1516,6 +1572,11 @@ nav.primary.compact { border-top: 0; }
   border-radius: 2px;
 }
 .ednote--foot { margin: var(--s-7) 0 0; }
+/* A correction is marked by the accent rather than by being bigger. It has to
+   be findable by someone checking whether we fixed something, and plain enough
+   that it does not read as the loudest thing on the page. */
+.ednote--correction { border-left-color: var(--accent); }
+.ednote--correction .ednote__label { color: var(--accent); }
 .ednote p {
   margin: 0;
   font-size: calc(var(--step-body) * 0.92);
