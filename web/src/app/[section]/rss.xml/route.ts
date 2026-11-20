@@ -21,6 +21,17 @@ import { siteName, siteUrl } from '@/lib/site'
  * height. /rss.xml keeps the landscape crop for Flipboard and feed readers.
  */
 
+/**
+ * Same trap as /rss.xml, and worse here: generateStaticParams below pins all
+ * nine feeds at build time, so without this they are each generated once and
+ * served unchanged forever.
+ *
+ * These nine feeds are what the nine Pinterest boards auto-publish from. A
+ * frozen feed does not error, it just quietly stops producing pins, which is
+ * exactly what happened between 20 October and 19 November 2026.
+ */
+export const revalidate = 300
+
 type Props = { params: Promise<{ section: string }> }
 
 export function generateStaticParams() {

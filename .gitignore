@@ -41,6 +41,9 @@ social/instagram/carousels-*/**/*.webp
 social/instagram/carousels-*/**/*.mp4
 social/instagram/carousels-*/**/*.mov
 
+# Local news-sample assets. Not used by the site.
+social/Sample for News/
+
 # HyperFrames review stills, caches, and render output.
 video-studio/**/.review/
 video-studio/**/.thumbnails/
