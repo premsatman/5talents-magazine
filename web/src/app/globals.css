@@ -408,9 +408,6 @@ blockquote cite {
    Trimmed to 198px here, which brings the first card up to 481px and lets a
    full card headline show above the fold. Desktop is untouched. */
 @media (max-width: 700px) {
-  .adband--lead { display: none; }
-  .adband--mobile { display: flex; }
-
   .sectionhead { padding-block: var(--s-3) var(--s-3); }
   .sectionhead__siblings { margin-top: var(--s-3); padding-top: var(--s-2); }
 }
@@ -621,8 +618,19 @@ blockquote cite {
 .adband { display: flex; justify-content: center; margin-block: var(--s-5); }
 
 /* The top leaderboard runs above the masthead on a wide screen and partway down
-   the page on a phone. See the note beside the second slot A in page.tsx. */
+   the page on a phone. See the note beside the second slot A in page.tsx.
+
+   These three rules have to live together, here, after the base .adband rule.
+   .adband, .adband--lead and .adband--mobile are all single class selectors, so
+   they carry identical specificity and the file order decides the winner. Put
+   the mobile pair in an earlier block and .adband { display: flex } quietly
+   overrides both - which is exactly what shipped in 056d359. */
 .adband--mobile { display: none; }
+
+@media (max-width: 700px) {
+  .adband--lead { display: none; }
+  .adband--mobile { display: flex; }
+}
 .ad { display: flex; flex-direction: column; align-items: center; gap: var(--s-1); }
 .ad__frame {
   max-width: 100%;

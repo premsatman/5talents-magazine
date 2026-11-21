@@ -53,3 +53,6 @@ video-studio/**/.hyperframes/
 video-studio/**/renders/
 video-studio/**/output/
 video-studio/**/node_modules/
+
+# Local GitHub token used to commit via the GitHub API. Never commit this.
+.github-token
