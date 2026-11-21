@@ -29,6 +29,7 @@ export function PrimaryNav({ items, compact = false }: { items: NavItem[]; compa
   const [open, setOpen] = useState<string | null>(null)
   const [drawer, setDrawer] = useState(false)
   const [search, setSearch] = useState(false)
+  const [stuck, setStuck] = useState(false)
   const navRef = useRef<HTMLElement>(null)
   const drawerId = useId()
 
@@ -38,6 +39,31 @@ export function PrimaryNav({ items, compact = false }: { items: NavItem[]; compa
     setDrawer(false)
     setSearch(false)
   }, [pathname])
+
+  /**
+   * Is the bar currently stuck to the top?
+   *
+   * Only asked on pages that have a masthead. There the wordmark lives above
+   * this bar, so repeating it here while both are on screen is just the same
+   * word twice, forty pixels apart. It earns its place the moment the masthead
+   * scrolls away and this bar is the only thing left carrying the brand.
+   *
+   * The test is the standard one: watch the bar with a -1px top margin and a
+   * threshold of 1. Away from the top it is fully inside that box, ratio 1.
+   * The instant it sticks, that 1px is clipped and the ratio drops - no scroll
+   * handler, no measuring, nothing that runs on every frame.
+   */
+  useEffect(() => {
+    if (compact) return
+    const el = navRef.current
+    if (!el || typeof IntersectionObserver === 'undefined') return
+    const io = new IntersectionObserver(([e]) => setStuck(e.intersectionRatio < 1), {
+      threshold: [1],
+      rootMargin: '-1px 0px 0px 0px',
+    })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [compact])
 
   // The drawer is a full-height overlay, so the page behind it must not scroll.
   useEffect(() => {
@@ -70,7 +96,11 @@ export function PrimaryNav({ items, compact = false }: { items: NavItem[]; compa
   const isCurrent = (slug: string) => pathname === `/${slug}` || pathname.startsWith(`/${slug}/`)
 
   return (
-    <nav className={`primary${compact ? ' compact' : ''}`} aria-label="Sections" ref={navRef}>
+    <nav
+      className={`primary${compact ? ' compact' : ''}${stuck ? ' is-stuck' : ''}`}
+      aria-label="Sections"
+      ref={navRef}
+    >
       <div className="wrap primary__bar">
         <button
           className="navtoggle"
@@ -84,10 +114,10 @@ export function PrimaryNav({ items, compact = false }: { items: NavItem[]; compa
         </button>
 
         {/* Article pages (compact) carry the wordmark here at every width,
-            because they have no masthead at all. Everywhere else it appears
-            only below 900px - the width at which the section list collapses
-            into the hamburger and leaves this bar empty. The masthead stays
-            where it is; this is the copy that survives scrolling. */}
+            because they have no masthead at all. Everywhere else it waits for
+            the bar to stick - see the observer above - and only below 900px,
+            the width at which the section list collapses into the hamburger
+            and leaves this bar room for it. */}
         <Link className={compact ? 'minilogo' : 'minilogo minilogo--bar'} href="/">
           <Wordmark />
         </Link>

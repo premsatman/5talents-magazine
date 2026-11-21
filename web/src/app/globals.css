@@ -1291,7 +1291,8 @@ nav.primary.compact { border-top: 0; }
 }
 
 /* Off above 900px, where the section list fills this bar and a wordmark would
-   only crowd it. Switched on in the 900px block below. */
+   only crowd it, and off at the top of the page, where the masthead is already
+   showing it. Switched on in the 900px block below, once the bar has stuck. */
 .minilogo--bar { display: none; }
 
 /* Caret, search and hamburger. The caret is exactly 24x24 - WCAG 2.2's
@@ -1404,7 +1405,7 @@ nav.primary.compact { border-top: 0; }
   .primary__list { display: none; }
   .primary__bar { justify-content: space-between; min-width: 0; gap: var(--s-2); }
   .minilogo { font-size: 1.25rem; margin-right: 0; }
-  .minilogo--bar { display: inline-flex; }
+  nav.primary.is-stuck .minilogo--bar { display: inline-flex; }
   .searchform--compact { max-width: min(200px, calc(100vw - 9.5rem)); }
   .searchform--compact input { width: 100%; min-width: 0; flex: 1 1 auto; }
 
