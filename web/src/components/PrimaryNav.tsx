@@ -83,11 +83,14 @@ export function PrimaryNav({ items, compact = false }: { items: NavItem[]; compa
           <span className="visually-hidden">{drawer ? 'Close menu' : 'Menu'}</span>
         </button>
 
-        {compact && (
-          <Link className="minilogo" href="/">
-            <Wordmark />
-          </Link>
-        )}
+        {/* Article pages (compact) carry the wordmark here at every width,
+            because they have no masthead at all. Everywhere else it appears
+            only below 900px - the width at which the section list collapses
+            into the hamburger and leaves this bar empty. The masthead stays
+            where it is; this is the copy that survives scrolling. */}
+        <Link className={compact ? 'minilogo' : 'minilogo minilogo--bar'} href="/">
+          <Wordmark />
+        </Link>
 
         <ul className="primary__list">
           {items.map((item) => {

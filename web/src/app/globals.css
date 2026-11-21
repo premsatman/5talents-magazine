@@ -1290,6 +1290,10 @@ nav.primary.compact { border-top: 0; }
   display: inline-flex; align-items: center;
 }
 
+/* Off above 900px, where the section list fills this bar and a wordmark would
+   only crowd it. Switched on in the 900px block below. */
+.minilogo--bar { display: none; }
+
 /* Caret, search and hamburger. The caret is exactly 24x24 - WCAG 2.2's
    minimum target size, and no larger, because anything wider opens a visible
    gap between the section name and its arrow. The search and menu buttons are
@@ -1400,6 +1404,7 @@ nav.primary.compact { border-top: 0; }
   .primary__list { display: none; }
   .primary__bar { justify-content: space-between; min-width: 0; gap: var(--s-2); }
   .minilogo { font-size: 1.25rem; margin-right: 0; }
+  .minilogo--bar { display: inline-flex; }
   .searchform--compact { max-width: min(200px, calc(100vw - 9.5rem)); }
   .searchform--compact input { width: 100%; min-width: 0; flex: 1 1 auto; }
 
