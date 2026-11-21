@@ -408,14 +408,8 @@ blockquote cite {
    Trimmed to 198px here, which brings the first card up to 481px and lets a
    full card headline show above the fold. Desktop is untouched. */
 @media (max-width: 700px) {
-  /* One row of chrome, not three. The masthead and its tagline came to 143px on
-     a 390px screen - with the ad band, utility row and nav above the fold that
-     was 54% of the viewport spent before a single headline. So below 700px the
-     masthead goes and the wordmark moves into the sticky nav bar, which is where
-     article pages have always carried it. The brand is still visible, and now it
-     stays visible while you scroll. Above 700px nothing changes. */
-  .masthead { display: none; }
-  .minilogo--mobile { display: inline-flex; }
+  .adband--lead { display: none; }
+  .adband--mobile { display: flex; }
 
   .sectionhead { padding-block: var(--s-3) var(--s-3); }
   .sectionhead__siblings { margin-top: var(--s-3); padding-top: var(--s-2); }
@@ -625,6 +619,10 @@ blockquote cite {
 /* Every slot reserves its exact height in every state, sold or not. An ad that
    loads into unreserved space shifts the layout and costs ranking. */
 .adband { display: flex; justify-content: center; margin-block: var(--s-5); }
+
+/* The top leaderboard runs above the masthead on a wide screen and partway down
+   the page on a phone. See the note beside the second slot A in page.tsx. */
+.adband--mobile { display: none; }
 .ad { display: flex; flex-direction: column; align-items: center; gap: var(--s-1); }
 .ad__frame {
   max-width: 100%;
@@ -1283,11 +1281,6 @@ nav.primary.compact { border-top: 0; }
   letter-spacing: -0.01em; text-decoration: none; margin-right: var(--s-3);
   display: inline-flex; align-items: center;
 }
-
-/* The mobile stand-in for the masthead. Hidden by default so wide screens keep
-   the centred masthead and nothing else; switched on, with the masthead off, in
-   the 700px block below. */
-.minilogo--mobile { display: none; }
 
 /* Caret, search and hamburger. The caret is exactly 24x24 - WCAG 2.2's
    minimum target size, and no larger, because anything wider opens a visible

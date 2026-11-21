@@ -208,7 +208,7 @@ export default async function HomePage() {
 
       {/* Slot A. Off in siteSettings by default - an above-fold leaderboard is
           the most reliable way to wreck LCP. Relevant runs one here anyway. */}
-      <div className="wrap adband">
+      <div className="wrap adband adband--lead">
         <AdSlot slot="A" />
       </div>
 
@@ -299,6 +299,18 @@ export default async function HomePage() {
                   the size the rail actually has room for. */}
             </div>
           </aside>
+        </div>
+
+        {/* Slot A again, and deliberately. A leaderboard above the masthead is
+            the first thing a phone shows and the last thing a reader wants, so
+            below 700px the lead band is hidden and this one takes over - the
+            same booking, met between The Latest and Rewind instead of before
+            the magazine has introduced itself. Only ever one of the two is
+            displayed. Both resolve to the same advertiser from the same seed,
+            so the duplicate costs a few hundred bytes of markup and no second
+            image request: the URL is identical and the browser has it cached. */}
+        <div className="wrap adband adband--mobile">
+          <AdSlot slot="A" />
         </div>
 
         {/* ---- 5Talents Rewind ------------------------------------------
