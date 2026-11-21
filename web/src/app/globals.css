@@ -168,17 +168,28 @@ a { color: inherit; }
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
 }
 .crumb a { text-decoration: none; }
-/* 60px flat. Was var(--step-4) - 44.8px on a phone rising to 88px on a wide
-   desktop. A fixed size is what was asked for; the thing to watch is the
-   bottom end, because 60px is a third larger than the old phone size and a
-   long headline now takes more lines on a 360px screen than it used to.
-   overflow-wrap stays for the same reason: a long unbroken word at this size
-   would otherwise push the page sideways.
+/* Fluid: 32px on a 390px phone, rising to 60px and capping there from about
+   1100px up. Desktop is unchanged - it was 60px flat and still is.
+
+   History: this was var(--step-4) (44.8px phone to 88px desktop), then flat
+   60px by request. The note left at the time said "the thing to watch is the
+   bottom end" - and that is exactly what broke. At 60px a long headline ran
+   to eleven lines on a 390px screen, 684px tall, pushing the hero image and
+   the deck entirely below the fold. 32px brings the same headline to four
+   lines and 173px.
+
+   line-height goes 0.95 -> 1.08 because 0.95 is a display setting that reads
+   as cramped once the type is small and the headline wraps more.
+
+   overflow-wrap stays: a long unbroken word at the top of this range would
+   otherwise push the page sideways.
 
    Note this is the only rule that sets it. tokens.css also had a .piecehero h1
    font-size, which never applied - see the note there. */
 .piecehero h1 {
-  font-family: var(--font-display); font-size: 3.75rem; line-height: 0.95;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.04rem + 3.94vw, 3.75rem);
+  line-height: 1.08;
   letter-spacing: -0.015em; margin: var(--s-3) 0;
   overflow-wrap: break-word;
 }
@@ -1365,9 +1376,18 @@ nav.primary.compact { border-top: 0; }
   .searchform--compact { max-width: min(200px, calc(100vw - 9.5rem)); }
   .searchform--compact input { width: 100%; min-width: 0; flex: 1 1 auto; }
 
-  /* Article chrome: hamburger, wordmark, search. The dark utility row
-     crams five labels into 390px and is what shoved the page sideways. */
-  .utility--quiet { display: none; }
+  /* Article chrome: hamburger, wordmark, search, and the utility row kept
+     visible for the theme toggle.
+
+     The row used to be hidden outright on article pages, because five labels
+     crammed into 390px is what shoved the page sideways. But the two long
+     ones - the lede and the secondary links - are hidden by the next rule
+     anyway, so only Dark and Subscribe are left and they fit. Measured with
+     no horizontal overflow at 320, 360 and 390px.
+
+     It had to come back because the theme toggle lives in this row and
+     nowhere else, and the article page is where people read longest - the
+     one place a reader is most likely to want dark mode. */
   .util-lede, .util-secondary { display: none; }
   .utility .wrap { justify-content: flex-end; }
 }
