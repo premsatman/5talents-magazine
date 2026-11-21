@@ -400,6 +400,27 @@ blockquote cite {
   background-repeat: no-repeat;
   background-size: 100% 0.3em; background-position: 0 92%;
 }
+/* The section head is generous on a desktop, where it has room to be a front
+   door. On a phone it was costing 250px before a single story appeared - 48px
+   of padding above the name, then three wrapped rows of sibling links, then
+   24px more, pushing the first card to 533px down a 390px-wide screen.
+
+   Trimmed to 198px here, which brings the first card up to 481px and lets a
+   full card headline show above the fold. Desktop is untouched. */
+@media (max-width: 700px) {
+  /* One row of chrome, not three. The masthead and its tagline came to 143px on
+     a 390px screen - with the ad band, utility row and nav above the fold that
+     was 54% of the viewport spent before a single headline. So below 700px the
+     masthead goes and the wordmark moves into the sticky nav bar, which is where
+     article pages have always carried it. The brand is still visible, and now it
+     stays visible while you scroll. Above 700px nothing changes. */
+  .masthead { display: none; }
+  .minilogo--mobile { display: inline-flex; }
+
+  .sectionhead { padding-block: var(--s-3) var(--s-3); }
+  .sectionhead__siblings { margin-top: var(--s-3); padding-top: var(--s-2); }
+}
+
 .prose { max-width: var(--measure); font-size: var(--step-body); }
 .prose h2 {
   font-family: var(--font-sans); font-weight: 600;
@@ -1262,6 +1283,11 @@ nav.primary.compact { border-top: 0; }
   letter-spacing: -0.01em; text-decoration: none; margin-right: var(--s-3);
   display: inline-flex; align-items: center;
 }
+
+/* The mobile stand-in for the masthead. Hidden by default so wide screens keep
+   the centred masthead and nothing else; switched on, with the masthead off, in
+   the 700px block below. */
+.minilogo--mobile { display: none; }
 
 /* Caret, search and hamburger. The caret is exactly 24x24 - WCAG 2.2's
    minimum target size, and no larger, because anything wider opens a visible

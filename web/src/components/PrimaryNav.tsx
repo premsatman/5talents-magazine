@@ -83,11 +83,13 @@ export function PrimaryNav({ items, compact = false }: { items: NavItem[]; compa
           <span className="visually-hidden">{drawer ? 'Close menu' : 'Menu'}</span>
         </button>
 
-        {compact && (
-          <Link className="minilogo" href="/">
-            <Wordmark />
-          </Link>
-        )}
+        {/* The wordmark sits in the sticky bar. On article pages (compact) it
+            shows at every width, because those pages have no masthead at all.
+            Elsewhere it is the mobile stand-in for the masthead, which CSS
+            hides below 700px - one row of chrome instead of three. */}
+        <Link className={compact ? 'minilogo' : 'minilogo minilogo--mobile'} href="/">
+          <Wordmark />
+        </Link>
 
         <ul className="primary__list">
           {items.map((item) => {
